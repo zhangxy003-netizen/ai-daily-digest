@@ -37,15 +37,15 @@ PROMPT_TEMPLATE = """请阅读以下{kind_label}的标题与摘要,生成中文�
 摘要:{summary}
 
 请返回一个 JSON 对象,字段如下:
-{{
+{
   "title_zh": "中文标题(准确、简洁)",
   "tldr": "一句话摘要速读,40字以内,讲清楚它做了什么",
   "explain": "深度解读,3段,每段用\\n分隔,总字数 350~500 字。第一段:背景与问题(它要解决什么痛点,用生活化类比切入);第二段:核心做法(讲清它具体怎么做的,是全文重点,讲得更细);第三段:意义与局限(带来什么影响,有什么尚未解决的问题)。",
   "figure": {图解要求},
-  "terms": [ {{"term":"英文/专业术语","desc":"一句话通俗解释,30字内"}}, 共1~2个关键术语 ],
+  "terms": [ {"term":"英文/专业术语","desc":"一句话通俗解释,30字内"}, 共1~2个关键术语 ],
   "summary": "一句话总结,点出它的价值,或对 AI 求职者意味着什么",
   "tags": ["3个中文标签"]
-}}
+}
 
 写作要求:
 - 宁可写满 350 字的干货,也不要为凑字数重复、注水或写空泛的套话。
@@ -162,13 +162,13 @@ FEWSHOT = {
 
 def build_prompt(item):
     t = item["type"]
-    return PROMPT_TEMPLATE.format(
-        kind_label=KIND_LABEL.get(t, "内容"),
-        title=item["title"],
-        source=item["source"],
-        summary=item.get("raw_summary", "")[:1200],
-        figure_requirements=FIGURE_SPEC.get(t, FIGURE_SPEC["news"]),
-    ).replace("{图解要求}", FIGURE_SPEC.get(t, FIGURE_SPEC["news"]))
+    figure = FIGURE_SPEC.get(t, FIGURE_SPEC["news"])
+    return (PROMPT_TEMPLATE
+            .replace("{kind_label}", KIND_LABEL.get(t, "内容"))
+            .replace("{title}", item["title"])
+            .replace("{source}", item["source"])
+            .replace("{summary}", item.get("raw_summary", "")[:1200])
+            .replace("{图解要求}", figure))
 
 
 def parse_json(text):
@@ -224,7 +224,7 @@ def explain_one(item):
 def main():
     raw_path = DATA / "selected.json"
     if not raw_path.exists():
-        print("✗ 找不到 data/selected.json,请先运行 fetch_sources.py 和 select.py", file=sys.stderr)
+        print("✗ 找不到 data/selected.json,请先运行 fetch_sources.py 和 rank_papers.py", file=sys.stderr)
         sys.exit(1)
     raw = json.loads(raw_path.read_text(encoding="utf-8"))
 
