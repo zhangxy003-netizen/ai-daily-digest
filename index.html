@@ -87,17 +87,9 @@
     padding-bottom:3px;margin-bottom:9px;text-transform:uppercase}
 
   /* 计数条 */
-  .stats-bar{display:flex;align-items:center;gap:18px;padding:12px 30px;
+  .stats-bar{display:flex;align-items:center;justify-content:flex-end;padding:12px 30px;
     border-top:1px solid var(--rule);font-family:var(--font-mono);font-size:.74rem}
-  .stat{display:flex;align-items:center;gap:6px;color:var(--ink-faint)}
-  .like-btn{display:flex;align-items:center;gap:6px;cursor:pointer;background:none;border:none;
-    font-family:inherit;font-size:.74rem;color:var(--ink-soft);padding:4px 8px;border-radius:3px;
-    transition:all .2s}
-  .like-btn:hover{background:var(--paper-2)}
-  .like-btn.liked{color:#c0392b}
-  .like-btn .heart{font-size:.95rem;transition:transform .25s}
-  .like-btn.liked .heart{transform:scale(1.25)}
-  .toggle{margin-left:auto;display:flex;align-items:center;gap:7px;cursor:pointer;
+  .toggle{display:flex;align-items:center;gap:7px;cursor:pointer;
     font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;
     text-transform:uppercase;color:var(--accent)}
   .toggle .arrow{transition:transform .3s}
@@ -171,7 +163,31 @@
     .masthead{padding-top:32px}.masthead .meta{font-size:.58rem}
     .cmp-row{grid-template-columns:1fr;gap:3px;text-align:left}
     .stats-bar{gap:12px;flex-wrap:wrap}
+    .issue-nav{flex-wrap:wrap}
   }
+
+  .issue-nav{display:flex;align-items:center;justify-content:center;gap:10px;
+    margin-top:16px;padding-top:14px}
+  .inav-btn{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;
+    padding:6px 12px;border:1px solid var(--rule);background:transparent;
+    color:var(--ink-soft);cursor:pointer;border-radius:2px;transition:all .2s}
+  .inav-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+  .inav-btn:disabled{opacity:.35;cursor:not-allowed}
+  .inav-select{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.04em;
+    padding:6px 12px;border:1px solid var(--rule);background:var(--card);
+    color:var(--ink);cursor:pointer;border-radius:2px}
+
+  .site-stats{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:20px}
+  .site-stat{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-faint)}
+  .site-stat .ss-icon{font-size:.85rem}
+  .site-like-btn{display:inline-flex;align-items:center;gap:5px;cursor:pointer;
+    background:transparent;border:1px solid var(--rule);border-radius:2px;
+    font-family:var(--font-mono);font-size:.74rem;letter-spacing:.04em;
+    color:var(--ink-soft);padding:5px 12px;transition:all .2s}
+  .site-like-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .site-like-btn.liked{color:#c0392b;border-color:#c0392b}
+  .site-like-btn .heart{font-size:.9rem;transition:transform .25s}
+  .site-like-btn.liked .heart{transform:scale(1.25)}
 </style>
 </head>
 <body>
@@ -179,10 +195,20 @@
   <div class="wrap">
     <div class="kicker">Daily AI Digest · 每日精选</div>
     <h1>The AI Reader<span class="zh">AI 论文日读</span></h1>
+    <div class="site-stats">
+      <span class="site-stat"><span class="ss-icon">👁</span> <span id="site-views">0</span> 次访问</span>
+      <button class="site-like-btn" id="site-like-btn" onclick="siteLike()">
+        <span class="heart">♡</span> <span id="site-likes">0</span> 人喜欢</button>
+    </div>
     <div class="meta">
-      <span>第 No.001 期</span>
+      <span id="issue-no">第 No.001 期</span>
       <span id="issue-date">更新中…</span>
       <span>论文 · 行业新闻 · 发布报告</span>
+    </div>
+    <div class="issue-nav" id="issue-nav">
+      <button class="inav-btn" id="prev-issue" title="上一期">‹ 上一期</button>
+      <select class="inav-select" id="issue-select"></select>
+      <button class="inav-btn" id="next-issue" title="下一期">下一期 ›</button>
     </div>
   </div>
 </header>
@@ -207,16 +233,61 @@
 <script>
 const TYPE_LABEL={paper:"论文",news:"新闻",report:"报告"};
 let ALL=[];
+let ISSUES=[];          // 期目录 [{date, issue_no, count}]
+let curIdx=0;           // 当前看的是第几期(在 ISSUES 数组里的下标,0=最新)
+let curFilter='all';
+
+function pad(n){return String(n).padStart(3,'0')}
 
 async function load(){
+  await sbLoadSite();
+  addSiteView();
+  // 先读期目录;读不到则降级为只读 feed.json(兼容首次/旧数据)
   try{
-    const r=await fetch('data/feed.json?t='+Date.now());
+    const r=await fetch('data/issues.json?t='+Date.now());
+    const idx=await r.json();
+    ISSUES=idx.issues||[];
+  }catch(e){ ISSUES=[]; }
+
+  if(ISSUES.length){
+    buildIssueSelect();
+    await loadIssue(0);   // 默认最新一期
+  }else{
+    // 降级:直接读 feed.json
+    try{
+      const r=await fetch('data/feed.json?t='+Date.now());
+      const d=await r.json();
+      document.getElementById('issue-date').textContent=d.updated_at||'';
+      document.getElementById('issue-no').textContent='第 No.'+pad(d.issue_no||1)+' 期';
+      document.getElementById('issue-nav').style.display='none';
+      ALL=d.items; render(curFilter);
+    }catch(e){document.getElementById('list').innerHTML='<div class="empty">暂无数据 ✦</div>'}
+  }
+}
+
+function buildIssueSelect(){
+  const sel=document.getElementById('issue-select');
+  sel.innerHTML=ISSUES.map((it,i)=>
+    `<option value="${i}">第 No.${pad(it.issue_no)} 期 · ${it.date}</option>`).join('');
+  sel.onchange=()=>loadIssue(+sel.value);
+  document.getElementById('prev-issue').onclick=()=>{ if(curIdx<ISSUES.length-1) loadIssue(curIdx+1); };
+  document.getElementById('next-issue').onclick=()=>{ if(curIdx>0) loadIssue(curIdx-1); };
+}
+
+async function loadIssue(idx){
+  curIdx=idx;
+  const issue=ISSUES[idx];
+  document.getElementById('issue-no').textContent='第 No.'+pad(issue.issue_no)+' 期';
+  document.getElementById('issue-date').textContent=issue.date;
+  document.getElementById('issue-select').value=idx;
+  // 上一期=更早(idx+1),下一期=更新(idx-1)
+  document.getElementById('prev-issue').disabled=(idx>=ISSUES.length-1);
+  document.getElementById('next-issue').disabled=(idx<=0);
+  try{
+    const r=await fetch('data/archive/'+issue.date+'.json?t='+Date.now());
     const d=await r.json();
-    document.getElementById('issue-date').textContent=d.updated_at;
-    ALL=d.items;
-    await sbFetchAll();
-    render('all');
-  }catch(e){document.getElementById('list').innerHTML='<div class="empty">暂无数据 ✦</div>'}
+    ALL=d.items; render(curFilter);
+  }catch(e){document.getElementById('list').innerHTML='<div class="empty">该期内容加载失败 ✦</div>'}
 }
 
 function figureHtml(f){
@@ -249,7 +320,6 @@ function render(filter){
   const items=filter==='all'?ALL:ALL.filter(i=>i.type===filter);
   if(!items.length){list.innerHTML='<div class="empty">该分类暂无内容 ✦</div>';return}
   list.innerHTML=items.map((p,i)=>{
-    const views=getViews(p.id), likes=getLikes(p.id), liked=isLiked(p.id);
     return `<article class="paper" style="animation-delay:${i*.1}s">
       <div class="paper-head" onclick="toggle(this)">
         <div class="tagrow">
@@ -263,9 +333,6 @@ function render(filter){
       </div>
       <div class="tldr">${esc(p.tldr)}</div>
       <div class="stats-bar">
-        <span class="stat">👁 <span id="v-${p.id}">${views}</span> 浏览</span>
-        <button class="like-btn ${liked?'liked':''}" onclick="like('${p.id}',this)">
-          <span class="heart">${liked?'♥':'♡'}</span><span id="l-${p.id}">${likes}</span></button>
         <span class="toggle" onclick="toggle(this)"><span class="arrow">▸</span> 展开解读</span>
       </div>
       <div class="detail"><div class="detail-inner">
@@ -284,9 +351,7 @@ function render(filter){
 
 function toggle(el){
   const card=el.closest('.paper');
-  const opening=!card.classList.contains('open');
   card.classList.toggle('open');
-  if(opening){addView(card);}
 }
 
 /* ===== 计数:Supabase 真实版 =====
@@ -297,15 +362,16 @@ const SUPABASE_URL = "";   // 例:https://xxxx.supabase.co
 const SUPABASE_KEY = "";   // anon public key
 
 const SB_READY = SUPABASE_URL && SUPABASE_KEY;
-let STATS = {};  // { item_id: {base_views, base_likes, real_views, real_likes} }
+const SITE_ID = "site";    // 整站计数用这一条记录
+let SITE = {base_views:0, base_likes:0, real_views:0, real_likes:0};
 
-async function sbFetchAll(){
+async function sbLoadSite(){
   if(!SB_READY) return;
   try{
-    const r=await fetch(`${SUPABASE_URL}/rest/v1/stats?select=*`,{
+    const r=await fetch(`${SUPABASE_URL}/rest/v1/stats?item_id=eq.${SITE_ID}&select=*`,{
       headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`}});
     const rows=await r.json();
-    (rows||[]).forEach(x=>STATS[x.item_id]=x);
+    if(rows&&rows[0]) SITE=Object.assign(SITE,rows[0]);
   }catch(e){/* 降级:静默 */}
 }
 async function sbRpc(fn,body){
@@ -318,33 +384,46 @@ async function sbRpc(fn,body){
   }catch(e){/* 降级:静默 */}
 }
 
-function getViews(id){const s=STATS[id]||{};return (s.base_views||0)+(s.real_views||0)}
-function getLikes(id){const s=STATS[id]||{};return (s.base_likes||0)+(s.real_likes||0)}
-function isLiked(id){return localStorage.getItem('liked-'+id)==='1'}
+function siteViews(){return (SITE.base_views||0)+(SITE.real_views||0)}
+function siteLikes(){return (SITE.base_likes||0)+(SITE.real_likes||0)}
+function fmt(n){return n>=1000?(n/1000).toFixed(1)+'k':String(n)}
+function siteLiked(){return localStorage.getItem('site-liked')==='1'}
 
-function addView(card){
-  const id=card.querySelector('.like-btn').getAttribute('onclick').match(/'([^']+)'/)[1];
-  if(sessionStorage.getItem('viewed-'+id))return;
-  sessionStorage.setItem('viewed-'+id,'1');
-  STATS[id]=STATS[id]||{};STATS[id].real_views=(STATS[id].real_views||0)+1;
-  document.getElementById('v-'+id).textContent=getViews(id);
-  sbRpc('bump_view',{p_id:id});
+function renderSiteStats(){
+  const v=document.getElementById('site-views'), l=document.getElementById('site-likes');
+  if(v) v.textContent=fmt(siteViews());
+  if(l) l.textContent=fmt(siteLikes());
+  const btn=document.getElementById('site-like-btn');
+  if(btn){
+    const liked=siteLiked();
+    btn.classList.toggle('liked',liked);
+    btn.querySelector('.heart').textContent=liked?'♥':'♡';
+  }
 }
-function like(id,btn){
-  const liked=isLiked(id);
-  localStorage.setItem('liked-'+id,liked?'0':'1');
-  STATS[id]=STATS[id]||{};STATS[id].real_likes=Math.max((STATS[id].real_likes||0)+(liked?-1:1),0);
-  btn.classList.toggle('liked',!liked);
-  btn.querySelector('.heart').textContent=liked?'♡':'♥';
-  document.getElementById('l-'+id).textContent=getLikes(id);
-  sbRpc('bump_like',{p_id:id,delta:liked?-1:1});
+
+function addSiteView(){
+  // 每个浏览器会话只计一次访问
+  if(sessionStorage.getItem('site-viewed')) { renderSiteStats(); return; }
+  sessionStorage.setItem('site-viewed','1');
+  SITE.real_views=(SITE.real_views||0)+1;
+  renderSiteStats();
+  sbRpc('bump_view',{p_id:SITE_ID});
+}
+
+function siteLike(){
+  const liked=siteLiked();
+  localStorage.setItem('site-liked',liked?'0':'1');
+  SITE.real_likes=Math.max((SITE.real_likes||0)+(liked?-1:1),0);
+  renderSiteStats();
+  sbRpc('bump_like',{p_id:SITE_ID,delta:liked?-1:1});
 }
 
 document.getElementById('tabs').addEventListener('click',e=>{
   if(!e.target.classList.contains('tab'))return;
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   e.target.classList.add('active');
-  render(e.target.dataset.f);
+  curFilter=e.target.dataset.f;
+  render(curFilter);
 });
 
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
