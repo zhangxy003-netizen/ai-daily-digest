@@ -2,7 +2,7 @@
 
 > 每天自动追踪 arXiv 热门论文与国内外大厂 AI 动态,用 DeepSeek-V4 生成通俗中文深度解读——让看 AI 像读早报一样轻松。
 
-🔗 **在线访问:** （部署后把你的 Vercel 网址填这里）
+🔗 **在线访问:** https://ai-daily-digest-seven.vercel.app/
 
 ---
 
