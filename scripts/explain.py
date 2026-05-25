@@ -10,7 +10,7 @@ explain.py — 用 DeepSeek-V4 为每条原始内容生成中文解读
 依赖:openai 库(DeepSeek 兼容 OpenAI 接口)
 环境变量:DEEPSEEK_API_KEY
 """
-import json, os, sys, time, re
+import json, os, sys, time, re, datetime
 from pathlib import Path
 from openai import OpenAI
 
@@ -240,9 +240,56 @@ def main():
             out.append(res)
         time.sleep(1)
 
-    feed = {"updated_at": raw.get("fetched_at"), "items": out}
+    if not out:
+        print("✗ 今日没有成功解读的内容,跳过写入(保留昨日数据)", file=sys.stderr)
+        return
+
+    today = raw.get("fetched_at") or datetime.date.today().isoformat()
+    save_archive(today, out)
+
+
+def save_archive(today, items):
+    """累积归档:存当天归档 + 更新期目录 + 写最新一期 feed.json。"""
+    archive_dir = DATA / "archive"
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    index_path = DATA / "issues.json"
+
+    # 读已有期目录
+    if index_path.exists():
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+    else:
+        index = {"issues": []}
+
+    # 若今天已存在(同日重复运行),覆盖当天那期;否则新增一期
+    existing = next((it for it in index["issues"] if it["date"] == today), None)
+    if existing:
+        issue_no = existing["issue_no"]
+    else:
+        issue_no = (max([it["issue_no"] for it in index["issues"]], default=0) + 1)
+
+    # 写当天归档文件
+    archive_obj = {
+        "date": today,
+        "issue_no": issue_no,
+        "items": items,
+    }
+    (archive_dir / f"{today}.json").write_text(
+        json.dumps(archive_obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # 更新期目录(去重后按日期倒序)
+    index["issues"] = [it for it in index["issues"] if it["date"] != today]
+    index["issues"].append({"date": today, "issue_no": issue_no, "count": len(items)})
+    index["issues"].sort(key=lambda x: x["date"], reverse=True)
+    index["latest"] = today
+    index["total_issues"] = len(index["issues"])
+    index_path.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # feed.json = 最新一期(向后兼容前端)
+    feed = {"updated_at": today, "issue_no": issue_no,
+            "total_issues": index["total_issues"], "items": items}
     (DATA / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"✓ 写入 data/feed.json,成功解读 {len(out)}/{len(raw['items'])} 条")
+
+    print(f"✓ 第 {issue_no} 期({today})已归档,{len(items)} 条 | 累计 {index['total_issues']} 期")
 
 
 if __name__ == "__main__":
