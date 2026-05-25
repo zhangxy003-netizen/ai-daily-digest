@@ -1,0 +1,49 @@
+name: Daily AI Digest
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Fetch sources
+        run: python scripts/fetch_sources.py
+
+      - name: Select top papers (AI scoring)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/select.py
+
+      - name: Generate explanations
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/explain.py
+
+      - name: Commit updated feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/feed.json data/raw.json data/selected.json
+          if git diff --staged --quiet; then
+            echo "今日无更新"
+          else
+            git commit -m "chore: daily digest $(date -u +%Y-%m-%d)"
+            git push
+          fi
