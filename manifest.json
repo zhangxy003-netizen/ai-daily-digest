@@ -1,0 +1,21 @@
+{
+  "name": "AI 论文日读",
+  "short_name": "AI日读",
+  "description": "每日自动精选并用中文解读 arXiv AI 论文",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#1a3a5c",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
