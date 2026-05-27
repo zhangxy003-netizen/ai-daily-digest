@@ -1,60 +1,60 @@
 {
-  "fetched_at": "2026-05-26",
+  "fetched_at": "2026-05-27",
   "items": [
     {
-      "id": "paper-2605.20708",
+      "id": "paper-2605.27365",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Rethinking Cross-Layer Information Routing in Diffusion Transformers",
-      "authors": "Chao Xu, Maohua Li, Qirui Li et al.",
-      "published": "2026-05-19",
-      "url": "https://arxiv.org/abs/2605.20708",
-      "raw_summary": "Diffusion Transformers (DiTs) have become a de facto backbone of modern visual generation, and nearly every major axis of their design -- tokenization, attention, conditioning, objectives, and latent autoencoders -- has been extensively revisited. The residual stream that governs how information accumulates across layers, however, has been directly inherited from the original Transformer. In this paper, we present a systematic empirical analysis of cross-layer information flow in DiTs, jointly along depth and denoising timestep, and identify three concrete symptoms of traditional residual addition, namely monotonic forward magnitude inflation, sharp backward gradient decay, and pronounced block-wise redundancy. Motivated by this diagnosis, we propose Diffusion-Adaptive Routing (DAR), a drop-in residual replacement that performs learnable, timestep-adaptive, and non-incremental aggregation over the history of sublayer outputs. Moreover, the proposed DAR is compatible with many modern Transformer enhancement methods, such as REPA. On ImageNet 256times256, DAR improves SiT-XL/2 by 2.11 FID (7.56 vs.\\ 9.67) and matches the baseline's converged quality with 8.75times fewer training iterations. Stacked on top of REPA, it yields a 2times training acceleration in the early stage, suggesting cross-layer information routing as an underexplored design axis in diffusion modeling, one that operates orthogonally to existing representation-alignment objectives. Beyond pretraining, DAR can also be applied during the fine-tuning stage of large-scale T2I models and preserves high-frequency details during Distribution Matching Distillation."
+      "title": "LocateAnything: Fast and High-Quality Vision-Language Grounding with Parallel Box Decoding",
+      "authors": "Shihao Wang, Shilong Liu, Yuanguo Kuang et al.",
+      "published": "2026-05-25",
+      "url": "https://arxiv.org/abs/2605.27365",
+      "raw_summary": "Vision-language models (VLMs) commonly formulate visual grounding and detection as a coordinate-token generation problem, serializing each 2D box into multiple 1D tokens that are learned and decoded largely independently. This token-by-token decoding mismatches the coupled structure of box geometry and creates a practical inference bottleneck due to strictly sequential generation. We introduce LocateAnything, a unified generative grounding and detection framework based on Parallel Box Decoding (PBD). By decoding geometric elements such as bounding boxes and points as atomic units in a single step, LocateAnything preserves intra-box geometric coherence and unlocks substantial parallelism. We show that PBD improves both decoding throughput and localization accuracy. We further develop a scalable data engine and curate LocateAnything-Data, a large-scale dataset with more than 138 million training samples, substantially increasing data diversity for high-precision localization. Extensive evaluations show that LocateAnything advances the speed-accuracy frontier, achieving significantly higher decoding throughput while improving high-IoU localization quality across diverse benchmarks. The results highlight the complementary benefits of Parallel Box Decoding and large-scale training data in enabling efficient and precise unified visual grounding and detection."
     },
     {
-      "id": "paper-2605.22878",
+      "id": "paper-2605.26114",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "SciAtlas: A Large-Scale Knowledge Graph for Automated Scientific Research",
-      "authors": "Shuofei Qiao, Yunxiang Wei, Jiazheng Fan et al.",
-      "published": "2026-05-19",
-      "url": "https://arxiv.org/abs/2605.22878",
-      "raw_summary": "The exponential growth of global academic output has confronted researchers and AI agents with an unprecedented ``information explosion,'' where fragmented and unstructured knowledge organization impedes deep interdisciplinary integration. Current academic retrieval tools predominantly rely on superficial keyword matching or vector-space semantic retrieval, which lack the topological reasoning capabilities required to navigate complex logical connections. Agentic deep-research-based frameworks are often prone to logical hallucinations and consuming high inference costs. To bridge this gap, in this report, we introduce SciAtlas, a large-scale, multi-disciplinary, heterogeneous academic resource knowledge graph designed as a panoramic scientific evolution network. By integrating over 43M papers from 26 disciplines, and a total of 157M entities and 3B triplets, SciAtlas provides a structured topological cognitive substrate that dismantles disciplinary barriers and furnishes AI agents with a global perspective. Furthermore, we develop a neuro-symbolic retrieval algorithm featuring tri-path collaborative recall and graph reranking, achieving a seamless transition from simple semantic matching to deterministic association discovery. We also present key application directions of SciAtlas, including literature review, automated research trend synthesis, idea positioning, and academic trajectory exploration, to demonstrate that SciAtlas can serve as an effective ``cognitive map'' to empower the full loop of automated scientific research while significantly reducing reasoning costs. We have released the interfaces for KG retrieval and various downstream tasks in our GitHub repo."
+      "title": "MobileGym: A Verifiable and Highly Parallel Simulation Platform for Mobile GUI Agent Research",
+      "authors": "Dingbang Wu, Rui Hao, Haiyang Wang et al.",
+      "published": "2026-05-24",
+      "url": "https://arxiv.org/abs/2605.26114",
+      "raw_summary": "We present MobileGym, a browser-hosted, lightweight, fully controllable environment for everyday mobile use, targeting interaction fidelity without replicating proprietary backends. It enables two capabilities previously out of reach for everyday apps: verifiable outcome signals through deterministic state-based judging over structured JSON state, and scalable online RL through low-cost parallel rollouts. The full environment state is captured, configured, forked, and compared as structured JSON, and a single server can host hundreds of parallel instances, with about 400 MB memory per instance and about 3 s cold start. A layered state model and a declarative task-definition framework keep state programmability and task creation practical at scale, and a single programmatic judging mechanism delivers both deterministic evaluation verdicts and dense RL rewards. The accompanying MobileGym-Bench provides 416 parameterized task templates, including 256 test and 160 train templates, over 28 apps, with deterministic judges and a structured AnswerSheet protocol that avoids free-text matching failures. In a Sim-to-Real case study, GRPO on Qwen3-VL-4B-Instruct gains +12.8 percentage points on the 256-task test set, and on a 59-task real-device signal subset, real-device execution retains 95.1% of the simulation-side training gain. Project page: https://mobilegym.github.io."
     },
     {
-      "id": "paper-2605.18018",
+      "id": "paper-2605.26244",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "See What I Mean: Aligning Vision and Language Representations for Video Fine-grained Object Understanding",
-      "authors": "Boyuan Sun, Bowen Yin, Yuanming Li et al.",
-      "published": "2026-05-17",
-      "url": "https://arxiv.org/abs/2605.18018",
-      "raw_summary": "We present SWIM (See What I Mean), a novel training strategy that aligns vision and language representations to enable fine-grained object understanding solely from textual prompts. Unlike existing approaches that require explicit visual prompts, such as masks or points, SWIM leverages mask supervision only during training to guide cross-modal attention, allowing the model to automatically attend to the user-specified object at inference. Our cross-attention analysis of pretrained multimodal large languagemodels (MLLMs) reveals a systematic discrepancy: Attribute words produce sharp, localized activations in the visual modality, whereas object nouns yield diffuse and scattered patterns due to semantic reference bias and distributed high-level representations. To address this misalignment, we construct NL-Refer, an enriched dataset, in which each object mask is paired with a precise natural language referring expression. SWIM extracts multi-layer cross-attention maps from object nouns and enforces spatial consistency with ground-truth masks. Experimental results demonstrate that SWIM substantially improves text-visual alignment and achieves superior performance over visual-prompt-based methods on fine-grained object understanding benchmarks. The code and data are available at https://github.com/HumanMLLM/SWIM{https://github.com/HumanMLLM/SWIM}."
+      "title": "LongAV-Compass: Towards Unified Evaluation of Minute-Scale Audio-Visual Generation Across T2AV, I2AV, and V2AV",
+      "authors": "Tengfei Liu, Yang Shi, Xuanyu Zhu et al.",
+      "published": "2026-05-24",
+      "url": "https://arxiv.org/abs/2605.26244",
+      "raw_summary": "Audio-visual generation is rapidly advancing from short clips to minute-long content, while existing evaluation protocols remain largely confined to short-form settings. Existing benchmarks primarily focus on 5--10 second text-conditioned generation and rarely support unified evaluation across text, image, and video conditioning modalities. Moreover, they provide limited insight into how identity consistency, narrative coherence, and audio-visual alignment degrade over extended temporal horizons. To bridge this gap, we introduce LongAV-Compass, a systematic benchmark for minute-long audio-visual generation. LongAV-Compass contains 284 curated test cases spanning text-to-audio-video (T2AV), image-to-audio-video (I2AV), and video-to-audio-video (V2AV), organized by application scenario and generation complexity. The benchmark combines taxonomy-guided benchmark construction with a unified evaluation framework that integrates MLLM-assisted assessment with complementary perceptual and multimodal metrics, including DINO-v2, ArcFace, CLIP, and ImageBind. The framework evaluates more than 20 fine-grained dimensions covering within-segment quality, cross-segment consistency, global narrative coherence, semantic alignment, and audio-visual synchronization. Through experiments on 11 representative models together with human-alignment validation, LongAV-Compass provides a diagnostic testbed for analyzing the limitations of current systems in sustaining coherent, semantically aligned, and temporally consistent minute-scale audio-visual generation across diverse input modalities."
     },
     {
-      "id": "paper-2605.23771",
+      "id": "paper-2605.26230",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "PhotoFlow: Agentic 3D Virtual Photography Missions",
-      "authors": "Jiarui Guo, Haojia Wei, Yiming Zhang et al.",
-      "published": "2026-05-21",
-      "url": "https://arxiv.org/abs/2605.23771",
-      "raw_summary": "Virtual photography asks an agent to enter a prepared 3D scene with no preselected camera pose or reference image, infer a suitable shot from scene information and a language intent, choose executable camera parameters, and render the final photograph. Recent progress in vision-language models makes this kind of spatial agent increasingly plausible, but the task stresses two capabilities that remain hard to evaluate together: complex 3D spatial understanding and abstract aesthetic judgment. We introduce PhotoFlow, a Director-Reviewer-Reflector agent for closed-loop camera search. The Director builds a soft photographic blueprint and proposes diverse candidate cameras; the Reviewer combines rule checks, visual critique, and pairwise incumbent selection; and the Reflector converts failures into region memory, dead-zone suppression, and high-explore relocation. We also introduce VPhotoBench, a benchmark of 47 open-license Blender scenes and 141 language-conditioned photography missions spanning subject placement, relational composition, and atmosphere/style. On held-out experiments, PhotoFlow achieves the strongest external quality-alignment composite and success rate among one-shot prediction, single-chain reflection, anchor-bank selection, and random search under a six-round rendering budget. To our knowledge, this is the first work to make language-conditioned virtual photography in arbitrary Blender scenes an executable agent task, and our results show that an LLM-centered spatial agent can already produce strong photographs in a setting designed to challenge both 3D reasoning and aesthetic choice."
+      "title": "Geometry-Aware Representation Denoising for Robust Multi-view 3D Reconstruction",
+      "authors": "Jin Hyeon Kim, Jaeeun Lee, Claire Kim et al.",
+      "published": "2026-05-24",
+      "url": "https://arxiv.org/abs/2605.26230",
+      "raw_summary": "Multi-view 3D reconstruction has achieved remarkable progress with the advent of feed-forward 3D reconstruction models. However, these models are typically trained and evaluated under ideal, degradation-free imaging conditions, whereas real-world observations often contain degradations that differ significantly from such settings. Improving robustness for multi-view 3D reconstruction under degraded conditions therefore remains an important challenge. We present Geometry-Aware Representation Denoising (GARD), a novel framework that performs diffusion-based multi-view restoration directly in the feature space of a feed-forward 3D reconstruction model. This design exploits the geometry-aware feature representations of the 3D reconstructor to effectively recover accurate scene geometry. Furthermore, by employing an additional RGB image decoder, the refined representations can also be used to restore high-quality RGB images, thereby enabling the simultaneous recovery of 3D scene geometry and high-quality imagery. Comprehensive experiments on the Depth Anything 3 (DA3) benchmark demonstrate the effectiveness of the proposed GARD framework."
     },
     {
-      "id": "paper-2605.24938",
+      "id": "paper-2605.25535",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Your Embedding Model is SMARTer Than You Think",
-      "authors": "Jianrui Zhang, Hyun Jung Lee, Sukanta Ganguly et al.",
-      "published": "2026-05-23",
-      "url": "https://arxiv.org/abs/2605.24938",
-      "raw_summary": "Multimodal retrieval relies heavily on single-vector retrievers, which compress rich, sequential token sequences into one single global representation. While efficient, they discard fine-grained, local evidence critical for dense retrieval tasks. Multi-vector approaches were introduced as a solution, but they strictly require training and many ignore the necessity of a globally summarizing representation. To address this, we introduce SMART, a framework that unlocks the latent multi-vector capabilities of standard single-vector models. We first demonstrate that standard contrastive training on the pooled embedding implicitly shapes the retrieval geometry of preceding hidden states via gradient flow. By applying direct late-interaction over these frozen hidden states during inference, SMART acts as a plug-and-play upgrade that consistently improves performance across diverse modalities, improving even the state-of-the-art models further on MMEB-V2. We also reveal SMART's superior performance, as simple lightweight post-training not only saves time and compute, but also brings forth further improvement on Visual Document retrieval, allowing a single-vector model to outperform SoTA multi-vector counterparts. Ultimately, SMART offers both a highly efficient inference enhancement and a powerful finetuning technique for multimodal retrieval. We open source our code and weights at https://github.com/HanSolo9682/SMART."
+      "title": "Personalize-then-Store: Benchmarking and Learning Personalized Memory for Long-horizon Agents",
+      "authors": "Yeonjun In, Wonjoong Kim, Sangwu Park et al.",
+      "published": "2026-05-24",
+      "url": "https://arxiv.org/abs/2605.25535",
+      "raw_summary": "Existing large language model (LLM) based memory systems apply universal, static policies that overlook a fundamental reality: the contexts that are worth storing in memory are different across users. This misalignment wastes limited memory budget on transient interactions while failing to preserve critical context for long horizon tasks. To address this gap, we investigate an underexplored question: can LLM based memory systems learn personalized memory policies? We introduce PerMemBench, the first benchmark for evaluating personalized memory systems, featuring multi year, multi domain interaction histories across diverse user personas. We further present the first empirical study of memory personalization, proposing session level storage gating, a lightweight framework that selectively bypasses memory operations for transient sessions. Our study confirms that personalization yields substantial retention gains under perfect gating, yet reveals that accurate gating remains an open and critical challenge."
     },
     {
       "id": "news-gh-1008713177",
@@ -63,42 +63,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-05-26",
+      "published": "2026-05-27",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI agent that lives in your terminal."
     },
     {
-      "id": "news-13264334",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "OpenAI, Grupo Folha and Grupo UOL announce strategic content partnership",
-      "authors": "OpenAI",
-      "published": "2026-05-25",
-      "url": "https://openai.com/index/grupo-folha-grupo-uol-partnership",
-      "raw_summary": "OpenAI partners with Grupo Folha and Grupo UOL to bring trusted Brazilian journalism to ChatGPT, expanding access to news with attribution and transparency."
-    },
-    {
-      "id": "news-31053285",
-      "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Harness, Scaffold, and the AI Agent Terms Worth Getting Right",
-      "authors": "Hugging Face",
-      "published": "2026-05-25",
-      "url": "https://huggingface.co/blog/agent-glossary",
-      "raw_summary": ""
-    },
-    {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
+      "source": "智谱 GLM · GitHub",
       "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-05-25",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-05-27",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
+    },
+    {
+      "id": "news-gh-1246459259",
+      "type": "news",
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-05-27",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "The Starting Point for Next-Gen Agents"
+    },
+    {
+      "id": "news-gh-1076863218",
+      "type": "news",
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-cli",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-05-27",
+      "url": "https://github.com/MoonshotAI/kimi-cli",
+      "raw_summary": "Kimi Code CLI is your next CLI agent."
     }
   ]
 }
