@@ -2,16 +2,16 @@
   "fetched_at": "2026-05-28",
   "paper_candidates": [
     {
-      "id": "paper-2605.28774",
+      "id": "paper-2605.28293",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Agent Explorative Policy Optimization for Multimodal Agentic Reasoning",
-      "authors": "Minki Kang, Shizhe Diao, Ryo Hachiuma et al.",
+      "title": "ProRL: Effective Reinforcement Learning for Proactive Recommendation via Rectified Policy Gradient Estimation",
+      "authors": "Hongru Hou, Tiehua Mei, Denghui Geng et al.",
       "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28774",
-      "raw_summary": "Vision-language models with extended reasoning succeed on complex problems, but many real-world problems require external tools that internal reasoning alone often cannot resolve. Agentic reasoning therefore interleaves two behaviors with a structural asymmetry: thinking (the self-contained default) and tool use (a high-variance auxiliary acting). We refer to this asymmetry as the Thinking-Acting Gap. Under standard RL recipes like GRPO, the gap manifests as two diagnostic symptoms during training: tool use is attempted on only ~30% of rollouts, and when attempted, the tool-using rollouts within a group are all-wrong on ~40% of questions, suppressing the learning signal at the tool calls that needed it. We propose AXPO (Agent eXplorative Policy Optimization): for each all-wrong tool-using subgroup, AXPO fixes the thinking prefix and resamples the tool call and its continuation, paired with uncertainty-based prefix selection. Across nine multimodal benchmarks and three scales of Qwen3-VL-Thinking, SFT+AXPO outperforms SFT+GRPO at average (+1.8pp Pass@1 and +1.8pp Pass@4 at 8B on average) and 8B with SFT+AXPO surpasses the 32B Base on Pass@4 with 4 times fewer parameters.",
-      "hotness": 40
+      "url": "https://arxiv.org/abs/2605.28293",
+      "raw_summary": "Proactive Recommender Systems (PRSs) aim to guide user preference shift toward target items by generating paths of intermediate recommendations. Reinforcement learning (RL) provides a principled framework for optimizing such sequential decision tasks, as path rewards can naturally capture both short-term acceptance and long-term guidance effectiveness. However, naively applying policy gradients to PRS results in deficient gradient estimation. We identify two deficiencies: (1) path-level rewards decompose into step-level rewards with positive mean, creating a length-dependent bias that causes gradients to favor path extension over meaningful exploration; (2) weighting each step by the entire path-level reward ignores the decomposition structure, leading to high gradient variance. To rectify these two deficiencies, we propose an effective RL framework ProRL with two novel mechanisms for proactive recommendation. First, Stepwise Reward Centering subtracts expected rewards to neutralize length-dependent bias, ensuring that path extension yields zero expected gradient signal. Second, Position-Specific Advantage Estimation leverages the reward decomposition structure to compute step-dependent baselines, reducing gradient variance. Together, these mechanisms yield policy gradients that precisely target path quality. Our experiments on three real-world datasets demonstrate that ProRL significantly outperforms state-of-the-art PRSs. Our code is available at https://github.com/hongruhou89/ProRL.",
+      "hotness": 67
     },
     {
       "id": "paper-2605.28732",
@@ -23,7 +23,19 @@
       "published": "2026-05-26",
       "url": "https://arxiv.org/abs/2605.28732",
       "raw_summary": "Memory is essential for enabling large language models to support long-horizon reasoning, yet existing memory systems remain unreliable and difficult to debug. Tracing memory's dynamic evolution is crucial to understand how information is synthesized, propagated, or corrupted over time. In this work, we study the new problem of error tracing and attribution in LLM memory systems. We propose a novel framework that transforms memory pipelines into executable memory evolution graphs, enabling fine-grained tracing of operational information flow. We then construct MemTraceBench, a benchmark collected from representative memory systems such as Long-Context, RAG, Mem0, and EverMemOS, to systematically study memory failure modes. We further introduce an automatic attribution method that iteratively traces operation subgraphs to pinpoint the root cause of any failed case. Our analysis reveals that memory failures are systematic, stemming from operation-level issues like information loss and retrieval misalignment. Crucially, we leverage these fine-grained attribution signals to guide downstream prompt optimization, establishing a closed-loop system that automatically corrects faults and boosts end-task performance by up to 7.62%. Code will be released at https://github.com/zjunlp/MemTrace.",
-      "hotness": 24
+      "hotness": 32
+    },
+    {
+      "id": "paper-2605.28421",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "DenoiseRL: Bootstrapping Reasoning Models to Recover from Noisy Prefixes",
+      "authors": "Caijun Xu, Changyi Xiao, Zhongyuan Peng et al.",
+      "published": "2026-05-26",
+      "url": "https://arxiv.org/abs/2605.28421",
+      "raw_summary": "Reinforcement learning has become a central paradigm for advancing reasoning in large language models, yet most existing methods still depend on stronger teacher models or heavily curated difficult datasets, limiting scalable capability improvement. In this paper, we introduce DenoiseRL, a reinforcement learning framework that substitutes external supervision with recovery-oriented optimization over failures from weak models. Instead of relying on stronger supervision or carefully engineered data, DenoiseRL learns directly from incorrect reasoning traces by converting them into opportunities for improvement, making training more scalable and less dependent on external resources. This yields a richer and more diverse learning signal, improving exploration efficiency from imperfect model behavior. As a result, DenoiseRL improves reasoning performance and overall training efficiency while reducing the need for expensive data curation or stronger teacher models. Empirically, DenoiseRL consistently outperforms strong on-policy RL baselines across competitive mathematical and general reasoning benchmarks and promotes stronger self-corrective behavior as training difficulty increases, highlighting an effective and scalable alternative pathway for improving reasoning in large language models.",
+      "hotness": 29
     },
     {
       "id": "paper-2605.28548",
@@ -35,31 +47,7 @@
       "published": "2026-05-26",
       "url": "https://arxiv.org/abs/2605.28548",
       "raw_summary": "Embodied Vision-Language Models (VLMs) have demonstrated impressive performance and generalization in robotics, particularly within Vision-Language-Action frameworks. However, a significant gap remains between the high-level semantic focus of standard text-guided pre-training paradigms and the low-level spatial and physical knowledge critical for execution in embodied environments. In this paper, we introduce GEM, a Generative-supervised Embodied vision-language Model designed to bridge this divide. We propose integrating a depth map generation task directly into the VLM pre-training phase. By training this generative objective jointly with the main model, we observe substantial improvements in embodied intelligence, significantly enhancing both semantic understanding and physical operation capabilities. To support this paradigm, we curate and release GEM-4M, a comprehensive large-scale dataset featuring a mixture of grounding, reasoning, and planning data paired with high-quality depth supervision. Extensive experiments demonstrate that GEM achieves state-of-the-art results across diverse embodied benchmarks. Furthermore, our deployed action model, GEM-VLA, exhibits vastly superior task execution abilities in both simulation environments and real-world evaluations. Code, models, and datasets are available at https://zhaorw02.github.io/GEM/",
-      "hotness": 23
-    },
-    {
-      "id": "paper-2605.28775",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Learn from Weaknesses: Automated Domain Specialization for Small Computer-Use Agents",
-      "authors": "Suji Kim, Kangsan Kim, Sung Ju Hwang",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28775",
-      "raw_summary": "Computer-use agents (CUAs) have recently made substantial progress, but deploying a separate large expert for each software domain remains expensive. Small open computer-use agents are more practical specialization targets, but they remain substantially weaker and exhibit uneven domain-specific failures. A straightforward remedy is to synthesize large-scale training data for the target domain, yet we find that this naive approach yields only marginal improvements. Building on this observation, we introduce LearnWeak, an annotation-free specialization framework for small computer-use agents that uses a stronger reference agent to identify the student's weaknesses in the target domain, synthesize targeted tasks, and construct supervision automatically. LearnWeak further introduces an error-aware specialization objective that disentangles planning and execution errors, enabling more behaviorally precise updates than broad uniform supervision. On OSWorld, LearnWeak achieves average gains of 11.6 and 11.1 percentage points over EvoCUA-8B and OpenCUA-7B, respectively, across eight domains. We also validate that our student-aware dataset generation and training approaches outperform existing autonomous trajectory generation and training baselines. Our work highlights the importance of student awareness in both data synthesis and agent training, pointing toward a more principled and efficient path for specializing small computer-use agents in diverse domains.",
-      "hotness": 22
-    },
-    {
-      "id": "paper-2605.28293",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "ProRL: Effective Reinforcement Learning for Proactive Recommendation via Rectified Policy Gradient Estimation",
-      "authors": "Hongru Hou, Tiehua Mei, Denghui Geng et al.",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28293",
-      "raw_summary": "Proactive Recommender Systems (PRSs) aim to guide user preference shift toward target items by generating paths of intermediate recommendations. Reinforcement learning (RL) provides a principled framework for optimizing such sequential decision tasks, as path rewards can naturally capture both short-term acceptance and long-term guidance effectiveness. However, naively applying policy gradients to PRS results in deficient gradient estimation. We identify two deficiencies: (1) path-level rewards decompose into step-level rewards with positive mean, creating a length-dependent bias that causes gradients to favor path extension over meaningful exploration; (2) weighting each step by the entire path-level reward ignores the decomposition structure, leading to high gradient variance. To rectify these two deficiencies, we propose an effective RL framework ProRL with two novel mechanisms for proactive recommendation. First, Stepwise Reward Centering subtracts expected rewards to neutralize length-dependent bias, ensuring that path extension yields zero expected gradient signal. Second, Position-Specific Advantage Estimation leverages the reward decomposition structure to compute step-dependent baselines, reducing gradient variance. Together, these mechanisms yield policy gradients that precisely target path quality. Our experiments on three real-world datasets demonstrate that ProRL significantly outperforms state-of-the-art PRSs. Our code is available at https://github.com/hongruhou89/ProRL.",
-      "hotness": 21
+      "hotness": 27
     },
     {
       "id": "paper-2605.26340",
@@ -71,7 +59,7 @@
       "published": "2026-05-24",
       "url": "https://arxiv.org/abs/2605.26340",
       "raw_summary": "Autonomous research agents produce competitive solutions and professional-looking manuscripts, yet their outputs contain verifiability failures undetectable by surface-level evaluation: fabricated citations, unreproducible scores, and method descriptions that diverge from the implementation. We address this through three contributions. First, Chain-of-Evidence (CoE), a verifiability framework requiring every claim to be traceable to its evidence source. Second, ScientistOne, an end-to-end autonomous research system that maintains evidence chains by construction throughout literature review, solution discovery, and paper writing. Third, CoE Audit, a post-hoc audit whose four integrity checks -- score verification, specification violation, reference verification, and method-code alignment -- apply uniformly to all systems. Across 75 papers spanning five systems and five frontier research tasks, every baseline exhibits at least one systematic failure mode: hallucinated reference rates reach 21%, score verification passes in as few as 42% of papers, and method-code alignment ranges from 20% to 80%. ScientistOne achieves zero hallucinated references (0/337), perfect score verification (12/12), and the highest method-code alignment (14/15), while matching or exceeding human expert performance on all five tasks. ScientistOne further generalizes to six additional tasks spanning medical imaging, fine-grained recognition, 3D perception, and language modeling, achieving state-of-the-art on Parameter Golf and gold medals on MLE-Bench tasks where baselines fail entirely.",
-      "hotness": 14
+      "hotness": 21
     },
     {
       "id": "paper-2605.25969",
@@ -83,7 +71,7 @@
       "published": "2026-05-24",
       "url": "https://arxiv.org/abs/2605.25969",
       "raw_summary": "Causal Transformer language models suffer from strictly sequential decoding and a quadratic per-step attention cost. While linear-time causal models and discrete diffusion models each address these weaknesses, their integration remains inherently inconsistent: diffusion requires bidirectional attention, while causal models are unidirectional. To unify these architectures, we propose B^3D-RWKV, a diffusion RWKV variant that integrates the model's O(L) inference efficiency with parallel, bidirectional discrete-diffusion through a triplet-block layout method. B^3D-RWKV-7.2B reaches comparable accuracy on an 8-task suite versus existing models while significantly outperforming baselines in decoding throughput with an average of 1.6times speedup.",
-      "hotness": 12
+      "hotness": 15
     },
     {
       "id": "paper-2605.28773",
@@ -95,31 +83,7 @@
       "published": "2026-05-26",
       "url": "https://arxiv.org/abs/2605.28773",
       "raw_summary": "Existing memory-augmented LLM agents often treat memory as a static repository with pre-defined representations and fixed retrieval pipelines, which is brittle in dynamic agentic environments where feedback, task variation, and heterogeneous signals continuously reshape what should be remembered and how it should be connected. To address this, we propose FluxMem, a connectivity-evolving memory framework that models memory as a heterogeneous graph and progressively refines its topology through three stages: initial connection formation, feedback-driven refinement, and long-term consolidation. During execution, FluxMem repairs missing links, prunes interference, aligns abstraction granularity, and distills recurrent successful trajectories into reusable procedural circuits, guided by one metric for memory generalizability and evolutionary maturity. Across three fundamentally distinct benchmarks including LoCoMo, Mind2Web, and GAIA, FluxMem achieves consistent state-of-the-art performance, demonstrating strong adaptation and generalization in complex agentic environments. The code will be open-sourced in https://github.com/zjunlp/LightMem.",
-      "hotness": 9
-    },
-    {
-      "id": "paper-2605.28721",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LiveBrowseComp: Are Search Agents Searching, or Just Verifying What They Already Know?",
-      "authors": "HuiMing Fan, Xiao Wang, Zheng Chu et al.",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28721",
-      "raw_summary": "Are LLM-based search agents genuinely searching, or using the web to verify what they already know? We study this question on BrowseComp with three diagnostics. Our analysis reveals Intrinsic Knowledge Dependence (IKD): even with tool access, agents often rely on intrinsic knowledge -- information encoded in the model before retrieval -- rather than on external evidence. Agents answer up to 44.5% of BrowseComp questions without tools, generate more than half of their search queries from internally produced hypotheses rather than retrieved leads, and perform worse than closed-book baselines when answer-supporting evidence is removed. These results suggest that static search benchmarks can reward memory-backed verification rather than evidence-driven discovery, conflating what agents already know with what they can find. We then introduce LiveBrowseComp, a deep-search benchmark designed to evaluate agents beyond intrinsic coverage. It contains 335 human-authored questions whose answers depend on facts published within the 90 days preceding benchmark construction, drawn from six updated sources and filtered to exclude globally salient events. On LiveBrowseComp, all evaluated agents fall below 2% closed-book accuracy, search-augmented scores drop by 25-40 points relative to BrowseComp, and prior model rankings no longer reliably predict performance. LiveBrowseComp is available at https://huggingface.co/datasets/Forival/LiveBrowseComp.",
-      "hotness": 8
-    },
-    {
-      "id": "paper-2605.28805",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "OmniVerifier-M1: Multimodal Meta-Verifier with Explicit Structured Recalibration",
-      "authors": "Xinchen Zhang, Bowei Liu, Jiale Liu et al.",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28805",
-      "raw_summary": "Visual outcomes are increasingly central to multimodal large language models, making reliable and fine-grained verification essential for scaling generalist foundation models. In this work, we investigate multimodal meta-verification, which leverages verifier-generated rationales rather than decision-only signals, and explore how to effectively incorporate meta-verification feedback into multimodal verifier training. We identify two key findings. First, symbolic verifier outputs (e.g., bounding boxes) outperform textual explanations as meta-verification rationales, enabling efficient rule-based reinforcement learning rewards while avoiding reliance on model-based rewards from auxiliary judge models. Second, decoupling reinforcement learning objectives for binary judgment and meta-verification substantially outperforms joint reward optimization, due to intrinsic differences in output structure and learning dynamics. Based on these insights, we train OmniVerifier-M1, a generalist visual verifier leveraging symbolic meta-verification and decoupled reinforcement learning. OmniVerifier-M1 provides robust verification and fine-grained error localization, and further enables M1-TTS, a verifier-driven agentic generation system achieving dynamic region-level self-correction. This approach paves the way for more reliable, interpretable, and fine-grained multimodal verification, supporting safer and more controllable foundation model deployment.",
-      "hotness": 7
+      "hotness": 15
     },
     {
       "id": "paper-2605.28109",
@@ -131,31 +95,103 @@
       "published": "2026-05-26",
       "url": "https://arxiv.org/abs/2605.28109",
       "raw_summary": "Recent advances in online reinforcement learning (RL) for large language models (LLMs) have demonstrated promising performance in complex reasoning tasks. However, they often exhibit an imbalanced exploration-exploitation trade-off, resulting in unstable optimization and sub-optimal performance. We introduce IB-Score, a novel metric grounded in Information Bottleneck theory that evaluates policy's exploration-exploitation balance by quantifying the trade-off between step-level reasoning diversity and mutual information shared with the correct answer. Analysis based on IB-Score shows that popular online RL approaches (e.g., GRPO) with common regularizers fail to consistently maintain balance during training with suboptimal results. To address this, we propose Information Bottleneck-driven Tree-based Policy Optimization (IB-TPO), a principled framework that formulates IB-Score as a fine-grained optimization objective and utilizes a novel IB-guided tree sampling strategy that not only improves the efficiency of online sampling with 50% more trajectories under the same token budget, but also reuses the tree structure for effective IB-Score Monte Carlo estimation. Extensive experiments across standard benchmarks show that our method significantly outperforms GRPO baseline by 2.9% to 3.6% and also outperforms other state-of-the-art online RL approaches. Our code is available at https://github.com/alibaba/EfficientRL.",
-      "hotness": 6
+      "hotness": 14
     },
     {
-      "id": "paper-2605.27882",
+      "id": "paper-2605.27354",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "VibeSearchBench: Benchmarking Long-horizon Proactive Search in the Wild",
-      "authors": "Xiaohongshu Inc",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.27882",
-      "raw_summary": "LLM-based agents score well on search benchmarks, yet real users consistently find results unsatisfying, revealing a persistent evaluation-experience gap. We attribute this gap to existing benchmarks' reliance on over-specified queries, single-turn interactions, and fixed-schema evaluation, none of which reflect real search behavior where users and agents collaboratively refine vague intent through multi-turn dialogue. We term this paradigm VibeSearch and introduce VibeSearchBench, a benchmark comprising 200 manually curated bilingual (Chinese and English) tasks across 20 domains, split into VibeSearch-Pro (professional) and VibeSearch-Daily (daily-life) subsets. Each task pairs a user persona with a schema-free ground-truth knowledge graph, and is evaluated through a progressive-disclosure user simulator and a graph-matching evaluation framework. We benchmark seven frontier models under both the ReAct framework and the OpenClaw agent harness. Results show that all models remain substantially inadequate for VibeSearch (best F1: 30.30), highlighting the need for fundamental advances in long-context reasoning, proactive intent elicitation, and structured knowledge construction.",
-      "hotness": 5
+      "title": "Guiding LLM Post-training Data Engineering with Model Internals from Sparse Autoencoders",
+      "authors": "Yi Jing, Zao Dai, Jinwu Hu et al.",
+      "published": "2026-05-25",
+      "url": "https://arxiv.org/abs/2605.27354",
+      "raw_summary": "Model internals encode rich information about how a large language model (LLM) processes its training data; however, post-training data engineering largely relies on external signals and ignores rich intrinsic signals lying in model internals. We propose SAERL, a data engineering framework for LLM reinforcement learning (RL). It models three intrinsic data properties: diversity, difficulty, and quality, using model internals extracted with Sparse Autoencoder (SAE), an advanced mechanistic interpretability tool. Each property grounds a concrete data engineering operation: SAE-space clustering with moderate batch mixing for batch diversity control, a difficulty proxy for easy-to-hard curriculum ordering, and a quality probe for data filtering. SAERL improves average accuracy by 3.00% over vanilla GRPO and reaches target accuracy with 20% fewer training steps on Qwen2.5-Math-1.5B, with consistent gains across model scales and RL algorithms. Experiments show that SAE transfers effectively across model families and scales, serving as a lightweight and reusable data engineering tool. These results demonstrate that model internals are a powerful and practical source of signals for post-training data engineering.",
+      "hotness": 11
     },
     {
-      "id": "paper-2605.28184",
+      "id": "paper-2605.23163",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Joint Training of Multi-Token Prediction in Reinforcement Learning via Optimal Coefficient Calibration",
-      "authors": "Zili Wang, Jiajun Chai, Lin Chen et al.",
+      "title": "Fast-dDrive: Efficient Block-Diffusion VLM for Autonomous Driving",
+      "authors": "Kewei Zhang, Jin Wang, Sensen Gao et al.",
+      "published": "2026-05-24",
+      "url": "https://arxiv.org/abs/2605.23163",
+      "raw_summary": "End-to-end autonomous driving via Vision-Language-Action (VLA) models demands a precarious balance between high-fidelity trajectory planning and efficient inference. Existing paradigms typically fall short: autoregressive (AR) VLAs are memory-bandwidth-bound on edge hardware and prone to exposure-bias drift, while full-sequence diffusion models preclude KV-cache reuse and suffer from \"logical leakage\" that violates the fundamental perceive-then-plan causality. We present Fast-dDrive, a block-diffusion VLA that performs bidirectional refinement within semantic units while enforcing strict causal ordering across them. Leveraging the observation that driving VLAs often emit structured JSON-like outputs, Fast-dDrive freezes structural tokens into a section scaffold and employs a section-aware training recipe that prioritizes safety-critical planning. We further introduce Scaffold Speculative Decoding to achieve AR-equivalent quality at significantly higher throughput. Finally, we propose a low-overhead test-time scaling scheme: by forking N stochastic trajectory rollouts from a single shared-prefix KV cache and averaging them, we effectively suppress prediction variance at a fractional computational cost. Empirical results demonstrate that Fast-dDrive redefines the speed-accuracy frontier for driving agents. On the WOD-E2E test set, Fast-dDrive achieves SOTA ADE@3s and ADE@5s, alongside the highest RFS among diffusion-based VLAs; on nuScenes, it reduces average L2 error to 0.32m (a 22% improvement). When integrated with SGLang, our framework delivers 12times throughput speedup over the AR baseline, narrowing the gap between high-capacity VLAs and the efficiency demands of real-time on-vehicle deployment.",
+      "hotness": 11
+    },
+    {
+      "id": "paper-2605.27491",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "GE-Sim 2.0: A Roadmap Towards Comprehensive Closed-loop Video World Simulators for Robotic Manipulation",
+      "authors": "Boxiang Qiu, Liliang Chen, Yue Liao et al.",
+      "published": "2026-05-25",
+      "url": "https://arxiv.org/abs/2605.27491",
+      "raw_summary": "We introduce GE-Sim 2.0 (Genie Envisioner World Simulator 2.0), a closed-loop video world simulator for robotic manipulation. Building on the action-conditioned video generation framework of Genie Envisioner, GE-Sim 2.0 is re-trained on thousands of hours of real-world robot data spanning teleoperation, contact-rich interaction, and on-robot policy deployment, substantially improving action-following fidelity and trajectory coverage. On top of this foundation, three new modules close the loop from video simulation to policy learning: a state expert that decodes proprioceptive state from video latents to support next-chunk prediction by downstream VLA policies; a world judge that scores generated rollouts against task instructions, yielding machine-verifiable success signals and rewards in place of manual inspection; and an acceleration framework that delivers a 25-frame rollout in 2.3 seconds on a single H100, with up to 4* frame skipping at inference for long-horizon evaluation. GE-Sim 2.0 tops the public WorldArena leaderboard at only 2B parameters, outperforming both dedicated robotic world models and closed-source general video generators, and policies trained against its rollouts and rewards translate into measurable real-world gains, establishing GE-Sim 2.0 as a practical platform for scalable evaluation and closed-loop learning of manipulation policies.",
+      "hotness": 7
+    },
+    {
+      "id": "paper-2605.27760",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "SkillGrad: Optimizing Agent Skills Like Gradient Descent",
+      "authors": "Hanyu Wang, Yifan Lan, Bochuan Cao et al.",
+      "published": "2026-05-25",
+      "url": "https://arxiv.org/abs/2605.27760",
+      "raw_summary": "Agent skills provide a lightweight way to adapt LLM agents to specialized domains by storing reusable procedural knowledge in structured files. However, whether downloaded from third parties or self-generated, these skills are often unreliable, incomplete, or outdated. Existing skill-evolution methods often address these deficiencies through heuristic reflections without an explicit optimization formulation. In this paper, we propose SkillGrad, a gradient-descent-inspired framework for optimizing agent skills. SkillGrad treats the skill package as a structured parameter to optimize in a gradient descent fashion: task executions provide trajectory-level loss evidence, automatic diagnoses then provide text-based gradients that indicate the correction directions. To stabilize optimization across iterations, a momentum agent accumulates recurring diagnostic patterns into a persistent memory overlay. Finally, an LLM-based patcher executes the parameter update by applying layer-aware edits to the skill package. Evaluated on SpreadsheetBench Verified and WikiTableQuestions, SkillGrad consistently outperforms training-based skill evolution baselines across two backbone LLMs, improving over the strongest training-based baseline by 6.7 percentage points on average. Ablations further show that momentum and contrastive diagnosis both contribute to the final skill quality.",
+      "hotness": 7
+    },
+    {
+      "id": "paper-2605.27268",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Lost in Sampling: Assessing Lexical Reachability in LLMs via the Word Coverage Score (WCS)",
+      "authors": "Samer Awad, Javier Conde, Carlos Arriaga et al.",
+      "published": "2026-05-25",
+      "url": "https://arxiv.org/abs/2605.27268",
+      "raw_summary": "Modern Large Language Models (LLMs) are often criticized for producing repetitive and homogeneous text, despite possessing vast latent vocabularies. While previous research has focused on model knowledge and training data, we investigate the role of decoding mechanics in suppressing linguistic diversity. We introduce the Word Coverage Score (WCS), a metric that quantifies the extent to which contextually appropriate human vocabulary is mathematically pruned by standard sampling filters (e.g., Top-p, Top-k, and Min-p). Rather than assessing static knowledge, the WCS measures the lexical survival rate of low-frequency, high-information human words as a function of sampling parameters. By auditing open-weight models on human-authored corpus fragments, we identify which logical lexical choices are rendered unreachable by the decoder, even when they reside within the probability space. Our results provide quantitative evidence that industry-standard sampling defaults act as unintended censorship mechanisms, smoothing the unique textures of human expression into a homogenized discourse. The WCS offers a rigorous framework for optimizing the trade-off between text coherence and lexical richness, providing a diagnostic tool for preserving the diversity of human language in generative models.",
+      "hotness": 7
+    },
+    {
+      "id": "paper-2605.27466",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "AgensFlow: A Coordination-Policy Substrate for Multi-Agent Systems",
+      "authors": "Nicole Koenigstein",
+      "published": "2026-05-25",
+      "url": "https://arxiv.org/abs/2605.27466",
+      "raw_summary": "Multi-agent systems built on large language models (LLMs) require many coordination choices that are difficult to fix a priori: which skill protocol to invoke, which agent role should perform a subtask, which model to bind to each role, how roles should interact, when to use retrieval or verification, and when to omit a step entirely. These choices interact with task regime and operational constraints, so static pipelines and one-off model comparisons provide only a limited view of the design space. This paper introduces AgensFlow, an open-source framework that treats multi-agent coordination as an online policy-learning problem under partial observability. The framework makes coordination decisions observable and learnable from repeated trajectories, rather than treating skill, role, model, topology, and evaluation choices as fixed pipeline design.   AgensFlow is evaluated on two corpora: distributed-systems incident tasks and security-advisory tasks. The evaluation shows three main results: learned routing reaches a higher-quality operating point than a fixed pipeline baseline on coordination-heavy classes; skip:X isolates topology compression as a meaningful part of the substrate; and warm-started policy graphs can reduce exploration cost while preserving plateau quality. Overall, the results support that learned, auditable routing can improve coordination-heavy multi-agent workflows over static wiring.",
+      "hotness": 3
+    },
+    {
+      "id": "paper-2605.24486",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "AgentFugue: Agent Scaling for Long-Horizon Tasks through Collective Reasoning",
+      "authors": "Yuyang Hu, Hongjin Qian, Shuting Wang et al.",
+      "published": "2026-05-22",
+      "url": "https://arxiv.org/abs/2605.24486",
+      "raw_summary": "Recent progress on long-horizon agentic tasks has been driven largely by scaling up individual agents through stronger models, better tools, and more effective scaffolding. In contrast, much less is understood about scaling out: whether multiple peer agents, all targeting the same task, can become an additional source of capability without relying on explicit role specialization or workflow orchestration. We study this question and propose AgentFugue, a collective reasoning framework built around a shared reasoning hub. As peer agents explore the same task in parallel, the hub records concise notes on what each agent has established, attempted, or ruled out, and enables each agent to selectively access what other agents have discovered in a form useful for its current search. This design turns otherwise isolated trajectories into a connected ecology of reusable intermediate reasoning without requiring centralized planning. We instantiate the hub as a plug-in communication layer, trained with supervised fine-tuning and end-to-end reinforcement learning. Across the challenging long-horizon settings we study, AgentFugue improves over strong baselines. Our results suggest that collective reasoning can turn scaling out peer agent systems into a distinct source of capability gains, rather than merely a way of spending more compute.",
+      "hotness": 2
+    },
+    {
+      "id": "paper-2605.27908",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "ESC-Skills: Discovering and Self-Evolving Skills for Emotional Support Conversations",
+      "authors": "Jie Zhu, Huaixia Dou, Shuo Jiang et al.",
       "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28184",
-      "raw_summary": "Reinforcement Learning from Verifiable Rewards (RLVR) has emerged as the standard paradigm for improving reasoning capability of large language models, while Multi-Token Prediction (MTP) has been a widely adopted module in pretraining. Combining them is a natural approach, yet current RL practices detach MTP gradients because joint training degrades the performance. We revisit this failure from an optimization perspective. We show that the per-step effect of MTP on the RL objective can be decomposed into two terms: a first-order correlation and a second-order perturbation penalty. This decomposition unifies three MTP training regimes: Detach, Cross-Entropy loss, and Policy loss, and explains why each succeeds or fails. Further analysis of policy loss reveals that, although it aligns with intuition, performance still degrades: the correlation term decays while the quadratic penalty persists. Guided by the analysis, we propose Optimal Coefficient Calibration (OCC), an adaptive scheme that tracks the optimal coefficient online via a log-probability proxy at negligible cost. Across six competition-level mathematical reasoning benchmarks, OCC consistently matches or exceeds the detach baseline, delivering improved joint MTP-RL training performance.",
-      "hotness": 4
+      "url": "https://arxiv.org/abs/2605.27908",
+      "raw_summary": "Existing emotional support conversation (ESC) systems mainly rely on end-to-end response generation or coarse strategy supervision, offering limited interpretability and little support for systematic skill improvement. We propose ESC-Skills, a skill-centric framework that discovers and self-evolves executable emotional support skills. We first model localized support interactions as Intervention Units (IUs), which capture state--action--outcome dynamics between seeker states, support interventions, and post-response emotional changes. Based on IUs extracted from both successful and failed ESC dialogues, we construct the ESC-Skills Bank, a repository of executable emotional support skills containing intervention guidance, applicability conditions, expected outcomes, and potential risks. To further improve robustness, we introduce a multi-profile self-evolutionary refinement framework in which an ESC agent interacts with diverse simulated seeker profiles under SAGE evaluation. The resulting interaction traces are analyzed to identify missing skills, unsafe interventions, and profile-specific failure patterns, which are then used to refine the Skills Bank through simulation-based verification. Experimental results demonstrate that ESC-Skills improves both response-level quality and dialogue-level emotional outcomes while providing more interpretable and controllable support behaviors. We will release the code, prompts, and ESC-Skills Bank at https://github.com/aliyun/qwen-dianjin.",
+      "hotness": 2
     },
     {
       "id": "paper-2605.28819",
@@ -170,30 +206,6 @@
       "hotness": 2
     },
     {
-      "id": "paper-2605.27905",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "AI Research Agents Narrow Scientific Exploration",
-      "authors": "Yixuan Tang, Yi Yang",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.27905",
-      "raw_summary": "AI research agents can now generate research ideas, design experiments, run code, and draft papers, raising the possibility of large-scale AI-assisted scientific discovery. Many current agent frameworks explicitly encourage the generation of novel and high-impact ideas. Yet it remains unclear whether AI-assisted ideation broadens scientific exploration or mainly concentrates around existing work. We study AI research agents as scientific search systems. Using four AI research-agent frameworks and six large language models, we generate 37,802 scientific ideas from shared seed literature across citation-defined research areas in AI and machine learning. We then compare the resulting AI ideas against human-authored papers from the same research areas, follow-on human research emerging from the same seed literature, and the seed literature itself. Across experiments, four consistent patterns emerge. First, AI-generated ideas are substantially more concentrated than human-authored papers from the same research areas. Second, AI-generated ideas remain much closer to their starting literature than later human follow-on work does. Third, papers most similar to AI-generated ideas tend to receive lower subsequent citations. Fourth, when AI-generated ideas differ from prior work, the differences arise primarily from recombining existing technical methods rather than introducing fundamentally new research questions. Overall, current AI research agents appear better suited to local elaboration than to broadening scientific exploration.",
-      "hotness": 2
-    },
-    {
-      "id": "paper-2605.26457",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Verus-SpecGym: An Agentic Environment for Evaluating Specification Autoformalization",
-      "authors": "Anmol Agarwal, Natalie Neamtu, Pranjal Aggarwal et al.",
-      "published": "2026-05-25",
-      "url": "https://arxiv.org/abs/2605.26457",
-      "raw_summary": "AI coding agents are increasingly used to write real-world software, but ensuring that their outputs are correct remains a fundamental challenge. Formal verification offers a promising path: an agent generates code together with a machine-checked proof, guaranteeing that the code satisfies a formal specification. However, there is no guarantee that the formal spec itself matches the user's intent. In this work, we study specification autoformalization: whether LLM agents can translate informal programming problems into faithful formal specifications. We introduce Verus-SpecBench, a benchmark of 581 spec-writing tasks derived from Codeforces problems targeting Verus, a verifier for Rust, and Verus-SpecGym, an agentic environment in which models interact with Verus, bash, & the filesystem to develop these specs. The central challenge is evaluation: expert-written reference specs are expensive to write, & LLM judges can miss subtle mistakes. We address this by (a) extending Verus's exec_spec mechanism so that generated specs can be executed as Rust code, & (b) testing them against official Codeforces tests & adversarial cases extracted from Codeforces \"hacks\", which are edge cases written by competitors to break incorrect solutions. On Verus-SpecBench, the strongest model, Gemini 3.1 Pro, solves 77.8% of tasks, other frontier models solve 51.1--57.8% & OSS models reach only 21.5--25.5%. Our analysis of failure modes shows that model-generated specs can omit important input assumptions, accept incorrect outputs, & reject valid ones. We also find that LLM-as-a-judge evaluation misses 26% of the failures our evaluator catches. Overall, our results suggest that spec autoformalization is within reach for frontier agents but remains brittle even on problems where they can already generate correct code. The code, data, & logs can be found at https://github.com/formal-verif-is-cool/verus-spec-gym",
-      "hotness": 2
-    },
-    {
       "id": "paper-2605.26396",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -203,42 +215,30 @@
       "published": "2026-05-24",
       "url": "https://arxiv.org/abs/2605.26396",
       "raw_summary": "Large multimodal models (LMMs) have rapidly advanced in perception and reasoning; however, it remains unclear whether these capabilities generalize to discovering visually grounded solutions in open-ended environments, beyond pattern recognition. In such settings, intelligence requires more than answering well-posed questions: it involves identifying how elements in a scene can be repurposed in non-obvious yet physically feasible ways. This form of creative problem-solving is central to human intelligence, but remains largely untested in current benchmarks. To evaluate this ability, we introduce MM-CreativityBench, a benchmark for affordance-grounded creative tool use in visually rich, physically constrained environments. Each instance presents a scenario image with structured views of candidate entities and their parts, enabling fine-grained, interactive evaluation of how models iteratively inspect the scene, identify relevant affordances, and compose visually and physically grounded solutions. Our experiments show that current LMMs often fall short, not due to lack of generative capability, but because they do not sustain grounded exploration. Models often overlook relevant entities, under-examine critical parts, or hallucinate attributes not grounded in the image. Motivated by this failure mode, we propose affordance-grounded alignment, which casts creative tool use as a preference learning problem. Using Direct Preference Optimization, we encourage models to prefer attribute-affordance reasoning grounded in visual evidence over hallucinated alternatives. In addition, we incorporate supervision derived from an affordance knowledge base to guide broader entity exploration and multi-turn planning. Our results show consistent gains in selecting the correct entities and parts, while substantially reducing hallucination and grounding-related errors.",
+      "hotness": 2
+    },
+    {
+      "id": "paper-2605.27824",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Revealing Algorithmic Deductive Circuits for Logical Reasoning",
+      "authors": "Phuong Minh Nguyen, Tien Huu Dang, Naoya Inoue",
+      "published": "2026-05-26",
+      "url": "https://arxiv.org/abs/2605.27824",
+      "raw_summary": "Recent studies have shown that Large Language Models (LLMs) can achieve strong reasoning performance by incorporating functional symbolic representations that abstractly describe graph traversal algorithms and step-by-step reasoning in few-shot learning settings. However, it remains unclear how LLMs genuinely understand the abstract meaning of each reasoning step and the overall algorithm from only a limited number of demonstrations. This work aims to localize the attention heads responsible for individual reasoning steps and characterize the types of information transferred among them. We first align constituent reasoning steps with their corresponding token logits under a symbolic-aided Chain-of-Thought (CoT) prompting framework. Our analysis shows that token positions that steer the reasoning process are associated with low confidence scores caused by constraints on satisfying reasoning behavior patterns in demonstrations. We then adopt causal mediation analysis techniques to identify the attention heads responsible for these patterns. In addition, our findings indicate that LLMs retrieve factual and rule-based information for individual sub-reasoning tasks through specialized attention heads (approximately 3% total heads), whereas higher layers predominantly facilitate information integration and the emergence of global reasoning strategies (e.g., graph traversal algorithms) that coordinate multiple intermediate reasoning steps to solve the overall task.",
       "hotness": 1
     },
     {
-      "id": "paper-2605.27466",
+      "id": "paper-2605.28034",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "AgensFlow: A Coordination-Policy Substrate for Multi-Agent Systems",
-      "authors": "Nicole Koenigstein",
-      "published": "2026-05-25",
-      "url": "https://arxiv.org/abs/2605.27466",
-      "raw_summary": "Multi-agent systems built on large language models (LLMs) require many coordination choices that are difficult to fix a priori: which skill protocol to invoke, which agent role should perform a subtask, which model to bind to each role, how roles should interact, when to use retrieval or verification, and when to omit a step entirely. These choices interact with task regime and operational constraints, so static pipelines and one-off model comparisons provide only a limited view of the design space. This paper introduces AgensFlow, an open-source framework that treats multi-agent coordination as an online policy-learning problem under partial observability. The framework makes coordination decisions observable and learnable from repeated trajectories, rather than treating skill, role, model, topology, and evaluation choices as fixed pipeline design.   AgensFlow is evaluated on two corpora: distributed-systems incident tasks and security-advisory tasks. The evaluation shows three main results: learned routing reaches a higher-quality operating point than a fixed pipeline baseline on coordination-heavy classes; skip:X isolates topology compression as a meaningful part of the substrate; and warm-started policy graphs can reduce exploration cost while preserving plateau quality. Overall, the results support that learned, auditable routing can improve coordination-heavy multi-agent workflows over static wiring.",
-      "hotness": 0
-    },
-    {
-      "id": "paper-2605.23163",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Fast-dDrive: Efficient Block-Diffusion VLM for Autonomous Driving",
-      "authors": "Kewei Zhang, Jin Wang, Sensen Gao et al.",
-      "published": "2026-05-24",
-      "url": "https://arxiv.org/abs/2605.23163",
-      "raw_summary": "End-to-end autonomous driving via Vision-Language-Action (VLA) models demands a precarious balance between high-fidelity trajectory planning and efficient inference. Existing paradigms typically fall short: autoregressive (AR) VLAs are memory-bandwidth-bound on edge hardware and prone to exposure-bias drift, while full-sequence diffusion models preclude KV-cache reuse and suffer from \"logical leakage\" that violates the fundamental perceive-then-plan causality. We present Fast-dDrive, a block-diffusion VLA that performs bidirectional refinement within semantic units while enforcing strict causal ordering across them. Leveraging the observation that driving VLAs often emit structured JSON-like outputs, Fast-dDrive freezes structural tokens into a section scaffold and employs a section-aware training recipe that prioritizes safety-critical planning. We further introduce Scaffold Speculative Decoding to achieve AR-equivalent quality at significantly higher throughput. Finally, we propose a low-overhead test-time scaling scheme: by forking N stochastic trajectory rollouts from a single shared-prefix KV cache and averaging them, we effectively suppress prediction variance at a fractional computational cost. Empirical results demonstrate that Fast-dDrive redefines the speed-accuracy frontier for driving agents. On the WOD-E2E test set, Fast-dDrive achieves SOTA ADE@3s and ADE@5s, alongside the highest RFS among diffusion-based VLAs; on nuScenes, it reduces average L2 error to 0.32m (a 22% improvement). When integrated with SGLang, our framework delivers 12times throughput speedup over the AR baseline, narrowing the gap between high-capacity VLAs and the efficiency demands of real-time on-vehicle deployment.",
-      "hotness": 0
-    },
-    {
-      "id": "paper-2605.27762",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "PEAM: Parametric Embodied Agent Memory through Contrastive Internalization of Experience in Minecraft",
-      "authors": "Yuchen Guo, Junli Gong, Hongmin Cai et al.",
-      "published": "2026-05-25",
-      "url": "https://arxiv.org/abs/2605.27762",
-      "raw_summary": "We present PEAM, a Parametric Embodied Agent Memory framework in Minecraft that transforms agent memory from inference-time retrieval into parameter-resident skills internalized through experience. PEAM pairs a slow deliberative LLM for open-ended reasoning with a fast parametric module for reflexive execution of consolidated skills. The fast module is a multimodal Mixture-of-Experts LoRA architecture with per-category physically isolated adapters, enabling parameter-level continual learning without catastrophic forgetting. We treat failure as a first-class training signal: failure--correction trajectory pairs are internalized through a joint behavioral-cloning and contrastive objective, so the agent learns not only what succeeds but also how corrected actions differ from failed ones. To govern consolidation, PEAM introduces a parameterization-worthiness score for deciding which experience should be internalized, and a scale-free self-triggered consolidation mechanism for deciding when to internalize without task-specific hand-tuned thresholds, making the agent self-evolving as the trigger transfers across task distributions without re-tuning. Experiments in Minecraft show that PEAM improves long-horizon task performance, mitigates forgetting on previously consolidated skills, and improves parametric-versus-retrieval efficiency over retrieval-based embodied agents and parametric memory variants.",
+      "title": "Clark Hash: Stateless Sparse Johnson-Lindenstrauss Quantization for Neural Embeddings",
+      "authors": "Stanislav Kirdey, Clark Labs Inc",
+      "published": "2026-05-26",
+      "url": "https://arxiv.org/abs/2605.28034",
+      "raw_summary": "Clark Hash is a small method for storing neural embeddings in less space. It normalizes each database vector, applies a deterministic sparse signed Johnson-Lindenstrauss projection, clips the result, and stores a fixed-width scalar-quantized code. Queries stay in floating point and are scored against the stored sketches. In the default 384-dimensional sentence-embedding setting, Clark Hash stores a cosine-search vector in 48 bytes instead of 1536 bytes for dense f32 storage. This is 32x smaller. The method does not need a training pass, learned codebooks, rotations, or corpus statistics before new vectors can be stored. We describe the codec, the Rust implementation, and a multilingual sentence-similarity evaluation on 9,304 labeled pairs from 29 subsets. With a multilingual MiniLM encoder, the 48-byte sketches reached 0.910 and 0.946 macro Pearson correlation with dense cosine scores on STS17 and STS22. Clark Hash is not a new Johnson-Lindenstrauss theorem and it is not a replacement for approximate nearest-neighbor indexes. It is a simple stateless codec for compact embedding storage.",
       "hotness": 0
     },
     {
@@ -325,15 +325,15 @@
       "raw_summary": "The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-23552049",
+      "id": "news-gh-934663585",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Cisco and OpenAI redefine enterprise engineering with Codex",
-      "authors": "OpenAI",
-      "published": "2026-05-27",
-      "url": "https://openai.com/index/cisco",
-      "raw_summary": "Cisco and OpenAI are redefining enterprise engineering with Codex, helping Cisco scale AI-native development, accelerate AI Defense work, and automate defect remediation."
+      "source": "阶跃星辰 Step · GitHub",
+      "region": "国内",
+      "title": "stepfun-ai/vllm",
+      "authors": "阶跃星辰 Step",
+      "published": "2026-05-28",
+      "url": "https://github.com/stepfun-ai/vllm",
+      "raw_summary": "A high-throughput and memory-efficient inference and serving engine for LLMs"
     }
   ],
   "reports": []
