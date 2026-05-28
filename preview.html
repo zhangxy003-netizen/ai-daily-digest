@@ -52,13 +52,21 @@
 
   /* 筛选 Tab */
   .tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
-    margin:34px 0 6px;padding-bottom:26px;border-bottom:1px solid var(--rule)}
+    margin:34px 0 0;padding-bottom:14px}
   .tab{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;
     text-transform:uppercase;padding:8px 18px;border:1px solid var(--rule);
     background:transparent;color:var(--ink-soft);cursor:pointer;border-radius:2px;
     transition:all .2s}
   .tab:hover{border-color:var(--accent);color:var(--accent)}
   .tab.active{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+
+  .topic-bar{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
+    padding-bottom:26px;border-bottom:1px solid var(--rule)}
+  .topic-chip{font-family:var(--font-serif-cn);font-size:.76rem;
+    padding:5px 13px;border:1px solid var(--rule);border-radius:20px;
+    background:transparent;color:var(--ink-faint);cursor:pointer;transition:all .2s}
+  .topic-chip:hover{border-color:var(--accent);color:var(--accent)}
+  .topic-chip.active{background:var(--accent);color:var(--paper);border-color:var(--accent)}
 
   .papers{padding:34px 0 80px}
   .paper{background:var(--card);border:1px solid var(--rule);border-radius:2px;
@@ -70,11 +78,12 @@
   .paper.hide{display:none}
   .paper-head{padding:24px 30px 16px;cursor:pointer}
   .tagrow{display:flex;gap:8px;align-items:center;margin-bottom:13px;flex-wrap:wrap}
-  .type-badge{font-family:var(--font-mono);font-size:.62rem;font-weight:500;
-    letter-spacing:.1em;padding:3px 9px;border-radius:2px;color:#fff;text-transform:uppercase}
+  .type-badge{font-family:var(--font-mono);font-size:.62rem;font-weight:500;    letter-spacing:.1em;padding:3px 9px;border-radius:2px;color:#fff;text-transform:uppercase}
   .type-paper{background:var(--paper-c)} .type-news{background:var(--news-c)}
   .type-report{background:var(--report-c)}
   .src{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-faint);letter-spacing:.04em}
+  .topic-mark{font-family:var(--font-serif-cn);font-size:.66rem;color:var(--accent);
+    background:rgba(26,58,92,.07);padding:2px 8px;border-radius:10px}
   .date{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-faint);
     letter-spacing:.06em;margin-left:auto}
   .paper h2{font-family:var(--font-serif-en);font-weight:500;font-size:1.46rem;line-height:1.25;margin-bottom:6px}
@@ -87,17 +96,9 @@
     padding-bottom:3px;margin-bottom:9px;text-transform:uppercase}
 
   /* 计数条 */
-  .stats-bar{display:flex;align-items:center;gap:18px;padding:12px 30px;
+  .stats-bar{display:flex;align-items:center;justify-content:flex-end;padding:12px 30px;
     border-top:1px solid var(--rule);font-family:var(--font-mono);font-size:.74rem}
-  .stat{display:flex;align-items:center;gap:6px;color:var(--ink-faint)}
-  .like-btn{display:flex;align-items:center;gap:6px;cursor:pointer;background:none;border:none;
-    font-family:inherit;font-size:.74rem;color:var(--ink-soft);padding:4px 8px;border-radius:3px;
-    transition:all .2s}
-  .like-btn:hover{background:var(--paper-2)}
-  .like-btn.liked{color:#c0392b}
-  .like-btn .heart{font-size:.95rem;transition:transform .25s}
-  .like-btn.liked .heart{transform:scale(1.25)}
-  .toggle{margin-left:auto;display:flex;align-items:center;gap:7px;cursor:pointer;
+  .toggle{display:flex;align-items:center;gap:7px;cursor:pointer;
     font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;
     text-transform:uppercase;color:var(--accent)}
   .toggle .arrow{transition:transform .3s}
@@ -171,7 +172,31 @@
     .masthead{padding-top:32px}.masthead .meta{font-size:.58rem}
     .cmp-row{grid-template-columns:1fr;gap:3px;text-align:left}
     .stats-bar{gap:12px;flex-wrap:wrap}
+    .issue-nav{flex-wrap:wrap}
   }
+
+  .issue-nav{display:flex;align-items:center;justify-content:center;gap:10px;
+    margin-top:16px;padding-top:14px}
+  .inav-btn{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;
+    padding:6px 12px;border:1px solid var(--rule);background:transparent;
+    color:var(--ink-soft);cursor:pointer;border-radius:2px;transition:all .2s}
+  .inav-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+  .inav-btn:disabled{opacity:.35;cursor:not-allowed}
+  .inav-select{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.04em;
+    padding:6px 12px;border:1px solid var(--rule);background:var(--card);
+    color:var(--ink);cursor:pointer;border-radius:2px}
+
+  .site-stats{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:20px}
+  .site-stat{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-faint)}
+  .site-stat .ss-icon{font-size:.85rem}
+  .site-like-btn{display:inline-flex;align-items:center;gap:5px;cursor:pointer;
+    background:transparent;border:1px solid var(--rule);border-radius:2px;
+    font-family:var(--font-mono);font-size:.74rem;letter-spacing:.04em;
+    color:var(--ink-soft);padding:5px 12px;transition:all .2s}
+  .site-like-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .site-like-btn.liked{color:#c0392b;border-color:#c0392b}
+  .site-like-btn .heart{font-size:.9rem;transition:transform .25s}
+  .site-like-btn.liked .heart{transform:scale(1.25)}
 </style>
 </head>
 <body>
@@ -179,10 +204,20 @@
   <div class="wrap">
     <div class="kicker">Daily AI Digest · 每日精选</div>
     <h1>The AI Reader<span class="zh">AI 论文日读</span></h1>
+    <div class="site-stats">
+      <span class="site-stat"><span class="ss-icon">👁</span> <span id="site-views">0</span> 次访问</span>
+      <button class="site-like-btn" id="site-like-btn" onclick="siteLike()">
+        <span class="heart">♡</span> <span id="site-likes">0</span> 人喜欢</button>
+    </div>
     <div class="meta">
-      <span>第 No.001 期</span>
+      <span id="issue-no">第 No.001 期</span>
       <span id="issue-date">更新中…</span>
       <span>论文 · 行业新闻 · 发布报告</span>
+    </div>
+    <div class="issue-nav" id="issue-nav">
+      <button class="inav-btn" id="prev-issue" title="上一期">‹ 上一期</button>
+      <select class="inav-select" id="issue-select"></select>
+      <button class="inav-btn" id="next-issue" title="下一期">下一期 ›</button>
     </div>
   </div>
 </header>
@@ -195,6 +230,7 @@
     <button class="tab" data-f="news">行业新闻</button>
     <button class="tab" data-f="report">发布报告</button>
   </nav>
+  <nav class="topic-bar" id="topic-bar"></nav>
 </div>
 
 <main class="wrap papers" id="list"><div class="empty">正在加载今日内容…</div></main>
@@ -206,121 +242,60 @@
 
 <script>
 const TYPE_LABEL={paper:"论文",news:"新闻",report:"报告"};
+const EMBEDDED_ISSUES={"issues": [{"date": "2026-05-25", "issue_no": 3, "count": 4}, {"date": "2026-05-24", "issue_no": 2, "count": 4}, {"date": "2026-05-23", "issue_no": 1, "count": 4}], "latest": "2026-05-25", "total_issues": 3};
+const EMBEDDED_ARCHIVES={"2026-05-25": {"date": "2026-05-25", "issue_no": 3, "items": [{"id": "report-deepseek-v4", "type": "report", "source": "DeepSeek · 发布报告", "region": "国内", "title": "DeepSeek-V4 Preview Technical Report", "title_zh": "DeepSeek-V4 预览版技术报告", "authors": "DeepSeek", "published": "2026-04-24", "url": "https://github.com/deepseek-ai", "tldr": "国产开源旗舰 V4 发布,以极低价格逼近顶级闭源模型,改写 AI 部署的成本逻辑。", "explain": "如果说 2025 年初的 R1 让世界第一次认真看待中国的开源大模型,那么 2026 年 4 月发布的 DeepSeek-V4,则把这件事推到了新的高度。它最震撼的地方不是某项能力登顶,而是用远低于对手的价格,做到了和顶级闭源模型相当接近的水平——这直接动摇了'强大模型必然昂贵'的固有认知。\nV4 采用混合专家(MoE)架构,分两个版本:Pro 版总参数高达 1.6 万亿、但每次只激活约 490 亿,以 MIT 协议开源;Flash 版更轻量、主打高性价比。在公认较硬的编程评测 SWE-bench Verified 上,V4-Pro 取得了约 80% 的成绩,与同期的 GPT 与 Claude 顶级版本只差个位数,而调用价格却是它们的几分之一甚至更低。开源 + 低价 + 接近顶尖,这三者同时成立,在过去是难以想象的。\n它的意义在于,对成本敏感的产品和初创团队而言,'用得起的强模型'终于成为现实,这会加速 AI 在真实业务里的落地。对求职者来说,这也提示了一个趋势:模型本身在快速平价化,真正稀缺的是能把这些模型工程化、用出价值的人。局限在于,它在部分榜单上仍略逊于最顶尖的闭源模型,且开源模型的工程适配与安全治理仍需投入。", "figure": {"kind": "compare", "title": "V4 相对顶级闭源模型", "rows": [{"label": "授权方式", "a": "闭源 API", "b": "MIT 开源"}, {"label": "编程能力", "a": "略领先", "b": "仅差个位数"}, {"label": "调用价格", "a": "高", "b": "低数倍以上"}]}, "terms": [{"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个,省算力。"}, {"term": "SWE-bench", "desc": "衡量模型解决真实代码问题能力的权威评测。"}], "summary": "国产开源模型把'强大'和'便宜'同时实现,值得在面试里作为'AI 平价化趋势'的有力例证。", "tags": ["DeepSeek", "开源大模型", "MoE"], "topics": ["大模型/LLM", "效率优化"]}, {"id": "paper-2505.01234", "type": "paper", "source": "arXiv · cs.LG", "title": "Scaling Laws for Mixture-of-Experts Language Models", "title_zh": "混合专家语言模型的缩放定律", "authors": "Jiaxin Li, Wei Chen, et al.", "published": "2026-05-24", "url": "https://arxiv.org/abs/2505.01234", "tldr": "系统研究 MoE 架构在不同规模下的性能规律,提出可预测的缩放公式。", "explain": "训练一个更强的大模型,最朴素的办法是把参数堆得更多,但参数越多,训练和推理的算力开销就越大,很快贵到用不起。研究者一直在找一种办法:既扩大模型的'知识容量',又不让每次计算都把全部参数跑一遍。混合专家(MoE)就是这个思路的代表——它把模型拆成很多个'专家'子网络,但每次只激活其中最相关的几个,好比一家大公司养了几十位专家,可每个具体问题只请最对口的两三位出场,其余的歇着。\n这篇论文要解决的,是 MoE 长期以来的一个痛点:到底该设多少个专家、每次激活几个、模型总规模多大,才能让效果和成本达到最优?过去这些大多靠经验试错,既费钱又没把握。作者通过大规模的系统实验,拟合出一组数学上的缩放定律,把'专家数量、激活比例、模型规模、最终性能'之间的关系用公式描述出来。这意味着在真正烧钱训练之前,就能先用公式估算出一个接近最优的配置。\n它的价值在于把 MoE 的设计从'炼丹式'的反复试错,变成了'看配方做菜'的可预测工程,对需要严格控制算力预算的工业界尤其重要。局限在于,这些定律是在特定实验设定下拟合的,换了数据分布、训练目标或硬件,公式的系数可能需要重新校准。", "figure": {"kind": "compare", "title": "稠密模型 vs 混合专家(MoE)", "rows": [{"label": "参数激活", "a": "全部 100%", "b": "仅 ~12%"}, {"label": "同算力容量", "a": "基准", "b": "可大 5–8×"}, {"label": "训练调参", "a": "靠经验试错", "b": "可按公式预测"}]}, "terms": [{"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个的架构。"}, {"term": "缩放定律 Scaling Law", "desc": "描述模型规模与性能之间可预测关系的经验公式。"}], "summary": "把 MoE 训练从'玄学调参'变成'可预测的工程',是大模型规模化绕不开的方向,也是工程岗常考的知识点。", "tags": ["大模型", "MoE", "缩放定律"], "topics": ["效率优化", "大模型/LLM"]}, {"id": "news-openai-2505", "type": "news", "source": "OpenAI Blog", "title": "OpenAI announces new enterprise agent platform", "title_zh": "OpenAI 发布全新企业级智能体平台", "authors": "OpenAI", "published": "2026-05-24", "url": "https://openai.com/blog", "tldr": "面向企业的 Agent 编排平台,支持多智能体协作、工具调用与流程自动化。", "explain": "过去一两年,'AI Agent(智能体)'是最热的概念之一:让 AI 不只是回答问题,而是能像员工一样自己规划步骤、调用工具、完成一整个任务。但概念热归热,真正能让企业稳定、安全地用起来的成熟产品并不多,大多停留在演示阶段。\nOpenAI 这次发布的企业级智能体平台,核心是把几件原本要自己开发的事打包成了开箱即用的能力:多个智能体之间的协作分工、对外部工具和数据源的调用、以及把这些串成可自动执行的工作流。更关键的是它强调'无需写代码',意味着企业里不懂编程的业务人员也能配置自己的 AI 流程。这把 Agent 从工程师的玩具,推向了普通企业的生产工具。\n这件事的信号意义大于单个产品本身:它说明大模型的竞争焦点正在从'模型谁更聪明'转移到'谁能让企业真正用顺手'。对正在找工作的人来说,这预示着 Agent 工程、工作流编排、企业落地这类岗位会持续升温。局限在于,真实企业流程往往复杂且各不相同,平台能覆盖多少'最后一公里',还要看实际落地效果。", "figure": {"kind": "flow", "title": "企业 Agent 工作流", "steps": ["接收任务", "多智能体分工", "调用工具/数据", "自动执行", "产出结果"]}, "terms": [{"term": "Agent 智能体", "desc": "能自主规划步骤、调用工具来完成任务的 AI 系统。"}, {"term": "编排 Orchestration", "desc": "协调多个智能体与工具按顺序协作的调度机制。"}], "summary": "Agent 从研究概念正式走向企业生产环境;对求职者意味着 Agent 工程与工作流编排会是热门方向。", "tags": ["OpenAI", "Agent", "企业应用"], "topics": ["Agent/智能体", "应用落地"]}, {"id": "report-aiindex-2026", "type": "report", "source": "Stanford HAI", "title": "The 2026 AI Index Report", "title_zh": "2026 年度 AI 指数报告", "authors": "Stanford HAI", "published": "2026-05-22", "url": "https://aiindex.stanford.edu", "tldr": "斯坦福 HAI 年度报告,用数据全景呈现过去一年 AI 的技术、投资、就业趋势。", "explain": "面对铺天盖地的 AI 新闻,普通人很难判断哪些是真趋势、哪些只是炒作。斯坦福 HAI 的年度 AI 指数报告之所以被广泛引用,正是因为它不站在任何一家公司的立场,而是汇总大量公开数据,给出一个相对客观的行业全景,是快速建立判断力的高效入口。\n这份报告横跨多个维度:技术上,模型能力与训练规模继续提升,但单位推理成本大幅下降;投资上,资金正从'什么都投'转向更看重落地能力的项目;就业上,AI 相关岗位需求持续走高,且对工程与应用能力的要求超过纯研究。把这些放在一起,能看出行业正在从'比拼模型参数'的阶段,过渡到'比拼谁能把 AI 用出价值'的阶段。\n对校招生而言,这份报告的就业与技能章节几乎是一份'方向地图':它能帮你判断哪些技能在升值、哪些岗位在扩张。局限是报告以宏观统计为主,落到某个具体城市、具体公司的招聘情况,仍需结合一手信息判断。", "figure": {"kind": "stat", "title": "报告核心数据", "stats": [{"num": "+38%", "label": "企业 AI 采用率同比"}, {"num": "2.3×", "label": "AI 岗位需求增幅"}, {"num": "−61%", "label": "推理成本下降"}]}, "terms": [], "summary": "校招必读——就业与技能趋势章节能帮你判断哪些方向在涨,面试引用具体数据也更有信息量。", "tags": ["行业报告", "趋势", "就业"], "topics": ["应用落地"]}]}, "2026-05-24": {"date": "2026-05-24", "issue_no": 2, "items": [{"id": "report-deepseek-v4", "type": "report", "source": "DeepSeek · 发布报告", "region": "国内", "title": "DeepSeek-V4 Preview Technical Report", "title_zh": "DeepSeek-V4 预览版技术报告", "authors": "DeepSeek", "published": "2026-04-24", "url": "https://github.com/deepseek-ai", "tldr": "国产开源旗舰 V4 发布,以极低价格逼近顶级闭源模型,改写 AI 部署的成本逻辑。", "explain": "如果说 2025 年初的 R1 让世界第一次认真看待中国的开源大模型,那么 2026 年 4 月发布的 DeepSeek-V4,则把这件事推到了新的高度。它最震撼的地方不是某项能力登顶,而是用远低于对手的价格,做到了和顶级闭源模型相当接近的水平——这直接动摇了'强大模型必然昂贵'的固有认知。\nV4 采用混合专家(MoE)架构,分两个版本:Pro 版总参数高达 1.6 万亿、但每次只激活约 490 亿,以 MIT 协议开源;Flash 版更轻量、主打高性价比。在公认较硬的编程评测 SWE-bench Verified 上,V4-Pro 取得了约 80% 的成绩,与同期的 GPT 与 Claude 顶级版本只差个位数,而调用价格却是它们的几分之一甚至更低。开源 + 低价 + 接近顶尖,这三者同时成立,在过去是难以想象的。\n它的意义在于,对成本敏感的产品和初创团队而言,'用得起的强模型'终于成为现实,这会加速 AI 在真实业务里的落地。对求职者来说,这也提示了一个趋势:模型本身在快速平价化,真正稀缺的是能把这些模型工程化、用出价值的人。局限在于,它在部分榜单上仍略逊于最顶尖的闭源模型,且开源模型的工程适配与安全治理仍需投入。", "figure": {"kind": "compare", "title": "V4 相对顶级闭源模型", "rows": [{"label": "授权方式", "a": "闭源 API", "b": "MIT 开源"}, {"label": "编程能力", "a": "略领先", "b": "仅差个位数"}, {"label": "调用价格", "a": "高", "b": "低数倍以上"}]}, "terms": [{"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个,省算力。"}, {"term": "SWE-bench", "desc": "衡量模型解决真实代码问题能力的权威评测。"}], "summary": "国产开源模型把'强大'和'便宜'同时实现,值得在面试里作为'AI 平价化趋势'的有力例证。", "tags": ["DeepSeek", "开源大模型", "MoE"], "topics": ["大模型/LLM", "效率优化"]}, {"id": "paper-2505.01234", "type": "paper", "source": "arXiv · cs.LG", "title": "Scaling Laws for Mixture-of-Experts Language Models", "title_zh": "混合专家语言模型的缩放定律", "authors": "Jiaxin Li, Wei Chen, et al.", "published": "2026-05-24", "url": "https://arxiv.org/abs/2505.01234", "tldr": "系统研究 MoE 架构在不同规模下的性能规律,提出可预测的缩放公式。", "explain": "训练一个更强的大模型,最朴素的办法是把参数堆得更多,但参数越多,训练和推理的算力开销就越大,很快贵到用不起。研究者一直在找一种办法:既扩大模型的'知识容量',又不让每次计算都把全部参数跑一遍。混合专家(MoE)就是这个思路的代表——它把模型拆成很多个'专家'子网络,但每次只激活其中最相关的几个,好比一家大公司养了几十位专家,可每个具体问题只请最对口的两三位出场,其余的歇着。\n这篇论文要解决的,是 MoE 长期以来的一个痛点:到底该设多少个专家、每次激活几个、模型总规模多大,才能让效果和成本达到最优?过去这些大多靠经验试错,既费钱又没把握。作者通过大规模的系统实验,拟合出一组数学上的缩放定律,把'专家数量、激活比例、模型规模、最终性能'之间的关系用公式描述出来。这意味着在真正烧钱训练之前,就能先用公式估算出一个接近最优的配置。\n它的价值在于把 MoE 的设计从'炼丹式'的反复试错,变成了'看配方做菜'的可预测工程,对需要严格控制算力预算的工业界尤其重要。局限在于,这些定律是在特定实验设定下拟合的,换了数据分布、训练目标或硬件,公式的系数可能需要重新校准。", "figure": {"kind": "compare", "title": "稠密模型 vs 混合专家(MoE)", "rows": [{"label": "参数激活", "a": "全部 100%", "b": "仅 ~12%"}, {"label": "同算力容量", "a": "基准", "b": "可大 5–8×"}, {"label": "训练调参", "a": "靠经验试错", "b": "可按公式预测"}]}, "terms": [{"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个的架构。"}, {"term": "缩放定律 Scaling Law", "desc": "描述模型规模与性能之间可预测关系的经验公式。"}], "summary": "把 MoE 训练从'玄学调参'变成'可预测的工程',是大模型规模化绕不开的方向,也是工程岗常考的知识点。", "tags": ["大模型", "MoE", "缩放定律"], "topics": ["效率优化", "大模型/LLM"]}, {"id": "news-openai-2505", "type": "news", "source": "OpenAI Blog", "title": "OpenAI announces new enterprise agent platform", "title_zh": "OpenAI 发布全新企业级智能体平台", "authors": "OpenAI", "published": "2026-05-24", "url": "https://openai.com/blog", "tldr": "面向企业的 Agent 编排平台,支持多智能体协作、工具调用与流程自动化。", "explain": "过去一两年,'AI Agent(智能体)'是最热的概念之一:让 AI 不只是回答问题,而是能像员工一样自己规划步骤、调用工具、完成一整个任务。但概念热归热,真正能让企业稳定、安全地用起来的成熟产品并不多,大多停留在演示阶段。\nOpenAI 这次发布的企业级智能体平台,核心是把几件原本要自己开发的事打包成了开箱即用的能力:多个智能体之间的协作分工、对外部工具和数据源的调用、以及把这些串成可自动执行的工作流。更关键的是它强调'无需写代码',意味着企业里不懂编程的业务人员也能配置自己的 AI 流程。这把 Agent 从工程师的玩具,推向了普通企业的生产工具。\n这件事的信号意义大于单个产品本身:它说明大模型的竞争焦点正在从'模型谁更聪明'转移到'谁能让企业真正用顺手'。对正在找工作的人来说,这预示着 Agent 工程、工作流编排、企业落地这类岗位会持续升温。局限在于,真实企业流程往往复杂且各不相同,平台能覆盖多少'最后一公里',还要看实际落地效果。", "figure": {"kind": "flow", "title": "企业 Agent 工作流", "steps": ["接收任务", "多智能体分工", "调用工具/数据", "自动执行", "产出结果"]}, "terms": [{"term": "Agent 智能体", "desc": "能自主规划步骤、调用工具来完成任务的 AI 系统。"}, {"term": "编排 Orchestration", "desc": "协调多个智能体与工具按顺序协作的调度机制。"}], "summary": "Agent 从研究概念正式走向企业生产环境;对求职者意味着 Agent 工程与工作流编排会是热门方向。", "tags": ["OpenAI", "Agent", "企业应用"], "topics": ["Agent/智能体", "应用落地"]}, {"id": "report-aiindex-2026", "type": "report", "source": "Stanford HAI", "title": "The 2026 AI Index Report", "title_zh": "2026 年度 AI 指数报告", "authors": "Stanford HAI", "published": "2026-05-22", "url": "https://aiindex.stanford.edu", "tldr": "斯坦福 HAI 年度报告,用数据全景呈现过去一年 AI 的技术、投资、就业趋势。", "explain": "面对铺天盖地的 AI 新闻,普通人很难判断哪些是真趋势、哪些只是炒作。斯坦福 HAI 的年度 AI 指数报告之所以被广泛引用,正是因为它不站在任何一家公司的立场,而是汇总大量公开数据,给出一个相对客观的行业全景,是快速建立判断力的高效入口。\n这份报告横跨多个维度:技术上,模型能力与训练规模继续提升,但单位推理成本大幅下降;投资上,资金正从'什么都投'转向更看重落地能力的项目;就业上,AI 相关岗位需求持续走高,且对工程与应用能力的要求超过纯研究。把这些放在一起,能看出行业正在从'比拼模型参数'的阶段,过渡到'比拼谁能把 AI 用出价值'的阶段。\n对校招生而言,这份报告的就业与技能章节几乎是一份'方向地图':它能帮你判断哪些技能在升值、哪些岗位在扩张。局限是报告以宏观统计为主,落到某个具体城市、具体公司的招聘情况,仍需结合一手信息判断。", "figure": {"kind": "stat", "title": "报告核心数据", "stats": [{"num": "+38%", "label": "企业 AI 采用率同比"}, {"num": "2.3×", "label": "AI 岗位需求增幅"}, {"num": "−61%", "label": "推理成本下降"}]}, "terms": [], "summary": "校招必读——就业与技能趋势章节能帮你判断哪些方向在涨,面试引用具体数据也更有信息量。", "tags": ["行业报告", "趋势", "就业"], "topics": ["应用落地"]}]}, "2026-05-23": {"date": "2026-05-23", "issue_no": 1, "items": [{"id": "report-deepseek-v4", "type": "report", "source": "DeepSeek · 发布报告", "region": "国内", "title": "DeepSeek-V4 Preview Technical Report", "title_zh": "DeepSeek-V4 预览版技术报告", "authors": "DeepSeek", "published": "2026-04-24", "url": "https://github.com/deepseek-ai", "tldr": "国产开源旗舰 V4 发布,以极低价格逼近顶级闭源模型,改写 AI 部署的成本逻辑。", "explain": "如果说 2025 年初的 R1 让世界第一次认真看待中国的开源大模型,那么 2026 年 4 月发布的 DeepSeek-V4,则把这件事推到了新的高度。它最震撼的地方不是某项能力登顶,而是用远低于对手的价格,做到了和顶级闭源模型相当接近的水平——这直接动摇了'强大模型必然昂贵'的固有认知。\nV4 采用混合专家(MoE)架构,分两个版本:Pro 版总参数高达 1.6 万亿、但每次只激活约 490 亿,以 MIT 协议开源;Flash 版更轻量、主打高性价比。在公认较硬的编程评测 SWE-bench Verified 上,V4-Pro 取得了约 80% 的成绩,与同期的 GPT 与 Claude 顶级版本只差个位数,而调用价格却是它们的几分之一甚至更低。开源 + 低价 + 接近顶尖,这三者同时成立,在过去是难以想象的。\n它的意义在于,对成本敏感的产品和初创团队而言,'用得起的强模型'终于成为现实,这会加速 AI 在真实业务里的落地。对求职者来说,这也提示了一个趋势:模型本身在快速平价化,真正稀缺的是能把这些模型工程化、用出价值的人。局限在于,它在部分榜单上仍略逊于最顶尖的闭源模型,且开源模型的工程适配与安全治理仍需投入。", "figure": {"kind": "compare", "title": "V4 相对顶级闭源模型", "rows": [{"label": "授权方式", "a": "闭源 API", "b": "MIT 开源"}, {"label": "编程能力", "a": "略领先", "b": "仅差个位数"}, {"label": "调用价格", "a": "高", "b": "低数倍以上"}]}, "terms": [{"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个,省算力。"}, {"term": "SWE-bench", "desc": "衡量模型解决真实代码问题能力的权威评测。"}], "summary": "国产开源模型把'强大'和'便宜'同时实现,值得在面试里作为'AI 平价化趋势'的有力例证。", "tags": ["DeepSeek", "开源大模型", "MoE"], "topics": ["大模型/LLM", "效率优化"]}, {"id": "paper-2505.01234", "type": "paper", "source": "arXiv · cs.LG", "title": "Scaling Laws for Mixture-of-Experts Language Models", "title_zh": "混合专家语言模型的缩放定律", "authors": "Jiaxin Li, Wei Chen, et al.", "published": "2026-05-24", "url": "https://arxiv.org/abs/2505.01234", "tldr": "系统研究 MoE 架构在不同规模下的性能规律,提出可预测的缩放公式。", "explain": "训练一个更强的大模型,最朴素的办法是把参数堆得更多,但参数越多,训练和推理的算力开销就越大,很快贵到用不起。研究者一直在找一种办法:既扩大模型的'知识容量',又不让每次计算都把全部参数跑一遍。混合专家(MoE)就是这个思路的代表——它把模型拆成很多个'专家'子网络,但每次只激活其中最相关的几个,好比一家大公司养了几十位专家,可每个具体问题只请最对口的两三位出场,其余的歇着。\n这篇论文要解决的,是 MoE 长期以来的一个痛点:到底该设多少个专家、每次激活几个、模型总规模多大,才能让效果和成本达到最优?过去这些大多靠经验试错,既费钱又没把握。作者通过大规模的系统实验,拟合出一组数学上的缩放定律,把'专家数量、激活比例、模型规模、最终性能'之间的关系用公式描述出来。这意味着在真正烧钱训练之前,就能先用公式估算出一个接近最优的配置。\n它的价值在于把 MoE 的设计从'炼丹式'的反复试错,变成了'看配方做菜'的可预测工程,对需要严格控制算力预算的工业界尤其重要。局限在于,这些定律是在特定实验设定下拟合的,换了数据分布、训练目标或硬件,公式的系数可能需要重新校准。", "figure": {"kind": "compare", "title": "稠密模型 vs 混合专家(MoE)", "rows": [{"label": "参数激活", "a": "全部 100%", "b": "仅 ~12%"}, {"label": "同算力容量", "a": "基准", "b": "可大 5–8×"}, {"label": "训练调参", "a": "靠经验试错", "b": "可按公式预测"}]}, "terms": [{"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个的架构。"}, {"term": "缩放定律 Scaling Law", "desc": "描述模型规模与性能之间可预测关系的经验公式。"}], "summary": "把 MoE 训练从'玄学调参'变成'可预测的工程',是大模型规模化绕不开的方向,也是工程岗常考的知识点。", "tags": ["大模型", "MoE", "缩放定律"], "topics": ["效率优化", "大模型/LLM"]}, {"id": "news-openai-2505", "type": "news", "source": "OpenAI Blog", "title": "OpenAI announces new enterprise agent platform", "title_zh": "OpenAI 发布全新企业级智能体平台", "authors": "OpenAI", "published": "2026-05-24", "url": "https://openai.com/blog", "tldr": "面向企业的 Agent 编排平台,支持多智能体协作、工具调用与流程自动化。", "explain": "过去一两年,'AI Agent(智能体)'是最热的概念之一:让 AI 不只是回答问题,而是能像员工一样自己规划步骤、调用工具、完成一整个任务。但概念热归热,真正能让企业稳定、安全地用起来的成熟产品并不多,大多停留在演示阶段。\nOpenAI 这次发布的企业级智能体平台,核心是把几件原本要自己开发的事打包成了开箱即用的能力:多个智能体之间的协作分工、对外部工具和数据源的调用、以及把这些串成可自动执行的工作流。更关键的是它强调'无需写代码',意味着企业里不懂编程的业务人员也能配置自己的 AI 流程。这把 Agent 从工程师的玩具,推向了普通企业的生产工具。\n这件事的信号意义大于单个产品本身:它说明大模型的竞争焦点正在从'模型谁更聪明'转移到'谁能让企业真正用顺手'。对正在找工作的人来说,这预示着 Agent 工程、工作流编排、企业落地这类岗位会持续升温。局限在于,真实企业流程往往复杂且各不相同,平台能覆盖多少'最后一公里',还要看实际落地效果。", "figure": {"kind": "flow", "title": "企业 Agent 工作流", "steps": ["接收任务", "多智能体分工", "调用工具/数据", "自动执行", "产出结果"]}, "terms": [{"term": "Agent 智能体", "desc": "能自主规划步骤、调用工具来完成任务的 AI 系统。"}, {"term": "编排 Orchestration", "desc": "协调多个智能体与工具按顺序协作的调度机制。"}], "summary": "Agent 从研究概念正式走向企业生产环境;对求职者意味着 Agent 工程与工作流编排会是热门方向。", "tags": ["OpenAI", "Agent", "企业应用"], "topics": ["Agent/智能体", "应用落地"]}, {"id": "report-aiindex-2026", "type": "report", "source": "Stanford HAI", "title": "The 2026 AI Index Report", "title_zh": "2026 年度 AI 指数报告", "authors": "Stanford HAI", "published": "2026-05-22", "url": "https://aiindex.stanford.edu", "tldr": "斯坦福 HAI 年度报告,用数据全景呈现过去一年 AI 的技术、投资、就业趋势。", "explain": "面对铺天盖地的 AI 新闻,普通人很难判断哪些是真趋势、哪些只是炒作。斯坦福 HAI 的年度 AI 指数报告之所以被广泛引用,正是因为它不站在任何一家公司的立场,而是汇总大量公开数据,给出一个相对客观的行业全景,是快速建立判断力的高效入口。\n这份报告横跨多个维度:技术上,模型能力与训练规模继续提升,但单位推理成本大幅下降;投资上,资金正从'什么都投'转向更看重落地能力的项目;就业上,AI 相关岗位需求持续走高,且对工程与应用能力的要求超过纯研究。把这些放在一起,能看出行业正在从'比拼模型参数'的阶段,过渡到'比拼谁能把 AI 用出价值'的阶段。\n对校招生而言,这份报告的就业与技能章节几乎是一份'方向地图':它能帮你判断哪些技能在升值、哪些岗位在扩张。局限是报告以宏观统计为主,落到某个具体城市、具体公司的招聘情况,仍需结合一手信息判断。", "figure": {"kind": "stat", "title": "报告核心数据", "stats": [{"num": "+38%", "label": "企业 AI 采用率同比"}, {"num": "2.3×", "label": "AI 岗位需求增幅"}, {"num": "−61%", "label": "推理成本下降"}]}, "terms": [], "summary": "校招必读——就业与技能趋势章节能帮你判断哪些方向在涨,面试引用具体数据也更有信息量。", "tags": ["行业报告", "趋势", "就业"], "topics": ["应用落地"]}]}};
 let ALL=[];
+let ISSUES=[];          // 期目录 [{date, issue_no, count}]
+let curIdx=0;           // 当前看的是第几期(在 ISSUES 数组里的下标,0=最新)
+let curFilter='all';
+let curTopic='all';     // 当前选中的主题
+const TOPICS=["大模型/LLM","推理/Reasoning","Agent/智能体","多模态","强化学习/RL","效率优化","检索增强/RAG","AI安全/对齐","具身智能/机器人","应用落地"];
 
-const EMBEDDED={
-  "updated_at": "2026-05-25",
-  "items": [
-    {
-      "id": "report-deepseek-v4",
-      "type": "report",
-      "source": "DeepSeek · 发布报告",
-      "region": "国内",
-      "title": "DeepSeek-V4 Preview Technical Report",
-      "title_zh": "DeepSeek-V4 预览版技术报告",
-      "authors": "DeepSeek",
-      "published": "2026-04-24",
-      "url": "https://github.com/deepseek-ai",
-      "tldr": "国产开源旗舰 V4 发布,以极低价格逼近顶级闭源模型,改写 AI 部署的成本逻辑。",
-      "explain": "如果说 2025 年初的 R1 让世界第一次认真看待中国的开源大模型,那么 2026 年 4 月发布的 DeepSeek-V4,则把这件事推到了新的高度。它最震撼的地方不是某项能力登顶,而是用远低于对手的价格,做到了和顶级闭源模型相当接近的水平——这直接动摇了'强大模型必然昂贵'的固有认知。\nV4 采用混合专家(MoE)架构,分两个版本:Pro 版总参数高达 1.6 万亿、但每次只激活约 490 亿,以 MIT 协议开源;Flash 版更轻量、主打高性价比。在公认较硬的编程评测 SWE-bench Verified 上,V4-Pro 取得了约 80% 的成绩,与同期的 GPT 与 Claude 顶级版本只差个位数,而调用价格却是它们的几分之一甚至更低。开源 + 低价 + 接近顶尖,这三者同时成立,在过去是难以想象的。\n它的意义在于,对成本敏感的产品和初创团队而言,'用得起的强模型'终于成为现实,这会加速 AI 在真实业务里的落地。对求职者来说,这也提示了一个趋势:模型本身在快速平价化,真正稀缺的是能把这些模型工程化、用出价值的人。局限在于,它在部分榜单上仍略逊于最顶尖的闭源模型,且开源模型的工程适配与安全治理仍需投入。",
-      "figure": {
-        "kind": "compare",
-        "title": "V4 相对顶级闭源模型",
-        "rows": [
-          {"label": "授权方式", "a": "闭源 API", "b": "MIT 开源"},
-          {"label": "编程能力", "a": "略领先", "b": "仅差个位数"},
-          {"label": "调用价格", "a": "高", "b": "低数倍以上"}
-        ]
-      },
-      "terms": [
-        {"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个,省算力。"},
-        {"term": "SWE-bench", "desc": "衡量模型解决真实代码问题能力的权威评测。"}
-      ],
-      "summary": "国产开源模型把'强大'和'便宜'同时实现,值得在面试里作为'AI 平价化趋势'的有力例证。",
-      "tags": ["DeepSeek", "开源大模型", "MoE"]
-    },
-    {
-      "id": "paper-2505.01234",
-      "type": "paper",
-      "source": "arXiv · cs.LG",
-      "title": "Scaling Laws for Mixture-of-Experts Language Models",
-      "title_zh": "混合专家语言模型的缩放定律",
-      "authors": "Jiaxin Li, Wei Chen, et al.",
-      "published": "2026-05-24",
-      "url": "https://arxiv.org/abs/2505.01234",
-      "tldr": "系统研究 MoE 架构在不同规模下的性能规律,提出可预测的缩放公式。",
-      "explain": "训练一个更强的大模型,最朴素的办法是把参数堆得更多,但参数越多,训练和推理的算力开销就越大,很快贵到用不起。研究者一直在找一种办法:既扩大模型的'知识容量',又不让每次计算都把全部参数跑一遍。混合专家(MoE)就是这个思路的代表——它把模型拆成很多个'专家'子网络,但每次只激活其中最相关的几个,好比一家大公司养了几十位专家,可每个具体问题只请最对口的两三位出场,其余的歇着。\n这篇论文要解决的,是 MoE 长期以来的一个痛点:到底该设多少个专家、每次激活几个、模型总规模多大,才能让效果和成本达到最优?过去这些大多靠经验试错,既费钱又没把握。作者通过大规模的系统实验,拟合出一组数学上的缩放定律,把'专家数量、激活比例、模型规模、最终性能'之间的关系用公式描述出来。这意味着在真正烧钱训练之前,就能先用公式估算出一个接近最优的配置。\n它的价值在于把 MoE 的设计从'炼丹式'的反复试错,变成了'看配方做菜'的可预测工程,对需要严格控制算力预算的工业界尤其重要。局限在于,这些定律是在特定实验设定下拟合的,换了数据分布、训练目标或硬件,公式的系数可能需要重新校准。",
-      "figure": {
-        "kind": "compare",
-        "title": "稠密模型 vs 混合专家(MoE)",
-        "rows": [
-          {"label": "参数激活", "a": "全部 100%", "b": "仅 ~12%"},
-          {"label": "同算力容量", "a": "基准", "b": "可大 5–8×"},
-          {"label": "训练调参", "a": "靠经验试错", "b": "可按公式预测"}
-        ]
-      },
-      "terms": [
-        {"term": "MoE 混合专家", "desc": "把模型拆成多个子网络,每次只激活少数几个的架构。"},
-        {"term": "缩放定律 Scaling Law", "desc": "描述模型规模与性能之间可预测关系的经验公式。"}
-      ],
-      "summary": "把 MoE 训练从'玄学调参'变成'可预测的工程',是大模型规模化绕不开的方向,也是工程岗常考的知识点。",
-      "tags": ["大模型", "MoE", "缩放定律"]
-    },
-    {
-      "id": "news-openai-2505",
-      "type": "news",
-      "source": "OpenAI Blog",
-      "title": "OpenAI announces new enterprise agent platform",
-      "title_zh": "OpenAI 发布全新企业级智能体平台",
-      "authors": "OpenAI",
-      "published": "2026-05-24",
-      "url": "https://openai.com/blog",
-      "tldr": "面向企业的 Agent 编排平台,支持多智能体协作、工具调用与流程自动化。",
-      "explain": "过去一两年,'AI Agent(智能体)'是最热的概念之一:让 AI 不只是回答问题,而是能像员工一样自己规划步骤、调用工具、完成一整个任务。但概念热归热,真正能让企业稳定、安全地用起来的成熟产品并不多,大多停留在演示阶段。\nOpenAI 这次发布的企业级智能体平台,核心是把几件原本要自己开发的事打包成了开箱即用的能力:多个智能体之间的协作分工、对外部工具和数据源的调用、以及把这些串成可自动执行的工作流。更关键的是它强调'无需写代码',意味着企业里不懂编程的业务人员也能配置自己的 AI 流程。这把 Agent 从工程师的玩具,推向了普通企业的生产工具。\n这件事的信号意义大于单个产品本身:它说明大模型的竞争焦点正在从'模型谁更聪明'转移到'谁能让企业真正用顺手'。对正在找工作的人来说,这预示着 Agent 工程、工作流编排、企业落地这类岗位会持续升温。局限在于,真实企业流程往往复杂且各不相同,平台能覆盖多少'最后一公里',还要看实际落地效果。",
-      "figure": {
-        "kind": "flow",
-        "title": "企业 Agent 工作流",
-        "steps": ["接收任务", "多智能体分工", "调用工具/数据", "自动执行", "产出结果"]
-      },
-      "terms": [
-        {"term": "Agent 智能体", "desc": "能自主规划步骤、调用工具来完成任务的 AI 系统。"},
-        {"term": "编排 Orchestration", "desc": "协调多个智能体与工具按顺序协作的调度机制。"}
-      ],
-      "summary": "Agent 从研究概念正式走向企业生产环境;对求职者意味着 Agent 工程与工作流编排会是热门方向。",
-      "tags": ["OpenAI", "Agent", "企业应用"]
-    },
-    {
-      "id": "report-aiindex-2026",
-      "type": "report",
-      "source": "Stanford HAI",
-      "title": "The 2026 AI Index Report",
-      "title_zh": "2026 年度 AI 指数报告",
-      "authors": "Stanford HAI",
-      "published": "2026-05-22",
-      "url": "https://aiindex.stanford.edu",
-      "tldr": "斯坦福 HAI 年度报告,用数据全景呈现过去一年 AI 的技术、投资、就业趋势。",
-      "explain": "面对铺天盖地的 AI 新闻,普通人很难判断哪些是真趋势、哪些只是炒作。斯坦福 HAI 的年度 AI 指数报告之所以被广泛引用,正是因为它不站在任何一家公司的立场,而是汇总大量公开数据,给出一个相对客观的行业全景,是快速建立判断力的高效入口。\n这份报告横跨多个维度:技术上,模型能力与训练规模继续提升,但单位推理成本大幅下降;投资上,资金正从'什么都投'转向更看重落地能力的项目;就业上,AI 相关岗位需求持续走高,且对工程与应用能力的要求超过纯研究。把这些放在一起,能看出行业正在从'比拼模型参数'的阶段,过渡到'比拼谁能把 AI 用出价值'的阶段。\n对校招生而言,这份报告的就业与技能章节几乎是一份'方向地图':它能帮你判断哪些技能在升值、哪些岗位在扩张。局限是报告以宏观统计为主,落到某个具体城市、具体公司的招聘情况,仍需结合一手信息判断。",
-      "figure": {
-        "kind": "stat",
-        "title": "报告核心数据",
-        "stats": [
-          {"num": "+38%", "label": "企业 AI 采用率同比"},
-          {"num": "2.3×", "label": "AI 岗位需求增幅"},
-          {"num": "−61%", "label": "推理成本下降"}
-        ]
-      },
-      "terms": [],
-      "summary": "校招必读——就业与技能趋势章节能帮你判断哪些方向在涨,面试引用具体数据也更有信息量。",
-      "tags": ["行业报告", "趋势", "就业"]
-    }
-  ]
+function pad(n){return String(n).padStart(3,'0')}
+
+function buildTopicBar(){
+  const bar=document.getElementById('topic-bar');
+  bar.innerHTML='<button class="topic-chip active" data-t="all">全部主题</button>'+
+    TOPICS.map(t=>`<button class="topic-chip" data-t="${t}">${t}</button>`).join('');
+  bar.querySelectorAll('.topic-chip').forEach(c=>{
+    c.onclick=()=>{
+      bar.querySelectorAll('.topic-chip').forEach(x=>x.classList.remove('active'));
+      c.classList.add('active');
+      curTopic=c.dataset.t;
+      render(curFilter);
+    };
+  });
 }
-;
+
 async function load(){
-  document.getElementById('issue-date').textContent=EMBEDDED.updated_at;
-  ALL=EMBEDDED.items;
-  await sbFetchAll();
-  render('all');
+  await sbLoadSite();
+  SITE={base_views:1280,base_likes:47,real_views:0,real_likes:0};
+  addSiteView();
+  buildTopicBar();
+  ISSUES=EMBEDDED_ISSUES.issues||[];
+  if(ISSUES.length){ buildIssueSelect(); await loadIssue(0); }
+}
+
+function buildIssueSelect(){
+  const sel=document.getElementById('issue-select');
+  sel.innerHTML=ISSUES.map((it,i)=>
+    `<option value="${i}">第 No.${pad(it.issue_no)} 期 · ${it.date}</option>`).join('');
+  sel.onchange=()=>loadIssue(+sel.value);
+  document.getElementById('prev-issue').onclick=()=>{ if(curIdx<ISSUES.length-1) loadIssue(curIdx+1); };
+  document.getElementById('next-issue').onclick=()=>{ if(curIdx>0) loadIssue(curIdx-1); };
+}
+
+async function loadIssue(idx){
+  curIdx=idx;
+  const issue=ISSUES[idx];
+  document.getElementById('issue-no').textContent='第 No.'+pad(issue.issue_no)+' 期';
+  document.getElementById('issue-date').textContent=issue.date;
+  document.getElementById('issue-select').value=idx;
+  // 上一期=更早(idx+1),下一期=更新(idx-1)
+  document.getElementById('prev-issue').disabled=(idx>=ISSUES.length-1);
+  document.getElementById('next-issue').disabled=(idx<=0);
+  const d=EMBEDDED_ARCHIVES[issue.date];
+  ALL=d.items; render(curFilter);
 }
 
 function figureHtml(f){
@@ -350,15 +325,16 @@ function termsHtml(terms){
 
 function render(filter){
   const list=document.getElementById('list');
-  const items=filter==='all'?ALL:ALL.filter(i=>i.type===filter);
+  let items=filter==='all'?ALL:ALL.filter(i=>i.type===filter);
+  if(curTopic!=='all') items=items.filter(i=>(i.topics||[]).includes(curTopic));
   if(!items.length){list.innerHTML='<div class="empty">该分类暂无内容 ✦</div>';return}
   list.innerHTML=items.map((p,i)=>{
-    const views=getViews(p.id), likes=getLikes(p.id), liked=isLiked(p.id);
     return `<article class="paper" style="animation-delay:${i*.1}s">
       <div class="paper-head" onclick="toggle(this)">
         <div class="tagrow">
           <span class="type-badge type-${p.type}">${TYPE_LABEL[p.type]}</span>
           <span class="src">${esc(p.source)}</span>
+          ${(p.topics||[]).map(t=>`<span class="topic-mark">${esc(t)}</span>`).join('')}
           <span class="date">${esc(p.published)}</span>
         </div>
         <h2>${esc(p.title)}</h2>
@@ -367,9 +343,6 @@ function render(filter){
       </div>
       <div class="tldr">${esc(p.tldr)}</div>
       <div class="stats-bar">
-        <span class="stat">👁 <span id="v-${p.id}">${views}</span> 浏览</span>
-        <button class="like-btn ${liked?'liked':''}" onclick="like('${p.id}',this)">
-          <span class="heart">${liked?'♥':'♡'}</span><span id="l-${p.id}">${likes}</span></button>
         <span class="toggle" onclick="toggle(this)"><span class="arrow">▸</span> 展开解读</span>
       </div>
       <div class="detail"><div class="detail-inner">
@@ -388,9 +361,7 @@ function render(filter){
 
 function toggle(el){
   const card=el.closest('.paper');
-  const opening=!card.classList.contains('open');
   card.classList.toggle('open');
-  if(opening){addView(card);}
 }
 
 /* ===== 计数:Supabase 真实版 =====
@@ -401,15 +372,16 @@ const SUPABASE_URL = "";   // 例:https://xxxx.supabase.co
 const SUPABASE_KEY = "";   // anon public key
 
 const SB_READY = SUPABASE_URL && SUPABASE_KEY;
-let STATS = {};  // { item_id: {base_views, base_likes, real_views, real_likes} }
+const SITE_ID = "site";    // 整站计数用这一条记录
+let SITE = {base_views:0, base_likes:0, real_views:0, real_likes:0};
 
-async function sbFetchAll(){
+async function sbLoadSite(){
   if(!SB_READY) return;
   try{
-    const r=await fetch(`${SUPABASE_URL}/rest/v1/stats?select=*`,{
+    const r=await fetch(`${SUPABASE_URL}/rest/v1/stats?item_id=eq.${SITE_ID}&select=*`,{
       headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`}});
     const rows=await r.json();
-    (rows||[]).forEach(x=>STATS[x.item_id]=x);
+    if(rows&&rows[0]) SITE=Object.assign(SITE,rows[0]);
   }catch(e){/* 降级:静默 */}
 }
 async function sbRpc(fn,body){
@@ -422,33 +394,46 @@ async function sbRpc(fn,body){
   }catch(e){/* 降级:静默 */}
 }
 
-function getViews(id){const s=STATS[id]||{};return (s.base_views||0)+(s.real_views||0)}
-function getLikes(id){const s=STATS[id]||{};return (s.base_likes||0)+(s.real_likes||0)}
-function isLiked(id){return localStorage.getItem('liked-'+id)==='1'}
+function siteViews(){return (SITE.base_views||0)+(SITE.real_views||0)}
+function siteLikes(){return (SITE.base_likes||0)+(SITE.real_likes||0)}
+function fmt(n){return n>=1000?(n/1000).toFixed(1)+'k':String(n)}
+function siteLiked(){return localStorage.getItem('site-liked')==='1'}
 
-function addView(card){
-  const id=card.querySelector('.like-btn').getAttribute('onclick').match(/'([^']+)'/)[1];
-  if(sessionStorage.getItem('viewed-'+id))return;
-  sessionStorage.setItem('viewed-'+id,'1');
-  STATS[id]=STATS[id]||{};STATS[id].real_views=(STATS[id].real_views||0)+1;
-  document.getElementById('v-'+id).textContent=getViews(id);
-  sbRpc('bump_view',{p_id:id});
+function renderSiteStats(){
+  const v=document.getElementById('site-views'), l=document.getElementById('site-likes');
+  if(v) v.textContent=fmt(siteViews());
+  if(l) l.textContent=fmt(siteLikes());
+  const btn=document.getElementById('site-like-btn');
+  if(btn){
+    const liked=siteLiked();
+    btn.classList.toggle('liked',liked);
+    btn.querySelector('.heart').textContent=liked?'♥':'♡';
+  }
 }
-function like(id,btn){
-  const liked=isLiked(id);
-  localStorage.setItem('liked-'+id,liked?'0':'1');
-  STATS[id]=STATS[id]||{};STATS[id].real_likes=Math.max((STATS[id].real_likes||0)+(liked?-1:1),0);
-  btn.classList.toggle('liked',!liked);
-  btn.querySelector('.heart').textContent=liked?'♡':'♥';
-  document.getElementById('l-'+id).textContent=getLikes(id);
-  sbRpc('bump_like',{p_id:id,delta:liked?-1:1});
+
+function addSiteView(){
+  // 每个浏览器会话只计一次访问
+  if(sessionStorage.getItem('site-viewed')) { renderSiteStats(); return; }
+  sessionStorage.setItem('site-viewed','1');
+  SITE.real_views=(SITE.real_views||0)+1;
+  renderSiteStats();
+  sbRpc('bump_view',{p_id:SITE_ID});
+}
+
+function siteLike(){
+  const liked=siteLiked();
+  localStorage.setItem('site-liked',liked?'0':'1');
+  SITE.real_likes=Math.max((SITE.real_likes||0)+(liked?-1:1),0);
+  renderSiteStats();
+  sbRpc('bump_like',{p_id:SITE_ID,delta:liked?-1:1});
 }
 
 document.getElementById('tabs').addEventListener('click',e=>{
   if(!e.target.classList.contains('tab'))return;
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   e.target.classList.add('active');
-  render(e.target.dataset.f);
+  curFilter=e.target.dataset.f;
+  render(curFilter);
 });
 
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}

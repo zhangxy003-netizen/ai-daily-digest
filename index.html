@@ -52,13 +52,21 @@
 
   /* 筛选 Tab */
   .tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
-    margin:34px 0 6px;padding-bottom:26px;border-bottom:1px solid var(--rule)}
+    margin:34px 0 0;padding-bottom:14px}
   .tab{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;
     text-transform:uppercase;padding:8px 18px;border:1px solid var(--rule);
     background:transparent;color:var(--ink-soft);cursor:pointer;border-radius:2px;
     transition:all .2s}
   .tab:hover{border-color:var(--accent);color:var(--accent)}
   .tab.active{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+
+  .topic-bar{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
+    padding-bottom:26px;border-bottom:1px solid var(--rule)}
+  .topic-chip{font-family:var(--font-serif-cn);font-size:.76rem;
+    padding:5px 13px;border:1px solid var(--rule);border-radius:20px;
+    background:transparent;color:var(--ink-faint);cursor:pointer;transition:all .2s}
+  .topic-chip:hover{border-color:var(--accent);color:var(--accent)}
+  .topic-chip.active{background:var(--accent);color:var(--paper);border-color:var(--accent)}
 
   .papers{padding:34px 0 80px}
   .paper{background:var(--card);border:1px solid var(--rule);border-radius:2px;
@@ -70,11 +78,12 @@
   .paper.hide{display:none}
   .paper-head{padding:24px 30px 16px;cursor:pointer}
   .tagrow{display:flex;gap:8px;align-items:center;margin-bottom:13px;flex-wrap:wrap}
-  .type-badge{font-family:var(--font-mono);font-size:.62rem;font-weight:500;
-    letter-spacing:.1em;padding:3px 9px;border-radius:2px;color:#fff;text-transform:uppercase}
+  .type-badge{font-family:var(--font-mono);font-size:.62rem;font-weight:500;    letter-spacing:.1em;padding:3px 9px;border-radius:2px;color:#fff;text-transform:uppercase}
   .type-paper{background:var(--paper-c)} .type-news{background:var(--news-c)}
   .type-report{background:var(--report-c)}
   .src{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-faint);letter-spacing:.04em}
+  .topic-mark{font-family:var(--font-serif-cn);font-size:.66rem;color:var(--accent);
+    background:rgba(26,58,92,.07);padding:2px 8px;border-radius:10px}
   .date{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-faint);
     letter-spacing:.06em;margin-left:auto}
   .paper h2{font-family:var(--font-serif-en);font-weight:500;font-size:1.46rem;line-height:1.25;margin-bottom:6px}
@@ -221,6 +230,7 @@
     <button class="tab" data-f="news">行业新闻</button>
     <button class="tab" data-f="report">发布报告</button>
   </nav>
+  <nav class="topic-bar" id="topic-bar"></nav>
 </div>
 
 <main class="wrap papers" id="list"><div class="empty">正在加载今日内容…</div></main>
@@ -236,12 +246,29 @@ let ALL=[];
 let ISSUES=[];          // 期目录 [{date, issue_no, count}]
 let curIdx=0;           // 当前看的是第几期(在 ISSUES 数组里的下标,0=最新)
 let curFilter='all';
+let curTopic='all';     // 当前选中的主题
+const TOPICS=["大模型/LLM","推理/Reasoning","Agent/智能体","多模态","强化学习/RL","效率优化","检索增强/RAG","AI安全/对齐","具身智能/机器人","应用落地"];
 
 function pad(n){return String(n).padStart(3,'0')}
+
+function buildTopicBar(){
+  const bar=document.getElementById('topic-bar');
+  bar.innerHTML='<button class="topic-chip active" data-t="all">全部主题</button>'+
+    TOPICS.map(t=>`<button class="topic-chip" data-t="${t}">${t}</button>`).join('');
+  bar.querySelectorAll('.topic-chip').forEach(c=>{
+    c.onclick=()=>{
+      bar.querySelectorAll('.topic-chip').forEach(x=>x.classList.remove('active'));
+      c.classList.add('active');
+      curTopic=c.dataset.t;
+      render(curFilter);
+    };
+  });
+}
 
 async function load(){
   await sbLoadSite();
   addSiteView();
+  buildTopicBar();
   // 先读期目录;读不到则降级为只读 feed.json(兼容首次/旧数据)
   try{
     const r=await fetch('data/issues.json?t='+Date.now());
@@ -317,7 +344,8 @@ function termsHtml(terms){
 
 function render(filter){
   const list=document.getElementById('list');
-  const items=filter==='all'?ALL:ALL.filter(i=>i.type===filter);
+  let items=filter==='all'?ALL:ALL.filter(i=>i.type===filter);
+  if(curTopic!=='all') items=items.filter(i=>(i.topics||[]).includes(curTopic));
   if(!items.length){list.innerHTML='<div class="empty">该分类暂无内容 ✦</div>';return}
   list.innerHTML=items.map((p,i)=>{
     return `<article class="paper" style="animation-delay:${i*.1}s">
@@ -325,6 +353,7 @@ function render(filter){
         <div class="tagrow">
           <span class="type-badge type-${p.type}">${TYPE_LABEL[p.type]}</span>
           <span class="src">${esc(p.source)}</span>
+          ${(p.topics||[]).map(t=>`<span class="topic-mark">${esc(t)}</span>`).join('')}
           <span class="date">${esc(p.published)}</span>
         </div>
         <h2>${esc(p.title)}</h2>
@@ -358,8 +387,8 @@ function toggle(el){
    显示值 = base(你在 Supabase 后台手动设的起始值) + real(程序自增的真实增量)。
    配置:把下面两行换成你的 Supabase 项目地址和 anon key(在 Supabase → Settings → API 里找)。
    留空则自动降级为"只读本地",不会报错。 */
-const SUPABASE_URL = "https://ostfyxrvngpklwsvaaai.supabase.co";
-const SUPABASE_KEY = "sb_publishable_cW6rfG0pRL4uMksKBO9DNQ_0dTpfOsw";
+const SUPABASE_URL = "";   // 例:https://xxxx.supabase.co
+const SUPABASE_KEY = "";   // anon public key
 
 const SB_READY = SUPABASE_URL && SUPABASE_KEY;
 const SITE_ID = "site";    // 整站计数用这一条记录
