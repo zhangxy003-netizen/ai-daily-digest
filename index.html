@@ -110,6 +110,11 @@
   .sec-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;
     text-transform:uppercase;color:var(--accent);margin:0 0 12px}
   .detail-inner p{margin-bottom:13px;font-size:1rem;color:var(--ink)}
+  .paper-fig{margin:0 0 22px;text-align:center}
+  .paper-fig img{max-width:100%;max-height:340px;border:1px solid var(--rule);
+    border-radius:3px;background:#fff;padding:8px}
+  .paper-fig figcaption{font-family:var(--font-mono);font-size:.62rem;
+    color:var(--ink-faint);letter-spacing:.06em;margin-top:8px}
 
   /* 图解 */
   .figure{background:var(--card);border:1px solid var(--rule);border-radius:3px;
@@ -365,6 +370,7 @@ function render(filter){
         <span class="toggle" onclick="toggle(this)"><span class="arrow">▸</span> 展开解读</span>
       </div>
       <div class="detail"><div class="detail-inner">
+        ${p.image?`<figure class="paper-fig"><img src="${esc(p.image)}" alt="论文配图" loading="lazy" onerror="this.parentElement.style.display='none'"><figcaption>图 · 来自论文原文</figcaption></figure>`:''}
         <p class="sec-label">通俗解读</p>
         ${p.explain.split('\n').filter(Boolean).map(t=>`<p>${esc(t)}</p>`).join('')}
         ${figureHtml(p.figure)}
