@@ -229,6 +229,7 @@ def explain_one(item):
                 "authors": item.get("authors", ""),
                 "published": item.get("published", ""),
                 "url": item["url"],
+                "image": item.get("image"),
                 "tldr": data.get("tldr", ""),
                 "explain": data.get("explain", ""),
                 "figure": data.get("figure"),

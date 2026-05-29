@@ -103,6 +103,27 @@ def main():
         c.pop("_score", None)
         c.pop("hotness", None)
 
+    # 对精选出的论文提取首图(只存 URL,取不到则无图,降级不报错)
+    try:
+        from fetch_sources import extract_paper_figure
+        import time as _t
+        for c in selected:
+            if c.get("type") != "paper":
+                continue
+            # 从 id 或 url 里取 arxiv 号
+            aid = c.get("id", "").replace("paper-", "")
+            if not aid and "/abs/" in c.get("url", ""):
+                aid = c["url"].split("/abs/")[-1]
+            if not aid:
+                continue
+            img = extract_paper_figure(aid)
+            if img:
+                c["image"] = img
+                print(f"  🖼 取到首图:{c['title'][:40]}")
+            _t.sleep(1)
+    except Exception as e:
+        print(f"  首图提取整体跳过:{e}", file=sys.stderr)
+
     out = {
         "fetched_at": raw.get("fetched_at"),
         "items": selected + raw.get("news", []) + raw.get("reports", []),

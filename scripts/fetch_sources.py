@@ -21,7 +21,7 @@ TIMEOUT = 20
 # 论文来源策略:
 #   主源 = Hugging Face Daily Papers(社区投票的每日热门 AI 论文,带 upvotes 热度)
 #   兜底 = arXiv 最新(主源拿不到时补充)
-# 先抓较多候选,再交给 select.py 用 DeepSeek 打分精选出 Top N。
+# 先抓较多候选,再交给 rank_papers.py 用 DeepSeek 打分精选出 Top N。
 HF_DAILY_API = "https://huggingface.co/api/daily_papers"
 HF_CANDIDATES = 20         # 从 HF 取多少篇热门候选
 
@@ -91,6 +91,94 @@ def is_recent(d):
     if d is None:
         return True  # 拿不到日期时不卡,交给后续按顺序取
     return (datetime.datetime.now() - d).days <= RECENT_DAYS
+
+
+def extract_paper_figure(arxiv_id, timeout=8):
+    """尝试从 arXiv HTML 版论文提取首图 URL。取不到返回 None(降级,不报错)。
+    只存 URL,不下载转存。
+
+    考虑的边界情况:
+    - img 标签 src 可能用单/双引号、属性顺序不定
+    - 排除 logo、icon、数学公式 PNG、KaTeX、装饰图等
+    - 路径可能是绝对/协议相对/根相对/纯相对,带不带查询串
+    - HTML 实体编码(&amp;)需要解码
+    - 论文可能没 HTML 版(404)、超时、编码异常
+    - 提取后做"长得像内容图"的启发式判断(扩展名、尺寸暗示等)
+    """
+    import re, html as htmllib
+    # 清理 id:去版本号、去空白
+    base_id = re.sub(r"v\d+$", "", (arxiv_id or "").strip())
+    if not base_id:
+        return None
+    html_url = f"https://arxiv.org/html/{base_id}"
+
+    # 单独短超时,避免某篇卡死拖垮整个流水线
+    try:
+        req = urllib.request.Request(html_url, headers=UA)
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            raw = r.read().decode("utf-8", "ignore")
+    except Exception as e:
+        print(f"    [图] {base_id} 无 HTML 版或取不到,跳过:{e}", file=sys.stderr)
+        return None
+
+    # 单/双引号 src 都匹配
+    imgs = re.findall(r'<img[^>]*?\ssrc=["\']([^"\']+)["\']', raw, re.IGNORECASE)
+    if not imgs:
+        return None
+
+    # 反 HTML 实体 + 去空白
+    imgs = [htmllib.unescape(s).strip() for s in imgs if s.strip()]
+
+    BAD_KEYWORDS = (
+        "logo", "icon", "favicon", "ar5iv-footer", "ar5iv-logo",
+        "/mathjax", "katex", "tex2png", "creativecommons", "license",
+        "static/img", "/static/", "avatar", "spinner", "loader",
+    )
+    GOOD_EXT = (".png", ".jpg", ".jpeg", ".webp", ".gif")
+    BAD_EXT = (".svg",)   # SVG 多为 logo/icon
+    # arXiv 论文图通常文件名带 x1/x2... 或 fig/figure/extracted 路径
+    GOOD_HINTS = ("/x", "/fig", "figure", "/extracted/", "/assets/x")
+
+    def looks_like_content(src):
+        if not src or src.startswith("data:"):
+            return False
+        low = src.lower()
+        # 黑名单
+        if any(b in low for b in BAD_KEYWORDS):
+            return False
+        # 去掉 query/fragment 看扩展名
+        path = low.split("?", 1)[0].split("#", 1)[0]
+        if any(path.endswith(e) for e in BAD_EXT):
+            return False
+        # 必须是图片扩展名(或带 good hint 的路径)
+        if not (any(path.endswith(e) for e in GOOD_EXT) or any(h in low for h in GOOD_HINTS)):
+            return False
+        return True
+
+    candidates = [s for s in imgs if looks_like_content(s)]
+    # 优先选带 good hint 的(更可能是论文配图)
+    candidates.sort(key=lambda s: 0 if any(h in s.lower() for h in GOOD_HINTS) else 1)
+    if not candidates:
+        return None
+
+    first = candidates[0]
+
+    # 路径补全 + 强制 https(避免 https 网站加载 http 图被浏览器拦截)
+    def resolve(src):
+        if src.startswith("http://"):
+            return "https://" + src[len("http://"):]
+        if src.startswith("https://"):
+            return src
+        if src.startswith("//"):
+            return "https:" + src
+        if src.startswith("/"):
+            return "https://arxiv.org" + src
+        # 相对路径:拼到 HTML 页目录下(注意尾斜杠)
+        base = html_url if html_url.endswith("/") else html_url + "/"
+        return base + src.lstrip("./")
+
+    return resolve(first)
+
 
 # ============ arXiv ============
 
@@ -265,7 +353,7 @@ def main():
         seen.add(it["id"])
         paper_candidates.append(it)
     paper_candidates = paper_candidates[:PAPER_CANDIDATES_TOTAL]
-    print(f"  论文候选池共 {len(paper_candidates)} 篇(将由 select.py 打分精选)")
+    print(f"  论文候选池共 {len(paper_candidates)} 篇(将由 rank_papers.py 打分精选)")
 
     print("→ 抓取公司动态 / 报告…")
     news = []
