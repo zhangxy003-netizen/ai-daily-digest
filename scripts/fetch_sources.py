@@ -164,6 +164,10 @@ def extract_paper_figure(arxiv_id, timeout=8):
     first = candidates[0]
 
     # 路径补全 + 强制 https(避免 https 网站加载 http 图被浏览器拦截)
+    # 注意 arXiv 一个坑:HTML 里的相对路径有时是 "{id}v1/x1.png" 这种带版本号的,
+    # 直接拼到 /html/{id}/ 后面会出现 id 重复(/html/2605.x/2605.xv1/x1.png),
+    # 实际应拼到 /html/ 根。所以做一个判断。
+    import re as _re
     def resolve(src):
         if src.startswith("http://"):
             return "https://" + src[len("http://"):]
@@ -173,9 +177,14 @@ def extract_paper_figure(arxiv_id, timeout=8):
             return "https:" + src
         if src.startswith("/"):
             return "https://arxiv.org" + src
-        # 相对路径:拼到 HTML 页目录下(注意尾斜杠)
+        # 去掉 ./ 前缀
+        clean = src.lstrip("./")
+        # 如果路径以论文 id(可能带版本号)开头,从 /html/ 根拼,避免重复
+        if _re.match(rf"^{_re.escape(base_id)}(v\d+)?/", clean):
+            return f"https://arxiv.org/html/{clean}"
+        # 普通相对路径:拼到 HTML 页目录下
         base = html_url if html_url.endswith("/") else html_url + "/"
-        return base + src.lstrip("./")
+        return base + clean
 
     return resolve(first)
 
