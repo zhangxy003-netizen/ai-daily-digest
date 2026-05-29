@@ -2,63 +2,74 @@
   "fetched_at": "2026-05-29",
   "items": [
     {
-      "id": "paper-2605.26302",
+      "id": "paper-2605.30280",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Your Agents Are Aging Too: Agent Lifespan Engineering for Deployed Systems",
-      "authors": "Jianing Zhu, Yeonju Ro, John Robertson et al.",
-      "published": "2026-05-24",
-      "url": "https://arxiv.org/abs/2605.26302",
-      "raw_summary": "Long-lived AI agents are increasingly deployed as persistent operational systems, yet they are still evaluated like freshly initialized models. Day-one benchmarks miss a basic systems question: how long does an agent remain reliable after deployment? Even when model weights are frozen, an agent's effective state keeps changing as it compresses interaction history, retrieves from a growing memory store, revises facts after updates, and undergoes routine maintenance. Reliability therefore becomes a lifespan property of the full agent harness, not only a snapshot property of the base model. We introduce AgingBench, a longitudinal reliability benchmark for agent lifespan engineering: measuring not only whether deployed agents degrade, but what form the degradation takes and where repair should target. AgingBench organizes agent aging into four mechanisms: compression aging, interference aging, revision aging, and maintenance aging. To diagnose these failures, AgingBench uses temporal dependency graphs and paired counterfactual probes that produce diagnostic profiles for the write, retrieval, and utilization stages of the memory pipeline. Across 7 scenarios, 14 models, multiple memory policies, and both runner-controlled and autonomous agents, over ~400 runs spanning 8 - 200 sessions show that agent aging is not one-dimensional: behavioral tests can remain clean while factual precision decays; derived-state tracking can collapse sharply within a single model; and the same wrong answer can require different repairs depending on what the diagnostic profile points to. These results suggest that reliable agent deployment requires lifespan evaluation, mechanism-level diagnosis, and stage-targeted repair, not only stronger day-one models.",
-      "image": "https://arxiv.org/html/2605.26302/2605.26302v1/x1.png"
+      "title": "Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments",
+      "authors": "Qiuyue Wang, Mingsheng Li, Jian Guan et al.",
+      "published": "2026-05-27",
+      "url": "https://arxiv.org/abs/2605.30280",
+      "raw_summary": "Embodied intelligence is often studied through specialized models for individual tasks such as manipulation or navigation, resulting in fragmented capabilities and limited generalization across tasks, environments, and robot embodiments. In this work, we study whether heterogeneous embodied decision-making problems can be unified within a single vision-language-action model. We present Qwen-VLA, a unified embodied foundation model that extends Qwen's vision-language modeling stack from perception, understanding, and reasoning to continuous action and trajectory generation through a DiT-based action decoder. Qwen-VLA is trained with a large-scale joint pretraining recipe over diverse data sources, including robotics manipulation trajectories, human egocentric demonstrations, synthetic simulation data, vision-and-language navigation data, trajectory-centric supervision, and auxiliary vision-language data. To support multiple robot platforms, we introduce embodiment-aware prompt conditioning, where robot-specific textual descriptions specify the current embodiment and control convention. We further cast manipulation, navigation, and trajectory prediction into a unified action-and-trajectory prediction framework, enabling transferable visual grounding, spatial reasoning, and continuous action generation across robot morphologies, task families, and environments. Experiments on manipulation, navigation, and trajectory-centric benchmarks show consistent multi-task performance and out-of-distribution generalization under variations in scene layout, background, lighting, object configuration, and robot embodiment. Qwen-VLA-Instruct achieves 97.9% on LIBERO, 73.7% on Simpler-WidowX, 86.1%/87.2% on RoboTwin-Easy/Hard, 69.0% OSR on R2R, 59.6% SR on RxR, 76.9% average OOD success in real-world ALOHA experiments, and 26.6% zero-shot success on DOMINO dynamic manipulation."
     },
     {
-      "id": "paper-2605.28534",
+      "id": "paper-2605.30219",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "GUI-CIDER: Mid-training GUI Agents via Causal Internalization and Density-aware Exemplar Reselection",
-      "authors": "Zheng Wu, Chengcheng Han, Zhengxi Lu et al.",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28534",
-      "raw_summary": "Despite the rapid progress of multimodal large language models in building Graphical User Interface (GUI) agents, their real-world task completion is fundamentally bottlenecked by a lack of world knowledge about GUI operations. Existing solutions typically rely on expensive multi-agent scaffolding or conventional post-training paradigms, such as Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL). However, post-training only allows agents to implicitly absorb world knowledge through action annotations or reward signals, leading to inefficient trajectory memorization rather than genuine comprehension. Therefore, an approach that enables explicit learning of this knowledge is imperative. To this end, we propose GUI-CIDER, a mid-training method that explicitly internalizes GUI world knowledge through Causal Internalization and Density-aware Exemplar Reselection. GUI-CIDER operates in three stages: (1) data synthesis, which distills static planning and dynamic causal knowledge from GUI trajectories into text; (2) exemplar reselection, which filters the corpus by rewarding causal structures and penalizing semantic redundancy; and (3) mid-training, where the refined data is used to embed the acquired knowledge. Extensive experiments on two GUI knowledge benchmarks and three task completion benchmarks demonstrate that GUI-CIDER consistently improves both the agent's understanding of GUI operations and its task success rates.The codes are available at https://github.com/Wuzheng02/GUI-CIDER.",
-      "image": "https://arxiv.org/html/2605.28534/2605.28534v1/figures/teaser.png"
+      "title": "When Should Models Change Their Minds? Contextual Belief Management in Large Language Models",
+      "authors": "Haoming Xu, Weihong Xu, Zongrui Li et al.",
+      "published": "2026-05-27",
+      "url": "https://arxiv.org/abs/2605.30219",
+      "raw_summary": "Long-horizon interactions require language models to manage accumulating information: when to update their state, when to preserve their state, and what to ignore. We study this challenge as Contextual Belief Management (CBM): maintaining a predicted belief state aligned with formal evidence while isolating task-irrelevant noise. To make CBM measurable, we introduce BeliefTrack, a closed-world benchmark spanning Rule Discovery and Circuit Diagnosis, where a finite belief space and symbolic verifiers enable exact turn-level evaluation. BeliefTrack diagnoses three failures: Failed Stay, Failed Update, and Failed Isolation. Across multiple LLMs, vanilla models exhibit severe CBM failures, while explicit belief-tracking prompts provide limited gains. In contrast, reinforcement learning with belief-state rewards reduces failure rates by 70.9\\% on average. Further probing reveals latent belief-state dynamics behind these failures, and representation-level steering reduces failure rates by 46.1\\% across two tasks\\footnote{Code is coming soon at https://github.com/zjunlp/CBM.",
+      "image": "https://arxiv.org/html/2605.30219v1/x1.png"
     },
     {
-      "id": "paper-2605.19952",
+      "id": "paper-2605.30260",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Rethinking How to Remember: Beyond Atomic Facts in Lifelong LLM Agent Memory",
-      "authors": "Jingwei Sun, Jianing Zhu, Jiangchao Yao et al.",
-      "published": "2026-05-18",
-      "url": "https://arxiv.org/abs/2605.19952",
-      "raw_summary": "To enable reliable long-term interaction, LLM agents require a memory system that can faithfully store, efficiently retrieve, and deeply reason over accumulated dialogue history. Most existing methods adopt an extracted fact based paradigm: handcrafted static prompts compress raw dialogues into atomic facts, which are then stored, matched, and injected into downstream reasoning. Nevertheless, such fact-centric designs inevitably discard fine-grained details in original dialogues and fail to support deep reasoning over scattered isolated facts. Moreover, static prompts cannot maintain consistent extraction granularity across diverse dialogue styles. To address these limitations, we propose TriMem, which maintains three coexisting representation granularities, including raw dialogue segments anchored by source identifiers for storage fidelity, extracted atomic facts for efficient memory retrieval, synthesized profiles that aggregate dispersed facts into holistic semantic understanding for deep reasoning. We further adopt TextGrad-based prompt optimization, which iteratively refines extraction and profiling prompts via response quality feedback, achieving lifelong evolution without any parameter updating. Extensive experiments on LoCoMo and PerLTQA across multiple LLM backbones demonstrate that TriMem consistently outperforms strong memory baselines. The code is available at https://TMLR-TriMem.github.io ."
+      "title": "How LoRA Remembers? A Parametric Memory Law for LLM Finetuning",
+      "authors": "Ziwen Xu, Haiwen Hong, Linsong Yu et al.",
+      "published": "2026-05-27",
+      "url": "https://arxiv.org/abs/2605.30260",
+      "raw_summary": "Large Language Models (LLMs) must continuously learn and update knowledge to remain effective in dynamic real-world environments. While Low-Rank Adaptation (LoRA) is widely used for such memory updates, existing studies mainly rely on qualitative downstream evaluations, leaving the quantitative capacity limits and underlying dynamics of exact parametric memory largely unexplored. To bridge this gap, we employ LoRA as a controlled memory capacity probe within the latent space to systematically quantify exact parametric memory. We introduce the Parametric Memory Law, a robust power law linking loss reduction Delta L to effective parameters and sequence length. At the token level, fine-grained analysis reveals a deterministic phase transition, demonstrating that a prediction probability of p > 0.5 constitutes a sufficient condition for verbatim recall under greedy decoding. Driven by these insights, we introduce MemFT, a threshold-guided optimization strategy that dynamically redistributes the training budget toward sub-threshold tokens. Empirical evaluations demonstrate that MemFT can enhance memory fidelity and efficiency. Code will be released at https://github.com/zjunlp/ParametricMemoryLaw.",
+      "image": "https://arxiv.org/html/2605.30260v1/figures/motivation.png"
     },
     {
-      "id": "paper-2605.27901",
+      "id": "paper-2605.30073",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "The Fragility of Chain-of-Thought Monitoring Across Typologically Diverse Languages",
-      "authors": "Eric Onyame, Runtao Zhou, Kowshik Thopalli et al.",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.27901",
-      "raw_summary": "Chain-of-thought (CoT) monitoring has been proposed as a promising safety mechanism for detecting misaligned behavior in large language models. However, its reliability remains largely unexplored beyond English and across diverse model families. We present the first large-scale evaluation of CoT monitorability across 13 diverse languages and seven frontier model families, comprising 16 models. Using adversarial-hint evaluations that require explicit intermediate computation, together with analysis of internal answer-token probabilities, we consistently find CoT unfaithfulness across languages and hint types, with an average rate of 95.9\\% across 8B--120B parameter models. We find that frontier models systematically engage in strategic manipulation, including answer-switching, post-hoc rationalization, and procedural exploitation of hints, making external monitors struggle to detect deception. We show that frontier models often commit to the misaligned cue in their latent activations within the first 15\\% of generation, even when the CoT appears faithful. Surprisingly, these deceptive patterns remain 100\\% in low-resource languages, revealing fundamental limitations in current CoT-based oversight. Our results reveal that CoT monitoring is fundamentally fragile under linguistic distribution shift, providing a substantially weaker safety signal than what English-only studies suggest. These findings underscore an urgent need to develop robust CoT monitors and to accelerate research into white-box monitoring techniques, especially to improve CoT monitorability in mid- and low-resource languages. Our code is available https://multilingual-cot-monitoring.github.io/{blue{here}}.",
-      "image": "https://arxiv.org/html/2605.27901/2605.27901v1/x1.png"
+      "title": "Native Audio-Visual Alignment for Generation",
+      "authors": "Longbin Ji, Guan Wang, Xuan Wei et al.",
+      "published": "2026-05-27",
+      "url": "https://arxiv.org/abs/2605.30073",
+      "raw_summary": "Joint audio-video generation aims to synthesize temporally synchronized and semantically coherent visual-acoustic content. However, existing open-source methods mainly rely on either dual-tower designs with posterior alignment or fully unified tri-modal designs that mix textual context, audio and video in one shared space. The former weakens fine-grained audio-video co-evolution, while the latter couples semantic conditioning with low-level synchronization. To address these limitations, we propose NAVA, a Native Audio-Visual Alignment framework for joint audio-video generation. NAVA is built upon context-conditioned native audio-visual alignment: it first establishes audio-video correspondence in a dedicated interaction space, and then uses external context to condition the joint denoising process. Specifically, NAVA is instantiated with an Align-then-Fuse MMDiT architecture, which transitions from modality-aware audio-video alignment to modality-shared joint denoising. Furthermore, we introduce Timbre-in-Context Conditioning to associate reference timbre cues with corresponding speech spans to achieve controllable speech timbre. Experiments on Verse-Bench and Seed-TTS, together with a user study, demonstrate that NAVA achieves superior video quality, precise audio-visual synchronization, competitive audio quality, and stronger reference-timbre controllability using only 6.3B parameters.",
+      "image": "https://arxiv.org/html/2605.30073v1/x1.png"
     },
     {
-      "id": "paper-2605.27310",
+      "id": "paper-2605.30248",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "How and What to Imagine? Visual Thinking in Unified Multimodal Models for Cross-View Spatial Reasoning",
-      "authors": "Qian Yang, Ankur Sikarwar, Huy Le et al.",
-      "published": "2026-05-25",
-      "url": "https://arxiv.org/abs/2605.27310",
-      "raw_summary": "Cross-view spatial reasoning remains a weak spot for vision-language models (VLMs): they often reason in language and lose the fine-grained geometry needed for the task. Thinking with images aims to address this by generating an intermediate thinking image, but recent work shows that models often ignore the visual evidence in these traces. We therefore ask how to make visual thinking matter, and what kind of visual thinking works best. We study these questions in unified multimodal models (UMMs), which natively support interleaved image-text generation. For the first question, we propose View Dropout (VDrop), a training-time intervention that hides parts of one input view from the answer span while keeping them visible to the thinking-image tokens. This encourages the model to use the thinking image when answering, instead of relying only on the input views. Once the thinking image is used for answer prediction, we study which type of visual thinking is most effective. We frame this as a learnability-informativeness tradeoff and compare three thinking-image variants: top-down, panoramic, and point-matching renderings. Trained on synthetic scenes and evaluated on five real-world out-of-domain benchmarks, panoramic visual thinking with VDrop is the only configuration that is both informative and learnable, and it achieves the best out-of-domain generalization.",
-      "image": "https://arxiv.org/html/2605.27310/2605.27310v1/x1.png"
+      "title": "GenClaw: Code-Driven Agentic Image Generation",
+      "authors": "Junyan Ye, Jun He, Zilong Huang et al.",
+      "published": "2026-05-27",
+      "url": "https://arxiv.org/abs/2605.30248",
+      "raw_summary": "Image generation models have evolved from text-conditioned pixel synthesis toward multimodal agents endowed with visual comprehension and tool invocation capabilities. Yet, existing agents remain at the mercy of underlying black-box image models. Their workflow is trapped in a repetitive cycle of prompt rewriting for generation refinement, leaving them with no mechanism to directly manipulate the canvas. In essence, the potential of LLMs to serve as a genuine \"brush\" for precise visual construction remains largely untapped. In this paper, we propose GenClaw, a code-driven agentic image generation paradigm that empowers the agent to create like a human artist: first conceptualizing, then sketching, and finally coloring. Specifically, the agent first constructs the conceptual knowledge and context through search and reasoning. It then utilizes code (e.g., SVG, HTML, Three.js) to render executable visual sketches. Finally, it employs an image generation model to supplement textures, materials, and photorealism. In this workflow, code serves as a controllable intermediate canvas bridging linguistic reasoning and pixel synthesis, seamlessly integrating programmatic logic with the visual expressiveness of generative models. By transforming image generation from a black-box paradigm into a staged process akin to authentic human creation, GenClaw offers a step toward for highly controllable and interpretable visual generation systems.",
+      "image": "https://arxiv.org/html/2605.30248v1/images/Fig1-10.jpg"
+    },
+    {
+      "id": "news-gh-932038801",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/DeepGEMM",
+      "authors": "DeepSeek",
+      "published": "2026-05-29",
+      "url": "https://github.com/deepseek-ai/DeepGEMM",
+      "raw_summary": "DeepGEMM: clean and efficient FP8 GEMM kernels with fine-grained scaling"
     },
     {
       "id": "news-gh-1008713177",
@@ -72,7 +83,18 @@
       "raw_summary": "An open-source AI agent that lives in your terminal."
     },
     {
-      "id": "news-85227087",
+      "id": "news-gh-1076863218",
+      "type": "news",
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-cli",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-05-29",
+      "url": "https://github.com/MoonshotAI/kimi-cli",
+      "raw_summary": "Kimi Code CLI is your next CLI agent."
+    },
+    {
+      "id": "news-70937344",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
@@ -81,28 +103,6 @@
       "published": "2026-05-28",
       "url": "https://openai.com/index/endava",
       "raw_summary": "Learn how Endava uses Codex to build an agentic organization, accelerating software delivery and reducing requirements analysis from weeks to hours."
-    },
-    {
-      "id": "news-63490179",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "OpenAI’s Frontier Governance Framework",
-      "authors": "OpenAI",
-      "published": "2026-05-28",
-      "url": "https://openai.com/index/openai-frontier-governance-framework",
-      "raw_summary": "Explore OpenAI’s Frontier Governance Framework and how our AI safety, security, and risk practices align with emerging EU and California regulations."
-    },
-    {
-      "id": "news-36530153",
-      "type": "news",
-      "source": "Google Research",
-      "region": "海外",
-      "title": "A New Era of Innovation: Google Research at I/O 2026",
-      "authors": "Google Research",
-      "published": "2026-05-28",
-      "url": "https://research.google/blog/a-new-era-of-innovation-google-research-at-io-2026/",
-      "raw_summary": "General Science"
     }
   ]
 }
