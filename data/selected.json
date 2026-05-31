@@ -1,18 +1,6 @@
 {
-  "fetched_at": "2026-05-30",
+  "fetched_at": "2026-05-31",
   "items": [
-    {
-      "id": "paper-2605.30010",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "EarlyTom: Early Token Compression Completes Fast Video Understanding",
-      "authors": "Hesong Wang, Xin Jin, Lu Lu et al.",
-      "published": "2026-05-27",
-      "url": "https://arxiv.org/abs/2605.30010",
-      "raw_summary": "Video large language models (Video-LLMs) have demonstrated strong capabilities in video understanding tasks. However, their practical deployment is still hindered by the inefficiency introduced by processing massive amounts of visual tokens. Although recent approaches achieve extremely low token retention ratios while maintaining accuracy comparable to full-token baselines, most of them perform compression only at the late stage of prefilling, leaving the efficiency of the vision encoder unoptimized. In this paper, we first show that vision encoding contributes a large portion to the time-to-first-token (TTFT). Therefore, instead of compressing visual tokens only after the vision encoder, performing compression inside the encoder still leaves substantial room for exploration. Based on this insight, we propose EarlyTom, a training-free token compression framework that performs early-stage visual token compression inside the vision encoder, enabling significantly better TTFT reduction and higher throughput. In addition, we introduce a decoupled spatial token selection strategy that improves the overall compression effectiveness. EarlyTom reduces TTFT by up to 2.65x and FLOPs by up to 61% on a single NVIDIA A100 GPU for the LLaVA-OneVision-7B model, while maintaining accuracy comparable to the full-token baseline. These improvements substantially enhance the practicality of deploying Video-LLMs in real-world production scenarios.",
-      "image": "https://arxiv.org/html/2605.30010v1/x1.png"
-    },
     {
       "id": "paper-2605.30161",
       "type": "paper",
@@ -24,6 +12,18 @@
       "url": "https://arxiv.org/abs/2605.30161",
       "raw_summary": "Vision-language models (VLMs) achieve strong performance on spatial reasoning benchmarks, yet it remains unclear whether this reflects structured 3D understanding or reliance on statistical shortcuts in natural images. We introduce a representation-level analysis framework that constructs minimal contrastive pairs to measure how spatial axes are organized and disentangled within VLM embeddings. Our analysis across multiple model families reveals a consistent vertical-distance entanglement: models conflate vertical image position with distance, mirroring the perspective bias of natural photographs. This bias produces a significant accuracy gap between perspective-consistent and counter-heuristic examples, and intensifies under data scaling even as overall benchmark accuracy improves. We further show that models with similar benchmark scores can exhibit different internal representations, and that these differences predict accuracy and robustness across diverse spatial reasoning benchmarks. To isolate this bias from evaluation-set skew, we introduce SpatialTunnel, a synthetic benchmark designed to expose spatial shortcut biases by removing common correlations present in natural images. Experiments confirm that the entanglement is model-intrinsic, and that models with well-separated spatial axes exhibit greater robustness, suggesting that well-structured spatial representations lead to more reliable spatial reasoning across diverse benchmarks. Code and benchmark are available on the project page: https://cheolhong0916.github.io/whyfarlooksup.github.io/.",
       "image": "https://arxiv.org/html/2605.30161v1/x1.png"
+    },
+    {
+      "id": "paper-2605.30010",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "EarlyTom: Early Token Compression Completes Fast Video Understanding",
+      "authors": "Hesong Wang, Xin Jin, Lu Lu et al.",
+      "published": "2026-05-27",
+      "url": "https://arxiv.org/abs/2605.30010",
+      "raw_summary": "Video large language models (Video-LLMs) have demonstrated strong capabilities in video understanding tasks. However, their practical deployment is still hindered by the inefficiency introduced by processing massive amounts of visual tokens. Although recent approaches achieve extremely low token retention ratios while maintaining accuracy comparable to full-token baselines, most of them perform compression only at the late stage of prefilling, leaving the efficiency of the vision encoder unoptimized. In this paper, we first show that vision encoding contributes a large portion to the time-to-first-token (TTFT). Therefore, instead of compressing visual tokens only after the vision encoder, performing compression inside the encoder still leaves substantial room for exploration. Based on this insight, we propose EarlyTom, a training-free token compression framework that performs early-stage visual token compression inside the vision encoder, enabling significantly better TTFT reduction and higher throughput. In addition, we introduce a decoupled spatial token selection strategy that improves the overall compression effectiveness. EarlyTom reduces TTFT by up to 2.65x and FLOPs by up to 61% on a single NVIDIA A100 GPU for the LLaVA-OneVision-7B model, while maintaining accuracy comparable to the full-token baseline. These improvements substantially enhance the practicality of deploying Video-LLMs in real-world production scenarios.",
+      "image": "https://arxiv.org/html/2605.30010v1/x1.png"
     },
     {
       "id": "paper-2605.29507",
@@ -67,9 +67,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-05-30",
+      "published": "2026-05-31",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1183011239",
+      "type": "news",
+      "source": "阶跃星辰 Step · GitHub",
+      "region": "国内",
+      "title": "stepfun-ai/llama.cpp",
+      "authors": "阶跃星辰 Step",
+      "published": "2026-05-31",
+      "url": "https://github.com/stepfun-ai/llama.cpp",
+      "raw_summary": "LLM inference in C/C++"
     },
     {
       "id": "news-gh-1004140701",
@@ -92,17 +103,6 @@
       "published": "2026-05-30",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "The Starting Point for Next-Gen Agents"
-    },
-    {
-      "id": "news-92943881",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Boston Children’s uses AI to unlock new diagnoses",
-      "authors": "OpenAI",
-      "published": "2026-05-29",
-      "url": "https://openai.com/index/boston-childrens-hospital",
-      "raw_summary": "Boston Children’s Hospital uses OpenAI technology to improve patient care, reduce operational burden, and help diagnose more than 40 rare disease cases."
     }
   ]
 }
