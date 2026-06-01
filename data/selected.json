@@ -1,64 +1,87 @@
 {
-  "fetched_at": "2026-05-31",
+  "fetched_at": "2026-06-01",
   "items": [
     {
-      "id": "paper-2605.30161",
+      "id": "paper-2605.31264",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Why Far Looks Up: Probing Spatial Representation in Vision-Language Models",
-      "authors": "Cheolhong Min, Jaeyun Jung, Daeun Lee et al.",
-      "published": "2026-05-27",
-      "url": "https://arxiv.org/abs/2605.30161",
-      "raw_summary": "Vision-language models (VLMs) achieve strong performance on spatial reasoning benchmarks, yet it remains unclear whether this reflects structured 3D understanding or reliance on statistical shortcuts in natural images. We introduce a representation-level analysis framework that constructs minimal contrastive pairs to measure how spatial axes are organized and disentangled within VLM embeddings. Our analysis across multiple model families reveals a consistent vertical-distance entanglement: models conflate vertical image position with distance, mirroring the perspective bias of natural photographs. This bias produces a significant accuracy gap between perspective-consistent and counter-heuristic examples, and intensifies under data scaling even as overall benchmark accuracy improves. We further show that models with similar benchmark scores can exhibit different internal representations, and that these differences predict accuracy and robustness across diverse spatial reasoning benchmarks. To isolate this bias from evaluation-set skew, we introduce SpatialTunnel, a synthetic benchmark designed to expose spatial shortcut biases by removing common correlations present in natural images. Experiments confirm that the entanglement is model-intrinsic, and that models with well-separated spatial axes exhibit greater robustness, suggesting that well-structured spatial representations lead to more reliable spatial reasoning across diverse benchmarks. Code and benchmark are available on the project page: https://cheolhong0916.github.io/whyfarlooksup.github.io/.",
-      "image": "https://arxiv.org/html/2605.30161v1/x1.png"
+      "title": "COLLEAGUE.SKILL: Automated AI Skill Generation via Expert Knowledge Distillation",
+      "authors": "Tianyi Zhou, Dongrui Liu, Leitao Yuan et al.",
+      "published": "2026-05-28",
+      "url": "https://arxiv.org/abs/2605.31264",
+      "raw_summary": "LLM agents are increasingly expected not only to complete isolated tasks, but also to carry bounded representations of human expertise, judgment, and interaction style. Building such person-grounded agents remains difficult because actionable knowledge associated with a person or role is usually embedded in heterogeneous traces rather than written as clean instructions. Existing memory and persona systems capture fragments of this evidence, while skill frameworks provide portable packaging formats; however, there is no end-to-end workflow for distilling these traces into inspectable, correctable, and agent-usable skills. We present an automated trace-to-skill distillation system for generating person-grounded AI skills via expert knowledge distillation. Given materials from a target person or role, COLLEAGUE.SKILL produces a versioned skill package with two coordinated tracks: a capability track for practices, mental models, and decision heuristics, and a bounded behavior track for communication style, interaction rules, and correction history. The package can be inspected, invoked, updated through natural-language feedback, rolled back, installed across agent hosts, and optionally prepared for controlled distribution. We describe the artifact contract, generation workflow, correction lifecycle, deployment surface, and domain presets implemented in the open-source system. At the time of writing, the public repository has approximately 18.5k GitHub stars; the gallery lists 215 skills from 165 contributors and more than 100k cumulative stars across listed skill cards. The system illustrates how person-grounded skills can be represented as portable, correctable packages rather than opaque prompts or hidden memories.",
+      "image": "https://arxiv.org/html/2605.31264v1/x1.png"
     },
     {
-      "id": "paper-2605.30010",
+      "id": "paper-2605.30993",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "EarlyTom: Early Token Compression Completes Fast Video Understanding",
-      "authors": "Hesong Wang, Xin Jin, Lu Lu et al.",
-      "published": "2026-05-27",
-      "url": "https://arxiv.org/abs/2605.30010",
-      "raw_summary": "Video large language models (Video-LLMs) have demonstrated strong capabilities in video understanding tasks. However, their practical deployment is still hindered by the inefficiency introduced by processing massive amounts of visual tokens. Although recent approaches achieve extremely low token retention ratios while maintaining accuracy comparable to full-token baselines, most of them perform compression only at the late stage of prefilling, leaving the efficiency of the vision encoder unoptimized. In this paper, we first show that vision encoding contributes a large portion to the time-to-first-token (TTFT). Therefore, instead of compressing visual tokens only after the vision encoder, performing compression inside the encoder still leaves substantial room for exploration. Based on this insight, we propose EarlyTom, a training-free token compression framework that performs early-stage visual token compression inside the vision encoder, enabling significantly better TTFT reduction and higher throughput. In addition, we introduce a decoupled spatial token selection strategy that improves the overall compression effectiveness. EarlyTom reduces TTFT by up to 2.65x and FLOPs by up to 61% on a single NVIDIA A100 GPU for the LLaVA-OneVision-7B model, while maintaining accuracy comparable to the full-token baseline. These improvements substantially enhance the practicality of deploying Video-LLMs in real-world production scenarios.",
-      "image": "https://arxiv.org/html/2605.30010v1/x1.png"
+      "title": "SwanVoice: Expressive Long-Form Zero-Shot Speech Synthesis for Both Monologue and Dialogue",
+      "authors": "Ruiqi Li, Yu Zhang, Changhao Pan et al.",
+      "published": "2026-05-28",
+      "url": "https://arxiv.org/abs/2605.30993",
+      "raw_summary": "Zero-shot text-to-speech (TTS) has improved substantially for single-speaker synthesis, yet expressive long-form multi-speaker dialogue remains difficult. A common workaround is to synthesize each turn with a monologue TTS model and stitch the outputs together. This adds inference cost and often breaks acoustic consistency, conversational coherence, and affective continuity across turns. Recent dialogue TTS systems have begun to address this setting, but they still struggle to keep expressive coherence, controllable speaker switching, and monologue quality at the same time. We present SwanData-Speech and SwanVoice. SwanData-Speech builds monologue and dialogue corpora from in-the-wild audio, using Swan Forced Aligner for pause-aware word-level alignment and RobustMegaTTS3 for pronunciation-hard cases. Built on these data, SwanVoice is a zero-shot TTS model for 1--4 speakers, combining a 25 Hz VAE, raw-text conditioning with pause-aware symbols and pinyin substitution, and a flow-matching DiT with speaker-turn conditioning. Training starts from monologue speech, moves through mixed and real dialogue data, and then uses DiffusionNFT post-training with phone-level and speaker-similarity rewards. On SwanBench-Speech, SwanVoice obtains higher richness and hierarchy scores than all evaluated open-source baselines in both monologue and dialogue settings, while content accuracy remains the main limitation. Audio demos are available at https://swanaigc.github.io//#swanvoice.",
+      "image": "https://arxiv.org/html/2605.30993v1/Figures/swan.png"
     },
     {
-      "id": "paper-2605.29507",
+      "id": "paper-2605.30409",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Xetrieval: Mechanistically Explaining Dense Retrieval",
-      "authors": "Zhixin Cai, Jun Bai, Yang Liu et al.",
+      "title": "SANA-Streaming: Real-time Streaming Video Editing with Hybrid Diffusion Transformer",
+      "authors": "Yuyang Zhao, Yicheng Pan, Qiyuan He et al.",
       "published": "2026-05-27",
-      "url": "https://arxiv.org/abs/2605.29507",
-      "raw_summary": "Explaining why dense retrievers assign high relevance scores remains challenging because retrieval decisions are made through opaque high-dimensional embeddings. Existing explanations often focus on surface signals, such as lexical matches, token alignments, or post-hoc textual rationales, and thus provide limited insight into the latent factors that shape dense retrieval behavior at the embedding level. We propose Xetrieval, an embedding-level mechanistic framework for explaining dense retrieval. Xetrieval first introduces a lightweight reasoning internalizer that approximates Chain-of-Thought reasoning directly in the embedding space with a single forward pass, enriching sentence embeddings with reasoning-oriented information while avoiding expensive autoregressive generation. It then decomposes these reasoning-enhanced embeddings into sparse, human-interpretable features, each associated with a coherent natural language description. By aggregating sparse feature overlaps across multiple document-side views, Xetrieval provides feature-level explanations of individual retrieval decisions. Experiments on diverse retrievers and benchmarks show that Xetrieval uncovers coherent interpretable features, yields stronger pair-level intervention effects, and supports task-level feature steering. The project page and source code are available at https://hihiczx.github.io/Xetrieval .",
-      "image": "https://arxiv.org/html/2605.29507v1/x1.png"
+      "url": "https://arxiv.org/abs/2605.30409",
+      "raw_summary": "Real-time streaming video-to-video editing (V2V) is critical for interactive applications such as live broadcasting and gaming, yet it remains a formidable challenge due to the stringent requirements for temporal consistency and inference throughput. In this paper, we present SANA-Streaming, a system-algorithm co-designed framework for high-resolution, real-time streaming video editing on consumer GPUs, with the following three core designs: (1) Hybrid Diffusion Transformer architecture introduces softmax attention in part of the blocks to improve local modeling capabilities while preserving the efficiency of linear layers. (2) Cycle-Reverse Regularization is a novel training strategy that enforces semantic consistency by predicting source frames from generated content via flow matching, improving temporal consistency without requiring paired long edited videos. (3) Efficient System Co-design combines fused GDN kernels and Mixed-Precision Quantization (MPQ) optimized for the NVIDIA Blackwell (RTX 5090) architecture. By profiling real-world throughput, our MPQ maximizes Tensor Core utilization while maintaining generation quality. The resulting system achieves real-time 1280 x 704 resolution editing at 24 end-to-end FPS on a single RTX 5090 GPU, with the DiT core running at 58 FPS. Experimental results demonstrate that our co-design approach significantly outperforms existing SOTA methods in both temporal coherence and system throughput.",
+      "image": "https://arxiv.org/html/2605.30409v1/x1.png"
     },
     {
-      "id": "paper-2605.30102",
+      "id": "paper-2605.26844",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "When Cloud Agents Meet Device Agents: Lessons from Hybrid Multi-Agent Systems",
-      "authors": "Corrado Rainone, Davide Belli, Bence Major et al.",
-      "published": "2026-05-27",
-      "url": "https://arxiv.org/abs/2605.30102",
-      "raw_summary": "The design space of agentic AI inference spans two extremes: frontier large language models (LLMs), typically hosted in the cloud and offering strong performance across a wide range of tasks at substantially high cost, and more cost-efficient small language models (SLMs), which are amenable to on-device inference. Hybrid multi-agent systems (MASs) combining on-device and cloud models offer a promising middle ground, but they also introduce a complex and poorly understood design space in which task accuracy, monetary cost, and edge energy consumption are tightly coupled; in the absence of general design principles, hybrid components, although not the most prevalent choice, are typically introduced through ad hoc decisions tailored to specific domains. In this work, we examine this design space more systematically. We adapt two representative MAS architectures to support hybrid inference and study how individual design choices shift the operating point along the Pareto frontier of power, cost, and performance. Our findings paint a nuanced picture of hybrid MAS design: while SLMs can effectively benefit from LLM assistance, the optimal architecture is highly task-dependent, and greater frontier-level compute does not consistently translate to better performance."
+      "title": "Not All Disagreement Is Learnable: Token Teachability in On-Policy Distillation",
+      "authors": "Yuanyi Wang, Su Lu, Yanggan Gu et al.",
+      "published": "2026-05-25",
+      "url": "https://arxiv.org/abs/2605.26844",
+      "raw_summary": "On-policy distillation (OPD) trains a student on its own rollouts with token-level teacher supervision. Recent selective OPD methods exploit the non-uniformity of OPD signals by prioritizing high-entropy or high-disagreement tokens. We revisit this principle and ask: which token-level teacher signals are actually learnable? Using a fixed-context diagnostic that measures same-context teacher-student KL reduction, we show that raw KL disagreement is a coarse proxy for learning value. It conflates learnable disagreement, where the teacher assigns corrective mass to the student's top-K candidates, with incompatible disagreement, where the teacher places mass mostly off the student's current support. We formalize this local compatibility as token teachability and show that it better predicts fixed-context improvement than raw KL alone. Motivated by this finding, we propose Teachability-Aware OPD (TA-OPD), a lightweight token-position selection method that applies OPD loss to high-teachability positions without reward models or verifiers. Across Qwen2.5 and Qwen 3 teacher-student settings, TA-OPD often surpasses full-token OPD with only 5% retained tokens and improves over entropy- and divergence-based baselines. Our results reframe selective OPD as selecting learnable teacher signals rather than merely salient tokens.",
+      "image": "https://arxiv.org/html/2605.26844v1/x1.png"
     },
     {
-      "id": "paper-2605.26730",
+      "id": "paper-2605.31075",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "PRISM: A Multi-Dimensional Benchmark for Evaluating LLM Peer Reviewers",
-      "authors": "Ngoc Phan Phuoc Loc, Toan Huynh La Viet, Thanh Tran Khanh et al.",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.26730",
-      "raw_summary": "The rapid growth in submissions to machine learning venues has strained the scientific peer-review system and intensified interest in LLM-based automated peer reviewers. However, how good these systems are actually, especially compared to human reviewers at catching scientific gaps, remains poorly understood. In this work, we introduce PRISM (Peer Review Intelligence via Structured Multi-dimensional assessment), a benchmarking framework that evaluates review quality across four dimensions: Depth of Analysis, Novelty Assessment,Flaw Identification & Major Issues Prioritization, and Multi-dimensional Constructiveness. Unlike most existing evaluations based on surface-level metrics like ROUGE and BLEU, or unconstrained LLM-as-a-judge prompting that conflates fluency with rigor, PRISM grounds each dimension in argument mining, retrieval-augmented verification, and consensus-based scoring. We apply PRISM to benchmark five leading automated reviewer systems and human reviewers on a stratified corpus of reviews from ICLR, ICML, and NeurIPS. The results reveal that LLMs can match or beat human reviewers on individual dimensions: comparable depth of analysis, stronger novelty verification, and highly accurate critique prioritization. However, no single system consistently matches the balanced performance of the human baseline across all dimensions at once. Each exhibits a distinct specialization profile with characteristic blind spots -- failure modes that aggregate metrics miss entirely. The implication is that LLM reviewers are best understood as targeted supplements to human review, effective within specific dimensions, but unreliable as standalone replacements. Our demo and key results can be found at https://khanhthanhdev.github.io/prism-page/.",
-      "image": "https://arxiv.org/html/2605.26730v2/x1.png"
+      "title": "Task-Focused Memorization for Multimodal Agents",
+      "authors": "Tao Zou, Yichen He, Tian Qiu et al.",
+      "published": "2026-05-28",
+      "url": "https://arxiv.org/abs/2605.31075",
+      "raw_summary": "Long-term memory is essential for multimodal agents to build coherent experience, accumulate world knowledge, and achieve continual learning. However, constructing effective memory goes beyond memory module design and basic requirements such as accuracy and fidelity; the key challenge lies in determining what to memorize. Multimodal agents, such as embodied agents, continuously perceive, reason, and act in real or virtual environments, receiving an unbounded stream of multimodal observations. From this combinatorial explosion of information, an agent must selectively retain content that is relevant to its role in the environment and valuable for future tasks. To bridge this gap, we frame memory generation as a learnable memorization policy and introduce TaskMem (Task-focused Memorization Policy Learning), a reinforcement-learning-based framework that enables the policy to dynamically adjust its focus to the demands of real tasks encountered in the environment. TaskMem adopts a two-phase training paradigm: Phase One learns how to memorize by optimizing memory quality under fundamental fidelity requirements; Phase Two occurs after deployment, where the agent learns what to memorize by tuning an adapter on its base MLLM, using recent environment tasks to define a reward model that guides the memorization policy toward task-relevant content. To evaluate our approach, we reformulate VideoMME, EgoLife, and EgoTempo into streaming benchmarks that simulate a realistic setting in which an agent processes streaming observations and handles tasks arriving online. To isolate memory assessment, the questions must be answered using only the agent's memory, without access to raw video. Built on Qwen3-VL-30B-A3B, TaskMem improves VQA accuracy by 6.3%, 7.0%, and 5.3% on these benchmarks, respectively.",
+      "image": "https://arxiv.org/html/2605.31075v1/x1.png"
+    },
+    {
+      "id": "news-85057983",
+      "type": "news",
+      "source": "Hugging Face",
+      "region": "海外",
+      "title": "Welcome NVIDIA Cosmos 3: The First Open Omni-model for Physical AI Reasoning and Action",
+      "authors": "Hugging Face",
+      "published": "2026-06-01",
+      "url": "https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai",
+      "raw_summary": ""
+    },
+    {
+      "id": "news-gh-933928679",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/DeepEP",
+      "authors": "DeepSeek",
+      "published": "2026-06-01",
+      "url": "https://github.com/deepseek-ai/DeepEP",
+      "raw_summary": "DeepEP: an efficient expert-parallel communication library"
     },
     {
       "id": "news-gh-1008713177",
@@ -67,31 +90,9 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-05-31",
+      "published": "2026-06-01",
       "url": "https://github.com/QwenLM/qwen-code",
-      "raw_summary": "An open-source AI agent that lives in your terminal."
-    },
-    {
-      "id": "news-gh-1183011239",
-      "type": "news",
-      "source": "阶跃星辰 Step · GitHub",
-      "region": "国内",
-      "title": "stepfun-ai/llama.cpp",
-      "authors": "阶跃星辰 Step",
-      "published": "2026-05-31",
-      "url": "https://github.com/stepfun-ai/llama.cpp",
-      "raw_summary": "LLM inference in C/C++"
-    },
-    {
-      "id": "news-gh-1004140701",
-      "type": "news",
-      "source": "智谱 GLM · GitHub",
-      "region": "国内",
-      "title": "THUDM/slime",
-      "authors": "智谱 GLM",
-      "published": "2026-05-30",
-      "url": "https://github.com/THUDM/slime",
-      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
+      "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
       "id": "news-gh-1246459259",
@@ -100,7 +101,7 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-05-30",
+      "published": "2026-06-01",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "The Starting Point for Next-Gen Agents"
     }
