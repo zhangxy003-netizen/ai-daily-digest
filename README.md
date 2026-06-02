@@ -2,7 +2,7 @@
 
 > 一个 Serverless 全自动 AI 资讯聚合站。每天追踪 Hugging Face 热门论文 + arXiv 新作 + 国内外大厂动态,用 DeepSeek-V4 生成中文深度解读,让看 AI 像读早报一样轻松。
 
-🔗 **在线访问:** [rockzxy.top](https://rockzxy.top) · 备用 [ai-daily-digest-seven.vercel.app](https://ai-daily-digest-seven.vercel.app)
+🔗 **在线访问:** [ai.rockzxy.top](https://ai.rockzxy.top) · 备用 [ai-daily-digest-seven.vercel.app](https://ai-daily-digest-seven.vercel.app)
 
 ---
 
