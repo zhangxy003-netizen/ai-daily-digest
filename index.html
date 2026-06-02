@@ -50,7 +50,6 @@
     font-family:var(--font-serif-cn);font-weight:400;font-size:.95rem;
     color:var(--ink-faint);letter-spacing:.01em}
 
-  /* 筛选 Tab */
   .tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
     margin:34px 0 0;padding-bottom:14px}
   .tab{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;
@@ -95,7 +94,6 @@
     font-size:.58rem;letter-spacing:.18em;color:var(--ink-faint);border-bottom:1px solid var(--rule);
     padding-bottom:3px;margin-bottom:9px;text-transform:uppercase}
 
-  /* 计数条 */
   .stats-bar{display:flex;align-items:center;justify-content:flex-end;padding:12px 30px;
     border-top:1px solid var(--rule);font-family:var(--font-mono);font-size:.74rem}
   .toggle{display:flex;align-items:center;gap:7px;cursor:pointer;
@@ -116,23 +114,19 @@
   .paper-fig figcaption{font-family:var(--font-mono);font-size:.62rem;
     color:var(--ink-faint);letter-spacing:.06em;margin-top:8px}
 
-  /* 图解 */
   .figure{background:var(--card);border:1px solid var(--rule);border-radius:3px;
     padding:20px 22px;margin:20px 0}
   .figure-title{font-family:var(--font-serif-cn);font-weight:600;font-size:.92rem;
     color:var(--accent);margin-bottom:16px;text-align:center}
-  /* compare */
   .cmp-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;align-items:center;
     padding:9px 0;border-bottom:1px dashed var(--rule);font-size:.86rem}
   .cmp-row:last-child{border-bottom:none}
   .cmp-label{color:var(--ink-faint);font-size:.8rem}
   .cmp-a{color:var(--ink-soft)} .cmp-b{color:var(--accent);font-weight:600}
-  /* flow */
   .flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px}
   .flow-step{background:var(--paper);border:1px solid var(--accent);color:var(--accent);
     font-size:.8rem;padding:7px 13px;border-radius:3px;white-space:nowrap}
   .flow-arr{color:var(--ink-faint);font-size:.9rem}
-  /* stat */
   .stat-grid{display:flex;justify-content:space-around;flex-wrap:wrap;gap:16px}
   .stat-item{text-align:center;min-width:90px}
   .stat-num{font-family:var(--font-serif-en);font-size:2rem;font-weight:500;color:var(--accent);line-height:1}
@@ -202,12 +196,66 @@
   .site-like-btn.liked{color:#c0392b;border-color:#c0392b}
   .site-like-btn .heart{font-size:.9rem;transition:transform .25s}
   .site-like-btn.liked .heart{transform:scale(1.25)}
+
+  /* ===== 新增:logo印章 ===== */
+  .brand-stamp{display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border:1.5px solid var(--accent);border-radius:3px;
+    font-family:var(--font-serif-en);font-size:.95rem;font-weight:600;letter-spacing:0;
+    color:var(--accent);margin-right:8px;vertical-align:-5px;transform:rotate(-3deg)}
+
+  /* ===== 新增:搜索框 ===== */
+  .search-box{max-width:520px;margin:18px auto 0;padding-bottom:8px}
+  .search-box input{width:100%;font-family:var(--font-serif-cn);font-size:.92rem;
+    padding:10px 16px;border:1px solid var(--rule);border-radius:3px;
+    background:var(--card);color:var(--ink);outline:none;transition:border-color .2s}
+  .search-box input:focus{border-color:var(--accent)}
+  .search-status{font-family:var(--font-mono);font-size:.66rem;color:var(--ink-faint);
+    text-align:center;margin-top:6px;min-height:1em;letter-spacing:.04em}
+  mark.hl{background:rgba(192,57,43,.18);color:inherit;padding:0 2px;border-radius:2px}
+
+  /* ===== 新增:主题关系图 ===== */
+  .graph-link{text-align:center;margin-top:6px}
+  .graph-btn{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;
+    padding:5px 14px;border:1px solid var(--rule);background:transparent;
+    color:var(--ink-faint);cursor:pointer;border-radius:2px;transition:all .2s}
+  .graph-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .graph-modal{display:none;position:fixed;inset:0;background:rgba(20,18,12,.55);
+    z-index:100;align-items:center;justify-content:center;padding:20px}
+  .graph-modal.open{display:flex}
+  .graph-panel{background:var(--paper);border:1px solid var(--rule);border-radius:6px;
+    max-width:760px;width:100%;max-height:90vh;display:flex;flex-direction:column}
+  .graph-head{display:flex;justify-content:space-between;align-items:center;
+    padding:16px 22px;border-bottom:1px solid var(--rule)}
+  .graph-title{font-family:var(--font-serif-en);font-size:1.05rem;color:var(--accent)}
+  .graph-close{background:none;border:none;font-size:1.6rem;color:var(--ink-faint);
+    cursor:pointer;line-height:1;padding:0 4px}
+  .graph-close:hover{color:var(--accent)}
+  .graph-hint{font-family:var(--font-serif-cn);font-size:.78rem;color:var(--ink-faint);
+    padding:10px 22px 4px;line-height:1.6}
+  .graph-svg-wrap{flex:1;overflow:auto;padding:8px 12px 16px}
+  .graph-svg-wrap svg{display:block;margin:0 auto}
+  .gnode-circle{fill:var(--card);stroke:var(--accent);stroke-width:1.5;cursor:pointer;transition:all .2s}
+  .gnode:hover .gnode-circle{fill:var(--accent)}
+  .gnode:hover .gnode-text{fill:var(--paper)}
+  .gnode-text{font-family:var(--font-serif-cn);font-size:11px;fill:var(--ink);
+    text-anchor:middle;pointer-events:none;font-weight:500}
+  .gnode-count{font-family:var(--font-mono);font-size:9px;fill:var(--ink-faint);
+    text-anchor:middle;pointer-events:none}
+  .gedge{stroke:var(--accent);opacity:.25}
+
+  /* ===== 新增:关于链接 ===== */
+  .about-links{margin-top:16px;text-align:center}
+  .about-links a{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;
+    color:var(--ink-faint);text-decoration:none;border-bottom:1px solid var(--rule);
+    padding-bottom:2px;transition:all .2s}
+  .about-links a:hover{color:var(--accent);border-color:var(--accent)}
 </style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23f5f1e8'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='40' font-weight='600' text-anchor='middle' fill='%231a3a5c'%3ER%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 <header class="masthead">
   <div class="wrap">
-    <div class="kicker">Daily AI Digest · 每日精选</div>
+    <div class="kicker"><span class="brand-stamp">R</span> Daily AI Digest · 每日精选</div>
     <h1>The AI Reader<span class="zh">AI 论文日读</span></h1>
     <div class="site-stats">
       <span class="site-stat"><span class="ss-icon">👁</span> <span id="site-views">0</span> 次访问</span>
@@ -236,25 +284,55 @@
     <button class="tab" data-f="report">发布报告</button>
   </nav>
   <nav class="topic-bar" id="topic-bar"></nav>
+  <div class="graph-link"><button class="graph-btn" id="graph-btn">◉ 主题关系图</button></div>
+  <div class="search-box">
+    <input type="search" id="search-input" placeholder="搜索全部历史期内容(标题 / 摘要 / 解读)..." autocomplete="off">
+    <div class="search-status" id="search-status"></div>
+  </div>
 </div>
 
 <main class="wrap papers" id="list"><div class="empty">正在加载今日内容…</div></main>
 
+<div class="graph-modal" id="graph-modal" onclick="if(event.target===this)closeGraph()">
+  <div class="graph-panel">
+    <div class="graph-head">
+      <span class="graph-title">主题关系图 · Topic Co-occurrence</span>
+      <button class="graph-close" onclick="closeGraph()">×</button>
+    </div>
+    <div class="graph-hint">节点 = 研究主题,大小 = 内容数量;连线 = 两主题共现于同一内容,粗细 = 共现次数。点节点筛选该主题。</div>
+    <div class="graph-svg-wrap" id="graph-svg-wrap"></div>
+  </div>
+</div>
+
 <section class="about wrap">
   <div class="about-line">这片小站如果对你有用,或者你有其他建议,欢迎联系作者</div>
   <div class="about-wechat"><span class="wx-label">微信</span><span class="wx-id">Yan_TrT</span></div>
+  <div class="about-links"><a href="about.html">关于本站 & 技术架构 →</a></div>
 </section>
 
 <script>
 const TYPE_LABEL={paper:"论文",news:"新闻",report:"报告"};
 let ALL=[];
-let ISSUES=[];          // 期目录 [{date, issue_no, count}]
-let curIdx=0;           // 当前看的是第几期(在 ISSUES 数组里的下标,0=最新)
+let ISSUES=[];
+let curIdx=0;
 let curFilter='all';
-let curTopic='all';     // 当前选中的主题
+let curTopic='all';
 const TOPICS=["大模型/LLM","推理/Reasoning","Agent/智能体","多模态","强化学习/RL","效率优化","检索增强/RAG","AI安全/对齐","具身智能/机器人","应用落地"];
 
+// 搜索相关
+let SEARCH_INDEX=null;
+let curQuery='';
+let searchTimer=null;
+
 function pad(n){return String(n).padStart(3,'0')}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function escRe(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+
+function highlightText(text, query){
+  if(!text||!query) return esc(text||'');
+  const re=new RegExp('('+escRe(query)+')','gi');
+  return esc(text).replace(re,'<mark class="hl">$1</mark>');
+}
 
 function buildTopicBar(){
   const bar=document.getElementById('topic-bar');
@@ -270,11 +348,116 @@ function buildTopicBar(){
   });
 }
 
+function buildSearchBox(){
+  const input=document.getElementById('search-input');
+  if(!input) return;
+  input.addEventListener('input', e=>{
+    clearTimeout(searchTimer);
+    searchTimer=setTimeout(()=>doSearch(e.target.value.trim()), 220);
+  });
+}
+
+async function ensureSearchIndex(){
+  if(SEARCH_INDEX!==null) return SEARCH_INDEX;
+  const status=document.getElementById('search-status');
+  status.textContent='正在加载历史归档…';
+  const idx=[];
+  const fetches=ISSUES.map(it=>
+    fetch(`data/archive/${it.date}.json?t=${Date.now()}`)
+      .then(r=>r.json())
+      .then(d=>(d.items||[]).forEach(x=>idx.push({...x, _issue_no:it.issue_no, _date:it.date})))
+      .catch(()=>{})
+  );
+  await Promise.all(fetches);
+  SEARCH_INDEX=idx;
+  status.textContent='';
+  return SEARCH_INDEX;
+}
+
+function fieldMatches(item, q){
+  const ql=q.toLowerCase();
+  const fields=[item.title, item.title_zh, item.tldr, item.explain, item.summary];
+  return fields.some(f=>(f||'').toLowerCase().includes(ql));
+}
+
+async function doSearch(q){
+  curQuery=q;
+  const status=document.getElementById('search-status');
+  if(!q){
+    status.textContent='';
+    // 清空搜索时回到当前期
+    if(ISSUES.length) await loadIssue(curIdx, true);
+    else render(curFilter);
+    return;
+  }
+  await ensureSearchIndex();
+  const hits=SEARCH_INDEX.filter(it=>fieldMatches(it,q));
+  hits.sort((a,b)=>(b._issue_no||0)-(a._issue_no||0));
+  status.textContent=`找到 ${hits.length} 条匹配 · 跨 ${new Set(hits.map(h=>h._date)).size} 期`;
+  ALL=hits;
+  render(curFilter);
+}
+
+// 主题关系图
+async function openGraph(){
+  await ensureSearchIndex();
+  const all=SEARCH_INDEX||[];
+  const counts={}; TOPICS.forEach(t=>counts[t]=0);
+  const cooccur={};
+  all.forEach(it=>{
+    const ts=(it.topics||[]).filter(t=>TOPICS.includes(t));
+    ts.forEach(t=>counts[t]++);
+    for(let i=0;i<ts.length;i++) for(let j=i+1;j<ts.length;j++){
+      const [a,b]=[ts[i],ts[j]].sort();
+      const k=a+'||'+b;
+      cooccur[k]=(cooccur[k]||0)+1;
+    }
+  });
+  const maxCount=Math.max(1,...Object.values(counts));
+  const maxCo=Math.max(1,...Object.values(cooccur));
+
+  const W=680, H=440, cx=W/2, cy=H/2, R=160;
+  const nodes=TOPICS.map((t,i)=>{
+    const ang=(i/TOPICS.length)*Math.PI*2 - Math.PI/2;
+    return {topic:t, x:cx+Math.cos(ang)*R, y:cy+Math.sin(ang)*R,
+            r:14+18*(counts[t]/maxCount), count:counts[t]};
+  });
+  const nodeMap={}; nodes.forEach(n=>nodeMap[n.topic]=n);
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px">`;
+  Object.entries(cooccur).forEach(([k,v])=>{
+    const [a,b]=k.split('||'); const na=nodeMap[a], nb=nodeMap[b];
+    if(!na||!nb) return;
+    const sw=1+5*(v/maxCo);
+    svg+=`<line class="gedge" x1="${na.x}" y1="${na.y}" x2="${nb.x}" y2="${nb.y}" stroke-width="${sw}"/>`;
+  });
+  nodes.forEach(n=>{
+    const safeTopic=n.topic.replace(/'/g,"\\'");
+    svg+=`<g class="gnode" onclick="pickTopicFromGraph('${safeTopic}')">
+      <circle class="gnode-circle" cx="${n.x}" cy="${n.y}" r="${n.r}"/>
+      <text class="gnode-text" x="${n.x}" y="${n.y+2}">${esc(n.topic)}</text>
+      <text class="gnode-count" x="${n.x}" y="${n.y+n.r+12}">${n.count} 条</text>
+    </g>`;
+  });
+  svg+=`</svg>`;
+  document.getElementById('graph-svg-wrap').innerHTML=svg;
+  document.getElementById('graph-modal').classList.add('open');
+}
+
+function closeGraph(){document.getElementById('graph-modal').classList.remove('open')}
+
+function pickTopicFromGraph(topic){
+  closeGraph();
+  const chip=document.querySelector(`.topic-chip[data-t="${CSS.escape(topic)}"]`);
+  if(chip) chip.click();
+}
+
 async function load(){
   await sbLoadSite();
   addSiteView();
   buildTopicBar();
-  // 先读期目录;读不到则降级为只读 feed.json(兼容首次/旧数据)
+  buildSearchBox();
+  document.getElementById('graph-btn').onclick=openGraph;
   try{
     const r=await fetch('data/issues.json?t='+Date.now());
     const idx=await r.json();
@@ -283,9 +466,8 @@ async function load(){
 
   if(ISSUES.length){
     buildIssueSelect();
-    await loadIssue(0);   // 默认最新一期
+    await loadIssue(0);
   }else{
-    // 降级:直接读 feed.json
     try{
       const r=await fetch('data/feed.json?t='+Date.now());
       const d=await r.json();
@@ -306,13 +488,18 @@ function buildIssueSelect(){
   document.getElementById('next-issue').onclick=()=>{ if(curIdx>0) loadIssue(curIdx-1); };
 }
 
-async function loadIssue(idx){
+async function loadIssue(idx, keepSearch){
+  // 切换期时清搜索(除非显式 keepSearch)
+  if(!keepSearch){
+    const inp=document.getElementById('search-input'); if(inp) inp.value='';
+    const ss=document.getElementById('search-status'); if(ss) ss.textContent='';
+    curQuery='';
+  }
   curIdx=idx;
   const issue=ISSUES[idx];
   document.getElementById('issue-no').textContent='第 No.'+pad(issue.issue_no)+' 期';
   document.getElementById('issue-date').textContent=issue.date;
   document.getElementById('issue-select').value=idx;
-  // 上一期=更早(idx+1),下一期=更新(idx-1)
   document.getElementById('prev-issue').disabled=(idx>=ISSUES.length-1);
   document.getElementById('next-issue').disabled=(idx<=0);
   try{
@@ -353,32 +540,37 @@ function render(filter){
   if(curTopic!=='all') items=items.filter(i=>(i.topics||[]).includes(curTopic));
   if(!items.length){list.innerHTML='<div class="empty">该分类暂无内容 ✦</div>';return}
   list.innerHTML=items.map((p,i)=>{
+    const titleHtml=curQuery?highlightText(p.title,curQuery):esc(p.title);
+    const titleZhHtml=curQuery?highlightText(p.title_zh,curQuery):esc(p.title_zh);
+    const tldrHtml=curQuery?highlightText(p.tldr,curQuery):esc(p.tldr);
+    const issueTag=p._issue_no?`<span class="src">No.${pad(p._issue_no)}</span>`:'';
     return `<article class="paper" style="animation-delay:${i*.1}s">
       <div class="paper-head" onclick="toggle(this)">
         <div class="tagrow">
           <span class="type-badge type-${p.type}">${TYPE_LABEL[p.type]}</span>
           <span class="src">${esc(p.source)}</span>
+          ${issueTag}
           ${(p.topics||[]).map(t=>`<span class="topic-mark">${esc(t)}</span>`).join('')}
           <span class="date">${esc(p.published)}</span>
         </div>
-        <h2>${esc(p.title)}</h2>
-        <div class="title-zh">${esc(p.title_zh)}</div>
+        <h2>${titleHtml}</h2>
+        <div class="title-zh">${titleZhHtml}</div>
         <div class="authors">${esc(p.authors)}</div>
       </div>
-      <div class="tldr">${esc(p.tldr)}</div>
+      <div class="tldr">${tldrHtml}</div>
       <div class="stats-bar">
         <span class="toggle" onclick="toggle(this)"><span class="arrow">▸</span> 展开解读</span>
       </div>
       <div class="detail"><div class="detail-inner">
         ${p.image?`<figure class="paper-fig"><img src="${esc(p.image)}" alt="论文配图" loading="lazy" onerror="this.parentElement.style.display='none'"><figcaption>图 · 来自论文原文</figcaption></figure>`:''}
         <p class="sec-label">通俗解读</p>
-        ${p.explain.split('\n').filter(Boolean).map(t=>`<p>${esc(t)}</p>`).join('')}
+        ${(p.explain||'').split('\n').filter(Boolean).map(t=>`<p>${esc(t)}</p>`).join('')}
         ${figureHtml(p.figure)}
         ${termsHtml(p.terms)}
         <p class="sec-label">一句话总结</p>
         <div class="summary-box">${esc(p.summary)}</div>
         <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
-        <a class="arxiv-link" href="${p.url}" target="_blank" rel="noopener">阅读原文 ↗</a>
+        <a class="arxiv-link" href="${esc(p.url)}" target="_blank" rel="noopener">阅读原文 ↗</a>
       </div></div>
     </article>`;
   }).join('');
@@ -389,15 +581,12 @@ function toggle(el){
   card.classList.toggle('open');
 }
 
-/* ===== 计数:Supabase 真实版 =====
-   显示值 = base(你在 Supabase 后台手动设的起始值) + real(程序自增的真实增量)。
-   配置:把下面两行换成你的 Supabase 项目地址和 anon key(在 Supabase → Settings → API 里找)。
-   留空则自动降级为"只读本地",不会报错。 */
-const SUPABASE_URL = "https://ostfyxrvngpklwsvaaai.supabase.co";   // 例:https://xxxx.supabase.co
-const SUPABASE_KEY = "sb_publishable_cW6rfG0pRL4uMksKBO9DNQ_0dTpfOsw";   // anon public key
+/* ===== 计数:Supabase 真实版 ===== */
+const SUPABASE_URL = "https://ostfyxrvngpklwsvaaai.supabase.co";
+const SUPABASE_KEY = "sb_publishable_cW6rfG0pRL4uMksKBO9DNQ_0dTpfOsw";
 
 const SB_READY = SUPABASE_URL && SUPABASE_KEY;
-const SITE_ID = "site";    // 整站计数用这一条记录
+const SITE_ID = "site";
 let SITE = {base_views:0, base_likes:0, real_views:0, real_likes:0};
 
 async function sbLoadSite(){
@@ -407,7 +596,7 @@ async function sbLoadSite(){
       headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`}});
     const rows=await r.json();
     if(rows&&rows[0]) SITE=Object.assign(SITE,rows[0]);
-  }catch(e){/* 降级:静默 */}
+  }catch(e){}
 }
 async function sbRpc(fn,body){
   if(!SB_READY) return;
@@ -416,7 +605,7 @@ async function sbRpc(fn,body){
       method:'POST',
       headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json'},
       body:JSON.stringify(body)});
-  }catch(e){/* 降级:静默 */}
+  }catch(e){}
 }
 
 function siteViews(){return (SITE.base_views||0)+(SITE.real_views||0)}
@@ -437,7 +626,6 @@ function renderSiteStats(){
 }
 
 function addSiteView(){
-  // 每个浏览器会话只计一次访问
   if(sessionStorage.getItem('site-viewed')) { renderSiteStats(); return; }
   sessionStorage.setItem('site-viewed','1');
   SITE.real_views=(SITE.real_views||0)+1;
@@ -461,7 +649,6 @@ document.getElementById('tabs').addEventListener('click',e=>{
   render(curFilter);
 });
 
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 load();
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 </script>
