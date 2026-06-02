@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于 · AI 论文日读</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23f5f1e8'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='40' font-weight='600' text-anchor='middle' fill='%231a3a5c'%3ER%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --font-serif-cn:"Songti SC","STSong","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC","宋体",SimSun,"Georgia",serif;
+  --font-serif-en:"Georgia","Times New Roman","Songti SC",serif;
+  --font-mono:ui-monospace,"SF Mono","Menlo","Consolas","Roboto Mono","JetBrains Mono",monospace;
+  --paper:#f5f1e8;--paper-2:#ede7d6;--ink:#1a1a1a;--ink-soft:#3d3d3d;
+  --ink-faint:#7a7a7a;--accent:#1a3a5c;--rule:#c9bfa8;--card:#fbf8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-serif-cn);background:var(--paper);color:var(--ink);
+  line-height:1.75;padding-bottom:80px}
+.wrap{max-width:760px;margin:0 auto;padding:0 30px}
+header{padding:48px 0 32px;text-align:center;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.kicker{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.brand-stamp{display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border:1.5px solid var(--accent);border-radius:3px;
+  font-family:var(--font-serif-en);font-size:.95rem;font-weight:600;
+  color:var(--accent);margin-right:8px;vertical-align:-5px;transform:rotate(-3deg)}
+h1{font-family:var(--font-serif-en);font-weight:400;font-size:2.4rem;
+  letter-spacing:-.01em;margin-bottom:8px}
+.subtitle{font-size:.95rem;color:var(--ink-soft);font-family:var(--font-serif-cn)}
+h2{font-family:var(--font-serif-en);font-weight:500;font-size:1.4rem;
+  color:var(--accent);margin:36px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+h3{font-family:var(--font-serif-cn);font-weight:500;font-size:1.05rem;
+  color:var(--ink);margin:22px 0 8px}
+p{margin-bottom:14px;color:var(--ink-soft)}
+ul{margin:8px 0 16px 22px;color:var(--ink-soft)}
+li{margin-bottom:6px;line-height:1.7}
+code{font-family:var(--font-mono);font-size:.88em;background:var(--paper-2);
+  padding:2px 6px;border-radius:3px;color:var(--accent)}
+.pipeline{font-family:var(--font-mono);font-size:.82rem;background:var(--card);
+  border:1px solid var(--rule);border-radius:4px;padding:18px 22px;
+  margin:14px 0 20px;color:var(--ink-soft);white-space:pre-wrap;line-height:1.7}
+.back{display:inline-block;margin-top:40px;font-family:var(--font-mono);
+  font-size:.72rem;letter-spacing:.08em;color:var(--ink-faint);
+  text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:all .2s}
+.back:hover{color:var(--accent);border-color:var(--accent)}
+.tag{display:inline-block;font-family:var(--font-mono);font-size:.66rem;
+  letter-spacing:.06em;padding:2px 8px;background:var(--paper-2);
+  border-radius:10px;color:var(--accent);margin-right:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker"><span class="brand-stamp">R</span> About</div>
+  <h1>关于本站</h1>
+  <div class="subtitle">一个 Serverless 的 AI 资讯聚合站,从想法到上线的全部记录</div>
+</header>
+
+<h2>这是什么</h2>
+<p>每天自动抓取 Hugging Face Daily Papers 的热门论文、arXiv 新论文、以及国内外大厂的产品发布动态,用 DeepSeek-V4 生成中文深度解读(含图解 / 关键术语 / 总结),按期归档可翻往期。整套系统零服务器、配置一次后每天自动运行。</p>
+
+<h2>为什么做这个</h2>
+<p>因为 AI 领域每天涌出大量论文和动态,信息量大、英文阅读门槛高。我想要一个"像每日早报一样,五分钟看完今天 AI 最值得关注的进展"的工具——市面上的 AI 资讯站要么内容堆砌、要么解读太浅,所以自己动手做一个。</p>
+<p>顺便,这也是一个练手项目:从抓取、AI 调用、定时编排、归档存储、到前端展示和部署,全栈走一遍,有真实的工程问题要解决。</p>
+
+<h2>技术架构</h2>
+<div class="pipeline">数据源 → 抓取候选 → AI 打分精选 → AI 深度解读 → 归档 → 前端展示
+
+具体:
+  Hugging Face Daily Papers(主源,带社区投票热度)
+  arXiv API(兜底)
+  大厂 RSS / GitHub Release(新闻、报告)
+        ↓
+  DeepSeek-V4-pro 按"前沿性 / 影响力 / 科普价值"打分
+        ↓
+  取 Top 5 论文 + 当日新闻 / 报告
+        ↓
+  DeepSeek-V4-pro 生成三段式中文解读 + 图解 + 关键术语 + 主题标签
+        ↓
+  写入 data/archive/YYYY-MM-DD.json,期号递增
+        ↓
+  GitHub Actions 每日定时驱动 → 提交回仓库 → Vercel 自动部署</div>
+
+<h3>技术栈</h3>
+<p>
+<span class="tag">Python</span>
+<span class="tag">DeepSeek API</span>
+<span class="tag">GitHub Actions</span>
+<span class="tag">Supabase</span>
+<span class="tag">原生前端 HTML/CSS/JS</span>
+<span class="tag">Vercel</span>
+</p>
+
+<h3>关键设计</h3>
+<ul>
+<li><strong>不按时间抓最新,按热度+价值精选</strong>:HF 社区投票 + DeepSeek 打分双重筛选,过滤低质量论文</li>
+<li><strong>论文配图自动提取</strong>:从 arXiv HTML 版抓取代表性图(优先 caption 含 "framework / overview / 架构" 等关键词的图,没合适的不显示)</li>
+<li><strong>10 个预设研究主题动态归类</strong>:DeepSeek 给每篇打主题标签,前端按主题聚合浏览,形成知识体系雏形</li>
+<li><strong>按期归档</strong>:每天一期,期号递增,所有历史永久保留,纯文本数据十年量级也不到 10MB</li>
+<li><strong>整站计数真实跨用户累加</strong>:Supabase 存 base(可后台调)+ real(程序自动累加)双层</li>
+<li><strong>纯系统字体</strong>:不依赖任何外部字体 CDN,大陆与海外访问都不卡</li>
+</ul>
+
+<h2>踩过的坑(让这个项目变可靠)</h2>
+
+<h3>1. Python 标准库命名冲突</h3>
+<p>把打分脚本命名为 <code>select.py</code>,导致和 Python 标准库的 <code>select</code> 模块冲突,引发 circular import 崩溃。后改名为 <code>rank_papers.py</code> 解决。教训:文件命名要避开标准库名。</p>
+
+<h3>2. Prompt 模板格式化错误</h3>
+<p>用 Python 的 <code>.format()</code> 处理含 JSON 大括号的 prompt 模板时,format 把 JSON 的 <code>{}</code> 误认为占位符,抛 KeyError。改用显式 <code>.replace()</code> 替换具体占位符,避开和 JSON 大括号的冲突。</p>
+
+<h3>3. GitHub Actions Git 推送竞争</h3>
+<p>定时任务自动 commit 数据时,如果同时手动改了仓库,push 会被远端拒绝(<code>fetch first</code>)。加了 <code>git pull --rebase --autostash</code> 并做三次重试,避免冲突。</p>
+
+<h3>4. GitHub 定时任务在 UTC 整点拥堵跳过</h3>
+<p>原定 <code>cron: "30 0 * * *"</code>(UTC 0:30,北京 8:30)发现经常延迟或漏跑。改到冷门时段 <code>"17 1 * * *"</code>(北京 9:17),触发可靠多了。这是 GitHub 免费定时任务的已知特性,要避开整点 / 半点。</p>
+
+<h3>5. arXiv 相对路径自带论文 id 前缀</h3>
+<p>抓论文首图时,arXiv HTML 里有时用 <code>2605.26302v1/x1.png</code> 这种带论文 id 自身前缀的相对路径。直接拼到 <code>/html/{id}/</code> 后会出现 id 重复(404)。加了"路径以 id 开头则从 /html/ 根拼"的判断。这个 bug 是看真实 feed.json 数据时定位到的——本地测试覆盖了 15 种 src 写法,但漏了这种"非标准"路径,只有真跑才发现。</p>
+
+<h3>6. X(Twitter)讨论热度抓不到</h3>
+<p>原计划结合 X 的讨论热度做协同打分,但 2026 年 X 加强了链接抑制和站外抓取限制,API 收费也偏贵。改用 Hugging Face Daily Papers 的社区投票数(upvotes)作为替代信号——这本身就是研究者社区(很多就在 X 上活跃)的热度投票,信号高度相关。这是一个"有理有据的工程取舍"。</p>
+
+<h2>这个项目能讲什么</h2>
+<p>从工程角度,它覆盖了:数据抓取(多源容错)、API 集成(LLM 调用 + 重试)、CI/CD 流水线(GitHub Actions 定时编排)、Serverless 架构思维、前端可视化(纯原生)、数据库设计(Supabase 计数)、域名/部署(Vercel + 自有域名)、内容质量工程(prompt 调优、防编造)。</p>
+<p>从产品角度,它体现了"识别真实需求 → 设计技术方案 → 处理真实环境的边界情况 → 持续优化"的完整闭环——而不是一个跑通就停的 demo。</p>
+
+<a href="index.html" class="back">← 返回首页</a>
+</div>
+</body>
+</html>
