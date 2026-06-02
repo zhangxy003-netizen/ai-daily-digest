@@ -2,63 +2,84 @@
   "fetched_at": "2026-06-02",
   "items": [
     {
-      "id": "paper-2605.31268",
+      "id": "paper-2606.02437",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Mellum2 Technical Report",
-      "authors": "Marko Kojic, Ivan Bondyrev, Aral de Moor et al.",
-      "published": "2026-05-28",
-      "url": "https://arxiv.org/abs/2605.31268",
-      "raw_summary": "We present Mellum 2, an open-weight 12B-parameter Mixture-of-Experts (MoE) language model with 2.5B active parameters per token. Mellum 2 is a general-purpose language model specialized in software engineering, spanning code generation and editing, debugging, multi-step reasoning, tool use and function calling, agentic coding, and conversational programming assistance, and it is the successor to the completion-focused 4B dense Mellum model. The architecture builds on the Mixture-of-Experts (64 experts, 8 active) and combines Grouped-Query Attention with 4 KV heads, Sliding Window Attention on three of every four layers, and a single Multi-Token Prediction head that doubles as both an auxiliary pre-training objective and a built-in draft model for speculative decoding; each choice was validated by ablation with inference efficiency on commodity GPUs as a design constraint. Pre-training spans approximately 10.6 trillion tokens through a three-phase curriculum that progressively shifts the mixture from diverse web data toward curated code and mathematical content, optimized with Muon under FP8 hybrid precision and a Warmup-Hold-Decay schedule with linear decay to zero. The pre-trained base is extended to a 128K context window via a layer-selective YaRN and then post-trained in two stages (supervised fine-tuning followed by RLVR), yielding two released variants: an Instruct model that answers directly and a Thinking model that emits an explicit reasoning trace before its final answer. Across code generation, math and reasoning, tool use, knowledge, and safety benchmarks, Mellum 2 is competitive with open-weight baselines in the 4B-14B range while running at the per-token compute of a 2.5B dense model. We release the base, instruct, and thinking checkpoints, together with this report on the architecture decisions, data pipeline, and training recipe behind them, under the Apache 2.0 license."
+      "title": "On the Scaling of PEFT: Towards Million Personal Models of Trillion Parameters",
+      "authors": "Mind Lab, Song Cao, Vic Cao et al.",
+      "published": "2026-05-31",
+      "url": "https://arxiv.org/abs/2606.02437",
+      "raw_summary": "Parameter-efficient fine-tuning (PEFT) is usually treated as a cheaper alternative to full fine-tuning. We study a broader role: small trainable adapters as persistent local state on top of strong shared foundation models. In this framing, the base model provides shared competence while adapters carry instance-specific behavior such as preferences, skills, tool habits, and memory-like updates. We organize the problem around three scaling axes: Scale Up, where stronger shared priors make small local updates more useful; Scale Down, where we study how small adapters can be while remaining reliable; and Scale Out, where many persistent adapted instances coexist. MinT provides one infrastructure example for managing adapter identity, revision, provenance, evaluation, and serving residency. Together, the results suggest that PEFT can be a compact substrate for persistent personal models rather than only a budget substitute for full fine-tuning."
     },
     {
-      "id": "paper-2605.30621",
+      "id": "paper-2606.02404",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Harness Updating Is Not Harness Benefit: Disentangling Evolution Capabilities in Self-Evolving LLM Agents",
-      "authors": "Minhua Lin, Juncheng Wu, Zijun Wang et al.",
-      "published": "2026-05-27",
-      "url": "https://arxiv.org/abs/2605.30621",
-      "raw_summary": "LLM agents are increasingly deployed as systems built around editable external harnesses, including prompts, skills, memories and tools, that shape task execution without changing model parameters. Harness self-evolution adapts such agents by updating these harnesses from execution evidence. Yet it remains unclear whether a model's base capability in task-solving predicts its capabilities in harness self-evolution: which models produce useful harness updates, and which actually benefit from them? We analyze two harness self-evolution capabilities: (i) harness-updating, the capability to produce useful persistent harness updates from execution evidence; (ii) harness-benefit, the capability to benefit from updated harnesses during task solving. Our analysis reveals two findings. First, harness-updating is flat in base capability: models from different capability tiers produce harness updates that lead to surprisingly similar gains; even Qwen3.5-9B's updates yield gains comparable to those of Claude Opus~4.6. Second, harness-benefit is non-monotonic in base capability: weak-tier models benefit little from updated harnesses, mid-tier models benefit most, and strong-tier models benefit less than mid-tier. We trace low gains at the weak tier to two failure modes: weak-tier models may fail to activate relevant harness artifacts, or activate them but fail to follow them faithfully. These findings suggest investing capability budget in the task-solving agent rather than the evolver, and targeting harness invocation and long-horizon instruction following in agent training. Our source code is publicly available at https://github.com/A-EVO-Lab/a-evolve/tree/release/harness-evolution.",
-      "image": "https://arxiv.org/html/2605.30621v1/x1.png"
+      "title": "K-BrowseComp: A Web Browsing Agent Benchmark Grounded in Korean Contexts",
+      "authors": "Nahyun Lee, Dongkeun Yoon, Guijin Son et al.",
+      "published": "2026-05-31",
+      "url": "https://arxiv.org/abs/2606.02404",
+      "raw_summary": "Frontier model evaluations are shifting from foundational capabilities (e.g., instruction following and reasoning) toward compositional, agentic ones, but Korean agentic benchmarks remain scarce. We introduce K-BrowseComp, a web-browsing agent benchmark grounded in Korean contexts, consisting of 400 problems. The 300-problem K-BrowseComp-Verified subset is manually constructed and validated by native Korean speakers. On this subset, frontier LLMs, including GPT-5.5, DeepSeek-V4-Pro, and GLM-5.1, reach only 30.00--45.67\\%, a substantial drop from BrowseComp, while Korean LLMs released through Korea's Proprietary AI Foundation Model program obtain only 0.00--10.33\\%. We further construct a 100-problem synthetic split using hard few-shot exemplars and failure-mode-targeted generation to exploit the asymmetry between solving and creating web browsing problems. On the adversarially filtered synthetic diagnostic split, the strongest model reaches only 26.00\\%, and we report this split separately as a targeted stress test. We publicly release our data and code."
     },
     {
-      "id": "paper-2605.28132",
+      "id": "paper-2606.01311",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Which Pretraining Paradigm Better Serves Spatial Intelligence? An Empirical Comparison of Vision-Language and Video Generation Models",
-      "authors": "Haozhan Shen, Tiancheng Zhao, Kangjia Zhao et al.",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28132",
-      "raw_summary": "Spatial intelligence requires visual representations that capture both semantic objects and geometric structure in the physical world. To support this, two major pre-training schemes are now widely used as foundation backbones: Vision-Language Models (VLMs), which use language supervision to align visual observations with semantic concepts, and Video Generation Models (VGMs), which learn from temporally evolving visual worlds. However, it still remains unclear which pre-training scheme provides a better representation substrate for spatial intelligence. In this paper, we present the first systematic frozen-feature probing study of VLMs and VGMs across three representative axes of spatial intelligence: semantic tagging, instance grouping, and 3D geometry prediction. Using the lightweight probe, our framework enables a controlled comparison of what information is already encoded in frozen representations from two model families. Experimental results reveal a clear complementarity: VLMs are stronger at semantic tagging and instance grouping, while VGMs provide more accessible signals for dense geometry and camera motion. Moreover, a naive fusion of the two already yields a representation that excels at both geometry and semantics, suggesting a promising direction for building stronger spatial-intelligence backbones by effectively integrating features from both model families. Our code is available at https://github.com/om-ai-lab/Probing-VLM-VGM{https://github.com/om-ai-lab/Probing-VLM-VGM}.",
-      "image": "https://arxiv.org/html/2605.28132v1/x2.png"
+      "title": "SkillAdaptor: Self-Adapting Skills for LLM Agents from Trajectories",
+      "authors": "Zhuoyun Yu, Xin Xie, Wuguannan Yao et al.",
+      "published": "2026-05-30",
+      "url": "https://arxiv.org/abs/2606.01311",
+      "raw_summary": "Large language model (LLM) agents increasingly rely on reusable external skills to solve long-horizon interactive tasks. Existing training-free skill adaptation pipelines usually update skills from full trajectories or session-level feedback, which makes failure attribution coarse and often produces unstable or overly broad revisions. We propose SkillAdaptor, a training-free step-level skill adaptation framework with explicit failure attribution, and it can plug into OpenClaw-class agent harnesses. Given a failed trajectory, SkillAdaptor identifies a first actionable fault step, links responsibility to candidate skills, and applies targeted updates under explicit acceptance checks while keeping the backbone frozen. We evaluate on WebShop, PinchBench, and Claw-Eval with Kimi-K2.5, GLM-5, and GPT-5.2. SkillAdaptor improves over no-skill and skill-adaptation baselines on all three suites, with the largest single-metric improvements of +1.5 points on PinchBench Avg Score%, +1.8 on Claw-Eval Avg Score, and +1.7 on WebShop success rate. These results indicate that step-level attribution supports more stable and auditable training-free skill maintenanceThe code will be released at https://github.com/zjunlp/SkillAdaptor..",
+      "image": "https://arxiv.org/html/2606.01311v1/x1.png"
     },
     {
-      "id": "paper-2605.02772",
+      "id": "paper-2606.01247",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Linearizing Vision Transformer with Test-Time Training",
-      "authors": "Yining Li, Dongchen Han, Zeyu Liu et al.",
-      "published": "2026-05-27",
-      "url": "https://arxiv.org/abs/2605.02772",
-      "raw_summary": "While linear-complexity attention mechanisms offer a promising alternative to Softmax attention for overcoming the quadratic bottleneck, training such models from scratch remains prohibitively expensive. Inheriting weights from pretrained Transformers provides an appealing shortcut, yet the fundamental representational gap between Softmax and linear attention prevents effective weight transfer. In this work, we address this conversion challenge from two perspectives: architectural alignment and representational alignment. We identify Test-Time Training (TTT) as a linear-complexity architecture whose two-layer dynamic formulation is structurally aligned with Softmax attention, enabling direct inheritance of pretrained attention weights. To further align representational properties, including key shift-invariance and locality, we introduce key instance normalization and a lightweight locality enhancement module. We validate our approach by linearizing Stable Diffusion 3.5 and introduce SD3.5-T^5 (Transformer To Test Time Training). With only 1 hour of fine-tuning on 4timesH20 GPUs, SD3.5-T^5 achieves comparable text-to-image quality to the fine-tuned Softmax model, while accelerating inference by 1.32times and 1.47times at 1K and 2K resolutions. Code is available at https://github.com/LeapLabTHU/Transformer-to-TTT.",
-      "image": "https://arxiv.org/html/2605.02772v2/figures/k_mean.png"
+      "title": "Where to Look: Can Foundation Models Reach a Target Viewpoint Through Active Exploration?",
+      "authors": "Liyang Li, Muzhi Zhu, Zhiyue Zhao et al.",
+      "published": "2026-05-30",
+      "url": "https://arxiv.org/abs/2606.01247",
+      "raw_summary": "Humans can reproduce the viewpoint specified by a target image through active head and body motion, yet spatial intelligence in foundation models has largely been studied as passive understanding of pre-collected observations. We introduce Target Viewpoint Reproduction (TVR) -- an active task where an agent adjusts its viewpoint in a 3D environment until its observation matches a given target image -- and TVRBench, an indoor-simulation benchmark spanning scene scale and target-view visual richness. TVR is far from solved: on the evaluation split, the strongest open-source and closed-source models reach only 7.8% and 12.0% success. Fine-grained analysis identifies two consistent bottlenecks: off-the-shelf models struggle with multi-turn visual history, and performance drops sharply when viewpoint reproduction requires body translation rather than in-place rotation, exposing a gap in mapping spatial discrepancies to embodied movement. To study reducing this gap, we build a unified TVR post-training framework covering expert-trajectory SFT, rationale-supervised CoT-SFT, offline Single-turn GRPO, and on-policy Multi-turn GRPO from live simulator rollouts. Visual-action SFT supplies the main gain, raising a 9B open-source model to 50.8% success; Multi-turn GRPO provides targeted multi-room refinement and reaches 51.4% overall, while CoT supervision and Single-turn GRPO degrade closed-loop performance. These results establish TVRBench as a testbed for measuring and training foundation models that actively perceive and act in 3D environments. Our code, data, and models are available at https://github.com/aim-uofa/TVRBench.",
+      "image": "https://arxiv.org/html/2606.01247v1/x4.png"
     },
     {
-      "id": "paper-2605.28657",
+      "id": "paper-2606.02564",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "DEMON: Diffusion Engine for Musical Orchestrated Noise",
-      "authors": "Ryan Fosdick",
-      "published": "2026-05-26",
-      "url": "https://arxiv.org/abs/2605.28657",
-      "raw_summary": "We present DEMON, a real-time diffusion engine that makes the denoising process playable as a live musical instrument: a control surface both broad (many parameters shaped per-frame across the output) and responsive (each control taking effect as fast as its place in the denoising loop allows). Built on ACE-Step 1.5 and StreamDiffusion's ring-buffer architecture with TensorRT acceleration, it sustains up to 12.3 decoder completions per second for 60-second music on a single consumer GPU (RTX 5090), or 11.3 generations per second at our production ring-depth of 4. At these rates denoising parameters become viable as live performance controls, but the ring buffer propagates per-request changes only at its drain rate, a floor of S denoising steps. We contribute four mechanisms. (1) Per-slot heterogeneous denoise scheduling: each ring-buffer slot owns its timestep schedule, so a moving denoise slider is tracked without wiping the in-flight queue, where the upstream global-schedule design must rebuild and discard it. (2) Shared mutable per-step state, giving any parameter consulted at every solver step next-tick effect, bypassing ring-buffer drain. (3) Per-frame source blending: a sampling-time control on the standard SDE re-noise step, giving a framewise transformation-strength axis that complements scalar denoise scheduling. (4) Windowed VAE decode exploiting receptive-field analysis for an 8.0x decode speedup. Together these separate streaming-diffusion parameters into four propagation classes, by onset and convergence latency.",
-      "image": "https://arxiv.org/html/2605.28657v1/batch_scaling.png"
+      "title": "VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization",
+      "authors": "Junhao Cheng, Liang Hou, Tianxiong Zhong et al.",
+      "published": "2026-05-31",
+      "url": "https://arxiv.org/abs/2606.02564",
+      "raw_summary": "The recent \"Reasoning with Video\" paradigm utilizes Video Generation Models (VGMs) to generate temporally coherent visual trajectories to complete reasoning tasks. Although state-of-the-art VGMs excel at visual quality, they often struggle to understand and follow task-specific rules, leading to logical failures across diverse reasoning scenarios. Existing efforts try to utilize Vision-Language Models (VLMs) as problem pre-solvers to produce or refine textual guidance for the VGM. However, textual descriptions fail to capture intricate spatiotemporal details, and VGMs often struggle to faithfully execute fine-grained or long-tail instructions even with a valid plan. While VLMs struggle as solvers, they possess strong perception capabilities to evaluate process-constraint satisfaction and final-goal achievement. Leveraging this strength, we introduce a paradigm shift that transitions the role of VLMs to \"teachers\". Specifically, a VLM teacher extracts task-specific rules to formulate differentiable rewards, guiding a VGM Reasoner via test-time online optimization of a lightweight LoRA module. This strategy enables adaptive test-time optimization and extends the reasoning capabilities beyond the VGM's intrinsic boundaries. Evaluations on symbolic (VBVR-Bench) and general-purpose (RULER-Bench) video reasoning benchmarks show that the proposed method yields a 16.7-point average performance gain, outperforming the VLM-as-Solver paradigm (+0.4 points) and Best-of-N scaling (+2.2 points) by a large margin at comparable test-time cost. These findings reveal that integrating VLMs as test-time teachers offers a promising paradigm for achieving generalizable video reasoning. Project Page: https://VLM-as-Teacher.github.io/",
+      "image": "https://arxiv.org/html/2606.02564v1/x2.png"
+    },
+    {
+      "id": "news-31002327",
+      "type": "news",
+      "source": "AWS ML",
+      "region": "海外",
+      "title": "Building a secure auth code flow setup using AgentCore Gateway with MCP clients",
+      "authors": "AWS ML",
+      "published": "2026-06-02",
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-a-secure-auth-code-flow-setup-using-agentcore-gateway-with-mcp-clients/",
+      "raw_summary": "This post demonstrates how to implement Open Authorization (OAuth) Code flow as an inbound authorization mechanism for MCP servers hosted on Amazon Bedrock AgentCore Gateway. By the end of this guide, you will have a production-ready setup where each AI assistant request is authenticated with a valid user identity token issued from your organization’s identity provider."
+    },
+    {
+      "id": "news-gh-932038801",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/DeepGEMM",
+      "authors": "DeepSeek",
+      "published": "2026-06-02",
+      "url": "https://github.com/deepseek-ai/DeepGEMM",
+      "raw_summary": "DeepGEMM: clean and efficient FP8 GEMM kernels with fine-grained scaling"
     },
     {
       "id": "news-gh-1008713177",
@@ -72,37 +93,15 @@
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-73748345",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Our views on AI policy and political advocacy",
-      "authors": "OpenAI",
-      "published": "2026-06-01",
-      "url": "https://openai.com/index/our-views-on-ai-policy-and-political-advocacy",
-      "raw_summary": "Our approach to AI policy and political advocacy, transparency, support for thoughtful regulation and AI safety, and that no outside political group speaks on the company’s behalf."
-    },
-    {
-      "id": "news-46031396",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Building the infrastructure for the Intelligence Age in Michigan",
-      "authors": "OpenAI",
-      "published": "2026-06-01",
-      "url": "https://openai.com/index/stargate-michigan-data-center",
-      "raw_summary": "OpenAI breaks ground on a 1GW data center project in Michigan as part of Stargate, building AI infrastructure to expand access, create jobs, and support communities."
-    },
-    {
-      "id": "news-13152289",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "OpenAI frontier models and Codex are now available on AWS",
-      "authors": "OpenAI",
-      "published": "2026-06-01",
-      "url": "https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws",
-      "raw_summary": "OpenAI frontier models and Codex are now generally available on AWS, giving enterprises a new path to build with OpenAI through the AWS environments, controls, and procurement workflows they already use. Customers can get started with OpenAI on AWS and move faster from evaluation to production."
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-06-02",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "The Starting Point for Next-Gen Agents"
     }
   ]
 }
