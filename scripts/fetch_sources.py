@@ -94,25 +94,19 @@ def is_recent(d):
 
 
 def extract_paper_figure(arxiv_id, timeout=8):
-    """尝试从 arXiv HTML 版论文提取首图 URL。取不到返回 None(降级,不报错)。
-    只存 URL,不下载转存。
-
-    考虑的边界情况:
-    - img 标签 src 可能用单/双引号、属性顺序不定
-    - 排除 logo、icon、数学公式 PNG、KaTeX、装饰图等
-    - 路径可能是绝对/协议相对/根相对/纯相对,带不带查询串
-    - HTML 实体编码(&amp;)需要解码
-    - 论文可能没 HTML 版(404)、超时、编码异常
-    - 提取后做"长得像内容图"的启发式判断(扩展名、尺寸暗示等)
+    """从 arXiv HTML 版论文提取一张"有代表性"的图。
+    策略(分级):
+      1. 解析 <figure>+<figcaption> 配对,caption 命中关键词(framework/方法/架构等)→ 优先
+      2. 没命中的话,看 alt 属性命中关键词 → 次优
+      3. 都没命中 → 返回 None(宁缺毋滥,不硬塞不相关的图)
+    任何异常都安全返回 None。
     """
     import re, html as htmllib
-    # 清理 id:去版本号、去空白
     base_id = re.sub(r"v\d+$", "", (arxiv_id or "").strip())
     if not base_id:
         return None
     html_url = f"https://arxiv.org/html/{base_id}"
 
-    # 单独短超时,避免某篇卡死拖垮整个流水线
     try:
         req = urllib.request.Request(html_url, headers=UA)
         with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -121,52 +115,88 @@ def extract_paper_figure(arxiv_id, timeout=8):
         print(f"    [图] {base_id} 无 HTML 版或取不到,跳过:{e}", file=sys.stderr)
         return None
 
-    # 单/双引号 src 都匹配
-    imgs = re.findall(r'<img[^>]*?\ssrc=["\']([^"\']+)["\']', raw, re.IGNORECASE)
-    if not imgs:
-        return None
-
-    # 反 HTML 实体 + 去空白
-    imgs = [htmllib.unescape(s).strip() for s in imgs if s.strip()]
-
-    BAD_KEYWORDS = (
-        "logo", "icon", "favicon", "ar5iv-footer", "ar5iv-logo",
-        "/mathjax", "katex", "tex2png", "creativecommons", "license",
-        "static/img", "/static/", "avatar", "spinner", "loader",
-    )
+    # ========== 1. 找所有 <figure>...<figcaption>...</figcaption>...</figure> 块,把 img 和 caption 配对 ==========
+    BAD_KEYWORDS = ("logo", "icon", "favicon", "ar5iv-footer", "ar5iv-logo",
+                    "/mathjax", "katex", "tex2png", "creativecommons", "license",
+                    "static/img", "/static/", "avatar", "spinner", "loader")
     GOOD_EXT = (".png", ".jpg", ".jpeg", ".webp", ".gif")
-    BAD_EXT = (".svg",)   # SVG 多为 logo/icon
-    # arXiv 论文图通常文件名带 x1/x2... 或 fig/figure/extracted 路径
+    BAD_EXT = (".svg",)
     GOOD_HINTS = ("/x", "/fig", "figure", "/extracted/", "/assets/x")
+
+    # caption 关键词(命中即为"代表图")
+    GOOD_CAPTION_KW = (
+        # 英文
+        "framework", "overview", "architecture", "pipeline",
+        "our approach", "our method", "proposed", "workflow",
+        "system overview", "the overall",
+        # 中文
+        "框架", "总览", "系统", "方法", "流程", "架构", "概览", "所提",
+    )
 
     def looks_like_content(src):
         if not src or src.startswith("data:"):
             return False
         low = src.lower()
-        # 黑名单
         if any(b in low for b in BAD_KEYWORDS):
             return False
-        # 去掉 query/fragment 看扩展名
         path = low.split("?", 1)[0].split("#", 1)[0]
         if any(path.endswith(e) for e in BAD_EXT):
             return False
-        # 必须是图片扩展名(或带 good hint 的路径)
         if not (any(path.endswith(e) for e in GOOD_EXT) or any(h in low for h in GOOD_HINTS)):
             return False
         return True
 
-    candidates = [s for s in imgs if looks_like_content(s)]
-    # 优先选带 good hint 的(更可能是论文配图)
-    candidates.sort(key=lambda s: 0 if any(h in s.lower() for h in GOOD_HINTS) else 1)
-    if not candidates:
+    def caption_hits(text):
+        if not text:
+            return False
+        low = text.lower()
+        return any(kw in low for kw in GOOD_CAPTION_KW)
+
+    # 抽取 <figure> 块(尽量松散匹配,有的 <figure> 标签里包了 img 和 caption)
+    figure_blocks = re.findall(r"<figure[^>]*>(.*?)</figure>", raw, re.IGNORECASE | re.DOTALL)
+    captioned_imgs = []  # [(src, caption_text)]
+    for block in figure_blocks:
+        # 块内的第一张 img
+        m_img = re.search(r'<img[^>]*?\ssrc=["\']([^"\']+)["\'][^>]*>', block, re.IGNORECASE)
+        if not m_img:
+            continue
+        src = htmllib.unescape(m_img.group(1)).strip()
+        # 块内的 figcaption 文本
+        m_cap = re.search(r"<figcaption[^>]*>(.*?)</figcaption>", block, re.IGNORECASE | re.DOTALL)
+        caption = re.sub(r"<[^>]+>", "", m_cap.group(1)).strip() if m_cap else ""
+        caption = htmllib.unescape(caption)
+        captioned_imgs.append((src, caption))
+
+    # ========== 2. 优先级排序 ==========
+    # 先过滤"长得像内容图"的
+    captioned_imgs = [(s, c) for (s, c) in captioned_imgs if looks_like_content(s)]
+
+    chosen = None
+    # 优先级 1:caption 命中关键词
+    for s, c in captioned_imgs:
+        if caption_hits(c):
+            chosen = s
+            break
+    # 优先级 2:没 caption 命中,但试一下"img 的 alt 属性"命中
+    if not chosen:
+        # 从原 HTML 里抽 img 标签的 src 和 alt 配对
+        for m in re.finditer(r'<img([^>]*)>', raw, re.IGNORECASE):
+            attrs = m.group(1)
+            s_m = re.search(r'\ssrc=["\']([^"\']+)["\']', attrs, re.IGNORECASE)
+            a_m = re.search(r'\salt=["\']([^"\']*)["\']', attrs, re.IGNORECASE)
+            if not s_m:
+                continue
+            src = htmllib.unescape(s_m.group(1)).strip()
+            alt = htmllib.unescape(a_m.group(1)).strip() if a_m else ""
+            if looks_like_content(src) and caption_hits(alt):
+                chosen = src
+                break
+    # 优先级 3:都没命中 → 不显示
+    if not chosen:
+        print(f"    [图] {base_id} 无明显代表图(caption/alt 无关键词),跳过", file=sys.stderr)
         return None
 
-    first = candidates[0]
-
-    # 路径补全 + 强制 https(避免 https 网站加载 http 图被浏览器拦截)
-    # 注意 arXiv 一个坑:HTML 里的相对路径有时是 "{id}v1/x1.png" 这种带版本号的,
-    # 直接拼到 /html/{id}/ 后面会出现 id 重复(/html/2605.x/2605.xv1/x1.png),
-    # 实际应拼到 /html/ 根。所以做一个判断。
+    # ========== 3. 路径补全 + 强制 https ==========
     import re as _re
     def resolve(src):
         if src.startswith("http://"):
@@ -177,16 +207,13 @@ def extract_paper_figure(arxiv_id, timeout=8):
             return "https:" + src
         if src.startswith("/"):
             return "https://arxiv.org" + src
-        # 去掉 ./ 前缀
         clean = src.lstrip("./")
-        # 如果路径以论文 id(可能带版本号)开头,从 /html/ 根拼,避免重复
         if _re.match(rf"^{_re.escape(base_id)}(v\d+)?/", clean):
             return f"https://arxiv.org/html/{clean}"
-        # 普通相对路径:拼到 HTML 页目录下
         base = html_url if html_url.endswith("/") else html_url + "/"
         return base + clean
 
-    return resolve(first)
+    return resolve(chosen)
 
 
 # ============ arXiv ============
