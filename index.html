@@ -6,6 +6,9 @@
 <meta name="theme-color" content="#1a3a5c">
 <title>AI 论文日读 · Daily AI Digest</title>
 <link rel="manifest" href="manifest.json">
+<!-- 优化:提前与 Supabase / arxiv 建立 TLS 连接,后续请求省 100-300ms -->
+<link rel="preconnect" href="https://ostfyxrvngpklwsvaaai.supabase.co" crossorigin>
+<link rel="dns-prefetch" href="https://arxiv.org">
 <style>
 /* 纯系统字体方案:不依赖任何外部字体 CDN,大陆/国外都零网络问题、加载快。
    各系统自带的宋体/衬线/等宽字体质量足够,样式不打折。 */
@@ -154,6 +157,18 @@
 
   .empty{text-align:center;padding:70px 0;color:var(--ink-faint);font-style:italic}
 
+  /* 优化:骨架屏占位,让首屏从"白屏等待"变成"动起来在加载",感知速度翻倍 */
+  .skel{background:var(--card);border:1px solid var(--rule);border-radius:2px;
+    margin-bottom:26px;padding:24px 30px;box-shadow:0 1px 3px var(--shadow);overflow:hidden}
+  .skel-line{height:14px;background:linear-gradient(90deg,var(--paper-2) 25%,var(--paper) 50%,var(--paper-2) 75%);
+    background-size:200% 100%;animation:shimmer 1.6s infinite;border-radius:3px;margin-bottom:11px}
+  .skel-tag{height:18px;width:60px;display:inline-block;margin-right:8px;
+    background:linear-gradient(90deg,var(--paper-2) 25%,var(--paper) 50%,var(--paper-2) 75%);
+    background-size:200% 100%;animation:shimmer 1.6s infinite;border-radius:2px;vertical-align:middle}
+  .skel-line.w70{width:70%} .skel-line.w90{width:90%} .skel-line.w50{width:50%}
+  .skel-line.lg{height:22px;margin-bottom:14px}
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
   .about{border-top:3px double var(--ink);margin-top:20px;padding:38px 0 70px;text-align:center}
   .about-line{font-family:var(--font-serif-cn);font-size:.95rem;color:var(--ink-soft);
     letter-spacing:.02em;margin-bottom:18px}
@@ -291,7 +306,7 @@
   </div>
 </div>
 
-<main class="wrap papers" id="list"><div class="empty">正在加载今日内容…</div></main>
+<main class="wrap papers" id="list"><div class="skel"><div><span class="skel-tag"></span><span class="skel-tag"></span></div><div class="skel-line lg w70"></div><div class="skel-line w50"></div><div class="skel-line w90"></div></div><div class="skel"><div><span class="skel-tag"></span><span class="skel-tag"></span></div><div class="skel-line lg w70"></div><div class="skel-line w50"></div><div class="skel-line w90"></div></div><div class="skel"><div><span class="skel-tag"></span><span class="skel-tag"></span></div><div class="skel-line lg w70"></div><div class="skel-line w50"></div><div class="skel-line w90"></div></div></main>
 
 <div class="graph-modal" id="graph-modal" onclick="if(event.target===this)closeGraph()">
   <div class="graph-panel">
@@ -453,8 +468,8 @@ function pickTopicFromGraph(topic){
 }
 
 async function load(){
-  await sbLoadSite();
-  addSiteView();
+  // 优化:Supabase 跨国请求不阻塞首屏,数字晚到几百毫秒填上即可
+  sbLoadSite().then(()=>{ addSiteView(); }).catch(()=>{ addSiteView(); });
   buildTopicBar();
   buildSearchBox();
   document.getElementById('graph-btn').onclick=openGraph;
