@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-06",
+  "fetched_at": "2026-06-07",
   "items": [
     {
       "id": "paper-2606.06492",
@@ -50,16 +50,16 @@
       "image": "https://arxiv.org/html/2606.04880v1/x1.png"
     },
     {
-      "id": "paper-2606.03940",
+      "id": "paper-2606.06155",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction",
-      "authors": "Dan Jacobellis, Neeraja J. Yadwadkar",
-      "published": "2026-06-01",
-      "url": "https://arxiv.org/abs/2606.03940",
-      "raw_summary": "In robotics systems, vast amounts of visual data are easily captured at high resolution using low-cost, low-power hardware. Yet, limited bandwidth and on-device compute resources prevent full utilization when transmitted via conventional codecs like JPEG/MPEG. Newer codecs, like AV1/AVIF, improve the rate-distortion trade-off, but demand far more resources for encoding, impractical without custom ASICs. Recent asymmetric autoencoders deliver high quality under extreme power and bandwidth constraints, but add prohibitive decoding cost and use bespoke formats that ignore decades of infrastructure built around standards like JPEG. To address these limitations, we introduce a compression framework for cloud robotics based on a Sensor Embedded Autoencoder paired with a One-Time Transcode for Efficient Reconstruction (SEAOTTER). Because the sensor, cloud, and consumer stages face very different power and bandwidth budgets, SEAOTTER combines the compactness of a learned latent with the broad usability of a standard JPEG file. Since naive transcoding degrades performance, we propose a learnable JPEG color and quantization transform that enables increased accuracy for global, dense, and vision-language-based perception. Using SEAOTTER, we train both general-purpose and task-aware transcoding pipelines for a pre-trained, frozen encoder. At a compression ratio of 200:1 and compared to AVIF, we observe 7 times faster encoding, 3.5 times faster decoding, and +8% ImageNet top-1 accuracy, while retaining compatibility with JPEG infrastructure. Our code is available at https://github.com/UT-SysML/seaotter .",
-      "image": "https://arxiv.org/html/2606.03940v1/x1.png"
+      "title": "AffordanceVLA: A Vision-Language-Action Model Empowering Action Generation through Affordance-Aware Understanding",
+      "authors": "Qize Yu, Jiadi You, Yuran Wang et al.",
+      "published": "2026-06-03",
+      "url": "https://arxiv.org/abs/2606.06155",
+      "raw_summary": "Vision-Language-Action (VLA) models leverage the rich world knowledge of pretrained vision-language models (VLMs) to enable instruction-following robotic manipulation. However, the structural mismatch between VLM semantic spaces and embodied control policies often hinders the learning of precise perception--action mappings. To address this challenge, we propose AffordanceVLA, a unified framework that introduces structured affordance forecasting as a task-oriented intermediate representation to establish a more precise and robust perception--action mapping. Specifically, we progressively model manipulation priors through three complementary components: 1) Which2Act for object-centric grounding via visual latent prediction to suppress distractions; 2) Where2Act for 2D interaction localization via affordance map estimation; and 3) How2Act for 3D geometric reasoning to guide manipulation policies. These affordance cues provide spatially grounded, semantically conditioned, and action-coupled intermediate representations, thereby naturally bridging vision, language and action. We integrate these modules into a Mixture-of-Transformer (MoT) architecture with specialized experts and train the model using a three-stage training strategy with a progressive data curriculum. To overcome the scarcity of dense affordance labels in robotic datasets, we also develop a robust automated data augmentation pipeline. Extensive experiments on simulation and real-world demonstrate that AffordanceVLA achieves strong performance across diverse manipulation scenarios.",
+      "image": "https://arxiv.org/html/2606.06155v1/x1.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -68,9 +68,31 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-06-06",
+      "published": "2026-06-07",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-19115948",
+      "type": "news",
+      "source": "Hugging Face",
+      "region": "海外",
+      "title": "Five labs, five minds: building a multi-model finance drama on small models",
+      "authors": "Hugging Face",
+      "published": "2026-06-06",
+      "url": "https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2",
+      "raw_summary": ""
+    },
+    {
+      "id": "news-gh-1004140701",
+      "type": "news",
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-06-06",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
       "id": "news-gh-1246459259",
@@ -82,28 +104,6 @@
       "published": "2026-06-06",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
-    },
-    {
-      "id": "news-42164241",
-      "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Thousand Token Wood: shipping a multi-agent economy on a 3B model",
-      "authors": "Hugging Face",
-      "published": "2026-06-05",
-      "url": "https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim",
-      "raw_summary": ""
-    },
-    {
-      "id": "news-60396827",
-      "type": "news",
-      "source": "Google Research",
-      "region": "海外",
-      "title": "Unlocking dependable responses with Gemini Enterprise Agent Platform’s Agentic RAG",
-      "authors": "Google Research",
-      "published": "2026-06-05",
-      "url": "https://research.google/blog/unlocking-dependable-responses-with-gemini-enterprise-agent-platforms-agentic-rag/",
-      "raw_summary": "Data Management"
     }
   ]
 }
