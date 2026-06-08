@@ -1,65 +1,63 @@
 {
-  "fetched_at": "2026-06-07",
+  "fetched_at": "2026-06-08",
   "items": [
     {
-      "id": "paper-2606.06492",
+      "id": "paper-2606.07502",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Code2LoRA: Hypernetwork-Generated Adapters for Code Language Models under Software Evolution",
-      "authors": "Liliana Hotsko, Yinxi Li, Yuntian Deng et al.",
+      "title": "Your UnEmbedding Matrix is Secretly a Feature Lens for Text Embeddings",
+      "authors": "Songhao Wu, Zhongxin Chen, Yuxuan Liu et al.",
+      "published": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.07502",
+      "raw_summary": "Large language models exhibit impressive zero-shot capabilities across a wide range of downstream tasks. However, they struggle to function as off-the-shelf embedding models, leading to suboptimal performance on massive text embedding benchmarks. In this paper, we identify a potential cause underlying this deficiency. Our motivation stems from an unexpected observation: text embeddings tend to align with frequent but uninformative tokens when projected onto the vocabulary space. We argue that this excessive expression of high-frequency tokens suppresses the model's ability to capture nuanced semantics. To address this, we introduce EmbedFilter, a simple linear transformation designed to refine text embeddings derived from LLMs directly. Specifically, we uncover that the unembedding matrix within LLMs encodes a latent space that is actively writing these frequent tokens into embedding space. By filtering out this subspace, EmbedFilter suppress the influence of high-frequency tokens, thereby enhancing semantic representations. As a compelling byproduct, this enables an inherent dimensionality reduction, lowering index storage and speedup retrieval while fully preserving the refined embedding quality. Our experiments across multiple LLM backbones demonstrate that LLMs equipped with EmbedFilter achieve superior zero-shot downstream performance even with significantly reduced embedding dimensions. We hope our findings provide deeper insights into the mechanisms of LLM-based representations and inspire more principled designs to improve text embeddings training. Our code is available at https://github.com/CentreChen/EmbFilter."
+    },
+    {
+      "id": "paper-2606.07229",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "MMAE: A Massive Multitask Audio Editing Benchmark",
+      "authors": "Ziyang Ma, Ruiqi Yan, Ruiyang Xu et al.",
+      "published": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.07229",
+      "raw_summary": "We introduce MMAE, a Massive Multitask Audio Editing benchmark, serving as the first comprehensive evaluation testbed designed for general-purpose instruction-based audio editing. Spurred by the shift toward intelligent creation, interactive editing has rapidly expanded from visual domains, pioneered by models like Nano-banana 2 for images and Gemini-Omni for video, into audio. However, the current evaluation infrastructure lags severely, remaining highly fragmented and restricted to specific subdomains or basic operations. Unlike existing benchmarks that are limited in scope, MMAE extends to a broad spectrum of real-world scenarios, encompassing 7 distinct audio modalities, including sound, speech, music, and their mixtures. Furthermore, we establish a comprehensive taxonomy spanning 6 levels of task complexity, from basic modifications to multi-hop reasoning and multi-round editing, 2 levels of granularity, and 8 distinct operation types. Meticulously curated through human-agent collaboration, MMAE comprises 2,000 high-fidelity samples paired with a pioneering rubric-based evaluation framework. By decomposing free-form tasks into 17,741 verifiable criteria, this robust rubric-based paradigm enables a precise, multi-dimensional assessment of both instruction following and context consistency. Our extensive evaluation of leading models reveals that current systems remain far from achieving reliable edits. Strikingly, the Exact Match Rate (EMR) consistently falls below 5% and plummets to an absolute 0% in complex, mixed-modality tasks, exposing critical bottlenecks in precise execution and structural robustness. We hope MMAE will serve as a catalyst for future advances in the intelligent creation community, providing a clear diagnostic roadmap and establishing a standardized, long-lasting evaluation paradigm for next-generation audio editing systems."
+    },
+    {
+      "id": "paper-2606.05761",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "SubtleMemory: A Benchmark for Fine-Grained Relational Memory Discrimination in Long-Horizon AI Agents",
+      "authors": "Wenxuan Wang, Haoyu Sun, Fukuan Hou et al.",
       "published": "2026-06-03",
-      "url": "https://arxiv.org/abs/2606.06492",
-      "raw_summary": "Code language models need repository-level context to resolve imports, APIs, and project conventions. Existing methods inject this knowledge as long inputs (retrieved through RAG or dependency analysis) or through per-repository fine-tuning and LoRA -- costly at repository scale and brittle to evolving codebases. We introduce Code2LoRA, a hypernetwork framework that generates repository-specific LoRA adapters, effectively injecting repository knowledge with zero inference-time token overhead. Code2LoRA supports two usage scenarios: Code2LoRA-Static converts a single repository snapshot into an adapter, suitable for comprehension of stable codebases; while Code2LoRA-Evo maintains an adapter backed by a GRU hidden state updated per code diff, suitable for active development of evolving codebases. To evaluate Code2LoRA against parameter-efficient fine-tuning baselines, we build RepoPeftBench, a benchmark of 604 Python repositories with two tracks: a static track with 40K training and 12K test assertion-completion tasks, and an evolution track with 215K commit-derived training and 87K commit-derived test tasks. On the static track, Code2LoRA-Static achieves 63.8% cross-repo and 66.2% in-repo exact match, matching the per-repository LoRA upper bound; on the evolution track, Code2LoRA-Evo achieves 60.3% cross-repo exact match (+5.2 pp over a single shared LoRA). Code2LoRA's code can be found at https://anonymous.4open.science/r/code2lora-6857; the model checkpoints and RepoPeftBench datasets can be found at https://huggingface.co/code2lora.",
-      "image": "https://arxiv.org/html/2606.06492v1/x1.png"
+      "url": "https://arxiv.org/abs/2606.05761",
+      "raw_summary": "Persistent AI assistants, such as OpenClaw, accumulate large collections of related memories over long-term interactions. As these memories grow, they may reinforce one another, diverge across contexts, or directly conflict, making correct assistance depend on memory relations rather than isolated recall. Existing long-term memory benchmarks rarely probe how agents preserve and utilize such relations during downstream tasks. To address this gap, we introduce SubtleMemory, a benchmark for fine-grained relational memory discrimination in long-running AI agents. SubtleMemory constructs relation-controlled latent semantic artifacts whose variants instantiate complementary, nuanced, or contradictory relations, and embeds them into realistic user-agent histories, requiring agents to recover distributed relational structures during later queries and instructions. The benchmark contains 1,522 evaluation instances over 10 long histories, grounded in 1,090 relation-controlled memory-variant sets and spanning user-related and non-user-related queries. Evaluating six standalone memory systems, two Claw-style agents with native memory modules, and three Claw-style agents with plugin memory modules, we find that current systems remain weak on fine-grained relational memory discrimination. We further introduce diagnostic protocols that reveal distinct capability profiles across memory preservation, retrieval, and downstream reasoning stages.",
+      "image": "https://arxiv.org/html/2606.05761v2/x2.png"
     },
     {
-      "id": "paper-2606.02956",
+      "id": "paper-2606.05806",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "The Road Ahead in Autonomous Driving: The KITScenes Multimodal Dataset",
-      "authors": "Richard Schwarzkopf, Fabian Immel, Alexander Blumberg et al.",
-      "published": "2026-05-31",
-      "url": "https://arxiv.org/abs/2606.02956",
-      "raw_summary": "Existing autonomous driving datasets have enabled major progress, but fall short in sensor fidelity, map completeness, or geographic diversity. We present KITScenes Multimodal, a European dataset built around high-fidelity sensors and maps. Our fully synchronized sensor suite combines high-resolution global-shutter cameras, long-range lidar beyond 400m, 4D imaging radar, and redundant GNSS/INS localization. Our HD maps are, to our knowledge, the most complete of any sensor dataset, validated through autonomous driving trials on open-source software. For the first time in a public dataset, all driving-relevant traffic elements, such as traffic lights, are mapped in 3D to a reprojection-accurate level with full topological connectivity. Recorded in cities with irregular street layouts and mixed traffic modes, our dataset complements existing datasets by broadening the available geographic diversity. We also introduce four benchmarks, each advancing spatial learning for embodied AI: online HD map construction, long-range depth estimation, novel view synthesis, and end-to-end driving. Project page: https://kitscenes.com/",
-      "image": "https://arxiv.org/html/2606.02956v1/x7.png"
-    },
-    {
-      "id": "paper-2606.04811",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Dream.exe: Can Video Generation Models Dream Executable Robot Manipulation?",
-      "authors": "Rui Zhao, Kaiming Yang, Jifeng Zhu et al.",
+      "title": "When Tools Fail: Benchmarking Dynamic Replanning and Anomaly Recovery in LLM Agents",
+      "authors": "Dongsheng Zhu, Xuchen Ma, Yucheng Shen et al.",
       "published": "2026-06-03",
-      "url": "https://arxiv.org/abs/2606.04811",
-      "raw_summary": "Video generation models have made impressive strides in synthesizing visually compelling content, yet their outputs remain confined to the virtual domain. A natural question follows: how well do these models reflect the physical world when their generated videos leave the screen and enter reality? We propose robotic manipulation as a concrete, measurable window onto this question: if a model has truly internalized physical laws, the motion it depicts should translate into executable robot behavior. We introduce Dream.exe, an evaluation framework that operationalizes this criterion through a video-to-execution pipeline. Given a scene image and a task description, Dream.exe synthesizes a manipulation video, converts the generated motion into robot trajectories, and executes them in a physics simulator, yielding a grounding signal that purely visual metrics cannot offer. Using this pipeline, we evaluate 8 models spanning frontier closed-source generators, open-source generators, and robot-specific models. Our benchmark covers 101 manually curated manipulation tasks at three levels of physical complexity, measured across visual quality, trajectory fidelity, and execution success. Encouragingly, several models achieve measurable execution success, suggesting that generative priors learned from internet-scale data already encode meaningful physical knowledge. Yet visual quality proves a poor predictor of executability, exposing a dimension of model capability that standard visual evaluations do not capture. Dream.exe will be open-sourced at https://github.com/showlab/Dream.exe.",
-      "image": "https://arxiv.org/html/2606.04811v2/x1.png"
+      "url": "https://arxiv.org/abs/2606.05806",
+      "raw_summary": "Existing benchmarks evaluate Tool-Integrated Reasoning (TIR) in LLMs on idealized ''happy paths'', largely overlooking real-world tool failures. We introduce ToolMaze, a benchmark for dynamic path discovery and error recovery in TIR agents. To separate systematic replanning from blind trial-and-error, ToolMaze adopts a two-dimensional design: DAG-based topological complexity and a 2 times 2 taxonomy of tool perturbations (explicit/implicit, transient/permanent). Evaluations show that perturbations degrade performance across nearly all models, with the sharpest drops under implicit semantic failures. Driven by systemic over-trust in corrupted outputs, Perturbation Recovery Rate (PRR) plummets by around 37\\% in these scenarios, while complex topologies trap agents in futile trial-and-error loops. Crucially, agentic fault-tolerance improves with model scale 3.66times slower than basic task execution, highlighting dynamic replanning as a distinct bottleneck unaddressed by model scaling or prompting. Data and code are available at https://github.com/Zhudongsheng75/ToolMaze.",
+      "image": "https://arxiv.org/html/2606.05806v1/x2.png"
     },
     {
-      "id": "paper-2606.04880",
+      "id": "paper-2606.06953",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "MAOAM: Unified Object and Material Selection with Vision-Language Models",
-      "authors": "Jaden Park, Valentin Deschaintre, Jason Kuen et al.",
-      "published": "2026-06-01",
-      "url": "https://arxiv.org/abs/2606.04880",
-      "raw_summary": "Selection is a core operation in interactive image editing. To be practical, a user should be able to specify and disambiguate the desired selection region through either text or click-based interactions, and the system should support selecting not only objects but also other criteria, such as materials. Material-based selection is valuable for tasks like re-texturing surfaces or editing instances of a specific material. However, existing vision-language-model (VLM) based selection methods are object-centric and typically support a single interaction modality, limiting their applicability. In this work, we thus present Mask Any Object And Material (MAOAM), a unified selection framework that enables precise object and material-level selection across both text- and click-based interactions. MAOAM leverages a VLM with a segmentation head to produce pixel-accurate masks from user prompts: the VLM interprets the user's selection intent (object or material-level) and encodes visual entities, attributes, and spatial relations, while the segmentation head decodes the output token into a mask. A key challenge is the lack of material selection datasets with text annotations. We propose a scalable data generation pipeline: we collect real and synthetic images with material masks, and leverage VLMs to generate material descriptions with rich visual-semantics. We train MAOAM with a multi-task objective over click and text-based selection, along with an auxiliary VQA task derived from the material descriptions to facilitate deeper material understanding. Despite being trained with uni-modal prompts, our model exhibits an emergent improvement in selection when combining text and clicks at inference, enabling flexible image editing workflows. Experiments demonstrate accurate and coherent selections across diverse objects, materials, and interaction scenarios, highlighting robustness in practice.",
-      "image": "https://arxiv.org/html/2606.04880v1/x1.png"
-    },
-    {
-      "id": "paper-2606.06155",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "AffordanceVLA: A Vision-Language-Action Model Empowering Action Generation through Affordance-Aware Understanding",
-      "authors": "Qize Yu, Jiadi You, Yuran Wang et al.",
-      "published": "2026-06-03",
-      "url": "https://arxiv.org/abs/2606.06155",
-      "raw_summary": "Vision-Language-Action (VLA) models leverage the rich world knowledge of pretrained vision-language models (VLMs) to enable instruction-following robotic manipulation. However, the structural mismatch between VLM semantic spaces and embodied control policies often hinders the learning of precise perception--action mappings. To address this challenge, we propose AffordanceVLA, a unified framework that introduces structured affordance forecasting as a task-oriented intermediate representation to establish a more precise and robust perception--action mapping. Specifically, we progressively model manipulation priors through three complementary components: 1) Which2Act for object-centric grounding via visual latent prediction to suppress distractions; 2) Where2Act for 2D interaction localization via affordance map estimation; and 3) How2Act for 3D geometric reasoning to guide manipulation policies. These affordance cues provide spatially grounded, semantically conditioned, and action-coupled intermediate representations, thereby naturally bridging vision, language and action. We integrate these modules into a Mixture-of-Transformer (MoT) architecture with specialized experts and train the model using a three-stage training strategy with a progressive data curriculum. To overcome the scarcity of dense affordance labels in robotic datasets, we also develop a robust automated data augmentation pipeline. Extensive experiments on simulation and real-world demonstrate that AffordanceVLA achieves strong performance across diverse manipulation scenarios.",
-      "image": "https://arxiv.org/html/2606.06155v1/x1.png"
+      "title": "LIMMT: Less is More for Motion Tracking",
+      "authors": "Yu Guan, Zekun Qi, Chenghuai Lin et al.",
+      "published": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.06953",
+      "raw_summary": "We argue that high-quality motion data can steer tracking policies toward better optimization trajectories early in training. In this work, we introduce LIMMT (Less Is More for Motion Tracking). To our knowledge, this is the first data-centric study for physics-based humanoid motion tracking. We go beyond simply removing low-quality and erroneous clips, but define motion data quality through three dimensions: physics feasibility, diversity, and complexity. We show that even training with under 3% of AMASS yields better tracking performance than training with the full dataset. We further conduct data cleaning on the estimated web-sourced mocap data. Extensive experiments and analyses validate the effectiveness of our framework.",
+      "image": "https://arxiv.org/html/2606.06953v1/x1.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -68,20 +66,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-06-07",
+      "published": "2026-06-08",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-19115948",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Five labs, five minds: building a multi-model finance drama on small models",
-      "authors": "Hugging Face",
-      "published": "2026-06-06",
-      "url": "https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2",
-      "raw_summary": ""
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-06-08",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
       "id": "news-gh-1004140701",
@@ -90,20 +88,20 @@
       "region": "国内",
       "title": "THUDM/slime",
       "authors": "智谱 GLM",
-      "published": "2026-06-06",
+      "published": "2026-06-08",
       "url": "https://github.com/THUDM/slime",
       "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-gh-1054681336",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
+      "source": "智谱 GLM · GitHub",
       "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-06-06",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+      "title": "THUDM/INFTY",
+      "authors": "智谱 GLM",
+      "published": "2026-06-08",
+      "url": "https://github.com/THUDM/INFTY",
+      "raw_summary": "INFTY Engine: An Optimization Toolkit to Support Continual AI"
     }
   ]
 }
