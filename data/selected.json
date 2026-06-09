@@ -1,63 +1,63 @@
 {
-  "fetched_at": "2026-06-08",
+  "fetched_at": "2026-06-09",
   "items": [
     {
-      "id": "paper-2606.07502",
+      "id": "paper-2606.07297",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Your UnEmbedding Matrix is Secretly a Feature Lens for Text Embeddings",
-      "authors": "Songhao Wu, Zhongxin Chen, Yuxuan Liu et al.",
+      "title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
+      "authors": "Shaoqiu Zhang, Yuhang Wang, Jialiang Liang et al.",
       "published": "2026-06-04",
-      "url": "https://arxiv.org/abs/2606.07502",
-      "raw_summary": "Large language models exhibit impressive zero-shot capabilities across a wide range of downstream tasks. However, they struggle to function as off-the-shelf embedding models, leading to suboptimal performance on massive text embedding benchmarks. In this paper, we identify a potential cause underlying this deficiency. Our motivation stems from an unexpected observation: text embeddings tend to align with frequent but uninformative tokens when projected onto the vocabulary space. We argue that this excessive expression of high-frequency tokens suppresses the model's ability to capture nuanced semantics. To address this, we introduce EmbedFilter, a simple linear transformation designed to refine text embeddings derived from LLMs directly. Specifically, we uncover that the unembedding matrix within LLMs encodes a latent space that is actively writing these frequent tokens into embedding space. By filtering out this subspace, EmbedFilter suppress the influence of high-frequency tokens, thereby enhancing semantic representations. As a compelling byproduct, this enables an inherent dimensionality reduction, lowering index storage and speedup retrieval while fully preserving the refined embedding quality. Our experiments across multiple LLM backbones demonstrate that LLMs equipped with EmbedFilter achieve superior zero-shot downstream performance even with significantly reduced embedding dimensions. We hope our findings provide deeper insights into the mechanisms of LLM-based representations and inspire more principled designs to improve text embeddings training. Our code is available at https://github.com/CentreChen/EmbFilter."
+      "url": "https://arxiv.org/abs/2606.07297",
+      "raw_summary": "Repository-level coding benchmarks such as SWE-bench have driven a rapid surge in the capabilities of coding agents. Yet they usually treat coding tasks as a holistic, binary prediction problem (e.g., resolved or unresolved), neglecting fine-grained agent capabilities such as repository understanding, context retrieval, code localization, and bug diagnosis. In this paper, we introduce SWE-Explore, a benchmark that isolates the evaluation of repository exploration, a critical capability of coding agents. Given a repository and an issue, SWE-Explore asks an explorer to return a ranked list of relevant code regions under a fixed line budget. SWE-Explore covers 848 issues across 10 programming languages and 203 open-source repositories. For each instance, we derive line-level ground truth from independent agent trajectories that successfully solved the same issue, distilling the specific code regions their solution paths actually consulted. We evaluate exploration along coverage, ranking, and context-efficiency dimensions, showing that these metrics strongly track downstream repair behavior. Across a broad set of retrieval methods, general coding agents, and specialized localizers, we find that agentic explorers form a clear tier above classical retrieval. While file-level localization is already strong for modern methods, line-level coverage and efficient ranking remain the key axes differentiating state-of-the-art explorers.",
+      "image": "https://arxiv.org/html/2606.07297v1/x2.png"
     },
     {
-      "id": "paper-2606.07229",
+      "id": "paper-2606.07082",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "MMAE: A Massive Multitask Audio Editing Benchmark",
-      "authors": "Ziyang Ma, Ruiqi Yan, Ruiyang Xu et al.",
+      "title": "On the Geometry of On-Policy Distillation",
+      "authors": "Zhennan Shen, Yanshu Li, Qingyu Yin et al.",
       "published": "2026-06-04",
-      "url": "https://arxiv.org/abs/2606.07229",
-      "raw_summary": "We introduce MMAE, a Massive Multitask Audio Editing benchmark, serving as the first comprehensive evaluation testbed designed for general-purpose instruction-based audio editing. Spurred by the shift toward intelligent creation, interactive editing has rapidly expanded from visual domains, pioneered by models like Nano-banana 2 for images and Gemini-Omni for video, into audio. However, the current evaluation infrastructure lags severely, remaining highly fragmented and restricted to specific subdomains or basic operations. Unlike existing benchmarks that are limited in scope, MMAE extends to a broad spectrum of real-world scenarios, encompassing 7 distinct audio modalities, including sound, speech, music, and their mixtures. Furthermore, we establish a comprehensive taxonomy spanning 6 levels of task complexity, from basic modifications to multi-hop reasoning and multi-round editing, 2 levels of granularity, and 8 distinct operation types. Meticulously curated through human-agent collaboration, MMAE comprises 2,000 high-fidelity samples paired with a pioneering rubric-based evaluation framework. By decomposing free-form tasks into 17,741 verifiable criteria, this robust rubric-based paradigm enables a precise, multi-dimensional assessment of both instruction following and context consistency. Our extensive evaluation of leading models reveals that current systems remain far from achieving reliable edits. Strikingly, the Exact Match Rate (EMR) consistently falls below 5% and plummets to an absolute 0% in complex, mixed-modality tasks, exposing critical bottlenecks in precise execution and structural robustness. We hope MMAE will serve as a catalyst for future advances in the intelligent creation community, providing a clear diagnostic roadmap and establishing a standardized, long-lasting evaluation paradigm for next-generation audio editing systems."
+      "url": "https://arxiv.org/abs/2606.07082",
+      "raw_summary": "On-policy distillation (OPD) is increasingly used to improve large language model reasoning, but its training dynamics remain poorly understood. We characterize the trajectory of OPD updates in parameter space and compare it with supervised fine-tuning (SFT) and reinforcement learning with verifiable rewards (RLVR). A suite of parameter-space diagnostics consistently places OPD in a relaxed off-principal regime: compared with SFT, its updates affect fewer weights and avoid principal directions more strongly, while compared with RLVR, they remain less tightly constrained. Beyond this static localization, OPD exhibits subspace locking: its cumulative updates rapidly enter a narrow low-dimensional channel. Constraining training to the update subspace formed early in training preserves OPD performance but substantially degrades SFT, indicating that the locked subspace is functionally sufficient for OPD. Control experiments further show that sparsifying the update tokens and shifting rollout generation off-policy preserve the rank dynamics, whereas mixing the OPD objective with RLVR changes them. Overall, these results suggest that OPD is not merely an intermediate point between SFT and RLVR, but induces its own update geometry in parameter space."
     },
     {
-      "id": "paper-2606.05761",
+      "id": "paper-2606.09828",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "SubtleMemory: A Benchmark for Fine-Grained Relational Memory Discrimination in Long-Horizon AI Agents",
-      "authors": "Wenxuan Wang, Haoyu Sun, Fukuan Hou et al.",
-      "published": "2026-06-03",
-      "url": "https://arxiv.org/abs/2606.05761",
-      "raw_summary": "Persistent AI assistants, such as OpenClaw, accumulate large collections of related memories over long-term interactions. As these memories grow, they may reinforce one another, diverge across contexts, or directly conflict, making correct assistance depend on memory relations rather than isolated recall. Existing long-term memory benchmarks rarely probe how agents preserve and utilize such relations during downstream tasks. To address this gap, we introduce SubtleMemory, a benchmark for fine-grained relational memory discrimination in long-running AI agents. SubtleMemory constructs relation-controlled latent semantic artifacts whose variants instantiate complementary, nuanced, or contradictory relations, and embeds them into realistic user-agent histories, requiring agents to recover distributed relational structures during later queries and instructions. The benchmark contains 1,522 evaluation instances over 10 long histories, grounded in 1,090 relation-controlled memory-variant sets and spanning user-related and non-user-related queries. Evaluating six standalone memory systems, two Claw-style agents with native memory modules, and three Claw-style agents with plugin memory modules, we find that current systems remain weak on fine-grained relational memory discrimination. We further introduce diagnostic protocols that reveal distinct capability profiles across memory preservation, retrieval, and downstream reasoning stages.",
-      "image": "https://arxiv.org/html/2606.05761v2/x2.png"
+      "title": "Latent Spatial Memory for Video World Models",
+      "authors": "Weijie Wang, Haoyu Zhao, Yifan Yang et al.",
+      "published": "2026-06-07",
+      "url": "https://arxiv.org/abs/2606.09828",
+      "raw_summary": "Video world models that maintain 3D spatial consistency across generated frames typically rely on explicit point cloud memory constructed in RGB space. This design is both computationally expensive, requiring repeated rendering and VAE encoding, and inherently lossy, as the round trip through pixel space discards rich features of the learned latent representation. In this paper, we introduce latent spatial memory for video world models, a persistent 3D cache that stores scene information directly in the diffusion latent space, avoiding pixel-space reconstruction. Building on this, we propose Mirage, a latent-space spatial memory framework that constructs the memory by lifting latent tokens into 3D via depth-guided back-projection and queries it by synthesizing novel views through direct latent-space warping. This unified formulation eliminates both the information loss of pixel-space reconstruction and the computational burden of repeated encoding and rendering. Experiments show that latent spatial memory achieves up to 10.57times faster end-to-end video generation and 55times reduction in memory footprint relative to explicit 3D baselines. Leveraging the geometric prior of the diffusion model, Mirage attains state-of-the-art performance on WorldScore and strong reconstruction quality on RealEstate10K.",
+      "image": "https://arxiv.org/html/2606.09828v1/x4.png"
     },
     {
-      "id": "paper-2606.05806",
+      "id": "paper-2509.10078",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "When Tools Fail: Benchmarking Dynamic Replanning and Anomaly Recovery in LLM Agents",
-      "authors": "Dongsheng Zhu, Xuchen Ma, Yucheng Shen et al.",
-      "published": "2026-06-03",
-      "url": "https://arxiv.org/abs/2606.05806",
-      "raw_summary": "Existing benchmarks evaluate Tool-Integrated Reasoning (TIR) in LLMs on idealized ''happy paths'', largely overlooking real-world tool failures. We introduce ToolMaze, a benchmark for dynamic path discovery and error recovery in TIR agents. To separate systematic replanning from blind trial-and-error, ToolMaze adopts a two-dimensional design: DAG-based topological complexity and a 2 times 2 taxonomy of tool perturbations (explicit/implicit, transient/permanent). Evaluations show that perturbations degrade performance across nearly all models, with the sharpest drops under implicit semantic failures. Driven by systemic over-trust in corrupted outputs, Perturbation Recovery Rate (PRR) plummets by around 37\\% in these scenarios, while complex topologies trap agents in futile trial-and-error loops. Crucially, agentic fault-tolerance improves with model scale 3.66times slower than basic task execution, highlighting dynamic replanning as a distinct bottleneck unaddressed by model scaling or prompting. Data and code are available at https://github.com/Zhudongsheng75/ToolMaze.",
-      "image": "https://arxiv.org/html/2606.05806v1/x2.png"
+      "title": "Human Psychometric Questionnaires Mischaracterize LLM Behavior",
+      "authors": "Woojung Song, Dongmin Choi, Yoonah Park et al.",
+      "published": "2026-05-28",
+      "url": "https://arxiv.org/abs/2509.10078",
+      "raw_summary": "We examine whether human psychometric questionnaires can serve as reliable tools for characterizing and predicting LLM behavior in everyday user interactions. We analyze eight open-source LLMs by comparing their value and personality profiles derived from two different methods: Likert self-reports on established questionnaires (PVQ-40/21 and BFI-44/10) and generation probabilities over value-laden responses to everyday user queries. The two profiles diverge substantially. Within-construct item consistency, often cited as evidence of stable LLM dispositions, disappears in generation probabilities. We attribute this gap to the fact that explicit lexical cues in established questionnaire items allow models to recognize the target construct and respond in alignment-consistent, socially desirable ways, whereas realistic user queries provide no such cues. In addition, demographic persona prompts shift models' responses to human questionnaires in ways consistent with real human patterns, but no such shifts appear in the generation probabilities of responses to realistic user queries, showing their limited ability to simulate the behaviors of target demographics in real-world user interactions. Overall, our study shows that human psychometric questionnaires are insufficient tools for predicting LLM behavior and suggests generation-based profiling as a more accurate measure."
     },
     {
-      "id": "paper-2606.06953",
+      "id": "paper-2606.09803",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "LIMMT: Less is More for Motion Tracking",
-      "authors": "Yu Guan, Zekun Qi, Chenghuai Lin et al.",
-      "published": "2026-06-04",
-      "url": "https://arxiv.org/abs/2606.06953",
-      "raw_summary": "We argue that high-quality motion data can steer tracking policies toward better optimization trajectories early in training. In this work, we introduce LIMMT (Less Is More for Motion Tracking). To our knowledge, this is the first data-centric study for physics-based humanoid motion tracking. We go beyond simply removing low-quality and erroneous clips, but define motion data quality through three dimensions: physics feasibility, diversity, and complexity. We show that even training with under 3% of AMASS yields better tracking performance than training with the full dataset. We further conduct data cleaning on the estimated web-sourced mocap data. Extensive experiments and analyses validate the effectiveness of our framework.",
-      "image": "https://arxiv.org/html/2606.06953v1/x1.png"
+      "title": "Echo-Memory: A Controlled Study of Memory in Action World Models",
+      "authors": "Wayne King, Zeyue Xue, Yuxuan Bian et al.",
+      "published": "2026-06-07",
+      "url": "https://arxiv.org/abs/2606.09803",
+      "raw_summary": "We present Echo-Memory, a controlled study of memory mechanisms in action-conditioned world models. These models generate multi-segment videos from a first frame, text prompt, and camera-action sequence, but their central failure is often memory rather than local image synthesis: after the camera leaves and returns, the scene or salient object may silently change. Existing memory designs are hard to compare because gains are entangled with backbone, training, retrieval, and evaluation differences. Echo-Memory fixes the action-to-video interface and varies only how history is stored and read by the generator. Under a shared video diffusion backbone, optimizer, camera-action representation, sampler, and evaluation pipeline, we compare raw context, compression-based memory, spatial summaries with different read-out paths, and state-space recurrence. This matched matrix separates four otherwise conflated axes: capacity, compression, read-out, and recurrence. We also evaluate memory through a three-branch protocol: replay quality, in-domain loop revisit, and open-domain return probes. The branches routinely disagree, showing that replay fidelity is not a sufficient proxy for remembering a world. Three findings follow. Raw context is a strong capacity baseline and improves open-domain return far more than it improves replay metrics. Compactness is not a free substitute for capacity: aggressive spatial and hybrid-compression memories lose the salient evidence needed for return. Finally, block-wise state-space recurrence is the strongest open-domain return mechanism in our matrix, showing that the structure of implicit memory matters as much as the decision to use it. These results provide a compact protocol for studying memory in action world models beyond isolated replay metrics.",
+      "image": "https://arxiv.org/html/2606.09803v1/x1.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -66,7 +66,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -77,7 +77,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code-docs",
       "authors": "通义千问 Qwen",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "url": "https://github.com/QwenLM/qwen-code-docs",
       "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
@@ -88,20 +88,20 @@
       "region": "国内",
       "title": "THUDM/slime",
       "authors": "智谱 GLM",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "url": "https://github.com/THUDM/slime",
       "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
-      "id": "news-gh-1054681336",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "智谱 GLM · GitHub",
+      "source": "月之暗面 Kimi · GitHub",
       "region": "国内",
-      "title": "THUDM/INFTY",
-      "authors": "智谱 GLM",
-      "published": "2026-06-08",
-      "url": "https://github.com/THUDM/INFTY",
-      "raw_summary": "INFTY Engine: An Optimization Toolkit to Support Continual AI"
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-06-09",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     }
   ]
 }
