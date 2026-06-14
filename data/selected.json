@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-13",
+  "fetched_at": "2026-06-14",
   "items": [
     {
       "id": "paper-2606.13289",
@@ -60,48 +60,48 @@
       "raw_summary": "Deep search requires agents to answer complex questions through multi-step web search, browsing, evidence comparison, and synthesis. A central challenge is deciding how to search when several directions look plausible but only some will later lead to reliable evidence. If an agent greedily follows the current best-looking direction, it may keep extending a weak continuation. If it explores without discipline, it may waste budget on disconnected trials. We propose TreeSeeker, an inference-time framework for controlled trial-and-error in deep search. TreeSeeker organizes search as branch-and-return search over tree-structured states, where each branch is a tentative direction for a sub-goal. At each round, TreeSearch reads all sub-goal trees, identifies active goals, and uses textual UCB signals of value, uncertainty, and risk to select among exploiting a promising branch, exploring an uncertain alternative, or pruning an unproductive continuation and returning to an earlier branch point. TreeMem supports this control loop by keeping evidence, uncertainty, conflicts, progress, and failure cues attached to the branches that produced them, so trial outcomes can guide later decisions. Experiments on XBench-DeepSearch, BrowseComp, and BrowseComp-ZH show that TreeSeeker consistently outperforms strong open-source baselines, suggesting that explicit branch-and-return control complements stronger reasoning and tool execution."
     },
     {
-      "id": "news-51590799",
+      "id": "news-gh-1008713177",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "New OpenAI Academy courses for the next era of work",
-      "authors": "OpenAI",
-      "published": "2026-06-12",
-      "url": "https://openai.com/index/academy-courses-applying-ai-at-work",
-      "raw_summary": "OpenAI introduces three Academy courses that help people build practical AI skills, create repeatable workflows, and apply agents in everyday work."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code",
+      "authors": "通义千问 Qwen",
+      "published": "2026-06-14",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-52797411",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "How Preply combines AI and human tutors to personalize learning",
-      "authors": "OpenAI",
-      "published": "2026-06-12",
-      "url": "https://openai.com/index/preply",
-      "raw_summary": "Preply uses OpenAI to launch AI-generated lesson summaries, providing personalised feedback and language learning exercises."
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-06-14",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-74787428",
+      "id": "news-gh-1183011239",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "olmo-eval: An evaluation workbench for the model development loop",
-      "authors": "Hugging Face",
-      "published": "2026-06-12",
-      "url": "https://huggingface.co/blog/allenai/olmo-eval",
-      "raw_summary": ""
+      "source": "阶跃星辰 Step · GitHub",
+      "region": "国内",
+      "title": "stepfun-ai/llama.cpp",
+      "authors": "阶跃星辰 Step",
+      "published": "2026-06-14",
+      "url": "https://github.com/stepfun-ai/llama.cpp",
+      "raw_summary": "LLM inference in C/C++"
     },
     {
-      "id": "news-93365531",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "Google Research",
-      "region": "海外",
-      "title": "Research into how AI can help users understand skin conditions",
-      "authors": "Google Research",
-      "published": "2026-06-12",
-      "url": "https://research.google/blog/research-into-how-ai-can-help-users-understand-skin-conditions/",
-      "raw_summary": "Health & Bioscience"
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-06-13",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     }
   ]
 }
