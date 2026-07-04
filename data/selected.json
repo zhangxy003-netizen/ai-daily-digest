@@ -1,30 +1,6 @@
 {
-  "fetched_at": "2026-07-03",
+  "fetched_at": "2026-07-04",
   "items": [
-    {
-      "id": "paper-2607.02512",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Program-as-Weights: A Programming Paradigm for Fuzzy Functions",
-      "authors": "Wentao Zhang, Liliana Hotsko, Woojeong Kim et al.",
-      "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.02512",
-      "raw_summary": "Many everyday programming tasks resist clean rule-based implementation, such as alerting on important log lines, repairing malformed JSON, or ranking search results by intent, and are increasingly outsourced to large language model APIs at the cost of locality, reproducibility, and price. We propose fuzzy-function programming: compiling such a function from a natural-language specification into a compact, locally-executable neural artifact. We instantiate this paradigm with Program-as-Weights (PAW), in which a 4B compiler trained on FuzzyBench, a 10M-example dataset we release, emits parameter-efficient adapters for a frozen, lightweight interpreter. A 0.6B Qwen3 interpreter executing PAW programs matches the performance of direct prompting of Qwen3-32B, while using roughly one fiftieth of the inference memory and running at 30 tokens/s on a MacBook M3. PAW reframes the foundation model from a per-input problem solver into a tool builder: invoked once per function definition, it produces a small reusable artifact whose subsequent calls per function application are cheap and offline.",
-      "image": "https://arxiv.org/html/2607.02512v1/x1.png"
-    },
-    {
-      "id": "paper-2606.30562",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Morphing into Hybrid Attention Models",
-      "authors": "Disen Lan, Jianbin Zheng, Yuxi Ren et al.",
-      "published": "2026-06-28",
-      "url": "https://arxiv.org/abs/2606.30562",
-      "raw_summary": "Hybrid attention models improve long-context efficiency by retaining only a subset of full-attention layers and replacing the remaining layers with linear attention. However, the effectiveness of Transformer-to-hybrid conversion critically depends on which layers preserve full attention. Existing hybrid layer selection methods typically rely on heuristic strategies such as fixed placement patterns or layerwise scoring, implicitly treating layer importance as isolated and overlooking the interdependent layer effect under a global hybrid configuration. In this work, we formulate hybrid layer selection as a budget-constrained subset optimization problem. We further propose FlashMorph (Fast LAyer Selection for Hybrid MORPHing), an effective, efficient and scalable layer selection method for Transformer-to-hybrid conversion. FlashMorph first constructs a morphable model by equipping each full-attention layer with a converted linear-attention branch. It then freezes all model weights and jointly optimizes layerwise gates on synthetic long-context retrieval data, with a linearization regularization that encourages the model to rely on linear attention for efficiency. The learned gates are discretized under a preset full-attention budget to instantiate the hybrid architecture, followed by standard logits distillation and long-context finetuning. Extensive experiments show that FlashMorph discovers more effective hybrid configurations, preserves strong long-context recall and general benchmark performance while substantially reducing layer selection cost compared with existing layer selection methods, demonstrating its effectiveness, efficiency, and scalability.",
-      "image": "https://arxiv.org/html/2606.30562v1/figs/flashmorph.png"
-    },
     {
       "id": "paper-2607.02255",
       "type": "paper",
@@ -37,27 +13,85 @@
       "raw_summary": "Memory for a long-horizon LLM agent is a contract about what each future decision is allowed to see. The simplest contract appends past observations, tool calls, and reflections to every prompt, which makes prior context easy to access but also turns it into a jumbled mixture in which the effect of any single memory component is hard to isolate. We introduce and instrument an alternative bounded contract: every decision is made from a fresh user message assembled by typed retrieval, with no raw cross-decision transcript appended. The prompt thus stays bounded across runs of any length, and any single layer can be ablated in isolation. We instantiate the contract in Slay the Spire 2, a closed-rule stochastic deck-building game whose runs require hundreds of tactical and strategic decisions. A public online benchmark of frontier LLMs on the same game reports zero wins at the lowest difficulty across five configurations, and the developer-reported human win rate at the same difficulty is 16%; the task is hard but not saturated. Within our harness, a fixed-A0 ablation shows the largest observed difference when triggered strategic skills are enabled: the no-store baseline wins 3/10 games and adding the skill layer 6/10. At this sample size the comparison is directional rather than statistically decisive (Fisher exact p\\approx0.37); a cross-backbone probe and public accumulating-context baselines are reported as operational comparisons rather than controlled tests of the contract variable itself. We release a reproducible testbed: 298 completed trajectories with condition tags, frozen memory/skill snapshots, prompt records, and analysis scripts -- an agent design and a validated, reusable methodology for studying how explicit memory layers shape long-horizon LLM-agent decisions."
     },
     {
-      "id": "paper-2607.01647",
+      "id": "paper-2607.01686",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "AgenticDataBench: A Comprehensive Benchmark for Data Agents",
-      "authors": "Zhaoyan Sun, Shan Zhong, Daizhou Wen et al.",
+      "title": "WARP: Weight-Space Analysis for Recovering Training Data Portfolios",
+      "authors": "Tzu-Heng Huang, Aditya Goyal, John Cooper et al.",
       "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.01647",
-      "raw_summary": "Data science aims to derive actionable insights from heterogeneous raw data, unlocking the value of the massive amounts of data generated in modern society. Automating this process is essential to reducing labor-intensive efforts for data scientists and enabling scalable data-driven applications. Recently, large language model (LLM)-based data agents have emerged as a promising solution to automate data science workflows. However, the field lacks comprehensive benchmarks to rigorously evaluate these agents across diverse scenarios with fine-grained granularity. To address this gap, we propose AgenticDataBench, a comprehensive benchmark featuring realistic tasks spanning diverse domains with fine-grained ground-truth labels. This enables evaluations to capture the diversity and complexity of data science workflows and the detailed performance of agents. First, to cover diverse domains, we collect real datasets and tasks from 15 vertical domains, including 5 real-world B2B use cases from a leading fintech company. Second, to remove redundancy in real-world tasks and generate high-quality tasks for domains lacking real data, we introduce data science skills, recurring data-centric operational patterns, and quantify benchmark coverage by the number of skills included. Representative skills are extracted from large-scale task solutions on Stack Overflow using skill-aligned hierarchical clustering. Third, for real-world business tasks, we select task-solution pairs that maximize diversity in skill composition, ensuring broad coverage of practical scenarios. Fourth, to generate realistic tasks for devise domains without real tasks, we propose a systematic LLM-based task generation approach to create workflows and tasks based on these skills. Finally, we evaluate state-of-the-art data agents using our annotated benchmark and open-sourced testbed, providing detailed skill-level insights."
+      "url": "https://arxiv.org/abs/2607.01686",
+      "raw_summary": "Foundation models are routinely released to the public, yet the data recipes used to train them -- such as domain mixture weights that determine how different sources are sampled -- are rarely disclosed. This creates an access asymmetry: researchers study the resulting models but lack visibility into the training distribution that produces them. Prior works for inferring training data, such as membership inference, detect at the level of individual samples and thus cannot characterize the global composition of the training corpus. We introduce WARP, a framework that recovers a fine-tuned model's training mixtures directly from its released weights. WARP interpolates between the base and fine-tuned models using model merging, generating pseudo-checkpoints that approximate the missing training trajectory and expose a geometric footprint of the training data in the weight space. From these simulated footprints, WARP extracts geometric features and maps them to domain proportions using either a parameter-free softmax readout or an MLP projector trained on synthetic mixtures. In controlled experiments with BERT and GPT-2, WARP recovers domain mixtures with an average MAE as low as 0.046 and 0.104 respectively, outperforming membership inference and a variant with access to the true training trajectory.",
+      "image": "https://arxiv.org/html/2607.01686v1/figures/image.png"
     },
     {
-      "id": "paper-2607.01642",
+      "id": "paper-2606.31825",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Multi-Resolution Flow Matching: Training-Free Diffusion Acceleration via Staged Sampling",
-      "authors": "Xingyu Zheng, Xianglong Liu, Yifu Ding et al.",
+      "title": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
+      "authors": "Junha Jung, Minbyul Jeong, Suhyeon Lim et al.",
+      "published": "2026-06-29",
+      "url": "https://arxiv.org/abs/2606.31825",
+      "raw_summary": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across three multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Instruct even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 2.79 points. Moreover, MRPO reduces early-stage reasoning failures from 64.0% to 13.0%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available at https://github.com/dmis-lab/MRPO",
+      "image": "https://arxiv.org/html/2606.31825v1/x3.png"
+    },
+    {
+      "id": "paper-2607.01224",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
+      "authors": "Shengguang Wu, Hao Zhu, Yuhui Zhang et al.",
+      "published": "2026-06-30",
+      "url": "https://arxiv.org/abs/2607.01224",
+      "raw_summary": "Memory expertise is a learned skill: knowing what to encode, when to retrieve, and how to organize knowledge--a capacity known in cognitive science as metamemory. We bring this perspective to LLMs by treating memory management as a trainable skill. We promote file-system operations to first-class memory actions alongside task actions, letting the model itself decide how to manage its memory. This memory skill improves along two axes: the structure that supports it (prompts, file schemas, action vocabulary), and the proficiency of the model exercising it. Both axes resist manual optimization: episodes in long-horizon tasks run for thousands of steps, and a single memory mistake can hide long before it surfaces, making human review of full trajectories impractical. We introduce AutoMem, a framework that automates both axes. In the first loop, a strong LLM reviews complete agent trajectories and iteratively revises the memory structure that shapes how the agent interacts with its memory files. In the second loop, the agent's own good memory decisions are identified from many episodes and used as training signal to sharpen the model's memory proficiency directly. Across three procedurally generated long-horizon games (Crafter, MiniHack, and NetHack), optimizing memory alone--without modifying the model's task-action behavior--improved the base agent's performance ~2x-4x, bringing a 32B open-weight model competitive with frontier systems such as Claude Opus 4.5 and Gemini 3.1 Pro Thinking. Our results show that memory management is an independently learnable skill, and a high-leverage objective yielding large gains on long-horizon tasks.",
+      "image": "https://arxiv.org/html/2607.01224v1/x3.png"
+    },
+    {
+      "id": "paper-2607.02440",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "EvoPolicyGym: Evaluating Autonomous Policy Evolution in Interactive Environments",
+      "authors": "Zhilin Wang, Han Song, Runzhe Zhan et al.",
       "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.01642",
-      "raw_summary": "Hardware-agnostic strategies for accelerating text-to-image diffusion, such as timestep distillation and feature caching, can reduce inference time without custom kernels or system-level optimization. Among them, multi-resolution generation strategies have recently received broad attention, attaining more than 5x speedup without any training. However, the design of performing upsampling in the latent space, together with the selective modification of partial regions, causes these methods to exhibit noticeable blurring or artifacts. To this end, we propose MrFlow, a training-free multi-resolution acceleration strategy for pretrained flow-matching models built upon a staged low-to-high-resolution pipeline. MrFlow first rapidly generates the main structure at low resolution, then performs super-resolution in the pixel space using a lightweight pretrained GAN-based model, subsequently injects low-strength noise to enable high-frequency resampling, and finally refines the details at high resolution. Quantitative and qualitative results on FLUX.1-dev and Qwen-Image show that MrFlow exploits the quadratic token reduction and reduced step requirement of low-resolution sampling to achieve 10x end-to-end acceleration while keeping OneIG within a 1% gap relative to that before acceleration, significantly surpassing other training-free acceleration strategies, and requiring no training or runtime dynamic identification whatsoever. MrFlow can further be directly combined orthogonally with pre-trained timestep distillation strategies, achieving even higher generation acceleration of up to 25x.",
-      "image": "https://arxiv.org/html/2607.01642v1/x2.png"
+      "url": "https://arxiv.org/abs/2607.02440",
+      "raw_summary": "Autonomous agents are increasingly expected to improve executable policies through feedback, yet existing evaluations often collapse this process into a final score or confound it with open-ended software-engineering progress. We introduce Autonomous Policy Evolution, a controlled evaluation setting in which a harness-model agent repeatedly edits an executable policy system under a fixed interaction budget. We instantiate this setting in EvoPolicyGym, a benchmark built from compact interactive RL environments that evaluates how agents iteratively improve explored policies. On the EvoPolicyGym suite, GPT-5.5 achieves the strongest aggregate rank score and top-two performance on all 16 environments. Beyond leaderboard results, EvoPolicyGym also provides trajectory-level diagnostics that distinguish how agents allocate budget, convert feedback into parametric tuning. These analyses show that strong autonomous policy evolution depends not only on isolated task wins, but on discovering task-appropriate mechanisms and refining policies under bounded feedback.",
+      "image": "https://arxiv.org/html/2607.02440v1/x1.png"
+    },
+    {
+      "id": "news-gh-1008713177",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code",
+      "authors": "通义千问 Qwen",
+      "published": "2026-07-04",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1246459259",
+      "type": "news",
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-07-04",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+    },
+    {
+      "id": "news-98169784",
+      "type": "news",
+      "source": "Google DeepMind",
+      "region": "海外",
+      "title": "Google DeepMind and A24 announce first-of-its-kind research partnership",
+      "authors": "Google DeepMind",
+      "published": "2026-07-03",
+      "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
+      "raw_summary": ""
     },
     {
       "id": "news-gh-933928679",
@@ -69,39 +103,6 @@
       "published": "2026-07-03",
       "url": "https://github.com/deepseek-ai/DeepEP",
       "raw_summary": "DeepEP: an efficient expert-parallel communication library"
-    },
-    {
-      "id": "news-gh-1008713177",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code",
-      "authors": "通义千问 Qwen",
-      "published": "2026-07-03",
-      "url": "https://github.com/QwenLM/qwen-code",
-      "raw_summary": "An open-source AI coding agent that lives in your terminal."
-    },
-    {
-      "id": "news-gh-1004140701",
-      "type": "news",
-      "source": "智谱 GLM · GitHub",
-      "region": "国内",
-      "title": "THUDM/slime",
-      "authors": "智谱 GLM",
-      "published": "2026-07-03",
-      "url": "https://github.com/THUDM/slime",
-      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
-    },
-    {
-      "id": "news-gh-1246459259",
-      "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-07-03",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     }
   ]
 }
