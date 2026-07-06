@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-05",
+  "fetched_at": "2026-07-06",
   "items": [
     {
       "id": "paper-2607.02255",
@@ -25,18 +25,6 @@
       "image": "https://arxiv.org/html/2607.02440v1/x1.png"
     },
     {
-      "id": "paper-2606.30562",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Morphing into Hybrid Attention Models",
-      "authors": "Disen Lan, Jianbin Zheng, Yuxi Ren et al.",
-      "published": "2026-06-28",
-      "url": "https://arxiv.org/abs/2606.30562",
-      "raw_summary": "Hybrid attention models improve long-context efficiency by retaining only a subset of full-attention layers and replacing the remaining layers with linear attention. However, the effectiveness of Transformer-to-hybrid conversion critically depends on which layers preserve full attention. Existing hybrid layer selection methods typically rely on heuristic strategies such as fixed placement patterns or layerwise scoring, implicitly treating layer importance as isolated and overlooking the interdependent layer effect under a global hybrid configuration. In this work, we formulate hybrid layer selection as a budget-constrained subset optimization problem. We further propose FlashMorph (Fast LAyer Selection for Hybrid MORPHing), an effective, efficient and scalable layer selection method for Transformer-to-hybrid conversion. FlashMorph first constructs a morphable model by equipping each full-attention layer with a converted linear-attention branch. It then freezes all model weights and jointly optimizes layerwise gates on synthetic long-context retrieval data, with a linearization regularization that encourages the model to rely on linear attention for efficiency. The learned gates are discretized under a preset full-attention budget to instantiate the hybrid architecture, followed by standard logits distillation and long-context finetuning. Extensive experiments show that FlashMorph discovers more effective hybrid configurations, preserves strong long-context recall and general benchmark performance while substantially reducing layer selection cost compared with existing layer selection methods, demonstrating its effectiveness, efficiency, and scalability.",
-      "image": "https://arxiv.org/html/2606.30562v1/figs/flashmorph.png"
-    },
-    {
       "id": "paper-2606.31825",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -47,6 +35,18 @@
       "url": "https://arxiv.org/abs/2606.31825",
       "raw_summary": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across three multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Instruct even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 2.79 points. Moreover, MRPO reduces early-stage reasoning failures from 64.0% to 13.0%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available at https://github.com/dmis-lab/MRPO",
       "image": "https://arxiv.org/html/2606.31825v1/x3.png"
+    },
+    {
+      "id": "paper-2607.01224",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
+      "authors": "Shengguang Wu, Hao Zhu, Yuhui Zhang et al.",
+      "published": "2026-06-30",
+      "url": "https://arxiv.org/abs/2607.01224",
+      "raw_summary": "Memory expertise is a learned skill: knowing what to encode, when to retrieve, and how to organize knowledge--a capacity known in cognitive science as metamemory. We bring this perspective to LLMs by treating memory management as a trainable skill. We promote file-system operations to first-class memory actions alongside task actions, letting the model itself decide how to manage its memory. This memory skill improves along two axes: the structure that supports it (prompts, file schemas, action vocabulary), and the proficiency of the model exercising it. Both axes resist manual optimization: episodes in long-horizon tasks run for thousands of steps, and a single memory mistake can hide long before it surfaces, making human review of full trajectories impractical. We introduce AutoMem, a framework that automates both axes. In the first loop, a strong LLM reviews complete agent trajectories and iteratively revises the memory structure that shapes how the agent interacts with its memory files. In the second loop, the agent's own good memory decisions are identified from many episodes and used as training signal to sharpen the model's memory proficiency directly. Across three procedurally generated long-horizon games (Crafter, MiniHack, and NetHack), optimizing memory alone--without modifying the model's task-action behavior--improved the base agent's performance ~2x-4x, bringing a 32B open-weight model competitive with frontier systems such as Claude Opus 4.5 and Gemini 3.1 Pro Thinking. Our results show that memory management is an independently learnable skill, and a high-leverage objective yielding large gains on long-horizon tasks.",
+      "image": "https://arxiv.org/html/2607.01224v1/x3.png"
     },
     {
       "id": "paper-2607.01002",
@@ -61,48 +61,48 @@
       "image": "https://arxiv.org/html/2607.01002v1/x2.png"
     },
     {
+      "id": "news-55468893",
+      "type": "news",
+      "source": "Hugging Face",
+      "region": "海外",
+      "title": "🤗 Kernels: Major Updates",
+      "authors": "Hugging Face",
+      "published": "2026-07-06",
+      "url": "https://huggingface.co/blog/revamped-kernels",
+      "raw_summary": ""
+    },
+    {
+      "id": "news-gh-932038801",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/DeepGEMM",
+      "authors": "DeepSeek",
+      "published": "2026-07-06",
+      "url": "https://github.com/deepseek-ai/DeepGEMM",
+      "raw_summary": "DeepGEMM: clean and efficient BLAS kernel library on GPU"
+    },
+    {
       "id": "news-gh-1008713177",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-05",
+      "published": "2026-07-06",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
+      "source": "智谱 GLM · GitHub",
       "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-07-05",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
-    },
-    {
-      "id": "news-gh-1052551856",
-      "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/checkpoint-engine",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-07-04",
-      "url": "https://github.com/MoonshotAI/checkpoint-engine",
-      "raw_summary": "Checkpoint-engine is a simple middleware to update model weights in LLM inference engines"
-    },
-    {
-      "id": "news-40917891",
-      "type": "news",
-      "source": "Google DeepMind",
-      "region": "海外",
-      "title": "Google DeepMind and A24 announce first-of-its-kind research partnership",
-      "authors": "Google DeepMind",
-      "published": "2026-07-03",
-      "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
-      "raw_summary": ""
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-07-06",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     }
   ]
 }

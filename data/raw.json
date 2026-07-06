@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-05",
+  "fetched_at": "2026-07-06",
   "paper_candidates": [
     {
       "id": "paper-2607.02255",
@@ -11,7 +11,7 @@
       "published": "2026-07-01",
       "url": "https://arxiv.org/abs/2607.02255",
       "raw_summary": "Memory for a long-horizon LLM agent is a contract about what each future decision is allowed to see. The simplest contract appends past observations, tool calls, and reflections to every prompt, which makes prior context easy to access but also turns it into a jumbled mixture in which the effect of any single memory component is hard to isolate. We introduce and instrument an alternative bounded contract: every decision is made from a fresh user message assembled by typed retrieval, with no raw cross-decision transcript appended. The prompt thus stays bounded across runs of any length, and any single layer can be ablated in isolation. We instantiate the contract in Slay the Spire 2, a closed-rule stochastic deck-building game whose runs require hundreds of tactical and strategic decisions. A public online benchmark of frontier LLMs on the same game reports zero wins at the lowest difficulty across five configurations, and the developer-reported human win rate at the same difficulty is 16%; the task is hard but not saturated. Within our harness, a fixed-A0 ablation shows the largest observed difference when triggered strategic skills are enabled: the no-store baseline wins 3/10 games and adding the skill layer 6/10. At this sample size the comparison is directional rather than statistically decisive (Fisher exact p\\approx0.37); a cross-backbone probe and public accumulating-context baselines are reported as operational comparisons rather than controlled tests of the contract variable itself. We release a reproducible testbed: 298 completed trajectories with condition tags, frozen memory/skill snapshots, prompt records, and analysis scripts -- an agent design and a validated, reusable methodology for studying how explicit memory layers shape long-horizon LLM-agent decisions.",
-      "hotness": 44
+      "hotness": 51
     },
     {
       "id": "paper-2607.02440",
@@ -23,19 +23,7 @@
       "published": "2026-07-01",
       "url": "https://arxiv.org/abs/2607.02440",
       "raw_summary": "Autonomous agents are increasingly expected to improve executable policies through feedback, yet existing evaluations often collapse this process into a final score or confound it with open-ended software-engineering progress. We introduce Autonomous Policy Evolution, a controlled evaluation setting in which a harness-model agent repeatedly edits an executable policy system under a fixed interaction budget. We instantiate this setting in EvoPolicyGym, a benchmark built from compact interactive RL environments that evaluates how agents iteratively improve explored policies. On the EvoPolicyGym suite, GPT-5.5 achieves the strongest aggregate rank score and top-two performance on all 16 environments. Beyond leaderboard results, EvoPolicyGym also provides trajectory-level diagnostics that distinguish how agents allocate budget, convert feedback into parametric tuning. These analyses show that strong autonomous policy evolution depends not only on isolated task wins, but on discovering task-appropriate mechanisms and refining policies under bounded feedback.",
-      "hotness": 42
-    },
-    {
-      "id": "paper-2606.30562",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Morphing into Hybrid Attention Models",
-      "authors": "Disen Lan, Jianbin Zheng, Yuxi Ren et al.",
-      "published": "2026-06-28",
-      "url": "https://arxiv.org/abs/2606.30562",
-      "raw_summary": "Hybrid attention models improve long-context efficiency by retaining only a subset of full-attention layers and replacing the remaining layers with linear attention. However, the effectiveness of Transformer-to-hybrid conversion critically depends on which layers preserve full attention. Existing hybrid layer selection methods typically rely on heuristic strategies such as fixed placement patterns or layerwise scoring, implicitly treating layer importance as isolated and overlooking the interdependent layer effect under a global hybrid configuration. In this work, we formulate hybrid layer selection as a budget-constrained subset optimization problem. We further propose FlashMorph (Fast LAyer Selection for Hybrid MORPHing), an effective, efficient and scalable layer selection method for Transformer-to-hybrid conversion. FlashMorph first constructs a morphable model by equipping each full-attention layer with a converted linear-attention branch. It then freezes all model weights and jointly optimizes layerwise gates on synthetic long-context retrieval data, with a linearization regularization that encourages the model to rely on linear attention for efficiency. The learned gates are discretized under a preset full-attention budget to instantiate the hybrid architecture, followed by standard logits distillation and long-context finetuning. Extensive experiments show that FlashMorph discovers more effective hybrid configurations, preserves strong long-context recall and general benchmark performance while substantially reducing layer selection cost compared with existing layer selection methods, demonstrating its effectiveness, efficiency, and scalability.",
-      "hotness": 37
+      "hotness": 43
     },
     {
       "id": "paper-2606.31825",
@@ -47,7 +35,19 @@
       "published": "2026-06-29",
       "url": "https://arxiv.org/abs/2606.31825",
       "raw_summary": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across three multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Instruct even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 2.79 points. Moreover, MRPO reduces early-stage reasoning failures from 64.0% to 13.0%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available at https://github.com/dmis-lab/MRPO",
-      "hotness": 18
+      "hotness": 20
+    },
+    {
+      "id": "paper-2607.01224",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
+      "authors": "Shengguang Wu, Hao Zhu, Yuhui Zhang et al.",
+      "published": "2026-06-30",
+      "url": "https://arxiv.org/abs/2607.01224",
+      "raw_summary": "Memory expertise is a learned skill: knowing what to encode, when to retrieve, and how to organize knowledge--a capacity known in cognitive science as metamemory. We bring this perspective to LLMs by treating memory management as a trainable skill. We promote file-system operations to first-class memory actions alongside task actions, letting the model itself decide how to manage its memory. This memory skill improves along two axes: the structure that supports it (prompts, file schemas, action vocabulary), and the proficiency of the model exercising it. Both axes resist manual optimization: episodes in long-horizon tasks run for thousands of steps, and a single memory mistake can hide long before it surfaces, making human review of full trajectories impractical. We introduce AutoMem, a framework that automates both axes. In the first loop, a strong LLM reviews complete agent trajectories and iteratively revises the memory structure that shapes how the agent interacts with its memory files. In the second loop, the agent's own good memory decisions are identified from many episodes and used as training signal to sharpen the model's memory proficiency directly. Across three procedurally generated long-horizon games (Crafter, MiniHack, and NetHack), optimizing memory alone--without modifying the model's task-action behavior--improved the base agent's performance ~2x-4x, bringing a 32B open-weight model competitive with frontier systems such as Claude Opus 4.5 and Gemini 3.1 Pro Thinking. Our results show that memory management is an independently learnable skill, and a high-leverage objective yielding large gains on long-horizon tasks.",
+      "hotness": 16
     },
     {
       "id": "paper-2607.01002",
@@ -59,19 +59,7 @@
       "published": "2026-06-30",
       "url": "https://arxiv.org/abs/2607.01002",
       "raw_summary": "In long-context use, large language models frequently synthesize answers from the meaning of a relevant context span rather than literally copy-pasting them. Identifying which attention heads perform this synthesis matters for interpreting long-context model behavior. Yet existing detectors miss these heads by construction: they reward heads whose attended token matches the generated token, a literal-copy criterion that captures where a head reads but not what it writes through its output-value (OV) circuit, the very mechanism that carries non-literal retrieval. We introduce Logit-Contribution Scoring (LOCOS), a write-aware detector that scores each head by the projection of its OV-circuit output onto the answer-token unembedding direction, contrasting needle and off-needle source positions in a single forward pass. Across three model families (Qwen3, Gemma-3, OLMo-3.1), mean-ablating the top LOCOS heads on the NoLiMa non-literal retrieval benchmark collapses ROUGE-L at lower head counts than prior attention-based detections; on Qwen3-8B, ablating 50 heads drives ROUGE-L from 0.401 to 0.000 while the strongest baseline still retains 0.292. The selected heads are retrieval-specific: parametric recall and arithmetic reasoning stay at baseline under the same ablation. On Qwen3-8B, the same ablation also drops MuSiQue from 0.55 to 0.08 and BABI-Long from 0.62 to 0.20, while a random-heads control stays within 0.05 of baseline.",
-      "hotness": 14
-    },
-    {
-      "id": "paper-2607.01874",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use",
-      "authors": "Jiayin Zhu, Kelong Mao, Yudong Guo et al.",
-      "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.01874",
-      "raw_summary": "Skills are becoming a reusable operational layer for LLM agents, encoding SOPs, domain rules, tool workflows, scripts, and validation routines. In realistic skill repositories, overlapping skills make reliable skill-use difficult. Final verifier success is too coarse for both evaluation and training, since an agent may pass through trial and error while selecting distractor skills, skipping required steps, composing workflows incorrectly or omitting final checks. We introduce SkillCoach, a self-evolving rubric framework for evaluating and enhancing agentic skill-use. SkillCoach derives skill-grounded process rubrics from real rollouts and evaluates trajectories along four dimensions: skill selection, skill following, skill composition, and skill-grounded reflection. It keeps the external verifier as a separate outcome signal, allowing process quality to be distinguished from accidental task success. The evolved rubrics further serve as process supervision for selecting high-quality training trajectories. Experiments show that evolved rubrics substantially improve evaluation quality, expose failures hidden by final accuracy, and provide stronger supervision signals than outcome-only filtering for enhancing agentic skill-use.",
-      "hotness": 14
+      "hotness": 15
     },
     {
       "id": "paper-2607.02271",
@@ -86,18 +74,6 @@
       "hotness": 13
     },
     {
-      "id": "paper-2607.01224",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
-      "authors": "Shengguang Wu, Hao Zhu, Yuhui Zhang et al.",
-      "published": "2026-06-30",
-      "url": "https://arxiv.org/abs/2607.01224",
-      "raw_summary": "Memory expertise is a learned skill: knowing what to encode, when to retrieve, and how to organize knowledge--a capacity known in cognitive science as metamemory. We bring this perspective to LLMs by treating memory management as a trainable skill. We promote file-system operations to first-class memory actions alongside task actions, letting the model itself decide how to manage its memory. This memory skill improves along two axes: the structure that supports it (prompts, file schemas, action vocabulary), and the proficiency of the model exercising it. Both axes resist manual optimization: episodes in long-horizon tasks run for thousands of steps, and a single memory mistake can hide long before it surfaces, making human review of full trajectories impractical. We introduce AutoMem, a framework that automates both axes. In the first loop, a strong LLM reviews complete agent trajectories and iteratively revises the memory structure that shapes how the agent interacts with its memory files. In the second loop, the agent's own good memory decisions are identified from many episodes and used as training signal to sharpen the model's memory proficiency directly. Across three procedurally generated long-horizon games (Crafter, MiniHack, and NetHack), optimizing memory alone--without modifying the model's task-action behavior--improved the base agent's performance ~2x-4x, bringing a 32B open-weight model competitive with frontier systems such as Claude Opus 4.5 and Gemini 3.1 Pro Thinking. Our results show that memory management is an independently learnable skill, and a high-leverage objective yielding large gains on long-horizon tasks.",
-      "hotness": 12
-    },
-    {
       "id": "paper-2607.02508",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -107,6 +83,18 @@
       "published": "2026-07-01",
       "url": "https://arxiv.org/abs/2607.02508",
       "raw_summary": "Representation alignment has become an effective way to accelerate diffusion transformer training and improve generation quality. Recent self-alignment methods, such as SRA and Self-Flow, further remove the dependency on external pretrained encoders by constructing alignment within the diffusion model itself. However, the mechanism behind the improvement from SRA to Self-Flow, dual-time scheduling, remains under-examined: Self-Flow attributes its gain to interactions between tokens at different noise levels, where cleaner tokens help infer noisier ones. In this work, we revisit this explanation and ask whether the gain instead comes from data augmentation along the noise dimension. To disentangle these factors, we introduce Attention Separation, which preserves the same dual-timestep input as Self-Flow while blocking attention between tokens assigned to different noise levels. Surprisingly, removing such interaction does not degrade performance and can even improve it, suggesting that the improvement from SRA to Self-Flow mainly comes from data augmentation. Furthermore,We show that Attention Separation itself provides an augmentation effect by splitting a single image into multiple effective training parts to expand the training data. Based on these observations, we combine self-representation alignment with dual-timestep and attention-separation augmentation, and demonstrate the effectiveness of this design on ImageNet.",
+      "hotness": 10
+    },
+    {
+      "id": "paper-2606.27669",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "When Search Agents Should Ask: DiscoBench for Clarification-Aware Deep Search",
+      "authors": "Yiling Tao, Shihan Deng, Meiling Tao et al.",
+      "published": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.27669",
+      "raw_summary": "Search agents powered by large language models (LLMs) are increasingly used to solve complex information-seeking tasks, requiring multi-step retrieval and reasoning to fulfill user goals. However, existing benchmarks often assume that user queries are complete and explicit, overlooking the fact that real-world search requests are frequently vague, underspecified, or even factually incorrect. In deep search scenarios, such ambiguity can propagate along multi-step reasoning chains and lead agents toward incorrect search trajectories. To address this gap, we introduce DiscoBench, a benchmark for clarification-aware deep search, designed to evaluate whether search agents can proactively identify ambiguity, ask effective clarification questions, and recover correct reasoning paths through user interaction. DiscoBench contains 211 samples and 463 ambiguity instances across 11 real-world domains, covering four ambiguity types. We further design a user simulator for multi-turn interaction and evaluate model performance from four perspectives: task utility, ambiguity detection, interaction strategy, and cost efficiency. Experiments on representative LLMs show that ambiguity detection and effective clarification are distinct capabilities, and that repeatedly searching instead of asking for clarification often performs worse than direct guessing, highlighting a critical gap between retrieval ability and interactive problem-solving in current search agents.",
       "hotness": 10
     },
     {
@@ -122,40 +110,16 @@
       "hotness": 8
     },
     {
-      "id": "paper-2606.27669",
+      "id": "paper-2607.01804",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "When Search Agents Should Ask: DiscoBench for Clarification-Aware Deep Search",
-      "authors": "Yiling Tao, Shihan Deng, Meiling Tao et al.",
-      "published": "2026-06-25",
-      "url": "https://arxiv.org/abs/2606.27669",
-      "raw_summary": "Search agents powered by large language models (LLMs) are increasingly used to solve complex information-seeking tasks, requiring multi-step retrieval and reasoning to fulfill user goals. However, existing benchmarks often assume that user queries are complete and explicit, overlooking the fact that real-world search requests are frequently vague, underspecified, or even factually incorrect. In deep search scenarios, such ambiguity can propagate along multi-step reasoning chains and lead agents toward incorrect search trajectories. To address this gap, we introduce DiscoBench, a benchmark for clarification-aware deep search, designed to evaluate whether search agents can proactively identify ambiguity, ask effective clarification questions, and recover correct reasoning paths through user interaction. DiscoBench contains 211 samples and 463 ambiguity instances across 11 real-world domains, covering four ambiguity types. We further design a user simulator for multi-turn interaction and evaluate model performance from four perspectives: task utility, ambiguity detection, interaction strategy, and cost efficiency. Experiments on representative LLMs show that ambiguity detection and effective clarification are distinct capabilities, and that repeatedly searching instead of asking for clarification often performs worse than direct guessing, highlighting a critical gap between retrieval ability and interactive problem-solving in current search agents.",
-      "hotness": 8
-    },
-    {
-      "id": "paper-2607.02032",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "PACE: A Proxy for Agentic Capability Evaluation",
-      "authors": "Yueqi Song, Lintang Sutawika, Jiarui Liu et al.",
+      "title": "VLA-Corrector: Lightweight Detect-and-Correct Inference for Adaptive Action Horizon",
+      "authors": "Yi Pan, Miao Pan, Qi Lu et al.",
       "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.02032",
-      "raw_summary": "Evaluating LLM agents on benchmarks like SWE-Bench and GAIA can be expensive, time-consuming, and requires complex infrastructure. A single evaluation can cost thousands of dollars and take days to complete. In contrast, non-agentic LLM benchmarks that test individual capabilities (e.g., reasoning, code generation) are fast and cheap to run. In this paper, we investigate whether performance on expensive agentic benchmarks can be accurately predicted by the performance on a small, carefully selected subset of atomic evaluation instances. We introduce PACE, a framework that constructs proxy benchmarks by selecting instances from existing non-agentic evaluations whose aggregate scores most reliably predict model performances on agentic benchmarks. Given a pool of candidate instances spanning atomic capabilities, PACE fits a regression that maps a model's scores on a compact subset of source instances to its score on the target agentic benchmark. The subset itself is curated by combining two complementary instance-selection strategies, target-relevance local selection and globally informative global selection. We apply PACE to the 4 target agentic benchmarks in this paper, which yields PACE-Bench, the concrete proxy benchmark that we evaluate in the paper. Experiments across 14 models, 4 agentic benchmarks, and 19 non-agentic benchmarks show that PACE-Bench predicts agentic scores with leave-one-out cross-validation (LOOCV) mean absolute error (MAE) under 4%, Spearman correlation above 0.80, and pairwise model-ranking accuracy around 85%, all at much less than 1% of the full agentic evaluation cost. We further analyze the selected proxy instances, revealing which skills each agentic benchmark uniquely demands. PACE enables practitioners to obtain reliable estimates of agentic performance during model development, selection, and routing, without the overhead of full agent evaluation.",
-      "hotness": 6
-    },
-    {
-      "id": "paper-2607.01686",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "WARP: Weight-Space Analysis for Recovering Training Data Portfolios",
-      "authors": "Tzu-Heng Huang, Aditya Goyal, John Cooper et al.",
-      "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.01686",
-      "raw_summary": "Foundation models are routinely released to the public, yet the data recipes used to train them -- such as domain mixture weights that determine how different sources are sampled -- are rarely disclosed. This creates an access asymmetry: researchers study the resulting models but lack visibility into the training distribution that produces them. Prior works for inferring training data, such as membership inference, detect at the level of individual samples and thus cannot characterize the global composition of the training corpus. We introduce WARP, a framework that recovers a fine-tuned model's training mixtures directly from its released weights. WARP interpolates between the base and fine-tuned models using model merging, generating pseudo-checkpoints that approximate the missing training trajectory and expose a geometric footprint of the training data in the weight space. From these simulated footprints, WARP extracts geometric features and maps them to domain proportions using either a parameter-free softmax readout or an MLP projector trained on synthetic mixtures. In controlled experiments with BERT and GPT-2, WARP recovers domain mixtures with an average MAE as low as 0.046 and 0.104 respectively, outperforming membership inference and a variant with access to the true training trajectory.",
-      "hotness": 5
+      "url": "https://arxiv.org/abs/2607.01804",
+      "raw_summary": "Vision-Language-Action (VLA) foundation models have recently achieved strong progress in embodied intelligence. To reduce policy-call frequency while preserving temporal coherence, most generative policies adopt an action chunk mechanism, executing multiple future actions in an open-loop manner under a fixed action horizon. However, this \"predict-then-blindly-execute\" paradigm sacrifices closed-loop reactivity: in contact-rich physical interactions, even small local perturbations can rapidly amplify within the open-loop blind spot, leading to compounding errors and ultimately task failure. To address this limitation, we propose VLA-Corrector, a lightweight corrective inference framework for action-chunked VLA policies. Without modifying the backbone policy weights, VLA-Corrector introduces a lightweight Latent-space Vision Monitor (LVM) that continuously compares predicted and actual visual feature evolution, enabling online detection of visual dynamics deviations. Once persistent deviation is detected, the system triggers a truncation event, discards the remaining stale actions, and invokes corrective replanning via Online Gradient Guidance (OGG). The detect-and-correct mechanism of VLA-Corrector naturally induces an event-triggered adaptive action horizon: it preserves long-horizon execution when the current chunk remains reliable, and invokes short-horizon corrective replanning when execution begins to drift. In doing so, VLA-Corrector mitigates the trade-off imposed by static horizons between execution robustness and policy-call frequency. It can be integrated into different VLA models without further retraining the VLA backbone, interrupting compounding errors while preserving much of the efficiency benefit of action chunking and substantially improving robustness in long-horizon, contact-rich robotic manipulation tasks.",
+      "hotness": 7
     },
     {
       "id": "paper-2606.29961",
@@ -167,18 +131,30 @@
       "published": "2026-06-28",
       "url": "https://arxiv.org/abs/2606.29961",
       "raw_summary": "Large Language Model (LLM)-based agents can solve complex procedural tasks by interacting with environments over multiple turns, but this ability typically depends on large models, long contexts, and repeated inference calls. This makes advanced memory-augmented agents difficult to deploy on resource-constrained devices. We introduce DuoMem, a dual-space distillation framework that transfers procedural problem-solving ability from a large teacher model to compact student models. DuoMem distils in two complementary spaces: (1)context-space distillation, which replaces student-generated memories with higher-quality teacher-generated procedural memories prepended to the student's input, and (2)parameter-space distillation, which fine-tunes lightweight LoRA adapters on successful teacher trajectories. Evaluated on ALFWorld, a challenging embodied decision-making benchmark, DuoMem boosts a 4B-parameter model from 4.3% to 77.9% task success rate, closing most of the gap to a 72B teacher model (87.1%), while adding fewer than 10M trainable parameters and only a few megabytes of pre-computed teacher memories. Moreover, the DuoMem-enhanced 4B model completes tasks over 3x faster than the 72B teacher in wall-clock time, making it viable for real-time edge deployment, which would be challenging for the teacher.Extensive ablations across eight models spanning 2B-72B parameters reveal that both distillation axes contribute complementary",
-      "hotness": 5
+      "hotness": 7
     },
     {
-      "id": "paper-2607.02466",
+      "id": "paper-2607.01686",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs",
-      "authors": "Junhao Shi, Siyin Wang, Xiaopeng Yu et al.",
+      "title": "WARP: Weight-Space Analysis for Recovering Training Data Portfolios",
+      "authors": "Tzu-Heng Huang, Aditya Goyal, John Cooper et al.",
       "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.02466",
-      "raw_summary": "Vision-Language-Action (VLA) models are fundamentally bottlenecked by the scarcity of expert demonstrations -- triplets of observations, instructions, and actions that are costly to collect at scale. We argue that this bottleneck stems from conflating two distinct learning objectives: acquiring physical competence (how to move) and acquiring semantic alignment (what to do). Crucially, only the latter requires language supervision. Building on this Decomposition Hypothesis, we propose Task-Agnostic Pretraining (TAP), a two-stage framework that first learns transferable motor priors from cheap, unlabeled interaction data -- including discarded off-task trajectories and autonomous robot play -- via a self-supervised Inverse Dynamics objective. A lightweight second stage then grounds these priors in language using minimal expert data. On the SIMPLER benchmark, TAP matches models trained on over 1M expert trajectories while using orders of magnitude less labeled data, yielding a 10% absolute gain over standard behavior cloning. On a real-world WidowX platform, TAP retains 25% success under camera perturbations where internet-scale baselines collapse to 0%, demonstrating that task-agnostic pretraining produces robust, transferable physical representations and offers a scalable path forward for Embodied AI.",
+      "url": "https://arxiv.org/abs/2607.01686",
+      "raw_summary": "Foundation models are routinely released to the public, yet the data recipes used to train them -- such as domain mixture weights that determine how different sources are sampled -- are rarely disclosed. This creates an access asymmetry: researchers study the resulting models but lack visibility into the training distribution that produces them. Prior works for inferring training data, such as membership inference, detect at the level of individual samples and thus cannot characterize the global composition of the training corpus. We introduce WARP, a framework that recovers a fine-tuned model's training mixtures directly from its released weights. WARP interpolates between the base and fine-tuned models using model merging, generating pseudo-checkpoints that approximate the missing training trajectory and expose a geometric footprint of the training data in the weight space. From these simulated footprints, WARP extracts geometric features and maps them to domain proportions using either a parameter-free softmax readout or an MLP projector trained on synthetic mixtures. In controlled experiments with BERT and GPT-2, WARP recovers domain mixtures with an average MAE as low as 0.046 and 0.104 respectively, outperforming membership inference and a variant with access to the true training trajectory.",
+      "hotness": 6
+    },
+    {
+      "id": "paper-2606.29526",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "The Mirage of Optimizing Training Policies: Monotonic Inference Policies as the Real Objective for LLM Reinforcement Learning",
+      "authors": "Jing Liang, Hongyao Tang, Yi Ma et al.",
+      "published": "2026-06-27",
+      "url": "https://arxiv.org/abs/2606.29526",
+      "raw_summary": "Reinforcement learning (RL) has gained growing attention in large language model (LLM) post-training, yet RL training remains fragile and can suffer from instability or collapse. One vital cause is training-inference mismatch: LLM adopts separate inference and training engines for generation efficiency and training precision, which in practice exhibits inconsistent probabilities for the same trajectories on training and inference sides, even with synchronized model parameters. This naturally induces a special type of off-policyness ever existing and poisoning the training. Prior works have made various efforts in addressing the off-policyness to stabilize the training policies under the mismatch. In this paper, we point out the objective misalignment neglected by existing works that an effective update to the policy in the training engine not necessarily ensures the improvement of the inference policy, i.e., the one used in deployment. To this end, we propose a new policy optimization objective for LLM RL, named Monotonic Inference Policy Improvement (MIPI). Following this principle, we introduce Monotonic Inference Policy Update (MIPU), a two-step LLM RL framework that constructs sampler-referenced candidate updates and selectively accepts synchronized candidates using an inference-side gap proxy. Experiments conducted on two model scales under high mismatch show that MIPU improves average reasoning performance and training stability.",
       "hotness": 5
     },
     {
@@ -194,16 +170,16 @@
       "hotness": 4
     },
     {
-      "id": "paper-2607.02375",
+      "id": "paper-2606.27821",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Representation Distribution Matching for One-Step Visual Generation",
-      "authors": "Lan Feng, Wuyang Li, Eloi Zablocki et al.",
-      "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.02375",
-      "raw_summary": "We elucidate the design space of Representation Distribution Matching (RDM), our name for the paradigm that trains a one-step image generator by matching generated and reference feature distributions under frozen pretrained encoders. We identify two design axes, how the distributions are compared and the representations they are compared in, and controlled studies along them yield three findings. First, the classical MMD, which could not train convincing generators a decade ago, becomes a strong and scalable objective once estimated right. Second, the generated batch is then the operative variable, with an optimum above 2048, far beyond customary batch sizes. Third, any single representation can be gamed, driven below the real score while images stay visibly fake, so we match against a balanced battery of encoders and evaluate with SW_r14, a Sliced-Wasserstein distance over 14 encoders that is independent of the training loss and resists gaming. Combining the preferred choices yields improved RDM (iRDM): it sets the one-step state of the art on ImageNet at SW_r14 1.30, corroborated by PickScore, a human-preference proxy our objective never optimizes, which prefers it over the prior best one-step generator on 71.2% of matched samples. The same recipe post-trains the four-step FLUX.2 [klein] into a one-step generator, surpassing the four-step version on GenEval, 0.826 to 0.794, and on PickScore, 22.76 to 22.58, in 90 H200 GPU-hours. Project page: https://alan-lanfeng.github.io/rdm/.",
-      "hotness": 4
+      "title": "Parameter-Efficient Quantum-Inspired Fast Weight Programmers for Traffic-Matrix Forecasting",
+      "authors": "Kuo-Chung Peng, Jiun-Cheng Jiang, Chun-Hua Lin et al.",
+      "published": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.27821",
+      "raw_summary": "Traffic matrices (TMs) capture network-wide origin-destination demand and are central to traffic engineering, yet accurate whole-matrix forecasting remains challenging when prediction must be performed under the memory, update, and training-budget constraints of online network control. This paper investigates whether compact quantum-inspired recurrent models can provide effective TM forecasts without relying on dedicated graph, transformer, or diffusion modules. We adapt gated quantum-inspired Kolmogorov-Arnold network fast-weight programmers (QKAN-FWPs) to direct multi-step Abilene TM forecasting, where each model predicts the next 20 five-minute frames of a 144-channel origin-destination (OD) matrix from a two-hour history. We benchmark three QKAN placement variants against a matched-size long short-term memory (LSTM) network, a larger LSTM, and a classical gated fast-weight programmer under a shared fixed-budget training protocol. Among the evaluated recurrent models, G-QKANFWP achieves the best pooled root-mean-square error (RMSE), while using only 22.4% of the larger LSTM. It also outperforms both the matched-size LSTM and the classical G-FWP baseline, indicating that the gain is not due to gated fast-weight framework alone. Convergence and channel-wise analyses further show that the quantum-inspired variants obtain lower validation-loss area under the learning curve (AULC) than matched-size recurrent baselines, while G-QKANFWP and GQKAN-FWP achieve substantially more OD-channel wins. These results identify a classical slow programmer with a quantum-inspired fast programmer as a promising accuracy-efficiency design for resource-conscious network traffic-matrix forecasting.",
+      "hotness": 3
     },
     {
       "id": "paper-2606.25178",
@@ -218,15 +194,39 @@
       "hotness": 3
     },
     {
-      "id": "paper-2606.27821",
+      "id": "paper-2606.31227",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Parameter-Efficient Quantum-Inspired Fast Weight Programmers for Traffic-Matrix Forecasting",
-      "authors": "Kuo-Chung Peng, Jiun-Cheng Jiang, Chun-Hua Lin et al.",
-      "published": "2026-06-25",
-      "url": "https://arxiv.org/abs/2606.27821",
-      "raw_summary": "Traffic matrices (TMs) capture network-wide origin-destination demand and are central to traffic engineering, yet accurate whole-matrix forecasting remains challenging when prediction must be performed under the memory, update, and training-budget constraints of online network control. This paper investigates whether compact quantum-inspired recurrent models can provide effective TM forecasts without relying on dedicated graph, transformer, or diffusion modules. We adapt gated quantum-inspired Kolmogorov-Arnold network fast-weight programmers (QKAN-FWPs) to direct multi-step Abilene TM forecasting, where each model predicts the next 20 five-minute frames of a 144-channel origin-destination (OD) matrix from a two-hour history. We benchmark three QKAN placement variants against a matched-size long short-term memory (LSTM) network, a larger LSTM, and a classical gated fast-weight programmer under a shared fixed-budget training protocol. Among the evaluated recurrent models, G-QKANFWP achieves the best pooled root-mean-square error (RMSE), while using only 22.4% of the larger LSTM. It also outperforms both the matched-size LSTM and the classical G-FWP baseline, indicating that the gain is not due to gated fast-weight framework alone. Convergence and channel-wise analyses further show that the quantum-inspired variants obtain lower validation-loss area under the learning curve (AULC) than matched-size recurrent baselines, while G-QKANFWP and GQKAN-FWP achieve substantially more OD-channel wins. These results identify a classical slow programmer with a quantum-inspired fast programmer as a promising accuracy-efficiency design for resource-conscious network traffic-matrix forecasting.",
+      "title": "Securing the AI Agent: A Unified Framework for Multi-Layer Agent Red Teaming",
+      "authors": "Yong Yang, Xing Zheng, Huiyu Wu et al.",
+      "published": "2026-06-29",
+      "url": "https://arxiv.org/abs/2606.31227",
+      "raw_summary": "The fast growth of open-source AI infrastructure, from model serving engines and agent platforms to the Model Context Protocol (MCP) ecosystem and the language models themselves, has outpaced the security tooling available to defend it. We present AI-Infra-Guard, an open-source framework that organizes AI red teaming around a single observation: the attack surface of an AI agent is stratified across layers (infrastructure, protocol/tool, agent behavior, and model), and no single detection paradigm fits all of them. The framework therefore matches a paradigm to each layer, from deterministic rule matching over 75+ AI components and 1{,}400+ vulnerability rules, through LLM-driven agentic auditing of MCP servers and agent-skill packages and multi-turn black-box agent red teaming, to a jailbreak harness with 26+ attack operators over sixteen datasets. To our knowledge it is the only open-source framework to span all of these, including supply-chain auditing of the agent skills that increasingly extend AI agents. We release AI-Infra-Guard as open source so that layer-paradigm matching can serve as a practical foundation for agent security and a shared base for the community to build on.",
+      "hotness": 2
+    },
+    {
+      "id": "paper-2607.00052",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "AGE: Adaptive-masking for Graph Embedding in Graph Retrieval-Augmented Generation",
+      "authors": "Bao Long Nguyen Huu, Atsushi Hashimoto",
+      "published": "2026-06-29",
+      "url": "https://arxiv.org/abs/2607.00052",
+      "raw_summary": "GraphRAG is an extension of retrieval-augmented generation (RAG) that supports large language models (LLMs) by referring to graph-structured data as external knowledge. While this technique ideally captures intricate relationships, it often struggles with graph representations for LLMs, particularly for frozen LLMs, due to the misalignment between graph-based and text-based latent features. We tackle this issue by introducing the {\\it Adaptive-masking for Graph Embedding (AGE)}. AGE employs a Transformer in a mask-based self-supervised learning (SSL) approach. We designed the architecture similar to text embedding encoders, addressing the latent feature misalignment. In contrast to natural language texts, graphs are concise representations, and there exist {\\it key nodes} that hold dominant contextual information, which are challenging to predict from their surroundings. Masking such key nodes leads to inefficiency in the SSL process. Therefore, AGE focuses on predicting nodes apart from key nodes, utilizing a learnable node sampler. Our experimental results indicate that AGE significantly improves approaches using non-parametric search component in GraphQA tasks, achieving superior accuracy across four benchmark datasets with distinct characteristics.",
+      "hotness": 2
+    },
+    {
+      "id": "paper-2607.02501",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots",
+      "authors": "Ling Xu, Chuyu Han, Borui Li et al.",
+      "published": "2026-07-01",
+      "url": "https://arxiv.org/abs/2607.02501",
+      "raw_summary": "Embodied AI models now span vision-language-action (VLA) models and world-action models (WAMs), but practical deployment remains fragmented across model-specific Python stacks, backend assumptions, and robot-side glue code, especially on heterogeneous edge devices. Existing inference runtimes are designed mainly for request-response serving and therefore do not satisfy the runtime contract of embodied deployment: multi-rate execution inside closed-loop control, latency-first batch-1 inference on heterogeneous hardware, and extensible embodied interfaces beyond fixed token I/O. We present Embodied.cpp, a portable C++ inference runtime for embodied models. Based on an architectural analysis of representative VLA models and WAMs, Embodied.cpp captures a shared execution path and organizes it into five layers: input adapters, sequence builders, backbone execution, head plugins, and deployment adapters. The runtime provides modular multi-rate execution, latency-first fused inference, and extensible operator and I/O support, enabling deployment across heterogeneous devices, robots, and simulators through one backend abstraction. We evaluate Embodied.cpp on two VLA models, HY-VLA and pi0.5, and on a preliminary WAM benchmark using a LingBot-VA Transformer block. The VLA deployments achieve successful closed-loop execution with 100.0% and 91.0% task success rates, respectively. The WAM benchmark reduces block memory from 312.2 MiB to 88.1 MiB. These results show that Embodied.cpp improves deployment efficiency while preserving high accuracy across diverse embodied model architectures.",
       "hotness": 2
     },
     {
@@ -292,48 +292,48 @@
   ],
   "news": [
     {
+      "id": "news-55468893",
+      "type": "news",
+      "source": "Hugging Face",
+      "region": "海外",
+      "title": "🤗 Kernels: Major Updates",
+      "authors": "Hugging Face",
+      "published": "2026-07-06",
+      "url": "https://huggingface.co/blog/revamped-kernels",
+      "raw_summary": ""
+    },
+    {
+      "id": "news-gh-932038801",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/DeepGEMM",
+      "authors": "DeepSeek",
+      "published": "2026-07-06",
+      "url": "https://github.com/deepseek-ai/DeepGEMM",
+      "raw_summary": "DeepGEMM: clean and efficient BLAS kernel library on GPU"
+    },
+    {
       "id": "news-gh-1008713177",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-05",
+      "published": "2026-07-06",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
+      "source": "智谱 GLM · GitHub",
       "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-07-05",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
-    },
-    {
-      "id": "news-gh-1052551856",
-      "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/checkpoint-engine",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-07-04",
-      "url": "https://github.com/MoonshotAI/checkpoint-engine",
-      "raw_summary": "Checkpoint-engine is a simple middleware to update model weights in LLM inference engines"
-    },
-    {
-      "id": "news-40917891",
-      "type": "news",
-      "source": "Google DeepMind",
-      "region": "海外",
-      "title": "Google DeepMind and A24 announce first-of-its-kind research partnership",
-      "authors": "Google DeepMind",
-      "published": "2026-07-03",
-      "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
-      "raw_summary": ""
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-07-06",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     }
   ],
   "reports": []
