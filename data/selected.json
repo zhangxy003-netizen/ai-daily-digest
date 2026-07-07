@@ -1,86 +1,86 @@
 {
-  "fetched_at": "2026-07-06",
+  "fetched_at": "2026-07-07",
   "items": [
     {
-      "id": "paper-2607.02255",
+      "id": "paper-2607.04438",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents",
-      "authors": "Xiangchen Cheng, Yunwei Jiang, Jianwen Sun et al.",
+      "title": "ResearchStudio-Reel: Automate the Last Mile of Research from Paper to Poster, Video, and Blog",
+      "authors": "Lingao Xiao, Yalun Dai, Yangyu Huang et al.",
+      "published": "2026-07-04",
+      "url": "https://arxiv.org/abs/2607.04438",
+      "raw_summary": "Research dissemination, turning a paper into a poster, a talk video, and a blog post, is still a manual last mile. Prior automation treats each artifact in isolation that each re-extract the paper from scratch, usually ship one-way renders the author cannot reopen in PowerPoint or Word, and gates quality on soft VLM-preference scores that plateau while load-bearing sections still read as empty. We argue this last mile is best built as a composition of skills: thin agent-readable contracts that share one upstream extractor and wrap deterministic primitives in a measured-fill loop whose exits are hard pass/fail render gates. We instantiate this as ResearchStudio-Reel, five Claude Code and Codex skills organized into one shared extractor (Paper2Assets), three editable generators (Paper2Poster, Paper2Video, Paper2Blog), and one interactive convergence layer (Paper2Reel). Paper2Assets extracts each paper once into a shared bundle that can be reused by every downstream skill; The three generators produce a print-ready poster, a synchronized talk video, and a bilingual blog that stay factually consistent and round-trip through PowerPoint or Word; Paper2Reel then binds all three into a self-contained HTML viewer whose section-level clicks jump the video, slides, captions, and blog to matching content. On the Paper2Poster benchmark, our posters lead every aesthetic and information sub-criterion against both prior automated systems and single-shot frontier LLMs, surpassing the authors' own on aesthetics under two held-out VLM judges and winning overall on 84% to 93% of papers; capability audits further show that, by uniquely pairing narration-aligned on-slide highlights with a bilingual blog gated by layout-aware DOCX repair, ResearchStudio-Reel is the only pipeline to ship all three editable artifacts. Project is available at https://aka.ms/ResearchStudio",
+      "image": "https://arxiv.org/html/2607.04438v1/x4.png"
+    },
+    {
+      "id": "paper-2607.02642",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "GigaWorld-1: A Roadmap to Build World Models for Robot Policy Evaluation",
+      "authors": "GigaWorld Team, Angyuan Ma, Boyuan Wang et al.",
       "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.02255",
-      "raw_summary": "Memory for a long-horizon LLM agent is a contract about what each future decision is allowed to see. The simplest contract appends past observations, tool calls, and reflections to every prompt, which makes prior context easy to access but also turns it into a jumbled mixture in which the effect of any single memory component is hard to isolate. We introduce and instrument an alternative bounded contract: every decision is made from a fresh user message assembled by typed retrieval, with no raw cross-decision transcript appended. The prompt thus stays bounded across runs of any length, and any single layer can be ablated in isolation. We instantiate the contract in Slay the Spire 2, a closed-rule stochastic deck-building game whose runs require hundreds of tactical and strategic decisions. A public online benchmark of frontier LLMs on the same game reports zero wins at the lowest difficulty across five configurations, and the developer-reported human win rate at the same difficulty is 16%; the task is hard but not saturated. Within our harness, a fixed-A0 ablation shows the largest observed difference when triggered strategic skills are enabled: the no-store baseline wins 3/10 games and adding the skill layer 6/10. At this sample size the comparison is directional rather than statistically decisive (Fisher exact p\\approx0.37); a cross-backbone probe and public accumulating-context baselines are reported as operational comparisons rather than controlled tests of the contract variable itself. We release a reproducible testbed: 298 completed trajectories with condition tags, frozen memory/skill snapshots, prompt records, and analysis scripts -- an agent design and a validated, reusable methodology for studying how explicit memory layers shape long-horizon LLM-agent decisions."
+      "url": "https://arxiv.org/abs/2607.02642",
+      "raw_summary": "Evaluating embodied robot foundation models remains a critical bottleneck; unlike large language models efficiently assessed via digital benchmarks, robotic policies require slow, costly real-world rollouts limited by hardware and human supervision, which has driven interest in world models as surrogate policy evaluators, yet the key properties that make a world model reliable for policy assessment remain poorly understood. This work presents a systematic study of world models for robotic policy evaluation and introduces WMBench, a benchmark constructed from real-robot teleoperation data and matched policy rollouts covering diverse manipulation tasks to enable controlled comparisons across model families, action encodings, rollout horizons, and evaluation metrics. Using WMBench, we analyze 7 video world models, 4 action representation schemes, and over 324,000 simulated policy rollouts paired with real robot executions, further enriching our analysis with large-scale community submissions from the CVPR 2026 GigaBrain Challenge, curated synthetic trajectories, and a training videos spanning more than 12,000 hours. Our experiments deliver three core insights: evaluator quality is dominated by long-horizon, action-faithful rollout consistency rather than short-term visual realism; pretraining gains stem not only from data scale but from balancing general world knowledge with robot-specific controllability; and architectural choices including action encoding, memory design, and evaluator-focused post-training strongly determine alignment with real-world robot behavior. Drawing on these results, we derive a practical design roadmap and realize it in GigaWorld-1, a world model specially optimized for policy evaluation, and we fully release our code, models, datasets, and toolkits to advance scalable evaluation research for embodied foundation models.",
+      "image": "https://arxiv.org/html/2607.02642v1/x2.png"
     },
     {
-      "id": "paper-2607.02440",
+      "id": "paper-2607.04439",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "EvoPolicyGym: Evaluating Autonomous Policy Evolution in Interactive Environments",
-      "authors": "Zhilin Wang, Han Song, Runzhe Zhan et al.",
-      "published": "2026-07-01",
-      "url": "https://arxiv.org/abs/2607.02440",
-      "raw_summary": "Autonomous agents are increasingly expected to improve executable policies through feedback, yet existing evaluations often collapse this process into a final score or confound it with open-ended software-engineering progress. We introduce Autonomous Policy Evolution, a controlled evaluation setting in which a harness-model agent repeatedly edits an executable policy system under a fixed interaction budget. We instantiate this setting in EvoPolicyGym, a benchmark built from compact interactive RL environments that evaluates how agents iteratively improve explored policies. On the EvoPolicyGym suite, GPT-5.5 achieves the strongest aggregate rank score and top-two performance on all 16 environments. Beyond leaderboard results, EvoPolicyGym also provides trajectory-level diagnostics that distinguish how agents allocate budget, convert feedback into parametric tuning. These analyses show that strong autonomous policy evolution depends not only on isolated task wins, but on discovering task-appropriate mechanisms and refining policies under bounded feedback.",
-      "image": "https://arxiv.org/html/2607.02440v1/x1.png"
+      "title": "ResearchStudio-Idea: An Evidence-Grounded Research-Ideation Skill Suite from ML Conference Outcomes",
+      "authors": "Qihao Zhao, Yangyu Huang, Yalun Dai et al.",
+      "published": "2026-07-04",
+      "url": "https://arxiv.org/abs/2607.04439",
+      "raw_summary": "Large language models have made research ideation increasingly accessible, yet effective idea development requires more than generating candidate directions. Researchers must ground a problem in current literature, identify meaningful bottlenecks, differentiate from existing solutions, and evaluate risks before committing to implementation. We present ResearchStudio-Idea as a reusable skill suite for this first mile of research ideation. The suite includes Paper-Search, a standalone multi-source literature search skill; Scoop-Check, a standalone prior-art collision checker for novelty claims; and IdeaSpark, the end-to-end skill that composes evidence grounding, pattern-guided generation, collision retrieval, audit, and idea-card rendering into one workflow. IdeaSpark is constructed from a corpus of 1,947 machine learning conference papers collected from ICLR, ICML, and NeurIPS between 2021 and 2025, including Oral papers, a separately tracked high-citation subset, and rejected submissions. Analysis of these outcomes reveals 31 recurring ideation sub-patterns, consolidated into 15 reusable ideation patterns. Each pattern is operationalized as a structured card containing research contexts, bottleneck types, differentiation strategies, supporting precedents, and common failure modes. Given a research problem and an evidence bundle, IdeaSpark evaluates evidence readiness, reconstructs the surrounding research context, identifies unresolved bottlenecks, selects relevant patterns, instantiates one candidate direction, retrieves potentially conflicting prior work, and performs outcome-informed auditing. This workflow transforms reusable ideation patterns into traceable research proposals. Blind automated-judge evaluations show that IdeaSpark consistently produces stronger research proposals than no-skill and generic-skill baselines while maintaining competitive novelty.",
+      "image": "https://arxiv.org/html/2607.04439v1/x3.png"
     },
     {
-      "id": "paper-2606.31825",
+      "id": "paper-2607.04443",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning",
-      "authors": "Junha Jung, Minbyul Jeong, Suhyeon Lim et al.",
-      "published": "2026-06-29",
-      "url": "https://arxiv.org/abs/2606.31825",
-      "raw_summary": "Recent multimodal large language models have shown great promise in clinical image reasoning, but existing post-training pipelines remain predominantly outcome-centric, relying on final answer correctness or sequence-level preferences. This suffers from sparse credit assignment, making it difficult to optimize the reasoning process essential for clinical applications. Our analysis reveals that cascading errors from early-stage reasoning failures are a leading cause of incorrect predictions in medical visual question answering (VQA) benchmarks. Motivated by this, we propose Medical Reasoning-aware Policy Optimization (MRPO), an RL algorithm that incorporates step-wise process rewards. When the final answer is incorrect, MRPO assigns exponentially larger penalties to tokens in earlier invalid reasoning steps, breaking failure cascades without compromising successful paths. Across three multimodal LLM backbones, MRPO consistently outperforms standard GRPO and a recent RL baseline, and on Qwen3-VL-8B-Instruct even surpasses substantially larger medical MLLMs such as HuatuoGPT-Vision-34B by 2.79 points. Moreover, MRPO reduces early-stage reasoning failures from 64.0% to 13.0%, showing that targeted mitigation of cascading failures improves both reasoning quality and final answer accuracy. Our code is available at https://github.com/dmis-lab/MRPO",
-      "image": "https://arxiv.org/html/2606.31825v1/x3.png"
+      "title": "Wan-Streamer v0.2: Higher Resolution, Same Latency",
+      "authors": "Lianghua Huang, Zhi-Fan Wu, Yupeng Shi et al.",
+      "published": "2026-07-04",
+      "url": "https://arxiv.org/abs/2607.04443",
+      "raw_summary": "We present Wan-Streamer v0.2, a latency-preserving upgrade of the native-streaming, end-to-end audio-visual interaction model. v0.2 keeps the v0.1 modeling formulation, but raises the interactive output stream from 192x336 to 640x368 while preserving approximately 200 ms model-side signal-to-signal latency at 25 FPS. The higher-resolution stream supports scene-grounded mid-shot agents whose posture, gaze, hands, nearby objects, and local scene layout remain legible during real-time conversation. To support the larger visual stream without adding user-visible delay, v0.2 keeps the thinker as a single-GPU low-latency path for streaming perception, the short language/state Transformer pass that builds the generation cache, and final decoding. The performer becomes a multi-GPU Ulysses-style context-parallel group for the expensive next-unit latent generation. Each performer rank writes incoming K/V into a pre-sharded local cache. The long high-resolution latent video sequence is split across ranks for denoising and gathered through Ulysses communication, while the much shorter audio latent sequence is generated without sequence sharding. In this split, the thinker's language/state computation reaches the performer only as K/V conditioning, so no separate language sequence has to be communicated inside the performer group. This concentrates additional hardware on visual generation while preserving the compact thinker-performer boundary, keeping total remote interaction latency at approximately 550 ms when a 350 ms bidirectional network budget is included."
     },
     {
-      "id": "paper-2607.01224",
+      "id": "paper-2607.04425",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
-      "authors": "Shengguang Wu, Hao Zhu, Yuhui Zhang et al.",
-      "published": "2026-06-30",
-      "url": "https://arxiv.org/abs/2607.01224",
-      "raw_summary": "Memory expertise is a learned skill: knowing what to encode, when to retrieve, and how to organize knowledge--a capacity known in cognitive science as metamemory. We bring this perspective to LLMs by treating memory management as a trainable skill. We promote file-system operations to first-class memory actions alongside task actions, letting the model itself decide how to manage its memory. This memory skill improves along two axes: the structure that supports it (prompts, file schemas, action vocabulary), and the proficiency of the model exercising it. Both axes resist manual optimization: episodes in long-horizon tasks run for thousands of steps, and a single memory mistake can hide long before it surfaces, making human review of full trajectories impractical. We introduce AutoMem, a framework that automates both axes. In the first loop, a strong LLM reviews complete agent trajectories and iteratively revises the memory structure that shapes how the agent interacts with its memory files. In the second loop, the agent's own good memory decisions are identified from many episodes and used as training signal to sharpen the model's memory proficiency directly. Across three procedurally generated long-horizon games (Crafter, MiniHack, and NetHack), optimizing memory alone--without modifying the model's task-action behavior--improved the base agent's performance ~2x-4x, bringing a 32B open-weight model competitive with frontier systems such as Claude Opus 4.5 and Gemini 3.1 Pro Thinking. Our results show that memory management is an independently learnable skill, and a high-leverage objective yielding large gains on long-horizon tasks.",
-      "image": "https://arxiv.org/html/2607.01224v1/x3.png"
+      "title": "UI-MOPD: Multi-Platform On-Policy Distillation for Continual GUI Agent Learning",
+      "authors": "Niu Lian, Alan Chen, Zhehao Yu et al.",
+      "published": "2026-07-04",
+      "url": "https://arxiv.org/abs/2607.04425",
+      "raw_summary": "Recent advances in multimodal foundation models and agent systems have driven GUI agents from single-platform task execution toward cross-platform interaction. However, building multi-platform GUI agents remains challenging. On one hand, high-quality and executable cross-platform interaction trajectories are still scarce, and existing data often suffer from limited platform coverage. On the other hand, different platforms exhibit distinct interaction conventions, making joint or continual training prone to behavioral pattern mixing, platform-specific capability degradation, and catastrophic forgetting. To address these challenges, we construct Uni-GUI, a high-quality cross-platform GUI interaction dataset, and propose UI-MOPD, the first method that incorporates multi-teacher on-policy distillation into continual learning for GUI agents. UI-MOPD dynamically selects a platform-specific teacher according to the current environment and transfers platform-specific behavioral priors to a shared policy through platform-conditioned distillation, enabling adaptation to new platforms while preserving capabilities on existing ones. Experiments on OSWorld and MobileWorld show that UI-MOPD achieves task success rates of 38.2% and 12.0%, respectively, demonstrating its effectiveness in balancing cross-platform capability retention and new-platform adaptation.   Project page: https://elispectre.github.io/UI-MOPD/.",
+      "image": "https://arxiv.org/html/2607.04425v1/x3.png"
     },
     {
-      "id": "paper-2607.01002",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Logit-Contribution Scoring Identifies Non-Literal Retrieval Heads",
-      "authors": "Aryo Pradipta Gema, Beatrice Alex, Pasquale Minervini",
-      "published": "2026-06-30",
-      "url": "https://arxiv.org/abs/2607.01002",
-      "raw_summary": "In long-context use, large language models frequently synthesize answers from the meaning of a relevant context span rather than literally copy-pasting them. Identifying which attention heads perform this synthesis matters for interpreting long-context model behavior. Yet existing detectors miss these heads by construction: they reward heads whose attended token matches the generated token, a literal-copy criterion that captures where a head reads but not what it writes through its output-value (OV) circuit, the very mechanism that carries non-literal retrieval. We introduce Logit-Contribution Scoring (LOCOS), a write-aware detector that scores each head by the projection of its OV-circuit output onto the answer-token unembedding direction, contrasting needle and off-needle source positions in a single forward pass. Across three model families (Qwen3, Gemma-3, OLMo-3.1), mean-ablating the top LOCOS heads on the NoLiMa non-literal retrieval benchmark collapses ROUGE-L at lower head counts than prior attention-based detections; on Qwen3-8B, ablating 50 heads drives ROUGE-L from 0.401 to 0.000 while the strongest baseline still retains 0.292. The selected heads are retrieval-specific: parametric recall and arithmetic reasoning stay at baseline under the same ablation. On Qwen3-8B, the same ablation also drops MuSiQue from 0.55 to 0.08 and BABI-Long from 0.62 to 0.20, while a random-heads control stays within 0.05 of baseline.",
-      "image": "https://arxiv.org/html/2607.01002v1/x2.png"
-    },
-    {
-      "id": "news-55468893",
+      "id": "news-53844244",
       "type": "news",
       "source": "Hugging Face",
       "region": "海外",
-      "title": "🤗 Kernels: Major Updates",
+      "title": "LeRobot v0.6.0: Imagine, Evaluate, Improve",
       "authors": "Hugging Face",
-      "published": "2026-07-06",
-      "url": "https://huggingface.co/blog/revamped-kernels",
+      "published": "2026-07-07",
+      "url": "https://huggingface.co/blog/lerobot-release-v060",
       "raw_summary": ""
     },
     {
-      "id": "news-gh-932038801",
+      "id": "news-gh-1281315781",
       "type": "news",
       "source": "DeepSeek · GitHub",
       "region": "国内",
-      "title": "deepseek-ai/DeepGEMM",
+      "title": "deepseek-ai/DeepSpec",
       "authors": "DeepSeek",
-      "published": "2026-07-06",
-      "url": "https://github.com/deepseek-ai/DeepGEMM",
-      "raw_summary": "DeepGEMM: clean and efficient BLAS kernel library on GPU"
+      "published": "2026-07-07",
+      "url": "https://github.com/deepseek-ai/DeepSpec",
+      "raw_summary": "DeepSpec: a full-stack codebase for training and evaluating speculative decoding algorithms"
     },
     {
       "id": "news-gh-1008713177",
@@ -89,20 +89,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-06",
+      "published": "2026-07-07",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1004140701",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "智谱 GLM · GitHub",
+      "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "THUDM/slime",
-      "authors": "智谱 GLM",
-      "published": "2026-07-06",
-      "url": "https://github.com/THUDM/slime",
-      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-07-07",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     }
   ]
 }
