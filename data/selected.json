@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-11",
+  "fetched_at": "2026-07-12",
   "items": [
     {
       "id": "paper-2607.03118",
@@ -37,18 +37,6 @@
       "image": "https://arxiv.org/html/2601.16211v3/x6.png"
     },
     {
-      "id": "paper-2607.08768",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
-      "authors": "Zhekai Chen, Chengqi Duan, Kaiyue Sun et al.",
-      "published": "2026-07-08",
-      "url": "https://arxiv.org/abs/2607.08768",
-      "raw_summary": "The rapid development of large language models and multimodal large language models has accelerated the emergence of proactive agents capable of operating everyday tools and assisting users in real-world environments. However, existing benchmarks struggle to evaluate such agents effectively, as they often rely on sandboxed environments and single-turn evaluation paradigms. Moreover, their scenario-based task taxonomies mix multiple model capabilities within the same task category, making it difficult to identify the root causes of agent failures. To address these limitations, we introduce UniClawBench, the first capability-driven benchmark designed to evaluate proactive agents in dynamic, real-world settings. UniClawBench is built around five foundational model capabilities: Skill Usage, Exploration, Long-Context Reasoning, Multimodal Understanding, and Cross-Platform Coordination. Based on these capabilities, we design 400 bilingual real-world tasks. Unlike previous benchmarks that rely on static, pre-recorded answers, our benchmark evaluates agents in live Docker containers using fine-grained, step-by-step completion checkpoints. Furthermore, we design a closed-loop evaluation strategy comprising an executor agent, a hidden supervisor agent, and a user agent to simulate realistic multi-turn human feedback without leaking grading criteria. To disentangle base model capabilities from framework-level design choices, we evaluate state-of-the-art models under multiple agent frameworks. Through comprehensive comparisons across both models and frameworks, we show how base model capabilities and agent framework designs jointly shape performance in real-world environments. To facilitate future research, we make our benchmark and code publicly available at https://github.com/HKU-MMLab/UniClawBench.",
-      "image": "https://arxiv.org/html/2607.08768v1/x1.png"
-    },
-    {
       "id": "paper-2607.08770",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -61,18 +49,41 @@
       "image": "https://arxiv.org/html/2607.08770v1/x1.png"
     },
     {
+      "id": "paper-2607.08768",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
+      "authors": "Zhekai Chen, Chengqi Duan, Kaiyue Sun et al.",
+      "published": "2026-07-08",
+      "url": "https://arxiv.org/abs/2607.08768",
+      "raw_summary": "The rapid development of large language models and multimodal large language models has accelerated the emergence of proactive agents capable of operating everyday tools and assisting users in real-world environments. However, existing benchmarks struggle to evaluate such agents effectively, as they often rely on sandboxed environments and single-turn evaluation paradigms. Moreover, their scenario-based task taxonomies mix multiple model capabilities within the same task category, making it difficult to identify the root causes of agent failures. To address these limitations, we introduce UniClawBench, the first capability-driven benchmark designed to evaluate proactive agents in dynamic, real-world settings. UniClawBench is built around five foundational model capabilities: Skill Usage, Exploration, Long-Context Reasoning, Multimodal Understanding, and Cross-Platform Coordination. Based on these capabilities, we design 400 bilingual real-world tasks. Unlike previous benchmarks that rely on static, pre-recorded answers, our benchmark evaluates agents in live Docker containers using fine-grained, step-by-step completion checkpoints. Furthermore, we design a closed-loop evaluation strategy comprising an executor agent, a hidden supervisor agent, and a user agent to simulate realistic multi-turn human feedback without leaking grading criteria. To disentangle base model capabilities from framework-level design choices, we evaluate state-of-the-art models under multiple agent frameworks. Through comprehensive comparisons across both models and frameworks, we show how base model capabilities and agent framework designs jointly shape performance in real-world environments. To facilitate future research, we make our benchmark and code publicly available at https://github.com/HKU-MMLab/UniClawBench.",
+      "image": "https://arxiv.org/html/2607.08768v1/x1.png"
+    },
+    {
       "id": "news-gh-1008713177",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-11",
+      "published": "2026-07-12",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-19369451",
+      "id": "news-gh-1246459259",
+      "type": "news",
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-07-12",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+    },
+    {
+      "id": "news-60763184",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
@@ -83,7 +94,7 @@
       "raw_summary": "How Deutsche Telekom is becoming an AI-native telco with OpenAI-transforming customer service, employee workflows, network operations, and the future of voice."
     },
     {
-      "id": "news-10176964",
+      "id": "news-91691581",
       "type": "news",
       "source": "Hugging Face",
       "region": "海外",
@@ -92,17 +103,6 @@
       "published": "2026-07-10",
       "url": "https://huggingface.co/blog/torch-attention-profile",
       "raw_summary": ""
-    },
-    {
-      "id": "news-6885079",
-      "type": "news",
-      "source": "Apple ML",
-      "region": "海外",
-      "title": "Behavioral Privacy Leakage in Agentic Negotiation: Formalizing and Mitigating Inference Attacks via Randomized Policies",
-      "authors": "Apple ML",
-      "published": "2026-07-10",
-      "url": "https://machinelearning.apple.com/research/behavioral-privacy-agentic-negotiation",
-      "raw_summary": "This paper was accepted at the AI4TCI (Workshop on AI for Secure and Trustworthy Critical Infrastructure Systems) Workshop at the International Conference on Availability, Reliability and Security (ARES) 2026.\nAutonomous negotiation agents are increasingly deployed in high-stakes settings such as insurance and procurement. While cryptographic techniques protect explicitly disclosed constraint values, they fail to address a subtler threat: behavioral privacy leakage, where an adversary infers private constraints from observable negotiation dynamics such as concession trajectories, timing, and…"
     }
   ]
 }
