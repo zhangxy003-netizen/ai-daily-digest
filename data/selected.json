@@ -1,6 +1,17 @@
 {
-  "fetched_at": "2026-07-18",
+  "fetched_at": "2026-07-19",
   "items": [
+    {
+      "id": "paper-2607.14952",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "LongStraw: Long-Context RL Beyond 2M Tokens under a Fixed GPU Budget",
+      "authors": "Changhai Zhou, Kieran Liu, Yuhua Zhou et al.",
+      "published": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.14952",
+      "raw_summary": "A growing gap separates inference context lengths from RL post-training: inference systems are approaching million-token contexts, while post-training workloads often remain at 256K tokens or below and rely on length generalization at deployment. The gap is especially important for AI agents, whose observations, tool outputs, documents, and prior decisions accumulate over long trajectories. LongStraw is an architecture-aware execution stack for million-token RL post-training under a fixed GPU budget, instantiated with Group Relative Policy Optimization (GRPO). It evaluates the shared prompt without autograd, retains only model-specific state needed by later tokens, and replays short response branches one at a time, reducing the live training graph at the cost of additional replay time. We implement it for the hybrid recurrent and full-attention Qwen3.6-27B and the compressed-attention mixture-of-experts GLM-5.2. On eight H20 GPUs, LongStraw completes grouped Qwen scoring and response backward at 2.1M positions for groups of 2 and 8; increasing the group size adds only 0.21 GB of peak allocated memory, while a separate stress test reaches 4.46M positions. On 32 H20 GPUs, we validate the end-to-end LongStraw execution path for a 2.1M-token prompt across all 78 layers of GLM-5.2. These experiments establish execution capacity rather than complete training correctness because the captured prompt state is detached and some distributed forward and gradient composition paths remain incomplete."
+    },
     {
       "id": "paper-2607.14935",
       "type": "paper",
@@ -12,17 +23,6 @@
       "url": "https://arxiv.org/abs/2607.14935",
       "raw_summary": "Recent advances in video understanding have spanned motion, long video, and streaming interaction, driving this field toward real-world applications. Despite this progress, current open-source models remain limited in several ways. They often struggle to generalize across diverse video types, making them effective only in specific domains. High computational demands further restrict their efficiency and scalability. Moreover, most models are only partially open, with key components such as training code, strategy, or datasets unavailable, which hinders reproducibility and slows community-driven development. To address these issues, we introduce VideoChat3, a fully open, efficient, and generalist video-centric MLLM. VideoChat3 advances video understanding through two complementary designs. For efficiency, we introduce Inflated 3D Vision Transformer (I3D-ViT) and Adaptive Frame Resolution for Streaming Video Perception, which enables efficient spatiotemporal representation and reduces the cost of processing video inputs during training and inference. For effectiveness, we develop a scalable video data synthesis pipeline that curates three diverse, high-quality training datasets: VideoChat3-Academic2M, VideoChat3-LV116K, and VideoChat3-OL617K, covering general, long-form, and streaming video scenarios, improving the model's generalization across domains. By integrating these designs, VideoChat3 achieves a rare balance of broad generalization and computational efficiency. Experiments across general, long-form, and streaming benchmarks demonstrate that VideoChat3 surpasses prior open-source models with equal or larger parameter counts with only 4B parameters and higher efficiency.",
       "image": "https://arxiv.org/html/2607.14935v1/x2.png"
-    },
-    {
-      "id": "paper-2607.14952",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LongStraw: Long-Context RL Beyond 2M Tokens under a Fixed GPU Budget",
-      "authors": "Changhai Zhou, Kieran Liu, Yuhua Zhou et al.",
-      "published": "2026-07-15",
-      "url": "https://arxiv.org/abs/2607.14952",
-      "raw_summary": "A growing gap separates inference context lengths from RL post-training: inference systems are approaching million-token contexts, while post-training workloads often remain at 256K tokens or below and rely on length generalization at deployment. The gap is especially important for AI agents, whose observations, tool outputs, documents, and prior decisions accumulate over long trajectories. LongStraw is an architecture-aware execution stack for million-token RL post-training under a fixed GPU budget, instantiated with Group Relative Policy Optimization (GRPO). It evaluates the shared prompt without autograd, retains only model-specific state needed by later tokens, and replays short response branches one at a time, reducing the live training graph at the cost of additional replay time. We implement it for the hybrid recurrent and full-attention Qwen3.6-27B and the compressed-attention mixture-of-experts GLM-5.2. On eight H20 GPUs, LongStraw completes grouped Qwen scoring and response backward at 2.1M positions for groups of 2 and 8; increasing the group size adds only 0.21 GB of peak allocated memory, while a separate stress test reaches 4.46M positions. On 32 H20 GPUs, we validate the end-to-end LongStraw execution path for a 2.1M-token prompt across all 78 layers of GLM-5.2. These experiments establish execution capacity rather than complete training correctness because the captured prompt state is detached and some distributed forward and gradient composition paths remain incomplete."
     },
     {
       "id": "paper-2607.14202",
@@ -48,16 +48,16 @@
       "image": "https://arxiv.org/html/2607.14189v1/x1.png"
     },
     {
-      "id": "paper-2607.14076",
+      "id": "paper-2607.12800",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "From Pixels to States: Rethinking Interactive World Models as Game Engines",
-      "authors": "Zhen Li, Zian Meng, Shuwei Shi et al.",
-      "published": "2026-07-14",
-      "url": "https://arxiv.org/abs/2607.14076",
-      "raw_summary": "Building interactive worlds that respond coherently to player actions has long been a shared goal of computer graphics, games, and artificial intelligence. Recent video generative models provide a data-driven route toward this goal by predicting future observations conditioned on user actions, and are increasingly regarded as potential next-generation game engines. Realizing a genuinely interactive game world, however, requires interaction outcomes that follow rules over evolving game conditions, consequences that persist over long horizons, and a generation loop that operates in real time. Conventional game engines realize these properties through a recurrent action-state-observation loop, in which player actions update an explicit game state according to predefined rules and observations are rendered from the resulting state. Taking this loop as an organizing lens, this paper examines interactive game world modeling along four dimensions: player action control, game state dynamics, state-observation persistence, and real-time interactive generation. For each dimension, we start from the capabilities required by an interactive game world, group existing approaches into representative families, and discuss the strengths and trade-offs of each family. Complementing this analysis, we present a scalable data engine for Black Myth: Wukong that collects over 90 hours of gameplay with frame-aligned player actions, ground-truth game states, and visual observations, together with structured and semantic annotations, as a resource for state-aware game world modeling. We hope this paper offers a clear picture of where the field stands and fosters progress toward interactive game worlds.",
-      "image": "https://arxiv.org/html/2607.14076v1/x2.png"
+      "title": "UniVR: Thinking in Visual Space for Unified Visual Reasoning",
+      "authors": "Zhongwei Ren, Yunchao Wei, Yao Zhao et al.",
+      "published": "2026-07-13",
+      "url": "https://arxiv.org/abs/2607.12800",
+      "raw_summary": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations. At its core, UniVR features VR-GRPO, a reinforcement learning paradigm with complementary global and step-level rewards. This approach enforces logical coherence and physical consistency throughout the reasoning process without requiring task-specific heuristics or image-text pairs. To train and evaluate UniVR, we construct VR-X, a large-scale benchmark curated from 16 diverse sources spanning long-horizon manipulation, spatial puzzles, and physical reasoning. It is the first comprehensive suite to assess these heterogeneous capabilities under a purely visual protocol. Remarkably, UniVR achieves up to a 25% improvement on VR-X, and its superior visual reasoning also boosts performance on various multimodal understanding benchmarks. These findings underscore the vast potential of reasoning within visual spaces, with all code, data, and models are open-sourced for further research.",
+      "image": "https://arxiv.org/html/2607.12800v1/x1.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -66,42 +66,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-18",
+      "published": "2026-07-19",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-94612570",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "A scorecard for the AI age",
-      "authors": "OpenAI",
-      "published": "2026-07-17",
-      "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
-      "raw_summary": "Sarah Friar, CFO of OpenAI, introduces a practical AI scorecard to measure ROI through useful work, cost per successful task, dependability, and return on compute."
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-07-19",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
-      "id": "news-57395848",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Fine-tune video and image models at scale with NVIDIA NeMo Automodel and 🤗 Diffusers",
-      "authors": "Hugging Face",
-      "published": "2026-07-17",
-      "url": "https://huggingface.co/blog/nvidia/scale-diffusers-finetuning-nemo-automodel",
-      "raw_summary": ""
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-07-19",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-72362746",
+      "id": "news-gh-776899311",
       "type": "news",
-      "source": "Apple ML",
-      "region": "海外",
-      "title": "When Unlearning Is Free: Leveraging Low Influence Points to Reduce Computational Costs",
-      "authors": "Apple ML",
-      "published": "2026-07-17",
-      "url": "https://machinelearning.apple.com/research/unlearning-free-low-influence",
-      "raw_summary": "As concerns around data privacy in machine learning grow, the ability to unlearn—or remove—specific data points from trained models becomes increasingly important. While state-of-the-art unlearning methods have emerged in response, they typically treat all points in the forget set equally. In this work, we challenge this approach by asking: do points that have a negligible impact on the model’s learning need to be removed? Through a comparative analysis of influence functions across language and vision tasks, we identify subsets of training data with negligible impact on model outputs…"
+      "source": "上海 AI Lab · GitHub",
+      "region": "国内",
+      "title": "OpenGVLab/VideoChat-Flash",
+      "authors": "上海 AI Lab",
+      "published": "2026-07-19",
+      "url": "https://github.com/OpenGVLab/VideoChat-Flash",
+      "raw_summary": "[ICLR2026] VideoChat-Flash: Hierarchical Compression for Long-Context Video Modeling"
     }
   ]
 }

@@ -1,18 +1,6 @@
 {
-  "fetched_at": "2026-07-18",
+  "fetched_at": "2026-07-19",
   "paper_candidates": [
-    {
-      "id": "paper-2607.14935",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
-      "authors": "Xinhao Li, Yuhan Zhu, Xiangyu Zeng et al.",
-      "published": "2026-07-15",
-      "url": "https://arxiv.org/abs/2607.14935",
-      "raw_summary": "Recent advances in video understanding have spanned motion, long video, and streaming interaction, driving this field toward real-world applications. Despite this progress, current open-source models remain limited in several ways. They often struggle to generalize across diverse video types, making them effective only in specific domains. High computational demands further restrict their efficiency and scalability. Moreover, most models are only partially open, with key components such as training code, strategy, or datasets unavailable, which hinders reproducibility and slows community-driven development. To address these issues, we introduce VideoChat3, a fully open, efficient, and generalist video-centric MLLM. VideoChat3 advances video understanding through two complementary designs. For efficiency, we introduce Inflated 3D Vision Transformer (I3D-ViT) and Adaptive Frame Resolution for Streaming Video Perception, which enables efficient spatiotemporal representation and reduces the cost of processing video inputs during training and inference. For effectiveness, we develop a scalable video data synthesis pipeline that curates three diverse, high-quality training datasets: VideoChat3-Academic2M, VideoChat3-LV116K, and VideoChat3-OL617K, covering general, long-form, and streaming video scenarios, improving the model's generalization across domains. By integrating these designs, VideoChat3 achieves a rare balance of broad generalization and computational efficiency. Experiments across general, long-form, and streaming benchmarks demonstrate that VideoChat3 surpasses prior open-source models with equal or larger parameter counts with only 4B parameters and higher efficiency.",
-      "hotness": 109
-    },
     {
       "id": "paper-2607.14952",
       "type": "paper",
@@ -23,7 +11,19 @@
       "published": "2026-07-15",
       "url": "https://arxiv.org/abs/2607.14952",
       "raw_summary": "A growing gap separates inference context lengths from RL post-training: inference systems are approaching million-token contexts, while post-training workloads often remain at 256K tokens or below and rely on length generalization at deployment. The gap is especially important for AI agents, whose observations, tool outputs, documents, and prior decisions accumulate over long trajectories. LongStraw is an architecture-aware execution stack for million-token RL post-training under a fixed GPU budget, instantiated with Group Relative Policy Optimization (GRPO). It evaluates the shared prompt without autograd, retains only model-specific state needed by later tokens, and replays short response branches one at a time, reducing the live training graph at the cost of additional replay time. We implement it for the hybrid recurrent and full-attention Qwen3.6-27B and the compressed-attention mixture-of-experts GLM-5.2. On eight H20 GPUs, LongStraw completes grouped Qwen scoring and response backward at 2.1M positions for groups of 2 and 8; increasing the group size adds only 0.21 GB of peak allocated memory, while a separate stress test reaches 4.46M positions. On 32 H20 GPUs, we validate the end-to-end LongStraw execution path for a 2.1M-token prompt across all 78 layers of GLM-5.2. These experiments establish execution capacity rather than complete training correctness because the captured prompt state is detached and some distributed forward and gradient composition paths remain incomplete.",
-      "hotness": 86
+      "hotness": 173
+    },
+    {
+      "id": "paper-2607.14935",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding",
+      "authors": "Xinhao Li, Yuhan Zhu, Xiangyu Zeng et al.",
+      "published": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.14935",
+      "raw_summary": "Recent advances in video understanding have spanned motion, long video, and streaming interaction, driving this field toward real-world applications. Despite this progress, current open-source models remain limited in several ways. They often struggle to generalize across diverse video types, making them effective only in specific domains. High computational demands further restrict their efficiency and scalability. Moreover, most models are only partially open, with key components such as training code, strategy, or datasets unavailable, which hinders reproducibility and slows community-driven development. To address these issues, we introduce VideoChat3, a fully open, efficient, and generalist video-centric MLLM. VideoChat3 advances video understanding through two complementary designs. For efficiency, we introduce Inflated 3D Vision Transformer (I3D-ViT) and Adaptive Frame Resolution for Streaming Video Perception, which enables efficient spatiotemporal representation and reduces the cost of processing video inputs during training and inference. For effectiveness, we develop a scalable video data synthesis pipeline that curates three diverse, high-quality training datasets: VideoChat3-Academic2M, VideoChat3-LV116K, and VideoChat3-OL617K, covering general, long-form, and streaming video scenarios, improving the model's generalization across domains. By integrating these designs, VideoChat3 achieves a rare balance of broad generalization and computational efficiency. Experiments across general, long-form, and streaming benchmarks demonstrate that VideoChat3 surpasses prior open-source models with equal or larger parameter counts with only 4B parameters and higher efficiency.",
+      "hotness": 122
     },
     {
       "id": "paper-2607.14202",
@@ -35,7 +35,7 @@
       "published": "2026-07-14",
       "url": "https://arxiv.org/abs/2607.14202",
       "raw_summary": "Video generation increasingly relies on keyframe-based workflows, where creators specify a sequence of reference images to guide generation. Although recent models support multi-keyframe conditioning, it remains unclear whether they can faithfully reproduce the prescribed keyframes while maintaining overall video quality. We present KeyFrame-Compass, the first comprehensive benchmark for evaluating keyframe-conditioned video generation. The benchmark contains 386 carefully curated samples spanning three application domains, two video structures, two prompt granularities, two conditioning formats, and four keyframe densities, enabling controlled analysis under diverse generation settings. We further introduce an automated evaluation framework that jointly measures keyframe execution and overall video quality. Specifically, we decompose keyframe execution into six complementary metrics covering presence, fidelity, temporal ordering, localization, persistence, and uniqueness, while assessing overall video quality through evidence-grounded MLLM judgments augmented with specialized perception models. Experiments on nine representative video generation systems reveal several fundamental limitations. Current models exhibit a clear trade-off between faithful keyframe execution and natural video synthesis. Their performance further degrades as keyframe constraints become denser and most open-source models also fail to interpret storyboard-grid inputs as temporally ordered keyframe sequences.",
-      "hotness": 30
+      "hotness": 35
     },
     {
       "id": "paper-2607.14189",
@@ -47,19 +47,7 @@
       "published": "2026-07-14",
       "url": "https://arxiv.org/abs/2607.14189",
       "raw_summary": "Multi-reference-to-audio-video (MR2AV) generation aims to generate coherent audio-video content conditioned on multiple references and textual instructions. Existing benchmarks mainly focus on text-driven generation, single-reference subject preservation, or isolated audio-video alignment, leaving the emerging MR2AV setting largely unexplored. Compared with these settings, MR2AV requires models to jointly reason over multiple references while generating synchronized visual and audio content. Models must not only preserve each reference faithfully but also correctly bind and compose multiple referenced entities into coherent audio-visual events. To address this gap, we introduce MultiRef-Compass, a unified benchmark for MR2AV generation. It comprises 350 carefully curated samples constructed through a scalable and controllable asset-composition pipeline, covering multi-view subject preservation, multi-entity binding, and human-object-scene composition. To provide interpretable assessment, MultiRef-Compass defines an evaluation protocol with four dimensions: Basic Quality, Reference Consistency, Audio-Visual Consistency, and Instruction Following, using 14 sub-metrics. MultiRef-Compass integrates automatic metrics with a rejudging-enhanced MLLM-as-a-Judge framework, enabling scalable and auditable evaluation of both perceptual fidelity and reference-conditioned composition. Extensive experiments on eight representative MR2AV systems reveal substantial room for improvement across multiple evaluation dimensions, underscoring the need for a comprehensive benchmark and positioning MultiRef-Compass as a foundation for future MR2AV research.",
-      "hotness": 29
-    },
-    {
-      "id": "paper-2607.14076",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "From Pixels to States: Rethinking Interactive World Models as Game Engines",
-      "authors": "Zhen Li, Zian Meng, Shuwei Shi et al.",
-      "published": "2026-07-14",
-      "url": "https://arxiv.org/abs/2607.14076",
-      "raw_summary": "Building interactive worlds that respond coherently to player actions has long been a shared goal of computer graphics, games, and artificial intelligence. Recent video generative models provide a data-driven route toward this goal by predicting future observations conditioned on user actions, and are increasingly regarded as potential next-generation game engines. Realizing a genuinely interactive game world, however, requires interaction outcomes that follow rules over evolving game conditions, consequences that persist over long horizons, and a generation loop that operates in real time. Conventional game engines realize these properties through a recurrent action-state-observation loop, in which player actions update an explicit game state according to predefined rules and observations are rendered from the resulting state. Taking this loop as an organizing lens, this paper examines interactive game world modeling along four dimensions: player action control, game state dynamics, state-observation persistence, and real-time interactive generation. For each dimension, we start from the capabilities required by an interactive game world, group existing approaches into representative families, and discuss the strengths and trade-offs of each family. Complementing this analysis, we present a scalable data engine for Black Myth: Wukong that collects over 90 hours of gameplay with frame-aligned player actions, ground-truth game states, and visual observations, together with structured and semantic annotations, as a resource for state-aware game world modeling. We hope this paper offers a clear picture of where the field stands and fosters progress toward interactive game worlds.",
-      "hotness": 23
+      "hotness": 31
     },
     {
       "id": "paper-2607.12800",
@@ -71,6 +59,30 @@
       "published": "2026-07-13",
       "url": "https://arxiv.org/abs/2607.12800",
       "raw_summary": "Learning broad world knowledge directly from raw visual data is a fundamental capability of intelligence. We introduce UniVR, the first investigation into simultaneously learning complex reasoning, fine-grained physical dynamics, and long-term planning from pure visual demonstrations. At its core, UniVR features VR-GRPO, a reinforcement learning paradigm with complementary global and step-level rewards. This approach enforces logical coherence and physical consistency throughout the reasoning process without requiring task-specific heuristics or image-text pairs. To train and evaluate UniVR, we construct VR-X, a large-scale benchmark curated from 16 diverse sources spanning long-horizon manipulation, spatial puzzles, and physical reasoning. It is the first comprehensive suite to assess these heterogeneous capabilities under a purely visual protocol. Remarkably, UniVR achieves up to a 25% improvement on VR-X, and its superior visual reasoning also boosts performance on various multimodal understanding benchmarks. These findings underscore the vast potential of reasoning within visual spaces, with all code, data, and models are open-sourced for further research.",
+      "hotness": 28
+    },
+    {
+      "id": "paper-2607.14076",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "From Pixels to States: Rethinking Interactive World Models as Game Engines",
+      "authors": "Zhen Li, Zian Meng, Shuwei Shi et al.",
+      "published": "2026-07-14",
+      "url": "https://arxiv.org/abs/2607.14076",
+      "raw_summary": "Building interactive worlds that respond coherently to player actions has long been a shared goal of computer graphics, games, and artificial intelligence. Recent video generative models provide a data-driven route toward this goal by predicting future observations conditioned on user actions, and are increasingly regarded as potential next-generation game engines. Realizing a genuinely interactive game world, however, requires interaction outcomes that follow rules over evolving game conditions, consequences that persist over long horizons, and a generation loop that operates in real time. Conventional game engines realize these properties through a recurrent action-state-observation loop, in which player actions update an explicit game state according to predefined rules and observations are rendered from the resulting state. Taking this loop as an organizing lens, this paper examines interactive game world modeling along four dimensions: player action control, game state dynamics, state-observation persistence, and real-time interactive generation. For each dimension, we start from the capabilities required by an interactive game world, group existing approaches into representative families, and discuss the strengths and trade-offs of each family. Complementing this analysis, we present a scalable data engine for Black Myth: Wukong that collects over 90 hours of gameplay with frame-aligned player actions, ground-truth game states, and visual observations, together with structured and semantic annotations, as a resource for state-aware game world modeling. We hope this paper offers a clear picture of where the field stands and fosters progress toward interactive game worlds.",
+      "hotness": 27
+    },
+    {
+      "id": "paper-2607.14187",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "RxBrain: Embodied Cognition Foundation Model with Joint Language-Visual Reasoning and Imagination",
+      "authors": "Haotian Liang, Mingkang Chen, Yufei Huang et al.",
+      "published": "2026-07-14",
+      "url": "https://arxiv.org/abs/2607.14187",
+      "raw_summary": "Embodied cognition requires agents to connect high-level task reasoning with the physical states to be achieved. We introduce Hy-Embodied-RxBrain, an embodied cognition foundation model with joint language-visual reasoning and imagination. Unlike vision-language models that emphasize scene understanding and textual decision making, or generative world models that mainly predict future visual states, RxBrain represents embodied plans in a single planning sequence where language and visual imagination play complementary roles. Language provides the abstract structure of a plan, including task decomposition, planning primitives, constraints, temporal order, and decision logic, while visual imagination grounds this structure through world state prediction and joint subgoal planning, associating each planning step with intermediate and final physical states. RxBrain adopts a unified multimodal Mixture-of-Transformers architecture that supports language, image, and video understanding and generation within one model. To train this capability, we build an automatic pipeline that converts embodied videos into joint text-visual planning supervision by decomposing videos into planning steps and aligning them with visual state transitions. We further introduce RxBrain-Bench to evaluate whether models can represent embodied plans through joint textual and visual components rather than separate understanding or generation. Experiments show that RxBrain maintains embodied understanding and generation abilities, and produces plans with coupled textual reasoning, world state prediction, and joint subgoal planning. We also extend RxBrain to continuous robot action generation, where it shows promising real-robot performance without large-scale action-data pretraining. These results provide an initial step toward foundation models for embodied cognition.",
       "hotness": 22
     },
     {
@@ -83,7 +95,7 @@
       "published": "2026-07-02",
       "url": "https://arxiv.org/abs/2607.03065",
       "raw_summary": "Reinforcement learning has become a standard post-training recipe for large language models, but dense full-parameter updates create two deployment-relevant bottlenecks: suppressed reasoning performance, often reflected by premature saturation of test-time scaling, and interference when consolidating multiple capabilities through multi-domain training or model merging. We show that the reasoning-effective component of these updates is largely concentrated in the base model's spectral space, motivating Subspace-Aligned Rewiring (SAR), a post-hoc editing method that retains this spectral core while removing orthogonal components. SAR therefore preserves reasoning gains and filters residual update directions that suppress performance or amplify cross-domain interference. Across several model families and scales, SAR extracts compact reasoning cores using as little as approximately 0.58% of total parameters: it preserves over 99% of post-training performance and improves high-k exploration in mathematical reasoning, and generalizes to agentic coding by improving six of seven open benchmarks on an in-house model. SAR also purifies mixed-domain training updates by releasing suppressed coding capability while maintaining math reasoning and instruction following. It further enables model merging across experts, yielding cross-domain generalization that surpasses previous merging baselines and even the best single-domain experts. Overall, SAR shows that extracting reasoning-effective updates from parameter geometry can serve as a training-free mechanism to improve reasoning and multi-domain performance.",
-      "hotness": 20
+      "hotness": 22
     },
     {
       "id": "paper-2607.13399",
@@ -95,7 +107,7 @@
       "published": "2026-07-14",
       "url": "https://arxiv.org/abs/2607.13399",
       "raw_summary": "On-policy distillation (OPD) has become a key paradigm in LLM post-training, yet its training dynamics remain poorly understood. We present a systematic study examining the role, pathologies, and regulations of OPD. We first clarify the role of OPD as an exploration catalyst: it steers the student toward correct reasoning paths via dense token-level guidance, without expanding capability ceiling. We confirm this by showing that prompt diversity matters more than per-problem sampling numbers, and critically, that the effectiveness of OPD hinges entirely on the quality of its guiding signal. This dependency exposes two pathologies that derail exploration. The Student-Teacher Mismatch occurs when a large teacher-student distributional gap causes the guiding signal to misalign with task correctness, steering exploration in counterproductive directions. Length Exploitation arises when the aggregated token-level objective creates length-dependent shortcuts, allowing the student to game the reward landscape through response truncation or redundant padding, exploring degenerate length modes rather than reasoning strategies. To tame these pathologies, we investigate lightweight signal regulations: advantage clipping and log-scale compression, ensuring exploration is guided by faithful signals. Experiments across seven benchmarks demonstrate that these regulations alleviate length exploitation and enable effective distillation, stably surpassing OPD variants and RLVR baselines, thereby confirming that well-regulated signal quality, rather than mere teacher scale, governs successful exploration in OPD.",
-      "hotness": 14
+      "hotness": 17
     },
     {
       "id": "paper-2607.13491",
@@ -107,19 +119,7 @@
       "published": "2026-07-14",
       "url": "https://arxiv.org/abs/2607.13491",
       "raw_summary": "Looped Transformers scale sequential computation by applying a compact stack of physical blocks for multiple rounds, increasing unrolled depth without increasing stored parameters. This reuse changes the residual-scaling problem: in an untied Transformer, each residual branch receives and applies its own parameter update, whereas in a looped Transformer one shared update aggregates gradients from repeated visits and is read back by those same visits in the next linearized forward pass. We formalize this tied-depth effect through a first-order perturbation bound controlled by a visit-alignment coefficient κ_R. The bound recovers the DeepNorm exponent when visits decorrelate, but in the conservative aligned regime it requires the exponent to increase from 1/4 to 1/2 as loop count grows at fixed physical depth. The resulting method, DeepLoop, keeps the Post-LN DeepNorm architecture and sets α=(2N)^{1/2} and β=(8N)^{-1/2} for unrolled depth N. On GPT-style looped language models at GPT-2 small and GPT-2 medium scale, DeepLoop is neutral when no physical block is revisited and improves validation loss and downstream accuracy once recurrent depth is activated. These results show that stable recurrent depth requires residual scaling rules that account for parameter visits, not only nominal layer count.",
-      "hotness": 8
-    },
-    {
-      "id": "paper-2607.14187",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "RxBrain: Embodied Cognition Foundation Model with Joint Language-Visual Reasoning and Imagination",
-      "authors": "Haotian Liang, Mingkang Chen, Yufei Huang et al.",
-      "published": "2026-07-14",
-      "url": "https://arxiv.org/abs/2607.14187",
-      "raw_summary": "Embodied cognition requires agents to connect high-level task reasoning with the physical states to be achieved. We introduce Hy-Embodied-RxBrain, an embodied cognition foundation model with joint language-visual reasoning and imagination. Unlike vision-language models that emphasize scene understanding and textual decision making, or generative world models that mainly predict future visual states, RxBrain represents embodied plans in a single planning sequence where language and visual imagination play complementary roles. Language provides the abstract structure of a plan, including task decomposition, planning primitives, constraints, temporal order, and decision logic, while visual imagination grounds this structure through world state prediction and joint subgoal planning, associating each planning step with intermediate and final physical states. RxBrain adopts a unified multimodal Mixture-of-Transformers architecture that supports language, image, and video understanding and generation within one model. To train this capability, we build an automatic pipeline that converts embodied videos into joint text-visual planning supervision by decomposing videos into planning steps and aligning them with visual state transitions. We further introduce RxBrain-Bench to evaluate whether models can represent embodied plans through joint textual and visual components rather than separate understanding or generation. Experiments show that RxBrain maintains embodied understanding and generation abilities, and produces plans with coupled textual reasoning, world state prediction, and joint subgoal planning. We also extend RxBrain to continuous robot action generation, where it shows promising real-robot performance without large-scale action-data pretraining. These results provide an initial step toward foundation models for embodied cognition.",
-      "hotness": 7
+      "hotness": 13
     },
     {
       "id": "paper-2607.14660",
@@ -131,6 +131,30 @@
       "published": "2026-07-15",
       "url": "https://arxiv.org/abs/2607.14660",
       "raw_summary": "Visually impaired individuals (VIIs) encounter significant daily challenges due to limited access to visual information. Although Multimodal Large Language Models (MLLMs) have achieved impressive results on general vision and language tasks, their practical utility in real-world blind assistance still remains largely underexplored. To fill this gap, we introduce VIABench, a comprehensive video benchmark specifically designed to evaluate MLLMs in Visually Impaired Assistance scenarios using first-person videos recorded or shared by VIIs themselves. VIABench defines three core tasks, each targeting a distinct requirement in visual assistance. Proactive Reminder: Assesses the model's ability to interpret ongoing video content while proactively anticipating and verbally describing upcoming navigation-critical events; Visual Question Answering (VQA): Evaluates the model's capacity to answer user-posed questions about the environment or objects within the video; Vision-Guided Interaction: Tests context-aware reasoning to accomplish intentional interactions between user and environment. To ensure a robust and fair evaluation, we propose a rigorous benchmarking pipeline that supports both online (real-time) and offline settings. Our experiments demonstrate that current MLLMs still struggle to deliver comprehensive support for VIIs, especially in the Proactive Reminder task, which demands accurate anticipation and real-time responsiveness. We hope VIABench will drive future research toward developing customized MLLMs for real-world assistance, ultimately improving navigation and interaction experiences for visually impaired individuals. Code and data will be released at https://github.com/MCG-NJU/VIABench.",
+      "hotness": 8
+    },
+    {
+      "id": "paper-2607.14106",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Token Time Continuous Diffusion for Language Modeling",
+      "authors": "Parikshit Bansal, Sujay Sanghavi",
+      "published": "2026-05-06",
+      "url": "https://arxiv.org/abs/2607.14106",
+      "raw_summary": "In this paper we introduce token time continuous diffusion (TTCD), a new diffusion language model which (a) operates in continuous space, deterministically mapping Gaussian noise to a final token canvas with no further sampling, and crucially (b) incorporates a new notion of per-token times, with some tokens proceeding from noise to token at a faster rate than others. Continuous space modeling helps TTCD avoid the parallel sampling of multiple tokens, which is a key source of inaccuracy at high speedups for models that iterate purely in discrete space. The notion of per-token times helps TTCD to better model conditional generation, allows for more sure tokens to proceed at a faster rate, and allows for differentiated inter-token influences during refinement. TTCD outperforms discrete models at high speedups. We train a 160M parameter TTCD model on OpenWebText, and then self-distill it; we find that at high speedups we are comparable in unconditional generation quality, and outperform in conditional generation, several existing models of similar size trained, on the same data, and self-distilled. We achieve similar gains in Sudoku solving as well.",
+      "hotness": 7
+    },
+    {
+      "id": "paper-2607.15058",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "SUFLECA: Scaling Up Feature Learning for CAD-to-image Alignment",
+      "authors": "Saad Ejaz, Miguel Fernandez-Cortizas, Javier Civera et al.",
+      "published": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.15058",
+      "raw_summary": "CAD-to-image alignment aims to estimate an object's 9D pose (rotation, translation, and anisotropic scale) from a single RGB image, enabling applications in robotics and augmented reality. Recent zero-shot methods use visual foundation models to match image regions to CAD models, yet typically their correspondences are appearance-driven and degrade under occlusion or sim-to-real domain shift. To address these limitations, we introduce SUFLECA (Scaling Up Feature LEarning for CAD Alignment), a weakly-supervised framework for zero-shot CAD alignment with two key contributions. First, SUFLECA scales up geometry-grounded feature learning from pretrained visual representations through Normalized Object Coordinates (NOCs) supervision on 674K images spanning 12 real and synthetic datasets, learning compact geometry-aware features that generalize across domains. Second, we propose a geometrically consistent matching algorithm that establishes reliable one-to-one CAD-to-image correspondences. Together, these contributions enable accurate, sub-second alignment per object instance without iterative pose refinement. On ScanNet25k, SUFLECA achieves 33.4%/42.3% category/instance accuracy, outperforming, with a smaller computational footprint, the strongest zero-shot baseline by 10.3/12.2 percentage points and, for the first time on this benchmark, even surpassing fully supervised methods. Code is available at: https://github.com/snt-arg/SUFLECA",
       "hotness": 7
     },
     {
@@ -143,19 +167,7 @@
       "published": "2026-07-12",
       "url": "https://arxiv.org/abs/2607.10995",
       "raw_summary": "Recent generalizable 3D Gaussian Splatting models have advanced long-sequence novel view synthesis (NVS), but at the cost of substantial redundant computation. We identify that the redundancy can be mitigated based on two observations: (i) high-precision geometry is not strictly required for high-quality NVS; (ii) appearance learning is generally easier than geometry recovery. Motivated by these insights, we propose an asymmetric architecture that decouples geometry and appearance modeling. The geometry branch processes coarse-grained tokens with most of the parameters for multi-view reconstruction, while the appearance branch operates on fine-grained tokens to capture details using significantly fewer parameters. The two branches interact through bilateral connections, enabling mutual guidance for their respective tasks. This task-aware asymmetry reduces the computational redundancy and allocates the computation more judiciously, thereby increasing parameter efficiency and enabling smaller models to achieve strong performance. On 32-view 960P inputs, our model matches optimization-based methods while delivering nearly 800x speedup, and surpasses the zero-shot performance of state-of-the-art generalizable models with markedly fewer parameters and reduced training/inference overhead, achieving an overall efficiency improvement.",
-      "hotness": 4
-    },
-    {
-      "id": "paper-2607.10463",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "GRASP: GRanularity-Aware Search Policy for Agentic RAG",
-      "authors": "Varun Gandhi, Jaewook Lee, Shantanu Todmal et al.",
-      "published": "2026-07-10",
-      "url": "https://arxiv.org/abs/2607.10463",
-      "raw_summary": "Agentic retrieval-augmented generation (RAG) extends static RAG by allowing language models to iteratively reason, generate search queries, retrieve evidence, and predict answers. However, it remains challenging for models to decide when to retrieve, whether to use lexical matching or semantic similarity, and how to control context granularity to prevent irrelevant tokens from interfering with agent reasoning. In this paper, we introduce GRASP, a reinforcement learning (RL) framework for training agents to adaptively coordinate complementary retrieval tools during multi-step reasoning. GRASP provides the agent with semantic search, keyword search, and paragraph-reading actions, enabling it to retrieve sentence-level evidence and expand further context only when needed. We train the policy with a reward that jointly accounts for answer accuracy, grounded reading, complementary search, and turn efficiency. Experiments on multi-hop reasoning benchmarks show that GRASP improves both retrieval recall and downstream question answering performance compared with single-step retrieval, prompting-based agentic RAG, and RL-based retrieval baselines. Qualitative and ablation analyses show that the learned policy develops interpretable skimming and scanning behavior: it uses semantic search for broad exploration, paragraph reading for local verification, and keyword search for entity-specific evidence. These results suggest that learning to coordinate retrieval signals and context granularity is critical for agent's correct reasoning.",
-      "hotness": 4
+      "hotness": 7
     },
     {
       "id": "paper-2607.15277",
@@ -167,43 +179,7 @@
       "published": "2026-07-15",
       "url": "https://arxiv.org/abs/2607.15277",
       "raw_summary": "In-context learning is commonly interpreted as a form of conditional inference, in which the prompt specifies a context and the model's output is treated as an estimate of the corresponding conditional distribution. If this interpretation holds, then LLM estimates should satisfy basic probabilistic identities. In particular, the law of total probability asserts that prior-weighted conditional distributions aggregate into population-level marginals over any valid partition of the population. In this work, we investigate to what extent LLM estimates adhere to this self-consistency principle. We use binary trees as an evaluation scaffold to recursively partition a population into increasingly fine-grained subpopulations. We then prompt LLMs with verbalized subpopulation descriptions in context, aggregate the resulting estimates back into population-level estimates, and compare them across partitions of varying granularity. Applying this protocol across problem domains and state-of-the-art frontier models, we show widespread violations of basic consistency properties. An in-depth study of persona prompting reveals a pattern we call the macro fallacy: estimates reconstructed from more fine-grained subpopulation responses are often better aligned with human reference data than direct population-level estimates. This effect persists across variations in tree structure and estimation task, and can be partially recovered through implicit prompting. Together, these findings suggest that models possess relevant subpopulation knowledge but do not reliably propagate it into aggregate estimates. This gap establishes statistical self-consistency as an unsaturated, reference-free criterion for evaluating LLMs.",
-      "hotness": 4
-    },
-    {
-      "id": "paper-2607.15058",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "SUFLECA: Scaling Up Feature Learning for CAD-to-image Alignment",
-      "authors": "Saad Ejaz, Miguel Fernandez-Cortizas, Javier Civera et al.",
-      "published": "2026-07-15",
-      "url": "https://arxiv.org/abs/2607.15058",
-      "raw_summary": "CAD-to-image alignment aims to estimate an object's 9D pose (rotation, translation, and anisotropic scale) from a single RGB image, enabling applications in robotics and augmented reality. Recent zero-shot methods use visual foundation models to match image regions to CAD models, yet typically their correspondences are appearance-driven and degrade under occlusion or sim-to-real domain shift. To address these limitations, we introduce SUFLECA (Scaling Up Feature LEarning for CAD Alignment), a weakly-supervised framework for zero-shot CAD alignment with two key contributions. First, SUFLECA scales up geometry-grounded feature learning from pretrained visual representations through Normalized Object Coordinates (NOCs) supervision on 674K images spanning 12 real and synthetic datasets, learning compact geometry-aware features that generalize across domains. Second, we propose a geometrically consistent matching algorithm that establishes reliable one-to-one CAD-to-image correspondences. Together, these contributions enable accurate, sub-second alignment per object instance without iterative pose refinement. On ScanNet25k, SUFLECA achieves 33.4%/42.3% category/instance accuracy, outperforming, with a smaller computational footprint, the strongest zero-shot baseline by 10.3/12.2 percentage points and, for the first time on this benchmark, even surpassing fully supervised methods. Code is available at: https://github.com/snt-arg/SUFLECA",
-      "hotness": 3
-    },
-    {
-      "id": "paper-2607.15278",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Hierarchical Denoising For Multi-Step Visual Reasoning",
-      "authors": "Zezhong Qian, Xiaowei Chi, Chak-Wing Mak et al.",
-      "published": "2026-07-15",
-      "url": "https://arxiv.org/abs/2607.15278",
-      "raw_summary": "Video models are evolving into vision foundation models, yet they still lack human-like multi-step reasoning. Streaming autoregressive diffusion models are efficient but limited in reasoning, while bidirectional diffusion enables global revision with high inference costs due to dense frame-level denoising. Both paradigms struggle to achieve logical consistency and low-latency streaming for complex reasoning tasks. We propose HDR (Hierarchical Denoising for Visual Reasoning), a unified framework that integrates hierarchical latents into causal video generation for multi-step reasoning. HDR organizes video latents into a tree-structured hierarchy, enabling coarse-to-fine reasoning before streaming output. Coarse denoising layers preserve uncertain hypotheses for global planning, while finer layers progressively refine them into concrete visual states. A sparse hierarchical attention pattern (SHAP) further reduces temporal attention costs. We introduce a level-stratified multi-step video reasoning benchmark with out-of-distribution cases, covering six tasks: maze navigation, Tower of Hanoi, one-line drawing, sliding puzzle, Sokoban, and water pouring. Compared with streaming autoregressive diffusion baselines, HDR improves success from 34.22 to 60.29 (76.2% relative gain) and increases average progress from 76.00 to 89.56, demonstrating more consistent reasoning trajectories. HDR maintains low-latency streaming at 0.70 seconds per latent, achieving 54.2 times faster inference than bidirectional diffusion. It also retains 82.9% of full-data performance with only 2% training data, compared with 52.0% for bidirectional diffusion. Real-world robot experiments further demonstrate HDR's potential for physical interaction and world modeling. Project demo: https://hierarchical-diffusion-reasoning.github.io/.",
-      "hotness": 2
-    },
-    {
-      "id": "paper-2607.14106",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Token Time Continuous Diffusion for Language Modeling",
-      "authors": "Parikshit Bansal, Sujay Sanghavi",
-      "published": "2026-05-06",
-      "url": "https://arxiv.org/abs/2607.14106",
-      "raw_summary": "In this paper we introduce token time continuous diffusion (TTCD), a new diffusion language model which (a) operates in continuous space, deterministically mapping Gaussian noise to a final token canvas with no further sampling, and crucially (b) incorporates a new notion of per-token times, with some tokens proceeding from noise to token at a faster rate than others. Continuous space modeling helps TTCD avoid the parallel sampling of multiple tokens, which is a key source of inaccuracy at high speedups for models that iterate purely in discrete space. The notion of per-token times helps TTCD to better model conditional generation, allows for more sure tokens to proceed at a faster rate, and allows for differentiated inter-token influences during refinement. TTCD outperforms discrete models at high speedups. We train a 160M parameter TTCD model on OpenWebText, and then self-distill it; we find that at high speedups we are comparable in unconditional generation quality, and outperform in conditional generation, several existing models of similar size trained, on the same data, and self-distilled. We achieve similar gains in Sudoku solving as well.",
-      "hotness": 2
+      "hotness": 7
     },
     {
       "id": "paper-2607.12227",
@@ -215,7 +191,19 @@
       "published": "2026-07-13",
       "url": "https://arxiv.org/abs/2607.12227",
       "raw_summary": "We revisit the evaluation of automatic harness evolution for LLM agents. Existing harness evolution methods use unit test cases to search for harness configurations and then report final performance on the same public benchmark. This protocol raises two fundamental concerns. First, harness evolution is itself an iterative search procedure that repeatedly evaluates and revises candidate harnesses using task feedback. As in agentic test-time scaling, it should therefore be compared with simple task-level search baselines under matched feedback and inference budgets to determine whether its gains arise from improved harness design or from additional search alone. Second, because the search and the final evaluation share the same benchmark, the reported gains risk overfitting to that specific task set. To address these concerns, we conduct an extensive evaluation comparing harness evolution with simple test-time scaling and discovery baselines under comparable feedback and inference budgets, and also evaluate evolved harnesses on held-out tasks to assess whether the discovered improvements generalize. Experiments on Terminal-Bench 2.1 with GPT-5.4 and Claude Opus 4.6 show that automatic harness evolution does not consistently outperform simple test-time scaling methods and exhibits limited generalization. Our results raise important questions about the effectiveness of automatic harness evolution and highlight the need for fairer evaluation protocols and benchmarks for automatic harness design. Our code is available at https://github.com/rethinking-harness-evolution.",
-      "hotness": 1
+      "hotness": 5
+    },
+    {
+      "id": "paper-2607.10463",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "GRASP: GRanularity-Aware Search Policy for Agentic RAG",
+      "authors": "Varun Gandhi, Jaewook Lee, Shantanu Todmal et al.",
+      "published": "2026-07-10",
+      "url": "https://arxiv.org/abs/2607.10463",
+      "raw_summary": "Agentic retrieval-augmented generation (RAG) extends static RAG by allowing language models to iteratively reason, generate search queries, retrieve evidence, and predict answers. However, it remains challenging for models to decide when to retrieve, whether to use lexical matching or semantic similarity, and how to control context granularity to prevent irrelevant tokens from interfering with agent reasoning. In this paper, we introduce GRASP, a reinforcement learning (RL) framework for training agents to adaptively coordinate complementary retrieval tools during multi-step reasoning. GRASP provides the agent with semantic search, keyword search, and paragraph-reading actions, enabling it to retrieve sentence-level evidence and expand further context only when needed. We train the policy with a reward that jointly accounts for answer accuracy, grounded reading, complementary search, and turn efficiency. Experiments on multi-hop reasoning benchmarks show that GRASP improves both retrieval recall and downstream question answering performance compared with single-step retrieval, prompting-based agentic RAG, and RL-based retrieval baselines. Qualitative and ablation analyses show that the learned policy develops interpretable skimming and scanning behavior: it uses semantic search for broad exploration, paragraph reading for local verification, and keyword search for entity-specific evidence. These results suggest that learning to coordinate retrieval signals and context granularity is critical for agent's correct reasoning.",
+      "hotness": 5
     },
     {
       "id": "paper-2607.14387",
@@ -227,7 +215,19 @@
       "published": "2026-07-14",
       "url": "https://arxiv.org/abs/2607.14387",
       "raw_summary": "Validating autonomous driving systems requires diverse, regulation-compliant test scenarios. In simulation-based testing, scenarios are defined as executable scripts. Yet automatically generating such scripts from regulatory descriptions remains an open challenge, and existing approaches face fundamental trade-offs. Retrieval-assemble methods achieve reasonable compilation rates but lack scalability, whereas retrieval-based full-script generation suffers from low compilation success rates. We present Chat2Scenic, the first iterative retrieval-augmented framework to generate scenario scripts in Domain Specific Language (DSL). Specifically, Chat2Scenic provides a chatbot interface that supports interactive scenario refinement and integrates Retrieval-augmented Generation (RAG) to ground scenario generation in regulatory knowledge and DSL syntax. Furthermore, we propose an open benchmark for scenario generation comprising 123 scenarios from various regulations, including NHTSA and United Nations Vehicle Regulations, as well as other sources. Extensive evaluation with State-of-the-Art (SOTA) Large Language Models (LLMs) demonstrates that Chat2Scenic achieves 76.42% Compilation Success Rate (CSR) and 58.17% Framework Accuracy (FA), outperforming existing methods (Retrieval Assemble with 30.08% CSR, 11.03% FA and Retrieval full script generation with 16.26% CSR, 10.86% FA). To facilitate future research, we release our code as open source at https://github.com/TUM-AVS/chat2scenic.",
-      "hotness": 1
+      "hotness": 4
+    },
+    {
+      "id": "paper-2607.15278",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Hierarchical Denoising For Multi-Step Visual Reasoning",
+      "authors": "Zezhong Qian, Xiaowei Chi, Chak-Wing Mak et al.",
+      "published": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.15278",
+      "raw_summary": "Video models are evolving into vision foundation models, yet they still lack human-like multi-step reasoning. Streaming autoregressive diffusion models are efficient but limited in reasoning, while bidirectional diffusion enables global revision with high inference costs due to dense frame-level denoising. Both paradigms struggle to achieve logical consistency and low-latency streaming for complex reasoning tasks. We propose HDR (Hierarchical Denoising for Visual Reasoning), a unified framework that integrates hierarchical latents into causal video generation for multi-step reasoning. HDR organizes video latents into a tree-structured hierarchy, enabling coarse-to-fine reasoning before streaming output. Coarse denoising layers preserve uncertain hypotheses for global planning, while finer layers progressively refine them into concrete visual states. A sparse hierarchical attention pattern (SHAP) further reduces temporal attention costs. We introduce a level-stratified multi-step video reasoning benchmark with out-of-distribution cases, covering six tasks: maze navigation, Tower of Hanoi, one-line drawing, sliding puzzle, Sokoban, and water pouring. Compared with streaming autoregressive diffusion baselines, HDR improves success from 34.22 to 60.29 (76.2% relative gain) and increases average progress from 76.00 to 89.56, demonstrating more consistent reasoning trajectories. HDR maintains low-latency streaming at 0.70 seconds per latent, achieving 54.2 times faster inference than bidirectional diffusion. It also retains 82.9% of full-data performance with only 2% training data, compared with 52.0% for bidirectional diffusion. Real-world robot experiments further demonstrate HDR's potential for physical interaction and world modeling. Project demo: https://hierarchical-diffusion-reasoning.github.io/.",
+      "hotness": 3
     },
     {
       "id": "paper-2607.09061",
@@ -239,7 +239,7 @@
       "published": "2026-07-09",
       "url": "https://arxiv.org/abs/2607.09061",
       "raw_summary": "A striking feature of the human visual system is that it ingests visual information through a series of local foveated glimpses, rather than a single global computation. This makes human vision distinctly different from most popular computer vision models in use today, which input images globally and in a single shot. A natural question therefore is whether local, sequential vision models may provide any fundamental computational benefits in addition to being biologically more plausible than global models. In this work, we investigate this question from the perspective of visual state tracking and length generalization. Inspired by recent studies of length generalization in language models, we study the behavior of vision models trained on simple vision tasks that require the aggregation of local information across an image. Our experiments reveal that, similar to language models, vision models can learn to exploit global shortcuts and thereby fail to generalize over task length or complexity. We also show that recurrent vision policies based on strictly local perception can mitigate these failures, thereby allowing models to generalize on these tasks. Our results show that local attention may be an essential overlooked requirement for robust compositional generalization.",
-      "hotness": 0
+      "hotness": 2
     },
     {
       "id": "paper-2607.15275v1",
@@ -298,42 +298,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-18",
+      "published": "2026-07-19",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-94612570",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "A scorecard for the AI age",
-      "authors": "OpenAI",
-      "published": "2026-07-17",
-      "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
-      "raw_summary": "Sarah Friar, CFO of OpenAI, introduces a practical AI scorecard to measure ROI through useful work, cost per successful task, dependability, and return on compute."
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-07-19",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
-      "id": "news-57395848",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Fine-tune video and image models at scale with NVIDIA NeMo Automodel and 🤗 Diffusers",
-      "authors": "Hugging Face",
-      "published": "2026-07-17",
-      "url": "https://huggingface.co/blog/nvidia/scale-diffusers-finetuning-nemo-automodel",
-      "raw_summary": ""
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-07-19",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-72362746",
+      "id": "news-gh-776899311",
       "type": "news",
-      "source": "Apple ML",
-      "region": "海外",
-      "title": "When Unlearning Is Free: Leveraging Low Influence Points to Reduce Computational Costs",
-      "authors": "Apple ML",
-      "published": "2026-07-17",
-      "url": "https://machinelearning.apple.com/research/unlearning-free-low-influence",
-      "raw_summary": "As concerns around data privacy in machine learning grow, the ability to unlearn—or remove—specific data points from trained models becomes increasingly important. While state-of-the-art unlearning methods have emerged in response, they typically treat all points in the forget set equally. In this work, we challenge this approach by asking: do points that have a negligible impact on the model’s learning need to be removed? Through a comparative analysis of influence functions across language and vision tasks, we identify subsets of training data with negligible impact on model outputs…"
+      "source": "上海 AI Lab · GitHub",
+      "region": "国内",
+      "title": "OpenGVLab/VideoChat-Flash",
+      "authors": "上海 AI Lab",
+      "published": "2026-07-19",
+      "url": "https://github.com/OpenGVLab/VideoChat-Flash",
+      "raw_summary": "[ICLR2026] VideoChat-Flash: Hierarchical Compression for Long-Context Video Modeling"
     }
   ],
   "reports": []
