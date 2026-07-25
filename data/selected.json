@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-24",
+  "fetched_at": "2026-07-25",
   "items": [
     {
       "id": "paper-2607.21461",
@@ -14,40 +14,28 @@
       "image": "https://arxiv.org/html/2607.21461v1/x2.png"
     },
     {
-      "id": "paper-2607.16165",
+      "id": "paper-2607.20061",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "An Exam for Active Observers",
-      "authors": "Jiarui Zhang, Muzi Tao, Shangshang Wang et al.",
-      "published": "2026-07-16",
-      "url": "https://arxiv.org/abs/2607.16165",
-      "raw_summary": "Human vision is a closed loop: gaze is continuously redirected by intermediate hypotheses rather than a single snapshot. Decades of psychophysics and cognitive science have argued that this active observation is essential for a wide range of tasks. Whether today's multimodal large language models (MLLMs) exercise active observation is an empirical question that current vision-language benchmarks do not answer. We introduce ActiveVision, a benchmark that makes active observation measurable for MLLMs, comprising 17 tasks across 3 categories. Tasks are designed to force repeated visual perception rather than a single static description. Frontier MLLMs collapse on ActiveVision: the highest-scoring model we evaluate, GPT-5.5 at the highest exposed reasoning-effort tier, solves only 10.6% of items and scores zero on 11 of the 17 tasks, and even Claude Fable 5, despite topping most reasoning and coding leaderboards, solves just 3.5%, far behind three human participants who average 96.1%. Furthermore, much of the gap persists even when models write and run their own vision code: such code is unreliable on realistic imagery, and catching its failures itself requires the active perception the models lack. Together, these results indicate that current MLLMs lack robust active visual observation, motivating architectures and training objectives that close the perception-reasoning loop.",
-      "image": "https://arxiv.org/html/2607.16165v1/x2.png"
+      "title": "ReferTrack: Referring Then Tracking for Embodied Visual Tracking",
+      "authors": "Hanjing Ye, Tianle Zeng, Jiazhao Zhang et al.",
+      "published": "2026-07-21",
+      "url": "https://arxiv.org/abs/2607.20061",
+      "raw_summary": "Embodied visual tracking (EVT) requires a mobile agent to continuously follow a specific target described in natural language using only onboard vision. While recent vision-language-action (VLA) policies unify target identification and trajectory planning, their chain-of-thought (CoT) reasoning often operates in abstract spatial latents that are difficult to supervise and weakly aligned with explicit image-space detections. To address this, we introduce ReferTrack, a referring-then-tracking paradigm that grounds EVT using a single forward-facing camera. Our model first selects the target from an indexed set of bounding boxes, then decodes tracking waypoints conditioned on this image-grounded decision. To preserve target motion cues over time, ReferTrack maintains a sliding-window queue of previously selected bounding boxes, injecting their geometric features into the visual history via temporal-viewpoint-bbox indicator (TVBI) tokens. We further enhance target identification by co-training on a custom Refer-QA dataset. On EVT-Bench, ReferTrack achieves state-of-the-art single-view performance with success rates of 89.4%, 73.3%, and 74.1% on the single-target, distracted, and ambiguity tracking splits, respectively -- matching or even surpassing several multi-camera baselines on identification-heavy tasks. Finally, real-world deployments on legged and humanoid robots validate its robust sim-to-real transfer capabilities. Code is available at https://github.com/MedlarTea/referTrack.",
+      "image": "https://arxiv.org/html/2607.20061v1/x2.png"
     },
     {
-      "id": "paper-2607.19604",
+      "id": "paper-2605.09635",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Scaling Laws for Hypernetwork-Based Knowledge Injection in Large Language Models",
-      "authors": "Nischay Dhankhar, Dos Baha, Abulhair Saparov",
-      "published": "2026-07-20",
-      "url": "https://arxiv.org/abs/2607.19604",
-      "raw_summary": "Injecting factual knowledge into large language models (LLMs) reliably and at scale remains an open challenge. Hypernetworks provide a promising solution to large-scale knowledge injection. Although hypernetworks are typically applied for test-time adaptation, we explore their use in train-time knowledge injection, where, given a large corpus of facts, we train a hypernetwork to generate a fixed LoRA adapter that, when inserted into the target model, enable the model to answer questions about those facts. In this work, we investigate whether hypernetworks can be used to perform train-time knowledge injection and how this ability varies with scale. The scaling behavior of hypernetworks remains largely unstudied. Our design decouples the hypernetwork's injection capacity from the target model's general capability, enabling, for the first time, a rigorous study of scaling laws for hypernetwork architectures. We characterize how loss, reasoning accuracy, and out-of-distribution (OOD) generalization vary with hypernetwork depth, width, and target network size. We construct a large-scale dataset, called MegaWikiQA, containing tens of millions of multi-hop question-answer examples across 39 domains constructed from examples in Wikidata5M. Our results reveal: (i) hypernetwork-based injection exhibits broadly predictive power law scaling along all architecture axes; and (ii) hypernetworks are capable of reliable OOD generalization at increasing scales, suggesting that hypernetwork provides a promising alternative to other train-time adaptation methods such as LoRA finetuning and full fine-tuning, exhibiting steeper scaling exponents in all OOD evaluations. Together, these results establish hypernetworks as a principled and scalable substrate for train-time adaptation, and provide the first empirically grounded scaling laws to guide hypernetworks for factual reasoning in large language models.",
-      "image": "https://arxiv.org/html/2607.19604v1/x1.png"
-    },
-    {
-      "id": "paper-2607.20911",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Tencent WorkBuddy Bench: A Multi-Domain Coding-Agent Benchmark with Contamination-Resistant Task Construction",
-      "authors": "Tencent WorkBuddy Bench Team, Siqi Cai, Shaopeng Chen et al.",
+      "title": "K12-KGraph: A Curriculum-Aligned Knowledge Graph for Benchmarking and Training Educational LLMs",
+      "authors": "Hao Liang, Qihan Lin, Zhaoyang Han et al.",
       "published": "2026-07-22",
-      "url": "https://arxiv.org/abs/2607.20911",
-      "raw_summary": "We introduce Tencent WorkBuddy Bench, a multi-domain evaluation suite for coding agents; this report documents its construction methodology, scoring protocol, and a cross-model leaderboard. At its core is a unified evaluation framework for constructing and running distribution-informed coding-agent tasks across four work domains - Code, Web, Office, and Security. Rather than adapting public issue text, every task is reverse-engineered from a real commit, pull request, or business scenario and rewritten as a short, colloquial, role-played request, so that a task's prompt is not recoverable by web-searching the underlying issue, pull request, or commit thread. Because the dataset is released openly - task directories, environment images, evaluation harness, tests, and reference solutions - contamination resistance rests on this construction together with dataset versioning rather than on secrecy. The four subsets - repository-level engineering, front-end development, office and business workflows, and red-/blue-team security - probe complementary facets of real work, each with its own verification style. All are packaged in a uniform task-directory format and run, under a uniform and reproducible protocol, on two agent harnesses (CodeBuddy Code and Claude Code); the full open release makes the benchmark reproducible end to end and directly auditable, since any third party can re-run each task and inspect its content. Because each subset uses a different scoring instrument, scores are not comparable across subsets and the suite reports no suite-wide average. We report a cross-model leaderboard across several model families.",
-      "image": "https://arxiv.org/html/2607.20911v1/x1.png"
+      "url": "https://arxiv.org/abs/2605.09635",
+      "raw_summary": "Large language models are increasingly used in K-12 education, but existing benchmarks mainly test exam question answering rather than understanding how curriculum knowledge is structured and visually presented. We call this capability curriculum cognition. It covers prerequisite chains, concept taxonomies, experiment-concept links, pedagogical sequencing, and visual grounding. We introduce K12-KGraph, a curriculum-aligned knowledge graph extracted from official People's Education Press textbooks in mathematics, physics, chemistry, and biology across primary, middle, and high school. It contains nine node types and fourteen relation types covering curriculum structure and visual grounding. From this graph, we derive K12-Bench, a 23,640-question multi-select benchmark with five task families: Ground, Prereq, Neighbor, Evidence, and Locate. We also build K12-Train, a graph-guided supervised fine-tuning corpus of 7,335 samples, including 2,267 text-only QA pairs and 5,068 multimodal VQA pairs. On K12-Bench, Gemini-3-Flash achieves only 57 percent exact match and Gemma-4-31B-IT reaches 46 percent, with Prereq and Neighbor being the hardest tasks. Our training experiments show that domain-specific supervision can reduce this gap. Under a matched 2,300-sample budget, K12-Train-Text consistently outperforms equally sized subsets of eight mainstream instruction-tuning corpora on GaokaoBench and EduEval. For vision-language models, K12-Train-Full achieves the best overall results on Gaokao-MM, MDK12-medium, and K12Vista among all compared training configurations, despite using fewer samples than the full DataFlow and WizardLM baselines. It also surpasses both text-only and multimodal-only variants, showing that textual and visual supervision are complementary. We release the graph, benchmark, training data, and complete construction pipeline.",
+      "image": "https://arxiv.org/html/2605.09635v3/x3.png"
     },
     {
       "id": "paper-2607.21556",
@@ -62,48 +50,60 @@
       "image": "https://arxiv.org/html/2607.21556v1/x1.png"
     },
     {
+      "id": "paper-2607.21072",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Show, Don't Tell: Evaluating Spatial Cognition in Generative Pixels Rather Than LLM Text",
+      "authors": "Xu Wang, Kaixiang Yao, Miao Pan et al.",
+      "published": "2026-07-22",
+      "url": "https://arxiv.org/abs/2607.21072",
+      "raw_summary": "Spatial intelligence is essential for agents to move from static semantic understanding toward interacting with the physical world. Many spatial tasks are grounded in continuous visual scenes, where locations, regions, and paths are more naturally expressed by pointing, marking, or drawing than by reporting precise coordinates or discrete textual symbols. Yet existing spatial reasoning benchmarks usually require coordinates, options, or text, creating an answer-interface mismatch for image-generation models. This makes it difficult to evaluate image-generation models under the same task semantics as text-output VLMs, despite their ability to externalize spatial judgments directly in pixel space. We propose ProVisE (Protocolized Visual Evaluation), a benchmark-agnostic framework that elicits protocol-constrained visual answers from image-generation models and parses them into structured predictions compatible with original metrics. ProVisE also includes an Agentic builder that constructs and validates task-specific protocols for new benchmarks. We further introduce SpatialGen-Bench, a curated diagnostic benchmark of 470 samples across 14 spatial subtasks, four capability levels, and diverse answer forms. We evaluate representative text-output VLMs and image-generation models in a unified setting and validate Agentic protocol construction on six external spatial benchmarks. Results show that image-generation models are competitive when spatial answers can be externalized directly in pixel space, while text-output VLMs retain a clear advantage in compositional spatial reasoning. These findings reveal complementary strengths of pixel-space expression and text-based reasoning and establish a metric-compatible testbed for studying spatial cognition in image-generation models.",
+      "image": "https://arxiv.org/html/2607.21072v1/img/protocolized_visual_evaluation_v4.png"
+    },
+    {
       "id": "news-gh-1008713177",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-24",
+      "published": "2026-07-25",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1219841349",
+      "id": "news-92257884",
       "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/FlashQLA",
-      "authors": "通义千问 Qwen",
+      "source": "Apple ML",
+      "region": "海外",
+      "title": "LEAD: Breaking the No-Recovery Bottleneck in Long-Horizon Reasoning",
+      "authors": "Apple ML",
       "published": "2026-07-24",
-      "url": "https://github.com/QwenLM/FlashQLA",
-      "raw_summary": "high-performance linear attention kernel library built on TileLang"
+      "url": "https://machinelearning.apple.com/research/lead-no-recovery-bottleneck",
+      "raw_summary": "Long-horizon execution in Large Language Models (LLMs) remains unstable even when high-level strategies are provided. Evaluating on controlled algorithmic puzzles, we demonstrate that while decomposition is essential for stability, extreme decomposition creates a “no-recovery bottleneck”. We show that this bottleneck becomes critical due to highly non-uniform error distribution, where consistent errors on a few “hard” steps become irreversible. To address this, we propose Lookahead-Enhanced Atomic Decomposition (LEAD). By incorporating short-horizon future validation and aggregating…"
     },
     {
-      "id": "news-gh-1004140701",
+      "id": "news-92892235",
       "type": "news",
-      "source": "智谱 GLM · GitHub",
-      "region": "国内",
-      "title": "THUDM/slime",
-      "authors": "智谱 GLM",
+      "source": "AWS ML",
+      "region": "海外",
+      "title": "Introducing Claude Opus 5 on AWS: Anthropic’s most capable Opus model",
+      "authors": "AWS ML",
       "published": "2026-07-24",
-      "url": "https://github.com/THUDM/slime",
-      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/",
+      "raw_summary": "This post covers Opus 5’s improvements and practical guidance for AI engineers integrating the model into agentic systems and production inference workloads on Amazon Bedrock. See the documentation for Claude Platform on AWS."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-91540596",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
+      "source": "AWS ML",
+      "region": "海外",
+      "title": "Build an explainable next-best-product recommendation system for banking on AWS",
+      "authors": "AWS ML",
       "published": "2026-07-24",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-an-explainable-next-best-product-recommendation-system-for-banking-on-aws/",
+      "raw_summary": "Learn the architecture and design decisions behind an explainable next-best-product recommendation system for banking, built with Amazon SageMaker AI and PyTorch. A multi-tower neural network with learned attention delivers accurate, per-customer recommendations while providing the explainability that banking regulators require."
     }
   ]
 }
