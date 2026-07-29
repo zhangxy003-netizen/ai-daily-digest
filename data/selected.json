@@ -1,64 +1,64 @@
 {
-  "fetched_at": "2026-07-28",
+  "fetched_at": "2026-07-29",
   "items": [
     {
-      "id": "paper-2607.21655",
+      "id": "paper-2607.24223",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Progress Reward Modeling for Robotic Learning: A Comprehensive Survey",
-      "authors": "Jianshu Zhang, Keliang Wu, Haoran Lu et al.",
-      "published": "2026-07-21",
-      "url": "https://arxiv.org/abs/2607.21655",
-      "raw_summary": "Robotic learning takes place in dynamic environments with large behavior spaces. A terminal success signal only tells the robot whether the task is completed. It does not explain whether the current behavior is making progress, remaining unchanged, or undoing earlier progress. For this reason, recent studies have increasingly explored progress rewards that provide feedback during task execution. However, the current literature lacks a shared framework. Existing methods use different observations, goal specifications, output signals, supervision sources, and evaluation protocols. This makes it difficult to compare them and understand what their results actually validate. In this survey, we provide a unified view of progress reward modeling for robotic learning. We organize the field in three connected steps. We first study the interface of a progress model. This defines the problem from the outside by asking what information the model receives and what form of progress signal it produces. We then move inside the model and study the methods used to construct this signal. This reveals the different assumptions and mechanisms behind progress estimation and reward generation. Finally, we examine the data and benchmarks that support these methods. This shows how progress supervision is obtained and what different evaluations actually measure. Together, these three perspectives connect what a progress model is, how it is built, and how its quality is validated. We further summarize the main limitations of current approaches and discuss future research directions."
-    },
-    {
-      "id": "paper-2607.24744",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Data Pyramid for Embodied Manipulation",
-      "authors": "Yifan Ye, Yankai Fu, Yaoxu Lv et al.",
+      "title": "A New Role for Relevance: Guiding Corpus Interaction in Agentic Search",
+      "authors": "Jiangnan Li, Yuqing Li, Mo Yu et al.",
       "published": "2026-07-26",
-      "url": "https://arxiv.org/abs/2607.24744",
-      "raw_summary": "Multimodal foundation models learned to see and to speak by consuming the whole internet. Embodied agents admit no such shortcut, since they require data that couple observations with physical states and actions. These signals can be provided, to varying degrees, by multiple data sources. In this work, we organize the embodied data ecosystem as a \"pyramid\" spanning five complementary sources: real-robot data, UMI-style data, egocentric and exocentric data, simulation data, and general vision-language data. We organize the pyramid around the tension between scalability and robot alignment, and further characterize each source in terms of data quality, diversity, reusability, and physical fidelity. We then analyze recent embodied foundation models through the lens of their data recipes, examining how different sources are selected, aligned, and mixed during pretraining. For embodied brain models, vision-language-action models, and world-action models alike, we relate data composition to capabilities in perception, reasoning, planning, action generation, and world prediction. We close by discussing six open challenges: building large-scale tactile datasets, collecting failure and recovery data, developing scalable data-collection pipelines, aligning actions across embodiments, leveraging egocentric data for dexterous manipulation, and designing principled data recipes for robot learning. We hope this work paves the foundation for the design of next-generation embodied systems.",
-      "image": "https://arxiv.org/html/2607.24744v1/x5.png"
+      "url": "https://arxiv.org/abs/2607.24223",
+      "raw_summary": "Relevance is a query-dependent estimate of whether a document or excerpt contains useful evidence. Existing retrieval agents use relevance to select top-k content, but document relevance alone cannot localize, compose, or verify the evidence required by complex questions. Direct Corpus Interaction (DCI) enables such fine-grained operations through grep-style exploration, but its relevance-agnostic search can expose useful clues late and delay convergence. Recent advances use relevance to narrow the corpus into a working space for interaction. Once interaction begins, however, relevance still does not directly guide which documents grep searches first or distinguish informative excerpts from a broad set of matches to let LLMs see them first. We introduce the Relevance-Aware RipGrep Search Agent (RARG), which turns relevance into an execution prior for corpus interaction. RARG provides coarse-to-fine relevance guidance: it orders documents for sequential 'ripgrep' traversal to expose globally relevant clues earlier, initializes promising entry points with query-relevant paragraphs, and reranks grep matches to surface informative excerpts that document-level ranking may otherwise obscure. Across challenging browse question answering and reasoning-intensive retrieval, RARG improves the accuracy--efficiency frontier over retrieval-based and direct-interaction agents. These results demonstrate that relevance-aware interaction enables faster and more reliable search convergence.",
+      "image": "https://arxiv.org/html/2607.24223v1/x2.png"
     },
     {
-      "id": "paper-2607.22798",
+      "id": "paper-2607.24027",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents",
-      "authors": "Yan Yang, Xiangru Jian, Ziyang Luo et al.",
-      "published": "2026-07-23",
-      "url": "https://arxiv.org/abs/2607.22798",
-      "raw_summary": "Computer-use agents are usually improved by strengthening perception: better models for reading a screenshot and choosing where to click. Yet a screenshot is only a lossy rendering of the underlying program state, e.g., the files, application backends, and DOM that hold the task data. Different states can produce the same pixels, while code can inspect and modify that state directly. StateAct is a code-first, multi-agent harness built around this distinction. Its main agent works directly with program state by using code, while a dedicated GUI subagent handles screenshot-and-click interaction on the few subgoals that need it, just 28 of 108 tasks and 1.1% of main-agent steps. The same direct access to program state also supports verification: an independent finish gate double-checks the saved result for structural failures, e.g., output that is missing, unsaved, or written to the wrong path. To stay on track over hundreds of steps, the main agent hands subgoals to fresh subagents, keeping its own context focused. On OSWorld 2.0, StateAct lifts Claude Opus 4.8 from 20.6% to 26.9% on binary success, and from 54.8% to 61.6% on partial success, at ~ 9x lower cost per task than the same model driven by screenshots alone; a code-only variant with no GUI subagent reaches only 45.9% partial, below that screenshot-based baseline's 54.8%. In general, grounding action, verification, and memory in state, what we call state-grounding, shifts the main bottleneck from perception toward reasoning: failures depend more on what the agent thinks than on what it sees.",
-      "image": "https://arxiv.org/html/2607.22798v1/x2.png"
-    },
-    {
-      "id": "paper-2607.23588",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "JarvisHub: An Open Harness for Canvas-Native Multimodal Creative Agents",
-      "authors": "Yunlong Lin, Zixu Lin, Zhaohu Xing et al.",
-      "published": "2026-07-25",
-      "url": "https://arxiv.org/abs/2607.23588",
-      "raw_summary": "Creative AI is moving from single-step asset generation toward long-horizon multimodal production. Although recent generative models can synthesize high-quality images, videos, audio clips, UI elements, storyboards, slides, and other creative assets, real-world creative work requires more than isolated prompt-output interactions. It involves references, drafts, alternatives, edits, failed attempts, version relations, tool actions, evaluation signals, and human feedback, which together form an evolving project state. Existing prompt-based, chat-based, and node-based generation systems only partially support this state, as they often discard intermediate context, rely on linear conversations, or require manually specified workflows. Recent commercial systems indicate a shift toward agent-assisted creative production, but their closed architectures make it difficult to study how agents represent context, choose tools, revise artifacts, recover from failures, and maintain consistency over time. To address this gap, we introduce JarvisHub, a canvas-native creative agent harness for long-horizon multimodal creation. JarvisHub treats an editable canvas as the user workspace, the agent's external memory, action space, and shared project state, representing multimodal artifacts, dependencies, versions, and feedback as typed canvas nodes and links. Through a three-layer architecture of canvas state, protocol bridge, and agent runtime, JarvisHub enables agents to act within an inspectable and editable creative state. This design moves creative agents beyond isolated tool use toward sustained, human-steerable creative automation, where agents can progressively plan, generate, revise, and organize multimodal projects while users remain able to inspect, guide, and intervene throughout the process.",
-      "image": "https://arxiv.org/html/2607.23588v1/x1.png"
-    },
-    {
-      "id": "paper-2607.24280",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "From Proprietary to Open-Source: Bridging the Distribution Gap via Multi-Agent Protocol Distillation in Agentic Search",
-      "authors": "Junlin Liu, Jiangwang Chen, Zixin Song et al.",
+      "title": "Sol-Attn: Accelerating Video Generation Inference via On-the-Fly Attention Sparsification",
+      "authors": "Haopeng Li, Yitong Li, Junsong Chen et al.",
       "published": "2026-07-26",
-      "url": "https://arxiv.org/abs/2607.24280",
-      "raw_summary": "Agentic search enables large language models to solve knowledge-intensive tasks by interleaving multi-step reasoning with retrieval, yet optimizing this with outcome-based reinforcement learning (RL) provides only sparse supervision. Knowledge distillation can supply denser guidance, and advanced proprietary models with their strong reasoning capabilities are promising teachers. While distilling from proprietary models can densify this supervisory signal, conventional logit-matching is precluded by hidden logits and mismatched tokenizers, whereas raw natural language trajectory imitation transfers superficial stylistic artifacts rather than core reasoning competence. To address the heterogeneous distillation problem and bridge the distribution gap, we propose Multi-Agent Protocol Distillation (MAPD), a joint distillation and RL framework uses a structured, style-normalized protocol as an intermediate representation. An offline multi-agent system (MAS) decomposes each query, retrieves supporting evidence, repairs failed searches, and converts the resulting exploration trace into a JSON protocol containing the task type, reasoning plan, and extractive grounding facts. During training, the protocol is provided only to a privileged branch of the student policy, whose token distributions furnish a dense distillation signal alongside the sparse RL objective. Extensive evaluations across seven QA benchmarks demonstrate that MAPD consistently outperforms competitive distillation and RL, achieving average success rates of 39.4\\% on Qwen3-1.7B and 44.4\\% on Qwen3-4B. Crucially, the framework generalizes robustly across diverse proprietary teachers while effectively mitigating the student policy from style drift and verbosity degeneration.",
-      "image": "https://arxiv.org/html/2607.24280v1/figures/overview.png"
+      "url": "https://arxiv.org/abs/2607.24027",
+      "raw_summary": "Diffusion transformers are essential for high-fidelity video generation, but long token sequences make attention a dominant inference bottleneck. Training-free dynamic sparse attention alleviates this bottleneck by computing only selected key-value blocks, yet existing methods struggle to sparsify attention both efficiently and accurately for two reasons: (1) Rigid, unpredictable, and costly routing: selecting a fixed fraction of top-ranked blocks by proxy score imposes fixed budgets, whereas retaining blocks to reach a target cumulative proxy probability mass yields dynamic but potentially imbalanced budgets; both incur non-negligible overhead from computing and materializing proxy scores. (2) Lossy keep-or-drop sparsification: unselected blocks are discarded entirely, degrading accuracy under aggressive sparsity. These limitations motivate cheaper dynamic-budget routing while limiting accuracy degradation. In this paper, we introduce training-free Sol-Attn (Sparsifying online attention), which unifies dynamic routing, sparse computation, and approximation correction in a single online-softmax pass, achieving a better accuracy-efficiency trade-off in sparse attention. The core of Sol-Attn is on-the-fly block thresholding with proxy-score reuse, which selects critical blocks by comparing block proxy scores against a threshold during online softmax. This design enables dynamic yet controllable block budgets without materializing the proxy map, while directly reusing the proxy scores of unselected blocks to approximate their contribution. Experiments across image and video generation tasks show that Sol-Attn advances the quality-efficiency frontier of training-free sparse attention, delivering 2.1 times and 2.3 times end-to-end speedups for video generation and editing, respectively, while preserving visual quality."
+    },
+    {
+      "id": "paper-2607.25895",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+      "authors": "Simple AI, Yuteng Wei, Jinming Ma et al.",
+      "published": "2026-07-27",
+      "url": "https://arxiv.org/abs/2607.25895",
+      "raw_summary": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+      "image": "https://arxiv.org/html/2607.25895v1/x1.png"
+    },
+    {
+      "id": "paper-2607.25565",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "ReDesign: Recovering Editable Design Structures from Images via Agentic Decomposition",
+      "authors": "Jooyeol Yun, Jintae Park, Hyesu Lim et al.",
+      "published": "2026-07-27",
+      "url": "https://arxiv.org/abs/2607.25565",
+      "raw_summary": "Recovering an editable design file from a raster image is a common and costly bottleneck in modern design workflows, yet remains challenging since editability depends on recovering multi-modal attributes, such as typography, vector geometry, colors, grouping, and layer ordering. We present ReDesign, an agentic framework that grows an editable layer hierarchy by selecting and composing specialized tools across modalities. To keep this long decision process reliable despite imperfect tool outputs, we introduce graceful verification at each expansion, which provides local accept, prune, or retry feedback that prevents error accumulation and avoids large scale reruns. To evaluate editability at scale, we introduce the Figma Edit Replay Benchmark, consisting of 909 raw Figma files and 14,796 controlled edit instructions that replay edits on reconstructed outputs. Across this benchmark and standard reconstruction metrics, ReDesign achieves strong visual fidelity while delivering the highest editability across layout, color, and text edits, outperforming layered decomposition baselines and serial tool use pipelines.",
+      "image": "https://arxiv.org/html/2607.25565v1/x2.png"
+    },
+    {
+      "id": "paper-2607.24368",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Keep It InMind: Benchmarking the Implicit-Association Blind Spot in Agent Memory",
+      "authors": "Ruizhe Li, Mingxuan Du, Benfeng Xu et al.",
+      "published": "2026-07-26",
+      "url": "https://arxiv.org/abs/2607.24368",
+      "raw_summary": "Long-term memory systems store what a user says in an external store and retrieve it when a related query arrives. This interface rests on an assumption so natural that it is rarely stated: a memory that is needed will resemble the query that needs it. World knowledge breaks the assumption. A tree-nut allergy should change the answer to a macaron request through their almond-flour ingredient, yet the two texts share no cue a retriever can see. We call this failure mode the implicit-association blind spot and introduce InMind, a 125-task, expert-verified benchmark spanning ten life domains, with 113 tasks grounded in citable public sources. Its paired controls separate three explanations that existing evaluations conflate: the fact was never stored, the model lacks the bridging knowledge, or the fact was stored and never surfaced. The verdict is clean. With the decisive memory placed in context, the backbone answers 84.0 percent of indirect queries; when the same memory must be retrieved, six vector, graph, and agentic memory systems reach at most 14.4 percent, even though they recall the same facts on demand at up to 100 percent. An embedding with eight times the dimensionality raises answer-blind target recall for every system yet leaves the gap essentially intact. A minimal diagnostic probe that keeps memory visible before the query arrives recovers most of the gap, locating the failure in the query-conditioned interface itself and pointing to routing, deciding which facts must stay visible, as the open problem InMind is built to score.",
+      "image": "https://arxiv.org/html/2607.24368v1/figures/agent_memory_taxonomy.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -67,9 +67,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-28",
+      "published": "2026-07-29",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1041478561",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-07-29",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
       "id": "news-gh-1246459259",
@@ -78,31 +89,20 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-07-28",
+      "published": "2026-07-29",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-gh-1170629583",
+      "id": "news-gh-1215986180",
       "type": "news",
       "source": "月之暗面 Kimi · GitHub",
       "region": "国内",
-      "title": "MoonshotAI/kimi-help-center",
+      "title": "MoonshotAI/FlashKDA",
       "authors": "月之暗面 Kimi",
-      "published": "2026-07-28",
-      "url": "https://github.com/MoonshotAI/kimi-help-center",
-      "raw_summary": "Kimi Help Center is an intelligent Q&A routing system that directs user questions to the right help articles across the full Kimi ecosystem — covering Agent mode, Deep Research, Kimi Code, Kimi Claw, Docs & Sheets, PPT/Slides, membership & billing, and API services."
-    },
-    {
-      "id": "news-91555611",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "How AI is expanding what people do at work",
-      "authors": "OpenAI",
-      "published": "2026-07-27",
-      "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
-      "raw_summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries."
+      "published": "2026-07-29",
+      "url": "https://github.com/MoonshotAI/FlashKDA",
+      "raw_summary": "FlashKDA: high-performance Kimi Delta Attention kernels"
     }
   ]
 }
