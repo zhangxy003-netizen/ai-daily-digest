@@ -1,62 +1,62 @@
 {
-  "fetched_at": "2026-07-31",
+  "fetched_at": "2026-08-01",
   "items": [
     {
-      "id": "paper-2607.26760",
+      "id": "paper-2607.27616",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Metis: Memory Foundation Model",
-      "authors": "Zeyu Zhang, Ziliang Guo, Yihang Sun et al.",
+      "title": "MPIE-Bench: Benchmarking Anatomically Plausible Multi-Person Interaction Editing",
+      "authors": "Jiajia Lin, Mingxuan Du, Tuowen Zhou et al.",
+      "published": "2026-07-29",
+      "url": "https://arxiv.org/abs/2607.27616",
+      "raw_summary": "Text-to-image and personalized editing models now synthesize high-fidelity single-subject images with ease. Yet placing multiple named people into shared contact actions such as embrace, carry, or grapple still exposes major failures: fused limbs, invented extremities, and interpenetrating bodies. Existing evaluations largely overlook these anatomical and geometric issues, and VLM-as-a-judge checklists often saturate on Interaction while the errors remain obvious to humans. We introduce MPIE-Bench, a 2,500-sample benchmark of video-mined editing triplets spanning 405 scenes, 14 interaction categories, and four contact densities (C0-C3). We also propose MPIE-Eval, whose two new axes score contact-time geometry from a frozen public multi-person mesh reconstruction. Anatomy asks whether every human-like mass is explained by a complete set of reconstructed bodies, and Interaction asks whether the penetration and surface distance between those bodies match the contact the instruction asked for. Across ten editors, mesh Anatomy tops out at 0.65 and mesh Interaction at 0.72 on two different models, so no single editor is strong on both, while VLM checklists rate the same images above 0.95. A five-rater study confirms that both axes track human judgement more closely than a zero-shot VLM judge, and the rankings hold under ablation of every weight and threshold."
+    },
+    {
+      "id": "paper-2607.27816",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Beyond Borrowed Histories: Person-Aligned User Simulation for Interactive Role-Playing Evaluation",
+      "authors": "Yuhang Zhu, Mingxuan Du, Benfeng Xu et al.",
+      "published": "2026-07-29",
+      "url": "https://arxiv.org/abs/2607.27816",
+      "raw_summary": "Role-playing agents (RPAs) have become one of the most important consumer applications of large language models. Users engage in multi-turn conversations with RPAs for experiences such as emotional comfort, making reliable evaluation essential for measuring capability, comparing systems, and guiding further improvement. Existing benchmarks, however, typically require an RPA to continue a fixed dialogue history and then evaluate the continuation using a fixed rubric detached from the user. We identify and empirically demonstrate two limitations of this design. First, an RPA's output is shaped by the preceding dialogue history, preventing a scientifically grounded assessment of its role-playing ability in real multi-turn settings. Second, user experience varies substantially across individuals, and conventional fixed rubrics need not align with user satisfaction. We therefore introduce PALATE (Person-Aligned LLM-Simulated-User Assessment with Tailored Evaluation), a scalable RPA benchmark built on user simulators. PALATE is accompanied by a pool of 300 character profiles. Its main evaluation trains five per-user simulators and lets them engage candidate RPAs in free-form, multi-turn conversations over a pre-frozen panel of character profiles. Alongside a general quality rubric, we construct personalized rubrics to measure user satisfaction; on held-out annotated data, the personalized rubrics show higher agreement with human judgments than the general rubric. In the main evaluation of 16 candidates, PALATE separately characterizes generic turn quality, long-horizon session capability, and per-user experience on multi-turn trajectories co-constructed by each candidate. It thereby produces interpretable evaluations of specific user-RPA pairs rather than compressing systems into a single user-independent ranking."
+    },
+    {
+      "id": "paper-2607.26769",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "See2Think: Do Multimodal Models Really Use Intermediate Visual States?",
+      "authors": "Siyu Yan, Zhuoran Yan, Haiying Xu et al.",
       "published": "2026-07-28",
-      "url": "https://arxiv.org/abs/2607.26760",
-      "raw_summary": "Recent advances in AI agents have increasingly internalized native capabilities into their underlying foundation models, giving rise to multimodal foundation models and large reasoning models. However, agent memory is still primarily implemented through external modules, leaving the native memory capability largely unexplored. In this paper, we take a first step toward this direction by introducing memory foundation models, which empower foundation models with native memory capabilities. We formalize native memory from two perspectives: a persistent and dynamically evolving memory state within the backbone, and native memory procedures that autonomously store and utilize information through model computation. We show that native memory offers advantages in architecture, end-to-end optimization, and efficiency. Based on this formulation, we propose Metis, the first prototype of memory foundation models. Metis introduces a new architecture that equips a foundation model with a native memory state, allowing historical information to be compressed into the model and accessed through memory attention. We construct large-scale memory-specific training data and introduce multiple optimization objectives to acquire these native memory procedures through mid-training. The online memory maintenance of Metis is gradient-free, and the memory update requires only a forward pass. At inference time, all learned model weights remain frozen, while the native memory states are autonomously transformed through standard forward computation. Through extensive experiments, we show that Metis exhibits native memory capabilities and further provide a detailed analysis of its strengths, limitations, and behaviors. To facilitate future research on memory foundation models, we release our project and model checkpoints.",
-      "image": "https://arxiv.org/html/2607.26760v1/x2.png"
+      "url": "https://arxiv.org/abs/2607.26769",
+      "raw_summary": "Multimodal large language models increasingly use sketches, annotations, tools, and intermediate images during reasoning, but it remains unclear whether they truly rely on these visual states. Existing benchmarks are limited both by task collections with narrow coverage or partially text-solvable samples and by evaluations that emphasize final answers without diagnosing how intermediate visual states are generated, rendered, and used. We introduce See2Think, a unified evaluation framework comprising See2ThinkBench and Visual Action-of-Thought (VAoT). See2ThinkBench contains 1,200 open-ended, visually dependent problems across 12 task categories spanning 2D structured, 3D scene, and real-world reasoning. VAoT records textual thoughts, visual actions, rendered states, and subsequent reasoning under four controlled inference settings. Evaluating representative proprietary and open-source multimodal models, we find that visual reasoning is strongly model- and environment-dependent, with no single setting consistently dominating across tasks. Process analysis further shows that models usually select relevant visual operations, while faithful rendering remains the clearest bottleneck and high feedback uptake does not necessarily translate into accuracy gains. Under task-relevant corrupted feedback, models exhibit behavioral dependence on visual states, with accuracy dropping by over 10 percentage points in controlled interventions."
     },
     {
-      "id": "paper-2607.28568",
+      "id": "paper-2607.28582",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Frontis-MA1: Training an AI4AI Model towards Recursive Self-Improvement in Machine Learning Engineering",
-      "authors": "Junlin Yang, Che Jiang, Yu Fu et al.",
+      "title": "β-OPSD: Deriving with Policy Optimization, Training with Self-Distillation",
+      "authors": "Jiawei Xu, Minghui Liu, Juzheng Zhang et al.",
       "published": "2026-07-29",
-      "url": "https://arxiv.org/abs/2607.28568",
-      "raw_summary": "Recursive self-improvement (RSI) requires AI systems that improve the process of building AI (i.e., AI4AI); machine learning engineering (MLE) offers a concrete, executable testbed for studying this capability. We introduce OpenMLE, an open full-stack system for RSI research in MLE, spanning verifiable task environments with execution feedback (OpenMLE-Gym), operator learning (OpenMLE-RL), and long-horizon search (OpenMLE-Evo). On this stack we post-train Frontis-MA1 (35B) as a meta-evolution agent for MLE, aligning post-training and inference around four atomic program-evolution operators (Draft, Improve, Debug, Crossover): the same operators are trained via execution-grounded SFT and RL on data deduplicated against all evaluation benchmarks, then composed into long-horizon search, coupling learning and evolution in a single loop. On MLE-Bench Lite under a 12-hour per-task budget on one RTX 4090 capped at 12 GB VRAM, Frontis-MA1 (35B) improves Medal Average from 39.39% to 60.61% over its base model with OpenMLE-Evo, and reaches 71.21% with OpenMLE-Evo-Max (benchmark-independent experience priors and asynchronous search), exceeding GPT-5.5 + Codex and approaching GPT-5.6 Sol and the 2.8T Kimi K3. On held-out NatureBench Lite, both components transfer: with the framework fixed, swapping in the trained model raises Match-SOTA from 50% to 70%; with the model fixed, swapping in OpenMLE-Evo raises it from 20% to 50%. We release the model weights and the full OpenMLE stack to enable reproducible research on executable AI4AI toward RSI. Code: https://github.com/FrontisAI/OpenRSI"
+      "url": "https://arxiv.org/abs/2607.28582",
+      "raw_summary": "On-policy self-distillation (OPSD) is a promising approach to improve reasoning language models, but it remains brittle in practice: making it work reliably often requires substantial engineering effort. We identify a structural source of this difficulty: vanilla OPSD is precisely the β=1 member of a broader policy-optimization family, where β weights the KL penalty anchoring the student to a reference policy. This equivalence turns β from an implicit value fixed at one into a controllable regularization parameter, yielding a more general formulation that trades off proximity to a reference policy against privileged teacher guidance. We introduce β-OPSD and derive its optimal policy as a geometric interpolation between the reference policy and the privileged teacher. Directly optimizing this objective with reinforcement learning, however, would be costly and high-variance. Rather than optimize the RL objective directly, we turn its closed-form solution into a distillation target. Each value of β selects a target along the reference-to-teacher path, which we implement efficiently by mixing their token-level logits. In this way, inexpensive distillation approximates the solution of expensive policy optimization. Return-to-go credit assignment further aligns token updates with the sequence-level objective while retaining the simplicity of OPSD. Experiments on mathematical reasoning benchmarks show that β-OPSD consistently outperforms vanilla OPSD, improving optimization stability and downstream reasoning performance. Our results provide a principled route from self-distillation to policy optimization and back without sacrificing the efficiency that makes OPSD practical.",
+      "image": "https://arxiv.org/html/2607.28582v1/x1.png"
     },
     {
-      "id": "paper-2607.28595",
+      "id": "paper-2607.28362",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Beacon: Knowing When and How to Perform Agentic Visual Reasoning",
-      "authors": "Qixun Wang, Yang Shi, Letian Cheng et al.",
+      "title": "ShadowDancer: Teaching Video World Models Any Action by Learning Unified Dynamics Representations from a Video and Its Shadow",
+      "authors": "Jin Cao, Zian Meng, Kaipeng Zhang",
       "published": "2026-07-29",
-      "url": "https://arxiv.org/abs/2607.28595",
-      "raw_summary": "The fundamental goal of agentic visual reasoning is to improve the success rate of multimodal large language models (MLLMs) on complex tasks, rather than merely equipping them with a sophisticated yet inefficient reasoning paradigm. In this work, we rethink agentic visual reasoning through two key dimensions of tool use: Mode Adaptiveness (MA) and Tool Effect (TE). Mode Adaptiveness characterizes whether an MLLM can recognize when tools are truly necessary and invoke them accordingly, thereby avoiding unnecessary computational overhead while improving performance on challenging problems that require tool assistance. Tool Effect characterizes the actual impact of tool use: tools should extend the model's capabilities on problems unsolvable through text-only reasoning, while avoiding additional errors on problems that the model can already solve without tools. We conduct a comprehensive analysis to quantify these two properties and empirically reveal that existing agentic visual reasoning models exhibit limited Mode Adaptiveness, while the gains produced by tool use on hard examples are largely offset by the harm introduced on easy examples that the models can already solve. Motivated by these observations, we propose Beacon, a novel agentic visual reasoning model that achieves stronger overall performance, improved Mode Adaptiveness, and genuine tool-induced performance gains. At the core of Beacon are the Necessity-Aware Adaptive Reward and the Hint-Guided Capability Expansion mechanism in the reinforcement learning stage, which respectively encourage adaptive tool invocation based on task necessity and strengthen the model's tool-use capability on the most challenging problems. Extensive experiments across diverse benchmarks demonstrate the strong overall performance of Beacon and its substantial improvements in both Mode Adaptiveness and Tool Effect."
-    },
-    {
-      "id": "paper-2607.28227",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Qwen-UI-Agent Technical Report: Toward Next-Generation Real-World Centric Foundation GUI Agents",
-      "authors": "Hanzhang Zhou, Panrong Tong, Xu Zhang et al.",
-      "published": "2026-07-29",
-      "url": "https://arxiv.org/abs/2607.28227",
-      "raw_summary": "GUI agents have the potential to become a general purpose executor over existing digital devices. To advance them toward real-world use, we envision agents that operate reliably on real devices, execute workflows across platforms, combine GUI interaction with CLI execution, complete long-horizon tasks, proactively initiate useful services, and autonomously improve their capabilities with minimal human effort. Guided by this vision, we present Qwen-UI-Agent, a real-world centric foundation GUI agent spanning mobile, computer-use, web, and DeepSearch environments. Qwen-UI-Agent combines diverse sandbox environments with a large-scale real-device mobile runtime. Its unified action space interleaves GUI operations with CLI execution and generates batched actions in a single model turn. An AutoResearch-style data flywheel uses agents to construct tasks and environments, diagnose failures, and plan subsequent iterations. Online RL supports training on trajectories exceeding 100 turns, with over 10,000 concurrent environments accelerating rollout. A lightweight harness layer supports proactive service initiation and stateful workflows across mobile and computer.   Across a broad suite of evaluations, Qwen-UI-Agent sets state-of-the-art performance on mobile-use benchmarks while delivering competitive performance on computer- and browser-use tasks against frontier models, including Opus 4.8, Gemini 3.1 Pro, and GPT-5.6 Sol. On mobile use, it achieves 82.1% on MobileWorld, 92.2% on MobileWorld-Real, and 97.5% on AndroidDaily. On computer use, it achieves 79.5% on OSWorld-Verified and a 40.0% partial-progress score on OSWorld-v2. On browser use and GUI grounding, it achieves 73.6% on WebArena and 81.5% on ScreenSpot-Pro, respectively.",
-      "image": "https://arxiv.org/html/2607.28227v1/x6.png"
-    },
-    {
-      "id": "paper-2607.26497",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "BM25 Wins at Scale: A Scaling Study of Retrieval-Augmented Generation Paradigms",
-      "authors": "Pengyu Wang, Benfeng Xu, Shaohan Wang et al.",
-      "published": "2026-07-29",
-      "url": "https://arxiv.org/abs/2607.26497",
-      "raw_summary": "Retrieval-augmented generation (RAG) spans lexical and dense retrieval, graph-based indexing, and agentic search, but these paradigms are usually evaluated on different benchmarks at one corpus size, leaving their accuracy-cost scaling unclear. To bridge this gap, we present a controlled study that varies corpus size along 28 strictly nested tiers spanning roughly 450-fold, while holding questions and a fixed bedrock of relevant and adversarial documents unchanged. Under one reader model and one judging protocol, we measure official accuracy, construction and query tokens, and latency. The results reveal a scale-dependent crossover rather than an unconditional winner. File-System Agent leads at the smallest shared tiers, but its sequential exploration costs 39 times more query tokens at the bedrock and becomes less effective as the search space grows. Around 10 million corpus tokens, BM25 overtakes it and leads at every larger shared tier, with a margin approaching 20 points at full scale. BM25 also anchors the low-cost end of the Pareto frontier without LLM-based construction. Dense retrieval remains efficient but less accurate, whereas graph-based RAG encounters construction walls before deployment scale and its scalable variants remain below BM25 at shared tiers. Overall, corpus growth increasingly favors global candidate ranking: lexical retrieval is the strongest scalable default, while agentic reasoning works best after ranked discovery rather than in place of it."
+      "url": "https://arxiv.org/abs/2607.28362",
+      "raw_summary": "We present ShadowDancer, a novel approach to any-action, frame-level control of interactive video world models. The obstacle is representational: existing interfaces either encode an action loosely, leaving how it unfolds for the model to improvise, or encode it exactly through structured signals that serve one family and are hard to acquire, so precise control across diverse dynamics remains impractical. Demonstration videos are the natural remedy, specifying any dynamics frame by frame; yet a video shows its dynamics only through one particular appearance, a single shadow of the underlying dynamics, so actions learned from demonstrations transfer poorly to new scenes. ShadowDancer addresses this with two key innovations: (1) shadow pairs, video pairs that replay the same dynamics under independently resampled appearance, constructed at scale by our Shadow Library, so that a dynamics family becomes controllable exactly when such pairs can be constructed for it; and (2) cross-shadow prediction, which learns actions by predicting one shadow from the other, so that whatever the pairing resamples is discarded by construction and whatever it preserves becomes the action, yielding a unified dynamics representation that drives a block-causal world model. Any demonstrated clip thus becomes a reusable action asset, replayed in new environments without action labels, motion estimators, or fine-tuning. Experiments demonstrate improved action transfer and long action rollout over strong latent-action and interactive world model baselines across diverse dynamics families, with an average blinded win rate of 86% in rollout comparisons. We show video results at https://ShadowDancer-1.github.io",
+      "image": "https://arxiv.org/html/2607.28362v1/x2.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -65,20 +65,9 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-07-31",
+      "published": "2026-08-01",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
-    },
-    {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-07-31",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
       "id": "news-gh-1246459259",
@@ -87,20 +76,31 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-07-31",
+      "published": "2026-08-01",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-85392394",
+      "id": "news-57675083",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Advancing the price-performance frontier with GPT-5.6",
+      "title": "Advancing responsible AI across Europe",
       "authors": "OpenAI",
-      "published": "2026-07-30",
-      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-      "raw_summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale."
+      "published": "2026-07-31",
+      "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
+      "raw_summary": "OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances."
+    },
+    {
+      "id": "news-86605723",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Building abundant intelligence",
+      "authors": "OpenAI",
+      "published": "2026-07-31",
+      "url": "https://openai.com/index/building-abundant-intelligence",
+      "raw_summary": "A full-stack approach to making advanced AI more capable, more affordable, and more widely useful."
     }
   ]
 }
