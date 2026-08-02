@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-01",
+  "fetched_at": "2026-08-02",
   "items": [
     {
       "id": "paper-2607.27616",
@@ -65,9 +65,31 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-01",
+      "published": "2026-08-02",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-27477449",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Ten advances in mathematics and theoretical computer science",
+      "authors": "OpenAI",
+      "published": "2026-08-01",
+      "url": "https://openai.com/index/ten-advances-in-mathematics",
+      "raw_summary": "OpenAI shares new results on long-standing open problems in mathematics and theoretical computer science, including advances in geometry, cryptography, and complexity."
+    },
+    {
+      "id": "news-gh-1031189110",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-action",
+      "authors": "通义千问 Qwen",
+      "published": "2026-08-01",
+      "url": "https://github.com/QwenLM/qwen-code-action",
+      "raw_summary": "A GitHub Action that integrates Qwen Code into your development workflow."
     },
     {
       "id": "news-gh-1246459259",
@@ -79,28 +101,6 @@
       "published": "2026-08-01",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
-    },
-    {
-      "id": "news-57675083",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Advancing responsible AI across Europe",
-      "authors": "OpenAI",
-      "published": "2026-07-31",
-      "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
-      "raw_summary": "OpenAI shares how its safety, security, transparency, and provenance practices support responsible AI governance in Europe. The work will continue as the EU AI Act advances."
-    },
-    {
-      "id": "news-86605723",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Building abundant intelligence",
-      "authors": "OpenAI",
-      "published": "2026-07-31",
-      "url": "https://openai.com/index/building-abundant-intelligence",
-      "raw_summary": "A full-stack approach to making advanced AI more capable, more affordable, and more widely useful."
     }
   ]
 }
