@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-15",
+  "fetched_at": "2026-08-16",
   "items": [
     {
       "id": "paper-2608.06867",
@@ -50,16 +50,16 @@
       "image": "https://arxiv.org/html/2608.07193v1/overrall-vtp-v7-1.png"
     },
     {
-      "id": "paper-2608.12313",
+      "id": "paper-2608.13049",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "AVA-Encoder: Towards Agent-Native Video Representation Learning",
-      "authors": "Chuyue Li, Jinpeng Yu, Haozhe Wang et al.",
-      "published": "2026-08-11",
-      "url": "https://arxiv.org/abs/2608.12313",
-      "raw_summary": "Creative agents still lack an effective way to learn from high-quality human films, limiting their ability to produce cinematic-grade videos. A key challenge is the absence of a structured video representation that is both faithful to film content and directly usable for agentic reasoning and manipulation. To address the challenge, we propose the Agentic Video Auto-Encoder (AVA-Encoder), a framework for learning agent-native video representations via agentic auto-encoding.   AVA-Encoder transforms a video into a knowledge graph (KG) representation and then reconstructs it back into video. Its hierarchy and state nodes store structured text, while a linked asset layer holds generated images, audio, and video. Typed edges preserve the relations between these text descriptions and assets in a form that agents can easily understand, query, and edit. The video reconstruction differences drive a textual-gradient optimization framework, which expresses evaluation feedback as natural-language update directions for Data-Independent Encoding Policy Pseudo-Training in the outer loop and optional Data-Dependent KG Representation Refinement in the test-time inner loop.   Extensive experiments show that AVA-Encoder improves by 20.7 percentage points over the strongest external baseline. In the controlled policy-only setting, its pseudo-trained shot-level Agentic Video Encoder policy also outperforms a carefully human-tuned policy while using 74.3% fewer system-prompt tokens. We release the complete AVA-Encoder framework, a reliable agentic video reconstruction benchmark, and the first dataset of high-quality film KG representations.",
-      "image": "https://arxiv.org/html/2608.12313v1/figures/AVAE-pipeline.png"
+      "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
+      "authors": "Dingyi Rong, Yue Shi, Chaofan Ma et al.",
+      "published": "2026-08-12",
+      "url": "https://arxiv.org/abs/2608.13049",
+      "raw_summary": "Large-scale manipulation data is essential for robot learning, yet collecting robot demonstrations remains expensive and difficult to scale. Meanwhile, abundant egocentric human manipulation videos provide rich behavioral experiences, but transferring them across embodiments remains challenging due to differences between human hands and robotic end-effectors. Recent advances in video world models offer a promising pathway to synthesize robot-centric manipulation videos from human observations, while their cross-embodiment transfer capability remains largely unexplored. Therefore, we introduce H2R-Bench, a benchmark for evaluating cross-embodiment human-to-robot manipulation video generation, where models transform egocentric human demonstrations into robot manipulation videos under specified embodiments. Each benchmark instance contains a human demonstration video, target embodiment constraints, and source-grounded annotations covering task goals, action events, functional contacts, and object responses. H2R-Bench evaluates generated videos through five dimensions, including goal-state completion, action-event completion, functional contact transfer, embodiment correctness, and general video quality. We benchmark eleven state-of-the-art video generation models across six manipulation families and two robot embodiments. Our evaluation reveals that current video world models remain limited in human-to-robot manipulation transfer: even leading models often fail in embodiment consistency, functional interaction, and task execution. H2R-Bench provides a systematic diagnostic framework for evaluating whether video world models can bridge the human-to-robot embodiment gap and convert human manipulation observations into robot-centric training resources.",
+      "image": "https://arxiv.org/html/2608.13049v1/overview.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -68,9 +68,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-15",
+      "published": "2026-08-16",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1041478561",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-08-15",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
       "id": "news-gh-1246459259",
@@ -84,26 +95,15 @@
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-58298569",
+      "id": "news-gh-1093356750",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "State of Open Models: Summer 2026 Observations",
-      "authors": "Hugging Face",
-      "published": "2026-08-14",
-      "url": "https://huggingface.co/blog/state-of-open-models-summer-2026",
-      "raw_summary": ""
-    },
-    {
-      "id": "news-50306586",
-      "type": "news",
-      "source": "AWS ML",
-      "region": "海外",
-      "title": "Custom reward functions for multi-turn reinforcement learning with Amazon Nova Forge",
-      "authors": "AWS ML",
-      "published": "2026-08-14",
-      "url": "https://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/",
-      "raw_summary": "In multi-turn reinforcement learning, your custom reward function decides what the model actually learns. This post shows how to design a composite multi-turn reward for Amazon Nova Forge, execute model-generated code safely inside it, and instrument each component to catch the pitfalls that quietly collapse a reward."
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/MiniMax-Provider-Verifier",
+      "authors": "MiniMax",
+      "published": "2026-08-15",
+      "url": "https://github.com/MiniMax-AI/MiniMax-Provider-Verifier",
+      "raw_summary": "MiniMax-Provider-Verifier offers a rigorous, vendor-agnostic way to verify whether third-party deployments of the Minimax M2 model are correct and reliable."
     }
   ]
 }
