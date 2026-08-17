@@ -1,42 +1,6 @@
 {
-  "fetched_at": "2026-08-16",
+  "fetched_at": "2026-08-17",
   "paper_candidates": [
-    {
-      "id": "paper-2608.06867",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers",
-      "authors": "Tao Feng, Fangxu Yu, Haozhen Zhang et al.",
-      "published": "2026-08-06",
-      "url": "https://arxiv.org/abs/2608.06867",
-      "raw_summary": "No single large language model (LLM) is optimal across all queries and budget constraints, making model routing essential for cost-effective deployment. Existing routers adopt diverse formulations and implementations, making fair comparison and extension difficult. We present a unified formulation of LLM routing as a sequential decision process characterized by five components: context encoders, model encoders, scoring functions, decision rules, and learning signals, covering single-turn, multi-turn, and personalized routing. Based on this formulation, we develop an automated pipeline for constructing routing supervision and evaluating routers jointly on response quality and inference cost. The resulting benchmark, xRouteBench, spans generic LLM, memory-augmented, vision, time-series, and personalized routing tasks. We further introduce LLMRouter, an open-source modular infrastructure with more than 16 representative routers. Our empirical study shows that learned routers outperform the strongest fixed-model baseline by 14.6% relatively, lightweight routers become more competitive under tight cost constraints, and user-conditioned routing consistently improves personalization.",
-      "hotness": 97
-    },
-    {
-      "id": "paper-2608.11752",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos",
-      "authors": "Yuxuan Zhang, Haozhong Xiong, Jiayi Song et al.",
-      "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.11752",
-      "raw_summary": "Talking-video character replacement requires coordinated transfer of appearance and voice while preserving the source motion, scene, linguistic content, and audio-video timing. Existing methods use separately optimized models for the two modalities, making audio-visual consistency difficult to enforce. We present UniSwap, the first framework for streaming joint audio-visual identity replacement in talking videos. Given a source video, a reference image, and a reference voice clip, UniSwap transfers the reference appearance and vocal timbre within a single audio-visual diffusion transformer while preserving the source content and dynamics. To address the scarcity of aligned cross-identity training pairs, we introduce a swap-and-reconstruct pipeline that removes visual and vocal identity from real clips and uses the original clips as reconstruction targets. Starting from a bidirectional backbone, we progressively adapt the model through In-context Pretraining for joint replacement, Conditional Streaming Adaptation for block-causal KV-cached generation, and Efficient Self-forcing DMD for mitigating exposure bias and reducing sampling from 30 to 3 denoising steps per block. Efficient Multi-LoRA Switching enables the three DMD roles to share a single frozen backbone. Feature-RoPE Decomposition keeps cached positions within the training range, supporting stable long-form inference. Experiments demonstrate strong audio-visual synchronization, competitive identity preservation, efficient streaming, and stable long-form generation.",
-      "hotness": 16
-    },
-    {
-      "id": "paper-2608.11745",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time",
-      "authors": "Yuxuan Zhang, Haozhong Xiong, Yubo Huang et al.",
-      "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.11745",
-      "raw_summary": "Pose-driven human animation synthesizes a video of a target person from a single reference image and a driving pose stream. Real-time generation is essential for interactive applications such as live streaming, telepresence, and virtual avatars, yet diffusion-based systems require minutes to hours per clip, precluding responsive interaction. We present LiveAnimate, to our knowledge the first animation system to combine real-time streaming with stable long-form generation at billion scale, built on a 14B-parameter video Diffusion Transformer (DiT). A two-stage training pipeline first adapts a pretrained bidirectional DiT into a block-causal autoregressive generator through Reference-Anchored Teacher-Forcing Adaptation, and then reduces the sampling budget to three steps through Block-wise Self-Forcing Distillation. To preserve appearance over extended streams, we introduce Pose-Retrieval Sink Attention (PR-Sink), a bounded KV-cache mechanism combining a Static Sink that permanently anchors the first generated block, a Dynamic Sink that holds a pose-retrieved historical block, and a three-slot Rolling Window. When a pose recurs, PR-Sink restores the relevant appearance context without retaining the entire sequence, so memory and per-block latency remain constant regardless of stream duration. Together with Ulysses sequence parallelism and operator fusion, these designs enable 19.63\\,FPS streaming inference on two NVIDIA H100 GPUs. On a three-minute benchmark, LiveAnimate maintains nearly constant perceptual quality and identity from the first 30 seconds to the final minute, while prior systems degrade substantially or require hours of offline computation for the same rollout. These results establish a new operating point in quality, latency, and duration for interactive full-body animation.",
-      "hotness": 16
-    },
     {
       "id": "paper-2608.07193",
       "type": "paper",
@@ -47,19 +11,7 @@
       "published": "2026-08-06",
       "url": "https://arxiv.org/abs/2608.07193",
       "raw_summary": "Visual-token pruning can substantially reduce the inference cost of multimodal large language models (MLLMs), yet existing methods largely rely on fixed, handcrafted heuristics and costly expert trial and error. As pruning objectives, budgets, and model architectures diversify, manually navigating the expanding design space becomes increasingly difficult. This paper aims to build an AI4AI framework for visual-token pruning by addressing a natural question: Can large language models automatically design effective visual-token reduction algorithms? Although LLMs possess broad algorithmic knowledge and strong reasoning capabilities, translating such general knowledge into effective solutions for a specialized task remains nontrivial. We argue that the key lies in designing an appropriate search-state representation that connects the internal knowledge of LLMs with the structural requirements and constraints of visual-token pruning. Based on this insight, we propose AutoPrune, a training-free framework for LLM-driven visual-token pruning policy design. At its core, AutoPrune introduces a Token Pruning Domain-Specific Language (TPDSL) comprising 131 reusable atoms for budget control, token scoring, selection constraints, and token reassembly. A key property of TPDSL is that it represents each search state as a residual modification of a strong base policy. This residual formulation narrows the search space and directs the LLM's attention toward the policy components that are most consequential for performance. Experiments on 14 multimodal benchmarks and three MLLM backbones demonstrate the effectiveness, efficiency, and transferability of AutoPrune. Even when removing 94.4% of visual tokens, AutoPrune preserves more than 99% of full-token performance while reducing FLOPs by 9.9x and prefill latency by 6.4x.",
-      "hotness": 11
-    },
-    {
-      "id": "paper-2608.13049",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
-      "authors": "Dingyi Rong, Yue Shi, Chaofan Ma et al.",
-      "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.13049",
-      "raw_summary": "Large-scale manipulation data is essential for robot learning, yet collecting robot demonstrations remains expensive and difficult to scale. Meanwhile, abundant egocentric human manipulation videos provide rich behavioral experiences, but transferring them across embodiments remains challenging due to differences between human hands and robotic end-effectors. Recent advances in video world models offer a promising pathway to synthesize robot-centric manipulation videos from human observations, while their cross-embodiment transfer capability remains largely unexplored. Therefore, we introduce H2R-Bench, a benchmark for evaluating cross-embodiment human-to-robot manipulation video generation, where models transform egocentric human demonstrations into robot manipulation videos under specified embodiments. Each benchmark instance contains a human demonstration video, target embodiment constraints, and source-grounded annotations covering task goals, action events, functional contacts, and object responses. H2R-Bench evaluates generated videos through five dimensions, including goal-state completion, action-event completion, functional contact transfer, embodiment correctness, and general video quality. We benchmark eleven state-of-the-art video generation models across six manipulation families and two robot embodiments. Our evaluation reveals that current video world models remain limited in human-to-robot manipulation transfer: even leading models often fail in embodiment consistency, functional interaction, and task execution. H2R-Bench provides a systematic diagnostic framework for evaluating whether video world models can bridge the human-to-robot embodiment gap and convert human manipulation observations into robot-centric training resources.",
-      "hotness": 11
+      "hotness": 15
     },
     {
       "id": "paper-2608.08020",
@@ -71,7 +23,7 @@
       "published": "2026-08-10",
       "url": "https://arxiv.org/abs/2608.08020",
       "raw_summary": "Test-time compute scaling is a primary driver of performance in large reasoning models (LRMs), but extreme inefficiency bounds current approaches, shifting the critical question from how much compute to spend, to where to allocate it. We formalize test-time reasoning as a constrained compute allocation problem over partial trajectories. Under a fixed hardware budget, existing paradigms fail to actively allocate the compute to the most promising partial progress: traditional parallel sampling treats traces independently and induces severe memory bottlenecks, while subtractive pruning starves hardware and fails to actively and sufficiently shift the output distribution. To overcome this dichotomy, we introduce Gambit, an inference algorithm that executes thought-level beam search. By periodically pruning unpromising trajectories and immediately branching from high-quality prefixes, Gambit dynamically concentrates compute onto the most promising reasoning traces via a light-weight scorer probing hidden states while maintaining continuous high hardware utilization. Extensive evaluations across multiple models and benchmarks demonstrate that Gambit strictly dominates existing baselines. Under identical hardware constraints, our method yields up to a +6.7\\% absolute accuracy gain on HMMT-24 and +3.3\\% on AIME-25 over pruning baselines, delivers >2times higher throughput on trace completion, and reduces total token consumption by up to 68.5\\% relative to standard parallel sampling.",
-      "hotness": 10
+      "hotness": 14
     },
     {
       "id": "paper-2608.12313",
@@ -83,7 +35,7 @@
       "published": "2026-08-11",
       "url": "https://arxiv.org/abs/2608.12313",
       "raw_summary": "Creative agents still lack an effective way to learn from high-quality human films, limiting their ability to produce cinematic-grade videos. A key challenge is the absence of a structured video representation that is both faithful to film content and directly usable for agentic reasoning and manipulation. To address the challenge, we propose the Agentic Video Auto-Encoder (AVA-Encoder), a framework for learning agent-native video representations via agentic auto-encoding.   AVA-Encoder transforms a video into a knowledge graph (KG) representation and then reconstructs it back into video. Its hierarchy and state nodes store structured text, while a linked asset layer holds generated images, audio, and video. Typed edges preserve the relations between these text descriptions and assets in a form that agents can easily understand, query, and edit. The video reconstruction differences drive a textual-gradient optimization framework, which expresses evaluation feedback as natural-language update directions for Data-Independent Encoding Policy Pseudo-Training in the outer loop and optional Data-Dependent KG Representation Refinement in the test-time inner loop.   Extensive experiments show that AVA-Encoder improves by 20.7 percentage points over the strongest external baseline. In the controlled policy-only setting, its pseudo-trained shot-level Agentic Video Encoder policy also outperforms a carefully human-tuned policy while using 74.3% fewer system-prompt tokens. We release the complete AVA-Encoder framework, a reliable agentic video reconstruction benchmark, and the first dataset of high-quality film KG representations.",
-      "hotness": 10
+      "hotness": 14
     },
     {
       "id": "paper-2608.02870",
@@ -95,7 +47,7 @@
       "published": "2026-08-04",
       "url": "https://arxiv.org/abs/2608.02870",
       "raw_summary": "We introduce , a recurrent Transformer architecture with fixed-size memory that generalizes sliding-window attention while remaining parallelizable during training.  consists of two coupled models: a prefiller Q, which leverages full attentionIn practice, we use interleaved full and sliding-window attention for Q, as this yields stronger performance. The essential requirement is that Q be more expressive than P, with access to the full history. to produce memory targets m'_t, and a decoder P, which uses only sliding-window attention and recurrent K/V injection to produce decoder memories m_t for next-token prediction. We train  with a memory consistency loss that aligns m_t with m'_t, allowing inference to use P alone. Empirically,  improves validation loss and downstream pretraining benchmarks over sliding-window and latent recurrent transformer baselines. Moreover, sharing parameters between P and Q reduces parameter memory while preserving most of the gains.",
-      "hotness": 9
+      "hotness": 13
     },
     {
       "id": "paper-2608.13391",
@@ -107,7 +59,7 @@
       "published": "2026-08-12",
       "url": "https://arxiv.org/abs/2608.13391",
       "raw_summary": "Interactive autoregressive video generation demands both low-latency rollouts and precise online control. Few-step distillation accelerates generation by reducing denoising steps, while online control imposes a causal constraint: frames and blocks should depend on history and controls available during generation. Existing video distribution matching distillation (DMD) pipelines, however, often supervise causal few-step students using bidirectional teachers that score complete clips. The score for a target can therefore depend on future frames and controls that were unavailable when the student generated it, misaligning teacher supervision with the student's causal information set. We introduce Context-Matched Distillation (CMD), a causal DMD framework that aligns teacher supervision with the information available when each target is generated. CMD replaces bidirectional full-clip scoring with a causal teacher that evaluates each target without access to future frames or controls. The same causal teacher initializes the few-step student, establishing a consistent causal formulation across teacher training, student distillation, and inference. Beyond aligning the temporal information boundary, Prefix Scoring matches supervision to the student's realized rollout context by evaluating each target under the cached student-generated prefix that produced it. Prefix Corruption further stabilizes training by perturbing unreliable prefixes produced early in training while preserving this target-context alignment. With a simple causal formulation, CMD naturally extends to frame-wise and chunk-wise generation, long video distillation, and camera-conditioned distillation. Experiments demonstrate state-of-the-art aggregate performance among autoregressive methods on both short- and long-video benchmarks, together with substantially improved adherence to time-varying camera controls.",
-      "hotness": 9
+      "hotness": 13
     },
     {
       "id": "paper-2608.10538",
@@ -119,7 +71,7 @@
       "published": "2026-08-10",
       "url": "https://arxiv.org/abs/2608.10538",
       "raw_summary": "Agent skills represent a standardized format for packaging procedural knowledge and domain expertise, serving within agent harness systems as an essential mechanism to continually constrain a language model's behavior space for repeatable, high-quality task execution. However, because strong closed-source models entail high inference costs, current popular agent harnesses, such as Codex and OpenClaw, remain prohibitively expensive when deploying these skills to accomplish real-world tasks. The rapid capability enhancement of open-source models deployable on consumer-grade GPUs presents a compelling opportunity to drastically reduce these costs by leveraging skill-based behavioral constraints. Nevertheless, automatically generating effective skills tailored specifically for such compact models remains a significant practical challenge. To address this, we propose SKILLER, a natural-language-driven reinforcement learning framework designed to automatically generate executor-specific skills for small models, which employs a strong model as the actor and critic, treats the small-model agent system as the environment, and propagates all reinforcement learning signals entirely via natural language. Extensive experimental evaluations across five relevant benchmarks using Qwen3.5-9B and Qwen3.5-4B demonstrate that SKILLER outperforms three open-source and one closed-source skill generation or evolution methods, achieving absolute gains ranging from 4.3 to 20.4 percentage points for the 9B model and 1.8 to 13.3 points for the 4B model, while remarkably matching the performance of strong closed-source models on single-skill tasks in SkillsBench. The project is available at https://github.com/DANG-ai/SKILLER.",
-      "hotness": 9
+      "hotness": 13
     },
     {
       "id": "paper-2608.11660",
@@ -131,7 +83,7 @@
       "published": "2026-08-11",
       "url": "https://arxiv.org/abs/2608.11660",
       "raw_summary": "Large language models (LLMs) achieve remarkable performance across natural language tasks, yet they are trained on static corpora and their knowledge quickly becomes outdated in a fast-changing world. This motivates knowledge editing (KE), which updates specific knowledge in an LLM without changing unrelated others. Recent works move from structured knowledge triples toward unstructured KE (UKE), where the edit is a free-form passage that may state multiple facts at once. Nonetheless, existing editors inject such a passage yet fail to use it: the edited model can recall the passage, but can neither answer atomic questions about its facts nor compose them into multi-hop reasoning. We attribute this missing property, which we term composability, to editors' passive reliance on the fixed passage as the sole learning source. In response, we cast editing as a proactive self-distillation from a privileged in-context state of the same model, which requires no external supervision. We further reveal that due to the novelty of the injected knowledge, the pre-edited model's own rollouts rarely cover it, which limits the effectiveness of pure on-policy distillation. To close this gap, we propose HPSE, which builds a hybrid rollout that steps in to place missing facts onto the student's own trajectory precisely where its coverage fails, while staying on-policy elsewhere. We theoretically analyze HPSE's advantage over pure on-policy distillation, and empirically establish its plug-and-play improvements across four LLM backbones and two KE editors under various scenarios.",
-      "hotness": 7
+      "hotness": 11
     },
     {
       "id": "paper-2608.13430",
@@ -143,7 +95,7 @@
       "published": "2026-08-12",
       "url": "https://arxiv.org/abs/2608.13430",
       "raw_summary": "Instruction-tuned language models achieve strong performance across a range of generation tasks, but have also recently been shown to exhibit verbalized overconfidence. In question answering, verbalized model overconfidence may be associated with the consistency of the generated supporting rationales. In this paper, we study whether corresponding changes in the lexical diversity of generated answer rationales accompany changes in model confidence induced by instruction tuning. We evaluate three matched base and instruction-tuned models across question-answering benchmarks and find that instruction tuning consistently alters answer confidence, despite limited changes in predictive accuracy and decreases in likelihood-based calibration. Secondly, we observe a non-uniform effect of instruction tuning on rationale diversity: cross-rationale diversity consistently decreases, whereas surface-level lexical diversity varies in both direction and magnitude across models and benchmarks. Finally, we find that these differences persist after controlling for answer selection and rationale length, confirming that confidence and rationale diversity capture distinct effects of instruction tuning.",
-      "hotness": 7
+      "hotness": 11
     },
     {
       "id": "paper-2607.29211",
@@ -155,7 +107,7 @@
       "published": "2026-07-30",
       "url": "https://arxiv.org/abs/2607.29211",
       "raw_summary": "Large language models generate computationally expensive yet semantically void reasoning on beyond-capability tasks, creating risks where plausible-sounding but incorrect derivations mislead users. We characterize this futile reasoning phenomenon through systematic analysis, revealing universal capability overreach and systematic miscalibration between capability and behavior. The dominant failure mode is specious reasoning, which outputs look superficially valid but contain subtle errors, escalating with task difficulty. To address this, we introduce CaRL (Capability-aligned Reinforcement Learning), which aligns model behavior with capability boundaries through reward shaping that incentivizes refusal over futile reasoning and hindsight refusal augmentation that converts failures into refusal supervision. Experiments demonstrate a substantial reduction in futile reasoning while preserving performance across task difficulties, effectively achieving capability-aligned behavior without sacrificing utility. https://github.com/icip-cas/Knowing-When-to-Quit",
-      "hotness": 7
+      "hotness": 11
     },
     {
       "id": "paper-2608.09158",
@@ -167,7 +119,7 @@
       "published": "2026-08-09",
       "url": "https://arxiv.org/abs/2608.09158",
       "raw_summary": "Large audio-language models (LALMs) have demonstrated strong capabilities in understanding diverse audio inputs. This diversity includes low-frequency signals that are inaudible to humans but can still enter the model and influence its generation. However, the practical impact of such low-frequency inputs on LALMs remains largely unexplored. In this paper, we propose Intermittent Low-Frequency Lockout (ILL), an inaudible red teaming method that evaluates this risk using a universal waveform template in a black box setting. ILL uses Sentence Attention Scale Estimation to determine active intervals and Frequency Confusion Transfer to construct a low-frequency waveform with continuous phase from corpus spectral variation. To mitigate this risk, we propose Distributional Requery Guard (DRG) to detect low-frequency distribution shifts and conditionally request a second recording for semantic recovery. Across six LALMs and multiple audio understanding tasks, ILL reduces accuracy by up to 67 percentage points while receiving a mean human audibility rating of 1.33, close to 1.17 for clean audio; DRG raises mean attacked accuracy from 28.5\\% to 46.1\\% after clean reacquisition. These findings identify a previously overlooked safety risk for LALMs and provide a foundation for future research on robust audio understanding.",
-      "hotness": 6
+      "hotness": 10
     },
     {
       "id": "paper-2608.12440",
@@ -179,43 +131,19 @@
       "published": "2026-08-11",
       "url": "https://arxiv.org/abs/2608.12440",
       "raw_summary": "This paper reports a single, fully instrumented case study of a large-scale architectural refactoring by an AI coding agent under a specification-first protocol, with no human review of the generated code and no pre-existing oracle to validate the target behaviour. The task, dismantling a central invariant across a large interdependent codebase, was assessed by the author as effectively infeasible through incremental refactoring, the kind of change that conventionally calls for a rewrite instead. Under the protocol described here, the agent completed it successfully.   The system is a 717,725-line production TypeScript application across 3,648 files. The task required dismantling a core lifetime invariant: the guarantee that a UI panel remains open for the duration of an AI request. The target behaviour was that a streaming generation survives the closing of its panel and can be reattached, on reopening, to the same live stream with no loss or duplication.   The protocol: formal specification by the agent, 14 refinement cycles auditing that specification against the source code, atomic implementation, a compile/test feedback loop, then 17 verification cycles auditing the code against the frozen specification. Across 31 audit passes, 201 defects were corrected before any human executed the program. The convergence criterion was empirical: two consecutive verification passes returning zero findings.   The change touched 189 files (31 new); with the extraction phase, the two commits total 288 files, 34,770 insertions, 16,422 deletions. Across the first and roughly thirty later sessions, the software behaved as specified, no bug observed. Elapsed: three days; cost: USD 2,430.   The full specification and raw session logs, 1,500+ pages in French, are published as evidence, allowing inspection of the process and submission to a language model for consistency checking.",
-      "hotness": 6
+      "hotness": 10
     },
     {
-      "id": "paper-2608.08606",
+      "id": "paper-2608.13417",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Mitigating Gender Bias in English to Romanian Machine Translation",
-      "authors": "Ioana Grigore, Sergiu Nisioi",
-      "published": "2026-08-08",
-      "url": "https://arxiv.org/abs/2608.08606",
-      "raw_summary": "Machine translation (MT) systems often fail to correctly translate gender, especially when converting from a gender-neutral language like English to a gendered target language such as Romanian. This bias results in translations that default to masculine forms or reinforce gender stereotypes. We propose a hybrid pipeline to mitigate this issue by combining large language model (LLM)-based gender classification with neural machine translation (NMT). Our system uses a fine-tuned LLM to detect the intended gender of target words in English sentences and insert inline gender hint tags. These tagged sentences are then passed to a Transformer model fine-tuned to generate morphologically correct Romanian translations. To support this, we introduce three novel datasets for gender disambiguation and translation. Our approach improves gender accuracy on the WinoMT and WinoGender benchmarks by over 40 percentage points compared to a baseline MT system. This is the first method to explicitly address and evaluate gender bias in English-Romanian MT using both LLM inference and tag-aware translation.",
-      "hotness": 4
-    },
-    {
-      "id": "paper-2608.11951",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement",
-      "authors": "Karim Aly, Alexei Sharpanskykh, Jacco Hoekstra",
-      "published": "2026-08-11",
-      "url": "https://arxiv.org/abs/2608.11951",
-      "raw_summary": "Extreme events in air transport, such as severe arrival delays and abnormal air times, cause cascading network disruptions with substantial operational, economic, and safety costs. Such events are rare in historical records, leaving insufficient training signal for machine learning models. Synthetic data augmentation offers a principled solution, but conventional generative models under-represent distributional tails and give no guarantee against operationally infeasible instances, such as a short air time paired with a long flight distance. No existing approach addresses both limitations for mixed-type tabular records. We propose TailBooster, a dual-layer generative framework combining generative modelling with two anomaly detection layers. A statistical layer extracts extremes via the interquartile range, supplying tail-concentrated training signal to dedicated generative models, here a Tabular Variational Autoencoder. A deep learning layer then applies autoencoder-based cleaning, discarding synthetic records that violate the operational envelope learned from historical data. The framework was evaluated on US flight records across five dimensions: diversity, statistical similarity, fidelity, operational validity, and utility, the latter two being the primary improvement targets. Data-driven cleaning markedly improved operational validity, while targeted augmentation enhanced utility for extreme-event prediction. Across six regression algorithms, training on the framework's records reduced Mean Absolute Error by 47-49% on extreme air time and 29-57% on extreme arrival delay prediction relative to conventional synthetic data, with comparable gains when real records were enriched with synthetic extremes. Being fully data-driven and model-agnostic, TailBooster extends to domains where extreme-event prediction is critical and domain-specific rules are unavailable.",
-      "hotness": 4
-    },
-    {
-      "id": "paper-2608.12773",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "CW-BASS v2: Saturation-Aware Pseudo-Label Selection for Semi-Supervised Segmentation under Foundation-Model Teachers",
-      "authors": "Ebenezer Tarubinga",
+      "title": "Beyond Final Scores: A Systematic Evaluation of Agents for Long-Horizon AI Research and Development",
+      "authors": "Yiwei Li, Wanli Yang, Hexiang Tan et al.",
       "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.12773",
-      "raw_summary": "Semi-supervised semantic segmentation has long turned on one question, which pseudo-labels to trust, and a generation of selection rules, dynamic thresholds, per-class curricula, soft confidence weights, answered it for the noisy, under-confident ResNet teachers of their day. Self-supervised foundation encoders change the regime: with a DINOv2 teacher, confidence saturates, so the filtering that helped a weak teacher can hurt a strong one. We propose CW-BASS v2, a saturation-aware pseudo-label selection method that reads the teacher's confidence regime rather than committing to one rule. It pairs held-out calibration, an unbiased per-class noise estimate, with a self-adaptive confidence floor that provably bounds retention away from 1, and combines them in a one-pass gate: measure the reliability of the teacher's confident set, pi_kept = Pr[correct | c >= tau], on a held-out slice, and filter strictly when it meets the confidence demanded (pi_kept >= tau), falling back to the adaptive floor otherwise. The boundary is the pre-existing operating threshold, not a value tuned to mIoU, and across six DINOv2 teachers it makes the correct strict-vs-floor call blind. CW-BASS v2 thus recovers the UniMatch V2 operating point on the saturated benchmarks by selecting strict (Pascal VOC 1/8 87.4 against its reported 87.9; Cityscapes within 0.5), and improves on it where the confident set is unreliable (pi_kept ~ 89%, ADE20K), where the floor edges ahead (+1.5 mIoU, single seed). The gate is principled because the failure it avoids is measured, not assumed: on a reliable, saturated teacher the confidence distribution's dynamic range collapses (98% of Pascal pixels >= 0.95), so an adaptive cutoff floods the retention mask and self-training decays into confirmation bias.",
-      "hotness": 4
+      "url": "https://arxiv.org/abs/2608.13417",
+      "raw_summary": "Autonomous agents are increasingly capable of improving models, systems, and other technical artifacts through long-horizon experimentation. To understand the current state of this capability, however, evaluation must go beyond final scores, which neither reveal where progress is gained or lost nor indicate whether accumulated experience improves later decisions. We therefore present a systematic evaluation of seven frontier models on 36 long-horizon tasks based on a new framework that uses rule-based metrics to characterize within-run behavior through Solution Framing, Execution, and Feedback Control and controlled comparisons to assess experience reuse within and across tasks. The results show that current agents operate more like engineering optimizers than fully autonomous researchers: they can formulate and implement practical solutions, but their performance varies substantially across runs, their strongest solutions mainly adapt or combine established techniques, and genuine methodological novelty remains rare. Detailed analysis reveals that observed performance is shaped by multiple factors, including distinct process bottlenecks behind similar final outcomes, experience reuse that can help or mislead subsequent decisions, and harness designs that affect performance stability. These findings suggest concrete directions for improving model training, inference-time strategies, experience management, and harness design.",
+      "hotness": 9
     },
     {
       "id": "paper-2608.06914",
@@ -227,7 +155,31 @@
       "published": "2026-08-09",
       "url": "https://arxiv.org/abs/2608.06914",
       "raw_summary": "Rib fractures are common and time-consuming to localize on computed tomography (CT). We ask whether fractures detected independently in two orthogonal CT-derived projections (anteroposterior and lateral) can be paired across views and triangulated into reliable 3D points at a controlled rate of false outputs, and we answer it with a staged diagnostic study. The projection geometry is exact, and given correct correspondence, localization is accurate (median 4.0 mm, 88% within 10 mm, 93.6% rib-exact). On a sealed 55-case cohort, a large share of fractures is in principle recoverable (61.1% dual-view availability, and a correct pair present in the candidate graph for 58.4% of fractures), yet the binding limitation is neither geometry nor localization but confidence-limited cross-view correspondence. A controlled detector-by-correspondence factorial attributes the operational gain to lateral-detector quality rather than the tested matching methods; retraining the lateral detector produces the first nonzero controlled-budget reconstructions. Under a deliberately conservative commitment policy, a pre-specified sealed pass promotes 15 of 601 fractures to correct 3D localizations at 0.436 false points per case (2.50% end-to-end commitment yield), and committed points are accurate (median 1.49 mm, 93% rib-exact). The low yield is a consequence of confidence-gated abstention, not of geometry or detection: the study establishes a reproducible framework for selective 3D localization and identifies cross-view correspondence as the dominant operational bottleneck.",
-      "hotness": 3
+      "hotness": 9
+    },
+    {
+      "id": "paper-2608.08606",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Mitigating Gender Bias in English to Romanian Machine Translation",
+      "authors": "Ioana Grigore, Sergiu Nisioi",
+      "published": "2026-08-08",
+      "url": "https://arxiv.org/abs/2608.08606",
+      "raw_summary": "Machine translation (MT) systems often fail to correctly translate gender, especially when converting from a gender-neutral language like English to a gendered target language such as Romanian. This bias results in translations that default to masculine forms or reinforce gender stereotypes. We propose a hybrid pipeline to mitigate this issue by combining large language model (LLM)-based gender classification with neural machine translation (NMT). Our system uses a fine-tuned LLM to detect the intended gender of target words in English sentences and insert inline gender hint tags. These tagged sentences are then passed to a Transformer model fine-tuned to generate morphologically correct Romanian translations. To support this, we introduce three novel datasets for gender disambiguation and translation. Our approach improves gender accuracy on the WinoMT and WinoGender benchmarks by over 40 percentage points compared to a baseline MT system. This is the first method to explicitly address and evaluate gender bias in English-Romanian MT using both LLM inference and tag-aware translation.",
+      "hotness": 9
+    },
+    {
+      "id": "paper-2608.11951",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "TailBooster: A Dual-Layer Generative Framework for Extreme Value Augmentation with Operational Validity Enforcement",
+      "authors": "Karim Aly, Alexei Sharpanskykh, Jacco Hoekstra",
+      "published": "2026-08-11",
+      "url": "https://arxiv.org/abs/2608.11951",
+      "raw_summary": "Extreme events in air transport, such as severe arrival delays and abnormal air times, cause cascading network disruptions with substantial operational, economic, and safety costs. Such events are rare in historical records, leaving insufficient training signal for machine learning models. Synthetic data augmentation offers a principled solution, but conventional generative models under-represent distributional tails and give no guarantee against operationally infeasible instances, such as a short air time paired with a long flight distance. No existing approach addresses both limitations for mixed-type tabular records. We propose TailBooster, a dual-layer generative framework combining generative modelling with two anomaly detection layers. A statistical layer extracts extremes via the interquartile range, supplying tail-concentrated training signal to dedicated generative models, here a Tabular Variational Autoencoder. A deep learning layer then applies autoencoder-based cleaning, discarding synthetic records that violate the operational envelope learned from historical data. The framework was evaluated on US flight records across five dimensions: diversity, statistical similarity, fidelity, operational validity, and utility, the latter two being the primary improvement targets. Data-driven cleaning markedly improved operational validity, while targeted augmentation enhanced utility for extreme-event prediction. Across six regression algorithms, training on the framework's records reduced Mean Absolute Error by 47-49% on extreme air time and 29-57% on extreme arrival delay prediction relative to conventional synthetic data, with comparable gains when real records were enriched with synthetic extremes. Being fully data-driven and model-agnostic, TailBooster extends to domains where extreme-event prediction is critical and domain-specific rules are unavailable.",
+      "hotness": 8
     },
     {
       "id": "paper-2608.12997",
@@ -239,54 +191,102 @@
       "published": "2026-08-12",
       "url": "https://arxiv.org/abs/2608.12997",
       "raw_summary": "Score Distillation Sampling (SDS) enables text-to-3D generation by optimizing rendered images with a pretrained diffusion prior, but latent SDS often produces structured color artifacts and high-frequency texture noise. We identify a failure mode of latent SDS caused by VAE-induced pixel drift: the optimized image can move along pixel-space directions that are weakly constrained by the VAE encoder, so its latent representation remains clean and semantically meaningful while the image itself accumulates visible artifacts. We support this diagnosis with controlled 2D SDS experiments, VAE-only optimization, and a simplified analysis showing that encoder-like latent objectives can amplify image-space noise when the inverse mapping to pixels is underconstrained. Motivated by this observation, we propose PixSDS, a lightweight VAE-consistent gradient repair method. PixSDS decodes a latent SDS lookahead step and uses the decoded image as a clean direction for pixel-space optimization, reducing motion in VAE-inconsistent directions without retraining the diffusion model, changing the renderer, or replacing the SDS objective. Experiments in 2D optimization and text-to-3D generation show that PixSDS substantially reduces structured artifacts while preserving semantic content. Code is publicly available at https://sevashasla.github.io/pixsds-webpage/.",
-      "hotness": 3
+      "hotness": 7
     },
     {
-      "id": "paper-2608.13560v1",
+      "id": "paper-2608.14530",
       "type": "paper",
-      "source": "arXiv · cs.AI",
+      "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design",
-      "authors": "Yaxin Luo, Haobin Jiang, Jialv Zou et al.",
+      "title": "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
+      "authors": "Zian Meng, Zhen Li, Chuanhao Li et al.",
       "published": "2026-08-13",
-      "url": "http://arxiv.org/abs/2608.13560v1",
-      "raw_summary": "Transforming multimodal sources into condensed and structured media outputs can be fundamentally conceptualized as a long-horizon agentic process centered on a model-harness system. While an ideal harness system should align with human design priors and accumulate reusable experience through empirical exploration to drive recursive self-improvement, existing paradigms remain static and fall short of this capability. In this paper, we present AutoDesign, a framework that aligns with human design priors, where a meta-harness optimizer guides a code agent to recursively improve harness based on rollout feedback. To instantiate and evaluate this framework, we focus on the academic paper-to-poster generation task and introduce PosterBench, comprising a 100-paper Main Track spanning five disciplines and PosterBench-mini, a shared 10-paper subset for controlled evaluation. On the PosterBench Main Track, AutoDesign achieves the highest score of 78.32, surpassing the closed-source commercial system Claude Design by 7.45 points. Across seven controlled code-agent-model configurations, integrating the learned DesignHarness consistently improves performance, increasing the average PosterBench Score from 54.99 to 67.39 (+12.4%). In a fully autonomous long-horizon loop, it executes 253 tool calls and 11 editing turns within 40 minutes for under $3, reaching average conference-poster quality in human evaluation. A system-blind human study further demonstrates that AutoDesign achieves the highest human preference among evaluated systems.",
+      "url": "https://arxiv.org/abs/2608.14530",
+      "raw_summary": "Interactive game world models typically autoregress visual observations directly in pixel or latent space, forcing structured properties such as pose, geometry, and occlusion to be implicitly maintained by the same generative sequence. Over long horizons, errors in these latent world properties accumulate, making consistency and controllability fragile. We explicitly model the evolving world state, delegate exact geometric computation to a fixed, zero-parameter renderer, and leave the neural model to synthesize appearance. We instantiate this idea as Marionette, a world model for interactive games with articulated characters. First, a two-stage autoregressive dynamics model predicts an explicit and interpretable 276-dimensional 3D world state comprising multi-entity articulated skeletons, metric root trajectories, and rotations. Second, a zero-parameter graphics bridge converts the predicted state into pose-control videos, computing world-space geometry and occlusion in closed form. Third, a control-conditioned video-diffusion observation model synthesizes photorealistic RGB observations from the resulting structured controls. Our experiments establish two properties of Marionette. First, the predicted world state is directly controllable. Forcing a mismatched action stream changes root-aligned joint error by 31% across 48 held-out segments. Second, long-horizon behaviour is determined in the state, and can be repaired there. Left free, the two generated characters drift to 21.2 m apart (recorded sessions stay near 5 m) and a third of frames show ground penetration. Two rules imposed on the explicit state, a terrain collider and a separation cap, cut penetration by 66% and keep the pair engaged, with no change to the observation model. Routing appearance through the predicted state costs no fidelity we can detect, at an FVD of 831 against 799 for recorded pose.",
+      "hotness": 2
+    },
+    {
+      "id": "paper-2608.14138",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation",
+      "authors": "Jinsheng Quan, Jianhua Li, Siyi Xie et al.",
+      "published": "2026-08-13",
+      "url": "https://arxiv.org/abs/2608.14138",
+      "raw_summary": "Spatial perception and reasoning from visual observations require recovering geometric structure, establishing correspondences, and understanding spatial relations. Existing approaches typically address these capabilities separately using task-specific architectures or external geometric modules, limiting knowledge transfer among complementary representations of the same physical scene. We introduce SPARGen, a unified multimodal framework that casts 3D reconstruction, dense correspondence, and spatial reasoning as instruction-conditioned generation tasks. SPARGen serializes compact structured and linguistic outputs as token sequences while generating dense geometric fields in image-aligned forms, enabling spatial supervision to jointly shape shared representations within a native multimodal generative model. Experiments across benchmarks for 3D reconstruction, correspondence, and spatial reasoning show that SPARGen achieves competitive performance across heterogeneous spatial tasks within a single native multimodal generative framework.",
       "hotness": 0
     },
     {
-      "id": "paper-2608.13558v1",
+      "id": "paper-2608.14290",
       "type": "paper",
-      "source": "arXiv · cs.AI",
+      "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "OmniScientist: An Omni-Modal Omni-Discipline AI Scientist",
-      "authors": "Bobo Li, Hao Fei, Tianjie Ju et al.",
+      "title": "Intern-S2-Mobius: Foundation Model with Decoupled Knowledge and Reasoning",
+      "authors": "Kai Chen, Jifeng Ding, Ning Ding et al.",
       "published": "2026-08-13",
-      "url": "http://arxiv.org/abs/2608.13558v1",
-      "raw_summary": "Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workflow coverage alone does not provide access to the full evidence on which scientific discovery depends. Existing systems typically reason over text, code, labels, or precomputed summaries, leaving scientifically decisive spatial, temporal, cross-channel, and procedural relations unavailable to the agent. We introduce OmniScientist, an end-to-end, omni-modal AI scientist that conducts multidisciplinary research directly from heterogeneous raw evidence. A perception layer and 3 autonomous agents for ideation, experiment, and writeup operate within a deterministic pipeline, allowing observations to shape research questions, experimental decisions, and final claims throughout the research lifecycle. By running idea, rigour, and claim checks in code, the system enforces novelty screening, statistical validity, execution provenance, and numerical traceability. We evaluate OmniScientist on 36 real-data cases spanning 5 discipline families, 4 families of scientific evidence, and modalities including images, signals, audio, video, 3-D structures, trajectories, tables, formulae, and graphs. The system completes the full path from raw data to a compiled manuscript in all 36 cases and achieves a mean overall paper score of 6.3 with the reference reasoning backbone. In paired comparisons against a blind variant that receives only precomputed scalar features, direct perception improves all 7 evaluation dimensions and wins 85% of head-to-head judgments. These results show that lifecycle-wide perception is essential for evidence-grounded scientific discovery and provides a practical path toward broadly capable AI scientists.",
+      "url": "https://arxiv.org/abs/2608.14290",
+      "raw_summary": "We introduce Mobius-v0, an architecture that comprises a globally shared Memory (FFN) that stores knowledge vectors and multiple Reasoners (Self-Attn) that iteratively achieve compositional reasoning. Using hidden states as cache and carrier, reasoners repeatedly query memory for required knowledge-vectors, while the knowledge is transmitted back to reasoning operators. Through this knowledge-reasoning-separation architecture, Mobius achieves better knowledge compression and reasoning efficiency. Built upon Mobius-v0 architecture: 1) Our 7B model trained-from-scratch achieves similar downstream score as a 7B Transformer baseline with 62.6% of baseline's training data. 2) Our Intern-S2-Mobius, continually-pretrained from Qwen3.5-35B, achieves similar downstream score while delivering nearly 4x end-to-end inference speedup.",
       "hotness": 0
     },
     {
-      "id": "paper-2608.13555v1",
+      "id": "paper-2608.11612",
       "type": "paper",
-      "source": "arXiv · cs.AI",
+      "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark",
-      "authors": "Dairu Liu, Zekun Qi, Jiayu Zeng et al.",
-      "published": "2026-08-13",
-      "url": "http://arxiv.org/abs/2608.13555v1",
-      "raw_summary": "Humanoid motion tracking is central to teleoperation and whole-body imitation, yet evaluation often disagrees with what people perceive in videos. Kinematic errors average per-frame pose differences but miss the physical artifacts that matter most, particularly unstable support and incorrect contacts such as foot skating and mistimed touch-downs. Meanwhile, widely used test suites are small and lack the diversity needed to stress contact-rich, long-horizon behaviors. We introduce HumanTracker to make humanoid tracking evaluation both perceptually aligned and scalable. The HumanTracker benchmark contains approximately 153 hours of optical motion trajectories from multiple professional performers, organized into four motion families with text labels for fine-grained diagnosis. We further propose HumanScore, a preference-aligned metric trained on 12K motion pairs containing 24K motions. Across representative state-of-the-art trackers, HumanScore better predicts human preferences and reveals contact and stability failures that kinematic metrics often miss.",
+      "title": "Dion3: Full-Stack Orthogonal Updates",
+      "authors": "Noah Amsel, Jack Zhang, Kwangjun Ahn et al.",
+      "published": "2026-08-11",
+      "url": "https://arxiv.org/abs/2608.11612",
+      "raw_summary": "The Muon optimizer incurs a significant overhead cost due to its cubic-time Newton-Schulz orthogonalization step. When weights are sharded, communication overhead compounds this computational cost, eroding the benefits of Muon in many settings. We present Dion3, a revision of Muon that targets this overhead at every level of the stack. Our Gram Newton-Schulz algorithm reduces the FLOP cost of orthogonalization, our CuteDSL kernels accelerate it by exploiting symmetry, and our megabatching strategy reduces communication overhead. Moreover, we propose a simple change to the update rule that cuts costs even further: selecting only a fraction of the momentum matrix's rows to orthogonalize at each step. This update rule improves on Dion (another \"compressed\" version of Muon), in both speed and performance. Overall, Dion3 matches or improves on the loss achieved by Muon but reduces optimizer step time by up to 6x. Dion3 is available via the dion package (https://github.com/microsoft/dion) as a drop-in replacement for Muon.",
       "hotness": 0
     },
     {
-      "id": "paper-2608.13547v1",
+      "id": "paper-2608.14539v1",
       "type": "paper",
       "source": "arXiv · cs.AI",
       "region": "海外",
-      "title": "QuoteBench: How Matched Scores Can Hide Command-Path Failures",
-      "authors": "Shangao Li, Yao Zhang, Volker Tresp et al.",
-      "published": "2026-08-13",
-      "url": "http://arxiv.org/abs/2608.13547v1",
-      "raw_summary": "LLM coding agents issue Bash commands through interfaces that may serialize, wrap, and reparse model output. Matched execution scores alone cannot distinguish command-generation errors from failures introduced after generation. QuoteBench measures this boundary with exact final-state validation on 56 one-shot tasks from 14 incident-derived families, crossing the generation contract with the execution transport around one deliberately unescaped added parser. Escaping at the interpolation point reproduces each replayed reply's raw-path outcome, so any recovery under a disclosed boundary must come from the model changing its generation. Across eight same-window configurations, replaying the same reply through the added parser lowers success by 55.4 to 73.2 percentage points; disclosure recovers 30.4 to 60.7 points for six configurations, and zero or slightly negative for the other two. Raw generation is nearly saturated at the frontier; boundary adaptation is what still separates models. GPT-5.6-sol's matched gap of -3.6 points hides -64.3 points of damage and +60.7 points of compensation. The deployment configuration reorders models: one reversal among 26 comparable pairs is unambiguous and four more sit on single-task margins. Evaluations of command-issuing agents should report the model configuration, generation contract, execution path, operating point, and final-state validator rather than treat a matched score as an intrinsic model property.",
+      "title": "Decoding the Past: An Uncertainty-Aware Deep Learning Framework for Sex Attribution in Prehistoric Hand Stencils",
+      "authors": "Karel Becerra, Boris Mederos, Dean Snow et al.",
+      "published": "2026-08-14",
+      "url": "http://arxiv.org/abs/2608.14539v1",
+      "raw_summary": "Determining the biological sex of the individuals who created Upper Paleolithic hand stencils remains a challenging problem due to the absence of ground truth, population differences between contemporary and prehistoric groups, and the uncertainty introduced by image degradation. Traditional morphometric methods suffer from high structural overlap across sexes, poor cross-population generalizability, and subjective feature engineering. This study presents an uncertainty-aware deep learning framework for sex attribution in prehistoric hand stencils that explicitly models, propagates, and aggregates uncertainty throughout the analytical pipeline. The methodology combines dual image processing, dual contour extraction, structured silhouette augmentation, model architectural diversity, and ensemble-based decision aggregation. The pipeline generates twelve plausible silhouette realizations per stencil to capture boundary uncertainties, which are processed by two ensembles of ten deep neural networks each (EfficientNet-B3 and MobileViT-S) trained on 14,036 contemporary hand samples. Furthermore, a triangulated validation scheme integrates ensemble predictions with unsupervised 2D latent-space manifold mapping (UMAP + k-NN) and explainable AI spatial attributions (LayerCAM) to ensure anatomical consistency. On contemporary data, ensemble models achieve strong classification performance, with accuracies exceeding 88% in older age groups. When applied to prehistoric stencils, the framework produces both sex predictions and confidence measures of internal agreement, enabling the distinction between morphologically stable and ambiguous cases. Convergence across ensemble predictions, latent-space structure, and interpretability analyses shows that uncertainty can become a measurable component of archaeological inference, enabling robust and reproducible decoding of ancient rock art.",
+      "hotness": 0
+    },
+    {
+      "id": "paper-2608.14530v1",
+      "type": "paper",
+      "source": "arXiv · cs.AI",
+      "region": "海外",
+      "title": "Marionette: Predicting World States, Rendering Geometry, Painting Appearance",
+      "authors": "Zian Meng, Zhen Li, Chuanhao Li et al.",
+      "published": "2026-08-14",
+      "url": "http://arxiv.org/abs/2608.14530v1",
+      "raw_summary": "Interactive game world models typically autoregress visual observations directly in pixel or latent space, forcing structured properties such as pose, geometry, and occlusion to be implicitly maintained by the same generative sequence. Over long horizons, errors in these latent world properties accumulate, making consistency and controllability fragile. We explicitly model the evolving world state, delegate exact geometric computation to a fixed, zero-parameter renderer, and leave the neural model to synthesize appearance. We instantiate this idea as Marionette, a world model for interactive games with articulated characters. First, a two-stage autoregressive dynamics model predicts an explicit and interpretable 276-dimensional 3D world state comprising multi-entity articulated skeletons, metric root trajectories, and rotations. Second, a zero-parameter graphics bridge converts the predicted state into pose-control videos, computing world-space geometry and occlusion in closed form. Third, a control-conditioned video-diffusion observation model synthesizes photorealistic RGB observations from the resulting structured controls. Our experiments establish two properties of Marionette. First, the predicted world state is directly controllable. Forcing a mismatched action stream changes root-aligned joint error by 31% across 48 held-out segments. Second, long-horizon behaviour is determined in the state, and can be repaired there. Left free, the two generated characters drift to 21.2 m apart (recorded sessions stay near 5 m) and a third of frames show ground penetration. Two rules imposed on the explicit state, a terrain collider and a separation cap, cut penetration by 66% and keep the pair engaged, with no change to the observation model. Routing appearance through the predicted state costs no fidelity we can detect, at an FVD of 831 against 799 for recorded pose.",
+      "hotness": 0
+    },
+    {
+      "id": "paper-2608.14528v1",
+      "type": "paper",
+      "source": "arXiv · cs.AI",
+      "region": "海外",
+      "title": "Handover of In-Context Learning State Across Session Boundaries",
+      "authors": "Masahiro Kato, Taka Kato",
+      "published": "2026-08-14",
+      "url": "http://arxiv.org/abs/2608.14528v1",
+      "raw_summary": "This study investigates the methodological and theoretical properties of session handover in applications that use large language models. A task may continue in a new session when the context reaches the model's input limit, when the application restarts, or when another agent is asked to finish the task. The application must then decide which information from the earlier session to pass on. We formulate handover as the transfer of a task-relative in-context learning (ICL) state and distinguish exact recovery of earlier material from preservation of the target distribution. Under an exogeneity condition, predictive equivalence characterizes the coarsest deterministic sufficient handover and gives a fixed-length bit requirement. The analysis isolates the effects of the memory constraint, the writer, and the continuation procedure, and quantifies the cost of writing before the realized downstream query is known. We propose a three-part record that stores decisions and constraints exactly, uses task-justified statistics for repeated evidence, and retains original observations whose effect is not preserved by those statistics. Gaussian linear regression gives an exact finite-dimensional handover and finite-bit perturbation bounds, while nonparametric regression gives upper and lower bounds that relate memory to squared prediction error. These results provide a theory and method for deciding what a handover must retain and how its memory requirement depends on the continuation task.",
+      "hotness": 0
+    },
+    {
+      "id": "paper-2608.14522v1",
+      "type": "paper",
+      "source": "arXiv · cs.AI",
+      "region": "海外",
+      "title": "Participatory Moral AI Is Not Neutral: The Invisible Hand of Developers",
+      "authors": "Taenyun Kim, Edyta Bogucka, Daniele Quercia",
+      "published": "2026-08-14",
+      "url": "http://arxiv.org/abs/2608.14522v1",
+      "raw_summary": "As AI systems make more morally loaded decisions across society, one response has been moral preference elicitation. In this approach, researchers poll participants on hypothetical dilemmas and use the aggregated votes to train a policy that an AI model then applies at scale. Before any vote is cast, developers make three key choices in the moral AI elicitation pipeline: feature scoping, voter sampling, and question framing. In other words, they decide which features go to a vote, which voters to include, and how to present the question. These choices are often opaque, undocumented, and treated as technical details rather than normative ones. We examine each of these choices within a common empirical study and show that each can shape the preferences produced by moral AI elicitation. Across two phases (N = 809) in three deployment contexts (i.e., AI kidney allocation, AI agents simulating absent workers, and generative AI depictions of the deceased), we examine the three main stages of the moral AI elicitation pipeline. First, morally relevant features shift across contexts. This suggests that feature schemas should not be assumed to transfer across deployment domains. Second, preferences differ by political ideology for roughly one-third of features, with some differences reversing direction. The ideological composition of the voter pool can therefore affect the resulting aggregated preference profile. Third, the wording of the elicitation question can narrow or widen ideological gaps by up to a full scale point. The framing conditions also change how moral foundations are associated with participants' judgments. Taken together, these findings suggest that voting-based alignment cannot deliver fair or transparent AI by aggregation alone; at minimum, each stage of the moral AI elicitation pipeline should be audited and disclosed.",
       "hotness": 0
     }
   ],
@@ -298,20 +298,9 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-16",
+      "published": "2026-08-17",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
-    },
-    {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-08-15",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
       "id": "news-gh-1246459259",
@@ -320,20 +309,31 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-08-15",
+      "published": "2026-08-17",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-gh-1093356750",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "MiniMax · GitHub",
+      "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "MiniMax-AI/MiniMax-Provider-Verifier",
-      "authors": "MiniMax",
-      "published": "2026-08-15",
-      "url": "https://github.com/MiniMax-AI/MiniMax-Provider-Verifier",
-      "raw_summary": "MiniMax-Provider-Verifier offers a rigorous, vendor-agnostic way to verify whether third-party deployments of the Minimax M2 model are correct and reliable."
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-08-16",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+    },
+    {
+      "id": "news-gh-1004140701",
+      "type": "news",
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-08-16",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     }
   ],
   "reports": []

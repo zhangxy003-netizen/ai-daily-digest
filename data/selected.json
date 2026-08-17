@@ -1,42 +1,6 @@
 {
-  "fetched_at": "2026-08-16",
+  "fetched_at": "2026-08-17",
   "items": [
-    {
-      "id": "paper-2608.06867",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers",
-      "authors": "Tao Feng, Fangxu Yu, Haozhen Zhang et al.",
-      "published": "2026-08-06",
-      "url": "https://arxiv.org/abs/2608.06867",
-      "raw_summary": "No single large language model (LLM) is optimal across all queries and budget constraints, making model routing essential for cost-effective deployment. Existing routers adopt diverse formulations and implementations, making fair comparison and extension difficult. We present a unified formulation of LLM routing as a sequential decision process characterized by five components: context encoders, model encoders, scoring functions, decision rules, and learning signals, covering single-turn, multi-turn, and personalized routing. Based on this formulation, we develop an automated pipeline for constructing routing supervision and evaluating routers jointly on response quality and inference cost. The resulting benchmark, xRouteBench, spans generic LLM, memory-augmented, vision, time-series, and personalized routing tasks. We further introduce LLMRouter, an open-source modular infrastructure with more than 16 representative routers. Our empirical study shows that learned routers outperform the strongest fixed-model baseline by 14.6% relatively, lightweight routers become more competitive under tight cost constraints, and user-conditioned routing consistently improves personalization.",
-      "image": "https://arxiv.org/html/2608.06867v1/unified.png"
-    },
-    {
-      "id": "paper-2608.11752",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos",
-      "authors": "Yuxuan Zhang, Haozhong Xiong, Jiayi Song et al.",
-      "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.11752",
-      "raw_summary": "Talking-video character replacement requires coordinated transfer of appearance and voice while preserving the source motion, scene, linguistic content, and audio-video timing. Existing methods use separately optimized models for the two modalities, making audio-visual consistency difficult to enforce. We present UniSwap, the first framework for streaming joint audio-visual identity replacement in talking videos. Given a source video, a reference image, and a reference voice clip, UniSwap transfers the reference appearance and vocal timbre within a single audio-visual diffusion transformer while preserving the source content and dynamics. To address the scarcity of aligned cross-identity training pairs, we introduce a swap-and-reconstruct pipeline that removes visual and vocal identity from real clips and uses the original clips as reconstruction targets. Starting from a bidirectional backbone, we progressively adapt the model through In-context Pretraining for joint replacement, Conditional Streaming Adaptation for block-causal KV-cached generation, and Efficient Self-forcing DMD for mitigating exposure bias and reducing sampling from 30 to 3 denoising steps per block. Efficient Multi-LoRA Switching enables the three DMD roles to share a single frozen backbone. Feature-RoPE Decomposition keeps cached positions within the training range, supporting stable long-form inference. Experiments demonstrate strong audio-visual synchronization, competitive identity preservation, efficient streaming, and stable long-form generation.",
-      "image": "https://arxiv.org/html/2608.11752v2/pipeline.png"
-    },
-    {
-      "id": "paper-2608.11745",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time",
-      "authors": "Yuxuan Zhang, Haozhong Xiong, Yubo Huang et al.",
-      "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.11745",
-      "raw_summary": "Pose-driven human animation synthesizes a video of a target person from a single reference image and a driving pose stream. Real-time generation is essential for interactive applications such as live streaming, telepresence, and virtual avatars, yet diffusion-based systems require minutes to hours per clip, precluding responsive interaction. We present LiveAnimate, to our knowledge the first animation system to combine real-time streaming with stable long-form generation at billion scale, built on a 14B-parameter video Diffusion Transformer (DiT). A two-stage training pipeline first adapts a pretrained bidirectional DiT into a block-causal autoregressive generator through Reference-Anchored Teacher-Forcing Adaptation, and then reduces the sampling budget to three steps through Block-wise Self-Forcing Distillation. To preserve appearance over extended streams, we introduce Pose-Retrieval Sink Attention (PR-Sink), a bounded KV-cache mechanism combining a Static Sink that permanently anchors the first generated block, a Dynamic Sink that holds a pose-retrieved historical block, and a three-slot Rolling Window. When a pose recurs, PR-Sink restores the relevant appearance context without retaining the entire sequence, so memory and per-block latency remain constant regardless of stream duration. Together with Ulysses sequence parallelism and operator fusion, these designs enable 19.63\\,FPS streaming inference on two NVIDIA H100 GPUs. On a three-minute benchmark, LiveAnimate maintains nearly constant perceptual quality and identity from the first 30 seconds to the final minute, while prior systems degrade substantially or require hours of offline computation for the same rollout. These results establish a new operating point in quality, latency, and duration for interactive full-body animation.",
-      "image": "https://arxiv.org/html/2608.11745v2/pipeline.png"
-    },
     {
       "id": "paper-2608.07193",
       "type": "paper",
@@ -50,16 +14,50 @@
       "image": "https://arxiv.org/html/2608.07193v1/overrall-vtp-v7-1.png"
     },
     {
-      "id": "paper-2608.13049",
+      "id": "paper-2608.08020",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
-      "authors": "Dingyi Rong, Yue Shi, Chaofan Ma et al.",
+      "title": "Thought-Level Beam Search for Reasoning",
+      "authors": "Lijie Yang, Hongyin Luo, Jiawei Zhao et al.",
+      "published": "2026-08-10",
+      "url": "https://arxiv.org/abs/2608.08020",
+      "raw_summary": "Test-time compute scaling is a primary driver of performance in large reasoning models (LRMs), but extreme inefficiency bounds current approaches, shifting the critical question from how much compute to spend, to where to allocate it. We formalize test-time reasoning as a constrained compute allocation problem over partial trajectories. Under a fixed hardware budget, existing paradigms fail to actively allocate the compute to the most promising partial progress: traditional parallel sampling treats traces independently and induces severe memory bottlenecks, while subtractive pruning starves hardware and fails to actively and sufficiently shift the output distribution. To overcome this dichotomy, we introduce Gambit, an inference algorithm that executes thought-level beam search. By periodically pruning unpromising trajectories and immediately branching from high-quality prefixes, Gambit dynamically concentrates compute onto the most promising reasoning traces via a light-weight scorer probing hidden states while maintaining continuous high hardware utilization. Extensive evaluations across multiple models and benchmarks demonstrate that Gambit strictly dominates existing baselines. Under identical hardware constraints, our method yields up to a +6.7\\% absolute accuracy gain on HMMT-24 and +3.3\\% on AIME-25 over pruning baselines, delivers >2times higher throughput on trace completion, and reduces total token consumption by up to 68.5\\% relative to standard parallel sampling.",
+      "image": "https://arxiv.org/html/2608.08020v2/x4.png"
+    },
+    {
+      "id": "paper-2608.12313",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "AVA-Encoder: Towards Agent-Native Video Representation Learning",
+      "authors": "Chuyue Li, Jinpeng Yu, Haozhe Wang et al.",
+      "published": "2026-08-11",
+      "url": "https://arxiv.org/abs/2608.12313",
+      "raw_summary": "Creative agents still lack an effective way to learn from high-quality human films, limiting their ability to produce cinematic-grade videos. A key challenge is the absence of a structured video representation that is both faithful to film content and directly usable for agentic reasoning and manipulation. To address the challenge, we propose the Agentic Video Auto-Encoder (AVA-Encoder), a framework for learning agent-native video representations via agentic auto-encoding.   AVA-Encoder transforms a video into a knowledge graph (KG) representation and then reconstructs it back into video. Its hierarchy and state nodes store structured text, while a linked asset layer holds generated images, audio, and video. Typed edges preserve the relations between these text descriptions and assets in a form that agents can easily understand, query, and edit. The video reconstruction differences drive a textual-gradient optimization framework, which expresses evaluation feedback as natural-language update directions for Data-Independent Encoding Policy Pseudo-Training in the outer loop and optional Data-Dependent KG Representation Refinement in the test-time inner loop.   Extensive experiments show that AVA-Encoder improves by 20.7 percentage points over the strongest external baseline. In the controlled policy-only setting, its pseudo-trained shot-level Agentic Video Encoder policy also outperforms a carefully human-tuned policy while using 74.3% fewer system-prompt tokens. We release the complete AVA-Encoder framework, a reliable agentic video reconstruction benchmark, and the first dataset of high-quality film KG representations.",
+      "image": "https://arxiv.org/html/2608.12313v1/figures/AVAE-pipeline.png"
+    },
+    {
+      "id": "paper-2608.02870",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Maglev: Sliding Recurrent Memory",
+      "authors": "Bo Liu, Qiang Liu",
+      "published": "2026-08-04",
+      "url": "https://arxiv.org/abs/2608.02870",
+      "raw_summary": "We introduce , a recurrent Transformer architecture with fixed-size memory that generalizes sliding-window attention while remaining parallelizable during training.  consists of two coupled models: a prefiller Q, which leverages full attentionIn practice, we use interleaved full and sliding-window attention for Q, as this yields stronger performance. The essential requirement is that Q be more expressive than P, with access to the full history. to produce memory targets m'_t, and a decoder P, which uses only sliding-window attention and recurrent K/V injection to produce decoder memories m_t for next-token prediction. We train  with a memory consistency loss that aligns m_t with m'_t, allowing inference to use P alone. Empirically,  improves validation loss and downstream pretraining benchmarks over sliding-window and latent recurrent transformer baselines. Moreover, sharing parameters between P and Q reduces parameter memory while preserving most of the gains."
+    },
+    {
+      "id": "paper-2608.13391",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Context-Matched Distillation: Teacher Causality for Autoregressive Video Distillation",
+      "authors": "Hmrishav Bandyopadhyay, Xuanchi Ren, Zijian Huang et al.",
       "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.13049",
-      "raw_summary": "Large-scale manipulation data is essential for robot learning, yet collecting robot demonstrations remains expensive and difficult to scale. Meanwhile, abundant egocentric human manipulation videos provide rich behavioral experiences, but transferring them across embodiments remains challenging due to differences between human hands and robotic end-effectors. Recent advances in video world models offer a promising pathway to synthesize robot-centric manipulation videos from human observations, while their cross-embodiment transfer capability remains largely unexplored. Therefore, we introduce H2R-Bench, a benchmark for evaluating cross-embodiment human-to-robot manipulation video generation, where models transform egocentric human demonstrations into robot manipulation videos under specified embodiments. Each benchmark instance contains a human demonstration video, target embodiment constraints, and source-grounded annotations covering task goals, action events, functional contacts, and object responses. H2R-Bench evaluates generated videos through five dimensions, including goal-state completion, action-event completion, functional contact transfer, embodiment correctness, and general video quality. We benchmark eleven state-of-the-art video generation models across six manipulation families and two robot embodiments. Our evaluation reveals that current video world models remain limited in human-to-robot manipulation transfer: even leading models often fail in embodiment consistency, functional interaction, and task execution. H2R-Bench provides a systematic diagnostic framework for evaluating whether video world models can bridge the human-to-robot embodiment gap and convert human manipulation observations into robot-centric training resources.",
-      "image": "https://arxiv.org/html/2608.13049v1/overview.png"
+      "url": "https://arxiv.org/abs/2608.13391",
+      "raw_summary": "Interactive autoregressive video generation demands both low-latency rollouts and precise online control. Few-step distillation accelerates generation by reducing denoising steps, while online control imposes a causal constraint: frames and blocks should depend on history and controls available during generation. Existing video distribution matching distillation (DMD) pipelines, however, often supervise causal few-step students using bidirectional teachers that score complete clips. The score for a target can therefore depend on future frames and controls that were unavailable when the student generated it, misaligning teacher supervision with the student's causal information set. We introduce Context-Matched Distillation (CMD), a causal DMD framework that aligns teacher supervision with the information available when each target is generated. CMD replaces bidirectional full-clip scoring with a causal teacher that evaluates each target without access to future frames or controls. The same causal teacher initializes the few-step student, establishing a consistent causal formulation across teacher training, student distillation, and inference. Beyond aligning the temporal information boundary, Prefix Scoring matches supervision to the student's realized rollout context by evaluating each target under the cached student-generated prefix that produced it. Prefix Corruption further stabilizes training by perturbing unreliable prefixes produced early in training while preserving this target-context alignment. With a simple causal formulation, CMD naturally extends to frame-wise and chunk-wise generation, long video distillation, and camera-conditioned distillation. Experiments demonstrate state-of-the-art aggregate performance among autoregressive methods on both short- and long-video benchmarks, together with substantially improved adherence to time-varying camera controls."
     },
     {
       "id": "news-gh-1008713177",
@@ -68,20 +66,9 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-16",
+      "published": "2026-08-17",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
-    },
-    {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-08-15",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
       "id": "news-gh-1246459259",
@@ -90,20 +77,31 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-08-15",
+      "published": "2026-08-17",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-gh-1093356750",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "MiniMax · GitHub",
+      "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "MiniMax-AI/MiniMax-Provider-Verifier",
-      "authors": "MiniMax",
-      "published": "2026-08-15",
-      "url": "https://github.com/MiniMax-AI/MiniMax-Provider-Verifier",
-      "raw_summary": "MiniMax-Provider-Verifier offers a rigorous, vendor-agnostic way to verify whether third-party deployments of the Minimax M2 model are correct and reliable."
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-08-16",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+    },
+    {
+      "id": "news-gh-1004140701",
+      "type": "news",
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-08-16",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     }
   ]
 }
