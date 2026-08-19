@@ -1,63 +1,61 @@
 {
-  "fetched_at": "2026-08-18",
+  "fetched_at": "2026-08-19",
   "items": [
     {
-      "id": "paper-2608.14144",
+      "id": "paper-2608.15089",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Self-Supervised Visual On-Policy Distillation",
-      "authors": "Yijiang Li, Yijun Liang, Yunjie Tian et al.",
-      "published": "2026-08-13",
-      "url": "https://arxiv.org/abs/2608.14144",
-      "raw_summary": "Visual on-policy distillation relies heavily on an informative teacher-student asymmetry, through either a larger, stronger teacher or privileged supervision, such as reference answers or ground-truth regions of interest. This raises a fundamental question: where can informative asymmetry come from when nothing privileged is available? We answer this by inverting where the asymmetry comes from. Rather than adding privileged information to the teacher, we subtract information from the student. This asymmetry creates the same effective learning signal for free as a teacher with access to information unavailable to the student, without ground-truth annotations, rewards, or a separate stronger teacher model. Building on this principle, we introduce Self-Supervised Visual On-Policy Distillation (S^2VOPD), a simple yet effective method that constructs on-policy learning signals from asymmetric augmented views. S^2VOPD distills the teacher's distribution conditioned on the original image on-policy into the student distribution conditioned on a strongly augmented view of the same image. We systematically explore a broad design space of visual augmentations and uncover that (1) asymmetry matters: all four augmentation families improve performance, while symmetric self-distillation degrades it; (2) strength matters: performance peaks at a moderate strength; and (3) the gap must remain task-consistent: augmentations that completely remove the question-relevant evidence can induce large but uninformative discrepancies. Across six fine-grained perception benchmarks, S^2VOPD improves Qwen3.5-4B from 70.7% to 77.4%, above all open-source models compared, up to Qwen3-VL at 235B, and surpasses GPT-5.4. While holding training data the same, it recovers 96% of the improvement achieved by methods with privileged information. Website is at https://williamium3000.github.io/s2vopd",
-      "image": "https://arxiv.org/html/2608.14144v1/svm_uopsd_figure_v8_cat.png"
-    },
-    {
-      "id": "paper-2608.11341",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Apodex Discovery: Reality Benchmarks and Environments for Evaluating and Building Discoverative Artificial Intelligence",
-      "authors": "Brian Wang, Bin Feng, Xiaoman Pan et al.",
-      "published": "2026-08-10",
-      "url": "https://arxiv.org/abs/2608.11341",
-      "raw_summary": "Apollo did not reach the Moon merely because its engineers could solve difficult equations. It succeeded by turning a distant ambition into a mission architecture of explicit objectives, simulation, verification, and repeated correction. AI now faces a similar transition: frontier models can solve difficult tasks once the problem, tools, and success criteria are specified, yet consequential real-world challenges rarely arrive in an executable or verifiable form.   We introduce Apodex Discovery, a framework for building and evaluating discoverative AI through the heavy-duty solver, a system comprising a foundation model, harness, tools, and control policies that pursues extended, stateful, verifiable investigations. It has three core components. First, a problem-scouting process surveyed 561 industries across 16 sectors, assembled 423 high-value real-world problems, and selected 20 for the initial release. Second, a common environment-task-episode abstraction provides data, tools, constraints, feedback, trajectory recording, and verification of intermediate artifacts and final submissions. Third, HDS6 evaluates Tools, Repair, Alternatives, Coherence, Evidence, and Scope independently of final-task success.   In AAV capsid design, Apodex surpassed the published state of the art by 7% across viability, tropism, structure prediction, and generative design. In drug repurposing and reformulation, a task-specific biomedical environment improved the mean normalized prediction score of GPT-5.5 and GPT-5.6-sol by 2.5 and 7.6 points over the same closed-book backbone. Controlled ablations show that the fixed TRACES episode interface enables attribution of performance differences to specific solver components. Apodex Discovery moves AI evaluation beyond predefined benchmarks toward verifiable investigations aimed at genuine discovery."
-    },
-    {
-      "id": "paper-2608.14277",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "SimpleOPD: Simple Tokenizer-Agnostic On-Policy Distillation for Long-Context Reasoning",
-      "authors": "Haonan He, Haodi Lei, Yun Luo et al.",
-      "published": "2026-08-13",
-      "url": "https://arxiv.org/abs/2608.14277",
-      "raw_summary": "On-policy distillation (OPD) offers a promising way to transfer reasoning capabilities from stronger teacher models, but applying it to long-context reasoning teachers and short-context students introduces practical challenges, including tokenizer mismatch, teacher-student distribution mismatch, response length explosion, and training instability. In this work, we study this setting by transferring proof-reasoning capabilities from the long-context reasoning model SU-01 to short-context student models. To handle tokenizer differences, we perform OPD in a shared text space and align only tokens that occupy identical text spans under the student and teacher tokenizers. To mitigate the problem of excessive generation length and frequent truncation, we introduce a student reference KL loss and mask the advantages of special termination tokens such as </think> and <|im_end|>. This strategy constrains the student from drifting excessively from its initial policy, thereby mitigating the teacher-student distribution mismatch problem and fostering steady length growth. Experiments on both same-family and different-family student models, including Qwen3, Qwen3.5, Intern-S2, GLM-4.7, Gemma-4, show consistent gains in mathematical reasoning, especially natural-language math proving. Notably, Intern-S2-Preview improves by 21.2 points on ProofBench, reaching 55.2 and surpassing Gemini-2.5-Pro. It also improves on science benchmarks such as HLE and HiPhO, suggesting that OPD transfers reasoning capabilities that generalize beyond the mathematical training domain.",
-      "image": "https://arxiv.org/html/2608.14277v1/simpleopd_intro.png"
-    },
-    {
-      "id": "paper-2608.13517",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "DFM Mimir v1: An Open HRM Delivering Frontier Performance at 1B Parameters Using Only Permissible Post-Training Data",
-      "authors": "Peter Schneider-Kamp, Jacob Nielsen, Gianluca Barmina et al.",
-      "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.13517",
-      "raw_summary": "Current large language model development relies on massive, often non-permissible datasets, creating a high barrier for researchers committed to open-source and ethically sourced data. We introduce Mimir v1, a 1-billion-parameter language model based on the Hierarchical Reasoning Model (HRM) architecture, that is trained from scratch and delivers highly competitive performance for English and sets a new state of the art for Danish using only permissible post-training data. Trained on a mixture of 161 datasets, Mimir v1 outperforms the original HRM-Text 1B and competes with larger frontier models like Qwen 3.5 4B and Gemma 4 E2B, tested across 20 benchmarks for English, Math & Code and Danish. The model is available on the Hugging Face Hub: https://huggingface.co/danish-foundation-models/DFM-Mimir"
-    },
-    {
-      "id": "paper-2608.15265",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "VibeWorlding: Can Multimodal Agents Construct 3D Open Worlds End-to-End?",
-      "authors": "Yansong Ning, Jingwen Ye, Zhongkai Wu et al.",
+      "title": "StateM: Reaching 95.3% Raw Accuracy, or a \\$15 Frontier Run, on Terminal-Bench 2.1 via Harness Scaling",
+      "authors": "Ziheng Qin, Yaxin Lu, Zhangyang Atlas Wang et al.",
       "published": "2026-08-14",
-      "url": "https://arxiv.org/abs/2608.15265",
-      "raw_summary": "Constructing an interactive 3D open world from a user query is important. However, existing methods are primarily evaluated on idealized, simple queries, making it difficult to systematically analyze and compare how multimodal agents understand user intent, use 3D tools, and reason over textual and visual 3D world information. To this end, we propose VibeWorlding, a unified framework for benchmarking and training vibe worlding agents: a multimodal agent that can autonomously infer user intent, plan scene layout, invoke 3D tools, and reflect on the multimodal feedback in a multi-turn agent-environment interaction process. To achieve this, we first build VWE-BENCH, a benchmark of 2,616 high-quality 3D assets, 323 human-annotated seed 3D worlds, and 6,828 reverse-synthesized multimodal user queries, split into verified queries with ground-truth and unverified queries with carefully designed rubrics. Moreover, we develop VibeWorlding-Gym, a joint multimodal RL post-training framework that integrates (1) a sandbox environment unifying asset retrieval, editing, and image rendering as MCP tools, and (2) a rubric-based verifier that combines physical feasibility and intent fulfillment verification, supporting both fair model evaluation and scalable multimodal RL reward service. Our experiments show that current frontier MLLMs are far from solving the vibe worlding agent task, with even GPT-5.5 and Qwen3.8-Max reaching below 60% success rate, and trace the bottleneck to precise 3D world editing. We further find that RL training can ease this weakness and enable open-source MLLMs to even surpass closed-source frontiers: our VibeWorlder-8B is comparable to frontier MLLMs, while our flagship VibeWorlder-30B-A3B attains the best overall Pass@1 among all evaluated models.",
-      "image": "https://arxiv.org/html/2608.15265v1/Figure/vibeworlding.png"
+      "url": "https://arxiv.org/abs/2608.15089",
+      "raw_summary": "Long-horizon agents can fail even when their underlying models can solve the constituent steps. They may lose track of mutable state, fail to reactivate lessons from earlier executions, skip known procedures, or stop prematurely. We bet on harness scaling to improve the execution system around an agent without changing its model weights. We introduce StateM, an agent-native runtime that organizes execution around durable states, phase-local context, checked transitions, recoverable runbooks, and versioned procedural practices that agents and users can inspect together.   On Terminal-Bench 2.1, StateM raises GPT-5.5 xhigh to 92.1\\%, versus 83.1\\% reference and GPT-5.6 Sol Ultra at 91.9\\%. The runbook transfers unchanged to GPT-5.6. With GPT-5.6 Sol xhigh, StateM reaches 95.3\\% raw accuracy across 445 trials and succeeds on all 89 tasks at least once. The frozen profile raises GPT-5.6 Luna from 76.7 to 85.4\\%, above the 84.9\\% Sol xhigh reference.   Using the same runtime, runbook structure, and golden rules, less than \\38 of adaptation raises DeepSeek-V4 Flash from 82.7 to 88.1% under standard timeouts and to 89.1% on an 88-task common core. Extending only the remaining latency-sensitive task matches the reported 88.8% GPT-5.6 Sol max result. Final-score API usage is about 15 versus \\574.68 for the GPT reference; total DeepSeek expenditure is 52.22.   On BusinessBench, family-specific runbooks built on development sets yield held-out gains of 0.55 macro and 1.34 micro points; two mechanism-matched families improve by 10.04 points. Concrete rules generalize when tasks share execution structure, while the control methodology applies broadly. StateM turns selected postmortem findings into persistent, executable preconditions and practices, making learned controls explicit and enforceable through stateful controls. Code at github.com/henryqin1997/statem."
+    },
+    {
+      "id": "paper-2608.15669",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Large Discovery Models: Empirically-grounded Model-Based Open-Ended Search",
+      "authors": "Zhongwei Yu, Yan Song, Xue Yan et al.",
+      "published": "2026-08-15",
+      "url": "https://arxiv.org/abs/2608.15669",
+      "raw_summary": "Scientific discovery often involves optimising expensive-to-evaluate objectives over vast, structured, and open-ended hypothesis spaces, such as molecules, protein sequences, and computer programs. Generative models such as large language models (LLMs) provide expressive priors over such spaces, but their likelihoods and self-assessments are unreliable proxies for the objectives and calibrated epistemic uncertainty, especially for novel candidates outside the observed data distribution. We introduce the Large Discovery Model (LDM), an empirically grounded recurrent architecture that couples a generative model with a Bayesian non-parametric reward surrogate model. The generative model proposes and refines candidate designs, while the surrogate predicts their performance and quantifies uncertainty, yielding an uncertainty-aware value that guides candidate generation, refinement, and selection. The discovery memory and the surrogate model are continually updated as each new experimental observation arrives. We evaluate LDM on three scenarios spanning different design modalities and objectives, including neural-network training, antibody design, and molecular optimisation. Compared to LLM-only reflection or traditional statistical search across these domains, LDM achieves a 2.4times greater reduction in validation BPB, an 18.2% relative decrease in binding energy, and more than 60% relative gains in molecular multi-objective performance. These results suggests that LDM could serve as a general-purpose discovery engine for effective search over open-ended hypothesis spaces.",
+      "image": "https://arxiv.org/html/2608.15669v1/workflow.png"
+    },
+    {
+      "id": "paper-2608.15045",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "MOSS-VL Technical Report",
+      "authors": "Pengyu Wang, Chenkun Tan, Shaojun Zhou et al.",
+      "published": "2026-08-14",
+      "url": "https://arxiv.org/abs/2608.15045",
+      "raw_summary": "We present MOSS-VL, an open vision-language model family that treats real-time interaction -- perceiving while it speaks -- as a first-class capability. It is co-designed across the stack: the language decoder attends to vision only through gated cross-attention, so the model can naturally see incoming frames while generating; a synthesized interaction corpus supervises when to speak, when to stay silent, and when to revise; and a staged curriculum concentrates all real-time-specific training in one light final stage over a strong offline foundation. Offline, MOSS-VL-Instruct is competitive at comparable scale and leads temporal-reasoning video sets. Across four streaming benchmarks, MOSS-VL-Realtime posts the best average on three (second on the fourth) among open-source streaming models, sweeping the three subsets that squarely test proactive behavior -- 66.0 vs. 37.5 for the best baseline on OmniMMI Proactive Alerting. With 11.3B parameters but visual tokens outside the decoded sequence, MOSS-VL widens its time-to-first-token advantage over same-backbone Qwen3-VL-8B from 2.8x to 5.1x as visual context grows. We release all five checkpoints, the training curriculum, and the real-time inference code at https://github.com/OpenMOSS/MOSS-VL."
+    },
+    {
+      "id": "paper-2608.14905",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "How Do Agents Fail on AutoResearch: End-to-End Diagnostic Evaluation on 100 Real-World Frontier Research Tasks",
+      "authors": "Yanlin Fei, Nazhou Liu, Xinmiao Yu et al.",
+      "published": "2026-08-13",
+      "url": "https://arxiv.org/abs/2608.14905",
+      "raw_summary": "AI has long assisted scientific research, but the rapid advance of LLMs and agentic scaffolds is reshaping the landscape; a single system can now carry whole-stage research from an initial hypothesis all the way to final published paper, which is a paradigm now referred to as AutoResearch. Existing evaluations reveal little about how these agents operate or where they break down. Tasks are narrowly-scoped, evaluation measures performance but not process, and failure diagnoses lack systematic coverage or artifact-level visibility. To address this gap, we introduce AutoResearchEval, featuring 100 tasks grounded in published frontier science across 7 scientific domains and the full research lifecycle, including ideation, retrieval, execution, analysis, writing, and review. Evaluating 8 harness-model combinations yields 800 autoresearch agent trajectories, with process-level annotation. We organize these insights into AutoResearch Failure Taxonomy or ARFT, a framework of 45 empirically-grounded failure patterns. To enable scalable fine-grained attribution, we leverage a human-calibrated agent-as-a-judge pipeline to inspect complete trajectories and intermediate artifacts. Failure patterns converge on a single overarching limitation, namely that current agents lack a metacognitive loop, which entails the ability to check what they produced against what they found, revise when it does not hold up, and question whether the path they took was sound. The same patterns recur across all 8 harness-model combinations, including the strongest models tested, locating the deficit at the model level rather than in any particular scaffold; whether orchestration-level interventions can close it is an open question this work does not test. We publicly release AutoResearchEval and ARFT to facilitate continued research and development in autonomous scientific discovery."
+    },
+    {
+      "id": "paper-2608.16319",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Advancing Open and Reproducible Relational Learning: RelArena-α, TabPFN-Rel and RPI",
+      "authors": "Adrian Hayler, Klemens Flöge, Alan Arazi et al.",
+      "published": "2026-08-16",
+      "url": "https://arxiv.org/abs/2608.16319",
+      "raw_summary": "This first release of Prior Labs in relational learning shows our continued commitment to open science. We open-source three pieces of software that we expect to accelerate research in the field towards meaningful real-world impact. We aim to steer further development based on feedback from, and in collaboration with, the community. Given the early stage of development, our α-release targets researchers and early-adopting practitioners. Over the past years, a variety of datasets and tasks for relational learning have emerged, but the community has not converged on a reliable, reproducible way to compare different methods on these tasks. Our α-release, RelArena-α, provides a unified framework for running and comparing baselines on RelBench v1 by standardizing data loading, evaluation protocols, tuning regimes, and support for systems with custom tuning, inspired by established tabular benchmarks such as TabArena. We plan to work with the research community to further develop RelArena-α into a catalyst for progress in the relational learning community. We release the initial version of TabPFN-Rel, a purpose-built relational harness for TabPFN-3. Currently ranked first among models on RelArena-α, TabPFN-Rel makes key improvements upon RDBLearn. Beyond its ranking, TabPFN-Rel serves as a strong baseline, adding to the growing evidence that flattening a relational database into a single table remains competitive with specialized relational architectures on real-world tasks.   To facilitate adoption of relational learning methods in research and industry, we release an initial α-version of our Relational Predictive Interface, RPI, an open-source, model-agnostic interface that enables early adopters to easily define problems on new databases and apply any model implemented in RelArena-α, including TabPFN-Rel, to these problems."
     },
     {
       "id": "news-gh-1008713177",
@@ -66,7 +64,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-18",
+      "published": "2026-08-19",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -77,31 +75,31 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-08-18",
+      "published": "2026-08-19",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-93344949",
+      "id": "news-67308824",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "The Defender’s Window",
+      "title": "Strengthening democratic oversight in national security",
       "authors": "OpenAI",
-      "published": "2026-08-17",
-      "url": "https://openai.com/index/the-defenders-window",
-      "raw_summary": "AI is reshaping cybersecurity for attackers and defenders alike. Learn how OpenAI is strengthening its defenses and what security teams can do now."
+      "published": "2026-08-18",
+      "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
+      "raw_summary": "OpenAI launches an initiative to strengthen democratic oversight of AI in national security, supporting government institutions with tools, training, and expertise."
     },
     {
-      "id": "news-35799809",
+      "id": "news-19754026",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "OpenAI joins PORTS-Pike project",
+      "title": "Partnering with CodeAI to prepare the first AI generation",
       "authors": "OpenAI",
-      "published": "2026-08-17",
-      "url": "https://openai.com/index/openai-joins-ports-pike-project",
-      "raw_summary": "OpenAI joins PORTS-Pike project, expanding community investment and supporting thousands of Southern Ohio jobs"
+      "published": "2026-08-18",
+      "url": "https://openai.com/index/partnering-with-codeai",
+      "raw_summary": "OpenAI and CodeAI are partnering to help students build AI literacy, think critically about AI, and develop the skills to use and shape it responsibly."
     }
   ]
 }
