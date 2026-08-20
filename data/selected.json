@@ -1,61 +1,64 @@
 {
-  "fetched_at": "2026-08-19",
+  "fetched_at": "2026-08-20",
   "items": [
     {
-      "id": "paper-2608.15089",
+      "id": "paper-2608.14036",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "StateM: Reaching 95.3% Raw Accuracy, or a \\$15 Frontier Run, on Terminal-Bench 2.1 via Harness Scaling",
-      "authors": "Ziheng Qin, Yaxin Lu, Zhangyang Atlas Wang et al.",
-      "published": "2026-08-14",
-      "url": "https://arxiv.org/abs/2608.15089",
-      "raw_summary": "Long-horizon agents can fail even when their underlying models can solve the constituent steps. They may lose track of mutable state, fail to reactivate lessons from earlier executions, skip known procedures, or stop prematurely. We bet on harness scaling to improve the execution system around an agent without changing its model weights. We introduce StateM, an agent-native runtime that organizes execution around durable states, phase-local context, checked transitions, recoverable runbooks, and versioned procedural practices that agents and users can inspect together.   On Terminal-Bench 2.1, StateM raises GPT-5.5 xhigh to 92.1\\%, versus 83.1\\% reference and GPT-5.6 Sol Ultra at 91.9\\%. The runbook transfers unchanged to GPT-5.6. With GPT-5.6 Sol xhigh, StateM reaches 95.3\\% raw accuracy across 445 trials and succeeds on all 89 tasks at least once. The frozen profile raises GPT-5.6 Luna from 76.7 to 85.4\\%, above the 84.9\\% Sol xhigh reference.   Using the same runtime, runbook structure, and golden rules, less than \\38 of adaptation raises DeepSeek-V4 Flash from 82.7 to 88.1% under standard timeouts and to 89.1% on an 88-task common core. Extending only the remaining latency-sensitive task matches the reported 88.8% GPT-5.6 Sol max result. Final-score API usage is about 15 versus \\574.68 for the GPT reference; total DeepSeek expenditure is 52.22.   On BusinessBench, family-specific runbooks built on development sets yield held-out gains of 0.55 macro and 1.34 micro points; two mechanism-matched families improve by 10.04 points. Concrete rules generalize when tasks share execution structure, while the control methodology applies broadly. StateM turns selected postmortem findings into persistent, executable preconditions and practices, making learned controls explicit and enforceable through stateful controls. Code at github.com/henryqin1997/statem."
-    },
-    {
-      "id": "paper-2608.15669",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Large Discovery Models: Empirically-grounded Model-Based Open-Ended Search",
-      "authors": "Zhongwei Yu, Yan Song, Xue Yan et al.",
-      "published": "2026-08-15",
-      "url": "https://arxiv.org/abs/2608.15669",
-      "raw_summary": "Scientific discovery often involves optimising expensive-to-evaluate objectives over vast, structured, and open-ended hypothesis spaces, such as molecules, protein sequences, and computer programs. Generative models such as large language models (LLMs) provide expressive priors over such spaces, but their likelihoods and self-assessments are unreliable proxies for the objectives and calibrated epistemic uncertainty, especially for novel candidates outside the observed data distribution. We introduce the Large Discovery Model (LDM), an empirically grounded recurrent architecture that couples a generative model with a Bayesian non-parametric reward surrogate model. The generative model proposes and refines candidate designs, while the surrogate predicts their performance and quantifies uncertainty, yielding an uncertainty-aware value that guides candidate generation, refinement, and selection. The discovery memory and the surrogate model are continually updated as each new experimental observation arrives. We evaluate LDM on three scenarios spanning different design modalities and objectives, including neural-network training, antibody design, and molecular optimisation. Compared to LLM-only reflection or traditional statistical search across these domains, LDM achieves a 2.4times greater reduction in validation BPB, an 18.2% relative decrease in binding energy, and more than 60% relative gains in molecular multi-objective performance. These results suggests that LDM could serve as a general-purpose discovery engine for effective search over open-ended hypothesis spaces.",
-      "image": "https://arxiv.org/html/2608.15669v1/workflow.png"
-    },
-    {
-      "id": "paper-2608.15045",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "MOSS-VL Technical Report",
-      "authors": "Pengyu Wang, Chenkun Tan, Shaojun Zhou et al.",
-      "published": "2026-08-14",
-      "url": "https://arxiv.org/abs/2608.15045",
-      "raw_summary": "We present MOSS-VL, an open vision-language model family that treats real-time interaction -- perceiving while it speaks -- as a first-class capability. It is co-designed across the stack: the language decoder attends to vision only through gated cross-attention, so the model can naturally see incoming frames while generating; a synthesized interaction corpus supervises when to speak, when to stay silent, and when to revise; and a staged curriculum concentrates all real-time-specific training in one light final stage over a strong offline foundation. Offline, MOSS-VL-Instruct is competitive at comparable scale and leads temporal-reasoning video sets. Across four streaming benchmarks, MOSS-VL-Realtime posts the best average on three (second on the fourth) among open-source streaming models, sweeping the three subsets that squarely test proactive behavior -- 66.0 vs. 37.5 for the best baseline on OmniMMI Proactive Alerting. With 11.3B parameters but visual tokens outside the decoded sequence, MOSS-VL widens its time-to-first-token advantage over same-backbone Qwen3-VL-8B from 2.8x to 5.1x as visual context grows. We release all five checkpoints, the training curriculum, and the real-time inference code at https://github.com/OpenMOSS/MOSS-VL."
-    },
-    {
-      "id": "paper-2608.14905",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "How Do Agents Fail on AutoResearch: End-to-End Diagnostic Evaluation on 100 Real-World Frontier Research Tasks",
-      "authors": "Yanlin Fei, Nazhou Liu, Xinmiao Yu et al.",
+      "title": "Demystifying Agent Skills: Why They Work-Until They Don't",
+      "authors": "Zhiyuan Jiang, Fangrui Huang, Hanwen Xing et al.",
       "published": "2026-08-13",
-      "url": "https://arxiv.org/abs/2608.14905",
-      "raw_summary": "AI has long assisted scientific research, but the rapid advance of LLMs and agentic scaffolds is reshaping the landscape; a single system can now carry whole-stage research from an initial hypothesis all the way to final published paper, which is a paradigm now referred to as AutoResearch. Existing evaluations reveal little about how these agents operate or where they break down. Tasks are narrowly-scoped, evaluation measures performance but not process, and failure diagnoses lack systematic coverage or artifact-level visibility. To address this gap, we introduce AutoResearchEval, featuring 100 tasks grounded in published frontier science across 7 scientific domains and the full research lifecycle, including ideation, retrieval, execution, analysis, writing, and review. Evaluating 8 harness-model combinations yields 800 autoresearch agent trajectories, with process-level annotation. We organize these insights into AutoResearch Failure Taxonomy or ARFT, a framework of 45 empirically-grounded failure patterns. To enable scalable fine-grained attribution, we leverage a human-calibrated agent-as-a-judge pipeline to inspect complete trajectories and intermediate artifacts. Failure patterns converge on a single overarching limitation, namely that current agents lack a metacognitive loop, which entails the ability to check what they produced against what they found, revise when it does not hold up, and question whether the path they took was sound. The same patterns recur across all 8 harness-model combinations, including the strongest models tested, locating the deficit at the model level rather than in any particular scaffold; whether orchestration-level interventions can close it is an open question this work does not test. We publicly release AutoResearchEval and ARFT to facilitate continued research and development in autonomous scientific discovery."
+      "url": "https://arxiv.org/abs/2608.14036",
+      "raw_summary": "Skills have emerged as a practical and effective approach for enhancing LLM agents at inference time through structured packages of knowledge. However, existing evaluations largely measure whether skills improve aggregated task success, leaving a more fundamental question underexplored: \\textbf{When do skills help, why do they work, and where do they fail?} Through controlled experiments across various benchmarks, agent harnesses and LLMs, we isolate the effects of representation, outcome annotation, retrieval difficulty, and cross-framework robustness of skills. To further answer this question, we design a contrastive study that combines controlled quantitative experiments with paired trajectory analysis. We normalize 8,135 trial records from controlled experiments and retain 238 valid unique labels from 240 open-coded records. We consolidate these observations into a taxonomy of three high-level categories and twelve skill-use modes: skills work when noisy trajectories become procedural anchors that stabilize execution. Skills improve over Workflow Memory by 6.06 points in matched comparisons. Procedural anchoring accounts for 65.7\\% of skill cases, versus 4.5\\% for explicit knowledge injection, showing that skills stabilize action rather than inject missing facts. Retrieval is a separate bottleneck: as pools grow from 5 to 100, actual-use precision falls from 29.6\\% to 3.3\\%. Confusable distractors impair offline identification, yet downstream success remains stable; exact ground-truth invocation is neither sufficient nor necessary. Skills fail under brittle assumptions, incompatible contexts, or insufficient adaptation. These findings move evaluation beyond aggregate success rates and guide reliable self-evolving agents.",
+      "image": "https://arxiv.org/html/2608.14036v1/assets/experimental_pipeline_procmem_skills.png"
     },
     {
-      "id": "paper-2608.16319",
+      "id": "paper-2608.18063",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Advancing Open and Reproducible Relational Learning: RelArena-α, TabPFN-Rel and RPI",
-      "authors": "Adrian Hayler, Klemens Flöge, Alan Arazi et al.",
+      "title": "EDITBRIDGE: Towards Faithful and Efficient Ultra-High-Resolution Image Editing",
+      "authors": "Jiayi Song, Shijie Huang, Fangtai Wu et al.",
+      "published": "2026-08-17",
+      "url": "https://arxiv.org/abs/2608.18063",
+      "raw_summary": "High-resolution image editing is increasingly demanded in professional workflows, yet existing diffusion-based models remain constrained to resolutions below 1K due to quadratic attention complexity and prohibitive memory requirements. A prevalent workaround employs a two-stage pipeline: editing at low resolution followed by independent super-resolution. However, this approach suffers from two critical issues: information divergence, where hallucinated details contradict the original high-resolution (HR) source, and texture degradation, manifesting as over-smoothed or over-sharpened artifacts. We propose EditBridge, a diffusion bridge framework for efficient ultra high-resolution editing. Unlike conventional diffusion that regenerates from noise, we formulate refinement as structured data-to-data translation from the low-resolution (LR) edited result to its HR counterpart, explicitly conditioned on the original HR source to preserve authentic details. To efficiently incorporate HR source guidance, we introduce a prior-guided block-wise sparse attention mechanism that exploits semantic correspondence from first-stage editing to constrain cross-image interactions to spatially aligned regions, significantly reducing computational overhead. Extensive experiments demonstrate that EditBridge achieves high-fidelity editing with superior perceptual quality at resolutions up to 4K, delivering 3.6--8.4times speedup at 2K and enabling practical 4K editing in 61 seconds.",
+      "image": "https://arxiv.org/html/2608.18063v1/motivation_nips.png"
+    },
+    {
+      "id": "paper-2608.13556",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "V-RAE: Rethinking Video Latent Spaces for Generation",
+      "authors": "Minghui Guo, Shengqiong Wu, Hao Fei",
+      "published": "2026-08-12",
+      "url": "https://arxiv.org/abs/2608.13556",
+      "raw_summary": "Latent video generation relies on autoencoders to define a compact space in which generative models operate. Although video autoencoder architectures have evolved substantially, their latent spaces are still optimized primarily for pixel-level reconstruction and provide limited high-level semantic organization. A reconstruction-optimal latent space, however, need not be well suited to generative modeling. We propose V-RAE, a video representation autoencoder that builds compact generative latents on top of frozen vision foundation model representations. A lightweight temporal pooling module removes temporal redundancy while preserving semantic structure, and a video decoder reconstructs continuous motion from the compressed features. We evaluate V-RAE with four representative frozen encoders on video reconstruction, semantic probing, and class-conditional generation. V-RAE achieves 2.13 rFVD on K600, outperforming all evaluated large-scale pretrained video VAEs. Its latents retain substantially more semantic information than conventional video tokenizer latents. Under matched generation settings, our best variant achieves gFVD scores of 117.86 and 19.16 on UCF101 and K600, respectively, while converging up to 6x faster}. We further show that reconstruction quality alone is insufficient to characterize generative utility and introduce tFVD, a temporal-coherence diagnostic that correlates more reliably with downstream generation quality. Beyond video generation, V-RAE also improves future video prediction on Cityscapes over the Wan 2.2 VAE latent space under matched prediction settings. Taken together, the experiments show that frozen semantic representations can support video reconstruction, generation, and predictive modeling. The project page: https://v-rae.github.io/.",
+      "image": "https://arxiv.org/html/2608.13556v1/V-RAE.png"
+    },
+    {
+      "id": "paper-2608.17528",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Agent Lightning v1.0: Towards Harnessed Agentic RL",
+      "authors": "Zhiyuan He, Siwei Zhang, Zhiwen Zhou et al.",
+      "published": "2026-08-17",
+      "url": "https://arxiv.org/abs/2608.17528",
+      "raw_summary": "Modern agents operate inside agent harnesses that manage tools, context, and control flow, making the harness a critical part of the agent system. Our original Agent Lightning introduced a disaggregated architecture that connects arbitrary agents to RL training through an LLM endpoint proxy, an approach later adopted by frameworks such as verl Uni-Agent, AReaL 2.0, slime, and Polar. We refer to this paradigm as harnessed agentic RL, where the deploy-time harness directly participates in model post-training. Harnessed agentic RL differs fundamentally from traditional agentic RL: the harness, rather than the training engine, owns the environment interaction loop, while the trainer observes only sequences of LLM request-response pairs. This introduces challenges in retokenization, sample merging, advantage calculation, loss normalization, and backend scheduling, which can substantially affect training stability and effectiveness. We present Agent Lightning v1.0, a lightweight framework for harnessed agentic RL implemented in approximately 3,500 lines of code. It supports arbitrary agent harnesses and serves as a practical testbed for studying these challenges. We evaluate it on instruction-following, search, and coding agents, and provide a complete reproducible pipeline for coding-agent RL. Using only 6K training examples and modest compute, RL improves Qwen3.5-9B on SWE-bench Verified from 41.8% to 56.4%, a 14.6-point absolute gain. We release the complete workflow and training scripts to facilitate reproducible research on harnessed agentic RL."
+    },
+    {
+      "id": "paper-2608.17067",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "DiSCO: Defending text-to-image generation through distribution-guided contrastive prompt optimization",
+      "authors": "Tong Zhang, Motasem Alfarra, Carlos Hinojosa et al.",
       "published": "2026-08-16",
-      "url": "https://arxiv.org/abs/2608.16319",
-      "raw_summary": "This first release of Prior Labs in relational learning shows our continued commitment to open science. We open-source three pieces of software that we expect to accelerate research in the field towards meaningful real-world impact. We aim to steer further development based on feedback from, and in collaboration with, the community. Given the early stage of development, our α-release targets researchers and early-adopting practitioners. Over the past years, a variety of datasets and tasks for relational learning have emerged, but the community has not converged on a reliable, reproducible way to compare different methods on these tasks. Our α-release, RelArena-α, provides a unified framework for running and comparing baselines on RelBench v1 by standardizing data loading, evaluation protocols, tuning regimes, and support for systems with custom tuning, inspired by established tabular benchmarks such as TabArena. We plan to work with the research community to further develop RelArena-α into a catalyst for progress in the relational learning community. We release the initial version of TabPFN-Rel, a purpose-built relational harness for TabPFN-3. Currently ranked first among models on RelArena-α, TabPFN-Rel makes key improvements upon RDBLearn. Beyond its ranking, TabPFN-Rel serves as a strong baseline, adding to the growing evidence that flattening a relational database into a single table remains competitive with specialized relational architectures on real-world tasks.   To facilitate adoption of relational learning methods in research and industry, we release an initial α-version of our Relational Predictive Interface, RPI, an open-source, model-agnostic interface that enables early adopters to easily define problems on new databases and apply any model implemented in RelArena-α, including TabPFN-Rel, to these problems."
+      "url": "https://arxiv.org/abs/2608.17067",
+      "raw_summary": "As text-to-image generative models advance, they raise critical safety concerns, particularly the generation of Not-Safe-For-Work (NSFW) content such as violence and nudity, further exacerbated by red-teaming adversarial attacks. Existing defenses predominantly operate under white-box assumptions, relying on text encoder optimization, weight editing, or inference-time intervention, and fundamentally cannot scale to proprietary models. Black-box alternatives based on LLM prompt rewriting offer broader applicability, yet fail in a critical regime we identify as the benign adversarial problem: prompts that are linguistically safe but still trigger harmful generation due to the model's learned data distribution. We propose DiSCO, a zero-shot, strictly black-box defense that operates entirely at the prompt level as a plug-and-play module, requiring no model retraining, fine-tuning, or access to model internals. DiSCO performs distribution-guided suffix expansion via beam search, optimized through contrastive scoring over safe and unsafe image pools generated by the target model itself, with iterative adaptive feedback until safe content is produced. We demonstrate that DiSCO consistently enhances the safety of both undefended and defended models on the I2P benchmark under multiple red-teaming attacks, achieving 37.7% and 25.13% ASR reduction, respectively, while maintaining semantic fidelity and improving image coherence. As a black-box, architecture-agnostic module, DiSCO can be readily applied to any text-to-image system without necessitating any changes to the model itself.",
+      "image": "https://arxiv.org/html/2608.17067v1/pipeline.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -64,7 +67,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-19",
+      "published": "2026-08-20",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -75,31 +78,31 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-08-19",
+      "published": "2026-08-20",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-67308824",
+      "id": "news-44498651",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Strengthening democratic oversight in national security",
+      "title": "Offering Zero Data Retention for frontier models",
       "authors": "OpenAI",
-      "published": "2026-08-18",
-      "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
-      "raw_summary": "OpenAI launches an initiative to strengthen democratic oversight of AI in national security, supporting government institutions with tools, training, and expertise."
+      "published": "2026-08-19",
+      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
+      "raw_summary": "OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing for advanced AI safety without compromising data privacy."
     },
     {
-      "id": "news-19754026",
+      "id": "news-31879853",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Partnering with CodeAI to prepare the first AI generation",
+      "title": "Replit expands access to software creation with GPT-5.6 Luna",
       "authors": "OpenAI",
-      "published": "2026-08-18",
-      "url": "https://openai.com/index/partnering-with-codeai",
-      "raw_summary": "OpenAI and CodeAI are partnering to help students build AI literacy, think critically about AI, and develop the skills to use and shape it responsibly."
+      "published": "2026-08-19",
+      "url": "https://openai.com/index/replit",
+      "raw_summary": "Replit introduces Free Mode, powered by GPT-5.6 Luna, so anyone can turn ideas into working software without worrying about token costs."
     }
   ]
 }
