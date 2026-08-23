@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-22",
+  "fetched_at": "2026-08-23",
   "items": [
     {
       "id": "paper-2608.20335",
@@ -66,42 +66,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-22",
+      "published": "2026-08-23",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-12672360",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "Google DeepMind",
-      "region": "海外",
-      "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
-      "authors": "Google DeepMind",
-      "published": "2026-08-21",
-      "url": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
-      "raw_summary": "Google DeepMind partners with game studios to prototype breakthrough AI gameplay."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-08-22",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-50110954",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Measuring benchmark optimization in speech recognition",
-      "authors": "Hugging Face",
-      "published": "2026-08-21",
-      "url": "https://huggingface.co/blog/asr-benchmark-optimization",
-      "raw_summary": ""
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-08-22",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
-      "id": "news-84876099",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "Google Research",
-      "region": "海外",
-      "title": "An AI tool for prioritizing candidate biomarkers from wearable sensor data",
-      "authors": "Google Research",
-      "published": "2026-08-21",
-      "url": "https://research.google/blog/an-ai-tool-for-prioritizing-candidate-biomarkers-from-wearable-sensor-data/",
-      "raw_summary": "Generative AI"
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-08-22",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     }
   ]
 }
