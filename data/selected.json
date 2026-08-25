@@ -1,61 +1,63 @@
 {
-  "fetched_at": "2026-08-24",
+  "fetched_at": "2026-08-25",
   "items": [
     {
-      "id": "paper-2608.19799",
+      "id": "paper-2608.20061",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "SWE-bench Science: Can Coding Agents Resolve Engineering Tasks in Science?",
-      "authors": "Zhipeng Xu, Jiahao Lu, Yining Zheng et al.",
-      "published": "2026-08-19",
-      "url": "https://arxiv.org/abs/2608.19799",
-      "raw_summary": "Software increasingly functions as part of the scientific instrument itself, making failures in scientific code capable of compromising not only program behavior but also the evidence underlying scientific conclusions. Yet existing evaluations of coding agents largely emphasize aggregate task success, providing limited insight into why agents fail when repairing scientific software. We introduce SWE-bench Science, a repository-level benchmark for scientific software engineering comprising 119 tasks from 98 GitHub repositories across 20 scientific domains. Each task is organized into one of three paradigms: Issue-driven, Expert-exploratory, and Engineering-integration. Even the best-performing agent, Claude Code with Opus-5 (max), achieves a pass@1 below 50\\%, highlighting the substantial challenges posed by scientific software engineering. We identify four recurring failure mechanisms: deficits in scientific knowledge or abstraction, misguided exploration or surface-level repair, incomplete repair coverage or system integration, and failures to generalize scientific knowledge beyond observed cases in our analysis. We further conduct a paired ablation that removes explicit scientific guidance while preserving the repository and executable engineering context. The results show that scientific knowledge is not uniformly beneficial: well-grounded information can constrain repair and improve average performance and token efficiency, whereas poorly aligned guidance can induce anchoring and does not necessarily improve exact repair success. Together, SWE-bench Science provides a broad testbed for studying both the capabilities and failure mechanisms of coding agents in scientific software engineering."
-    },
-    {
-      "id": "paper-2608.13120",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback",
-      "authors": "Qianxi Yan, Chunrong Chen, Jiuzhou Zhao et al.",
-      "published": "2026-08-12",
-      "url": "https://arxiv.org/abs/2608.13120",
-      "raw_summary": "Agent Skills are today either hand-authored or produced in a single LLM generation pass, and consequently possess no closed loop through which they might improve from the interaction failures they actually cause. Recent work does close this loop, but derives its feedback from single-turn question-answering evaluation. The consequence is a sharp asymmetry: once the first round has patched the gaps that a single exchange can reveal, the evolution gradient decays, the defects that surface only across multiple turns remain invisible, and evolution stalls. Governance in these systems is likewise driven by an end-to-end verification score, a scalar gate that can reject a degraded candidate but can neither localize nor repair its structural cause. We argue that the binding constraint on sustained skill evolution is neither editing capability nor the number of iterations, but whether the evaluation feedback keeps supplying trustworthy evolution gradients. We introduce SkillEvo, in which trustworthy feedback generates the gradient and controllable governance constrains its direction. The first component recasts multi-turn user simulation from an evaluation endpoint into a feedback generator: follow-up questions expose defects layer by layer, so that every round of revision both consumes feedback and produces new feedback. The second replaces the passive rejection of a scalar gate with an independent governance layer that actively repairs factual degradation and structural bloat, preventing the gradient from drifting as degradation accumulates. Across six categories of cloud services, 9 production Skills, and 98 skill-reference files, SkillEvo surpasses self-reflection-based evolution by 23.0 points and single- turn-QA-driven evolution by 15.4 points."
-    },
-    {
-      "id": "paper-2608.19758",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "FlashPrefill V2: Block-Sparse Prefill Attention for Long-Context LLM Serving",
-      "authors": "Qihang Fan, Huaibo Huang, Zhiying Wu et al.",
+      "title": "Let's Scale Step by Step: Compute-Efficient Hyperparameter Transfer for Large-Scale Mixture-of-Experts",
+      "authors": "Nayeon Kim, Hojin Lee, Yunju Bak et al.",
       "published": "2026-08-20",
-      "url": "https://arxiv.org/abs/2608.19758",
-      "raw_summary": "Long-context modeling is a pivotal capability for Large Language Models, yet the quadratic complexity of attention remains a critical bottleneck, particularly during the compute-intensive prefilling phase. Our previous work, FlashPrefill, mitigates this cost through instantaneous pattern discovery and max-based dynamic thresholding; however, it remains an algorithmic prototype that is still distant from production deployment. In this paper, we present FlashPrefill V2, which evolves FlashPrefill from a prototype toward practical long-context serving along three dimensions. First, we introduce a mean correction term that effectively suppresses the approximation error, keeping performance degradation manageable even at extreme sparsity levels. Second, we redesign the sparse attention operator with PackGQA memory access, warp specialization, and pingpong pipelining, fully aligning with the latest FlashAttention-3/4 implementations and supporting FP8 inference to meet practical quantization requirements. Third, FlashPrefill V2 natively supports paged KV cache and continuous batching, allowing integration as an attention backend in modern inference frameworks such as SGLang. Extensive evaluations on NVIDIA H20 GPUs---among the most widely deployed inference accelerators---demonstrate that FlashPrefill V2 delivers up to 47.26x and 27.19x speedups over FlashAttention-2 at 128K context length under FP8 and BF16 precision, respectively, and, in FP8, still achieves a 30.49x speedup against an FA3/4-aligned dense baseline."
+      "url": "https://arxiv.org/abs/2608.20061",
+      "raw_summary": "Mixture-of-Experts (MoE) architectures significantly expand model capacity without a proportional increase in computational cost. However, optimizing their hyperparameters---particularly the learning rate---at extreme scales of both model size and token budget via sweeping remains computationally prohibitive. In this paper, we propose a compute-efficient, two-step hyperparameter transfer framework that estimates optimal learning rates for training large MoE models by transferring them across scaling model widths, and subsequently extrapolating to trillion-token horizons. First, we formulate a Maximal Update Parameterization (μP) adaptation for MoE architectures utilizing Multi-head Latent Attention (MLA) and the Muon optimizer, demonstrating that optimal learning rates transfer consistently across width-scaled models. Second, we extend this transferability along the token dimension by establishing a predictive scaling law. By applying linear regression to the optimal values derived from small proxy models on limited budgets, we successfully extrapolate the ideal learning rate to massive training horizons (e.g., 10 trillion tokens) with high fidelity (R^2=0.95). Consequently, this indicates that proxy training on small models is sufficient to determine the optimal learning rate for the extensive training of large-scale MoEs. We apply the proposed methodology to pretrain our foundation model (155B total, 17B active parameters) from scratch, and the stable training and evaluation results validate that optimal configurations for full-scale target models can be accurately predicted with minimal ablation costs."
     },
     {
-      "id": "paper-2608.16885",
+      "id": "paper-2608.16425",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "τ_0-VLA: a Hierarchical Robot Foundation Model with World-Model-Guided Test-Time Computation",
-      "authors": "Xiaowei Cai, Yunuo Cai, Bingao Chen et al.",
+      "title": "ParaTempo: Efficient Parallel Reasoning via Temporal Confidence",
+      "authors": "Xuteng Zhang, Wenhao Zeng, Xiaodong Gu et al.",
+      "published": "2026-08-17",
+      "url": "https://arxiv.org/abs/2608.16425",
+      "raw_summary": "Parallel reasoning improves the accuracy and robustness of large reasoning models by exploring multiple solution paths, but its computational cost grows with reasoning depth and branch count. Existing methods for managing these parallel paths typically rely on final-answer consensus, local token confidence, or isolated intermediate probes. However, these signals are often delayed, weakly tied to actual reasoning progress, or too noisy for dynamic, branch-level control. To address these limitations, we introduce ParaTempo, a training-free asynchronous parallel reasoning framework. ParaTempo is driven by temporal confidence, a branch-local measure of answer-space convergence. Each branch is periodically probed for a tentative answer probability distribution, and temporal confidence quantifies how sharply the recent intermediate probes concentrate on a dominant answer. Once sufficient evidence has accumulated, ParaTempo drives its entire control process from this single signal: low-confidence branches are pruned, branches that persistently commit to their dominant answer are retired early, freed computation is reallocated by forking new branches, and generation stops globally once the confidence-weighted vote concentrates. Without requiring synchronization among reasoning trajectories, ParaTempo adaptively allocates computation based on branch-level convergence. Experiments on challenging mathematical and scientific reasoning benchmarks show that ParaTempo reduces average latency by 21.8-32.2% and total token usage by 18.1-30.3% while maintaining competitive accuracy. Moreover, temporal confidence exhibits stronger temporal stability and predictive power for future branch convergence than token-level and instantaneous signals.",
+      "image": "https://arxiv.org/html/2608.16425v1/framework3.png"
+    },
+    {
+      "id": "paper-2608.21360",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "OmniAssistBench: Assistant-style Interaction Benchmark for Omni-LLMs",
+      "authors": "Xianyun Sun, Chaoyou Fu, Zhengye Zhang et al.",
+      "published": "2026-08-20",
+      "url": "https://arxiv.org/abs/2608.21360",
+      "raw_summary": "Recent omni-modal large language models (Omni-LLMs) show great potential as real-time video assistants, which continuously perceive environments and guide users to achieve specific goals. Unlike traditional passive video understanding, interactive assistants should actively combine visual states, user goals, and prior knowledge to provide effective help. Evaluating this is rather challenging, as the model's unpredictable response dynamically changes the user's subsequent actions, which static offline datasets cannot accommodate. To address this bottleneck, we introduce OmniAssistBench. To solve the issue of diverging interaction paths where the same user goal can be achieved through various methods, we provide models with predefined priors derived from the source video, requiring them to guide users along the exact same routes. Since real interaction videos are rare, we construct the dataset by reverse-engineering existing Internet videos. We deduce logical user goals and segment the videos into multi-turn clips to simulate continuous interactions. This rigorous pipeline required over 1000 expert person-hours to build the dataset. Results show that the proprietary Gemini-3-Pro reaches 66.4 out of the max point of 100, while the open-source Qwen3-Omni-Instruct achieves 51.2. Although current models generally understand user inputs, they frequently provide incorrect or incomplete answers. Specifically, they struggle with visual prompts (e.g., hand gestures), fail to maintain historical context during multi-turn interactions, and fail to delay response until the target event. Results indicate substantial room for improvement before models can become reliable assistants.",
+      "image": "https://arxiv.org/html/2608.21360v1/label.png"
+    },
+    {
+      "id": "paper-2608.16647",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Every Coin Has Two Sides: On the Dual Nature of Generalization in On-Policy Distillation of Large Language Models",
+      "authors": "Zhaoyi Li, Deyang Kong, Yuan Wei et al.",
       "published": "2026-08-16",
-      "url": "https://arxiv.org/abs/2608.16885",
-      "raw_summary": "Long-horizon robot manipulation requires a robot to both execute individual skills reliably and sequence them coherently over extended tasks. Most hierarchical vision-language-action (VLA) models make each such decision with a single forward pass, leaving no mechanism to allocate additional computation to difficult or consequential choices. We introduce τ_0-VLA, a hierarchical robot foundation model that formulates high-level subtask generation as a compute-scalable inference problem through world-model-guided test-time computation. At each inference step, the high-level policy uses execution memory to generate a subtask and, when needed, searches over alternatives before committing to its output. A low-level policy then executes the generated subtask across multiple robot embodiments. The policy is trained on 40,115 hours of heterogeneous real-world data with multimodal co-training. Across in-domain and distribution-shifted settings, allocating additional test-time computation substantially improves next-subtask prediction accuracy, and these gains translate into higher closed-loop success on long-horizon robot manipulation tasks.",
-      "image": "https://arxiv.org/html/2608.16885v1/framework_0726.png"
+      "url": "https://arxiv.org/abs/2608.16647",
+      "raw_summary": "On-policy distillation (OPD) transfers teacher capabilities by supervising trajectories sampled from the student's own policy, yet its generalization behavior remains poorly understood, as most studies evaluate OPD on a single domain and on benchmarks close to the training data. We present a controlled study that varies one generalization factor at a time, from in-domain distribution shifts to cross-domain transfer and the multi-teacher setting. We find that OPD transfers a teacher's reasoning behavior rather than its answers to particular problems: training difficulty barely matters, and even problems the teacher never solves are useful. Transfer depends strongly on the origin relationship between teacher and student: same-origin pairs bring the student close to the teacher across languages, reasoning horizons, and even other domains, whereas cross-origin pairs mostly fit the trained distribution. This broad reach is a double-edged sword: since routing prompts to domain experts cannot confine each teacher's influence, combining them yields a mixture-dependent seesaw among their capabilities. These results clarify when OPD generalizes and offer a useful perspective for diagnosing multi-teacher OPD."
     },
     {
-      "id": "paper-2608.17744",
+      "id": "paper-2608.20886",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Thinking in a Low-Resource Language: What SFT Builds, What RL Fixes, What Accuracy Cannot See",
-      "authors": "Ayoub Kirouane, Christos Petrocheilos",
-      "published": "2026-08-18",
-      "url": "https://arxiv.org/abs/2608.17744",
-      "raw_summary": "Take three frontier mixture-of-experts models (Alibaba, OpenAI, NVIDIA; 3.6-4.0B active parameters each) and fine-tune them to reason in a low-resource language. On accuracy benchmarks almost nothing happens, and the benchmark itself is noise at this scale: changing only the random seed moves the score by 7.7 points, more than every data and recipe effect we measured. That null is our first result. The real changes live where accuracy cannot see. Base models never think in Greek: 0 of 1,000 reasoning traces, even when the question is Greek, so the model answers correctly while reasoning in a form its user cannot read, audit, or correct. After supervised fine-tuning (SFT), every released checkpoint reasons in the language of the question on ~98% of items, one family at 3x fewer tokens, with judged grammaticality improving on all four models and general ability within a few points of each base: nothing was forgotten, and fluency was gained. We propose six behavioural dimensions that make such changes measurable, each gated to reject any metric that correlates with output length, and we report how our own instruments lied: six failures, each caught by a control. What SFT cannot do is fix its own defects: a quarter of answers skip the requested format, answers leak into the reasoning channel, and an explicit \"think in English\" is obeyed under half the time. Reinforcement learning with verifiable rewards, pre-registered before training, fixes the first two outright (fallback 24% to 2.5%, leak 3.5% to 0.0%, both against a flat random-reward control) and moves the third (+9.1pp), while the Greek reasoning habit survives an accuracy-only gradient untouched. We release five checkpoints. The instruments, the controls and the pre-registration travel to any low-resource language; Greek is the case that let us measure them."
+      "title": "EviRank: Structured Relevance Evidence for Multimodal Image Re-ranking",
+      "authors": "Enjun Du, Siyi Liu, Zirong Chen et al.",
+      "published": "2026-08-20",
+      "url": "https://arxiv.org/abs/2608.20886",
+      "raw_summary": "Real-world image search queries are multimodal and compositional: ``find this shirt in pink'' specifies an entity to retain, an attribute to modify, and context to ignore. Yet existing re-rankers either compress such multifaceted relevance into an opaque embedding or rely on free-form chain-of-thought that easily omits or hallucinates fine-grained constraints. Drawing on rubric- and checklist-based evaluation from NLP, we recast multimodal image re-ranking as a semantic constraint satisfaction problem and propose EviRank, which parses any query - text-only, image-only, or composed - into a unified evidence package: typed criteria across six semantic slots (e.g., entities, attributes, relations), each labelled required, forbidden, or ignorable. Re-ranking then reduces to evidence-conditioned verification, combining deterministic rubric scoring and evidence-grounded listwise comparison in a single training-free procedure. The explicit evidence can further serve as structured supervision for optionally distilling a lightweight student. Across five benchmarks spanning text-to-image, image-to-image, and composed image retrieval, EviRank achieves state-of-the-art performance, and the distilled student preserves over 90% of the teacher's capability at substantially lower cost.",
+      "image": "https://arxiv.org/html/2608.20886v1/main_figure.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -64,42 +66,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-24",
+      "published": "2026-08-25",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1041478561",
+      "id": "news-78727582",
       "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-08-23",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Advancing price-performance for developers with GPT‑5.6 in Kiro",
+      "authors": "OpenAI",
+      "published": "2026-08-24",
+      "url": "https://openai.com/index/gpt-5-6-in-kiro",
+      "raw_summary": "GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-50973895",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-08-23",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+      "source": "Apple ML",
+      "region": "海外",
+      "title": "Beyond Visual CoT: Internalized Visual Thinking for Proactive Video Reasoning",
+      "authors": "Apple ML",
+      "published": "2026-08-24",
+      "url": "https://machinelearning.apple.com/research/internalized-visual-thinking",
+      "raw_summary": "Multimodal large language models increasingly use visual chain-of-thought (Visual CoT) to reason about spatial, temporal, and embodied environments. By generating intermediate reasoning images, Visual CoT provides an intuitive mechanism for visual foresight but introduces substantial inference overhead, which is particularly problematic for proactive video reasoning. We ask whether models can learn to think visually during training while reasoning directly at inference. We introduce Internalized Visual Thinking (IVT), a post-training framework that jointly optimizes textual prediction and…"
     },
     {
-      "id": "news-gh-673596675",
+      "id": "news-67405220",
       "type": "news",
-      "source": "智源 BAAI · GitHub",
-      "region": "国内",
-      "title": "FlagOpen/FlagEmbedding",
-      "authors": "智源 BAAI",
-      "published": "2026-08-23",
-      "url": "https://github.com/FlagOpen/FlagEmbedding",
-      "raw_summary": "Retrieval and Retrieval-augmented LLMs"
+      "source": "AWS ML",
+      "region": "海外",
+      "title": "Introducing new Ray capabilities on SageMaker HyperPod",
+      "authors": "AWS ML",
+      "published": "2026-08-24",
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-new-ray-capabilities-on-sagemaker-hyperpod/",
+      "raw_summary": "Amazon SageMaker HyperPod now offers managed Ray support on Amazon EKS. Create and monitor Ray clusters, connect JupyterLab and Code Editor notebooks to live clusters, get out-of-the-box observability, and run resilient distributed training and accelerated inference from SageMaker Studio, all with open-source KubeRay and standard Ray APIs."
     }
   ]
 }
