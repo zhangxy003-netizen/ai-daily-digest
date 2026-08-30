@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-29",
+  "fetched_at": "2026-08-30",
   "items": [
     {
       "id": "paper-2608.25518",
@@ -66,7 +66,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-29",
+      "published": "2026-08-30",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -82,7 +82,18 @@
       "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-86163058",
+      "id": "news-gh-1246459259",
+      "type": "news",
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-08-29",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+    },
+    {
+      "id": "news-57197736",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
@@ -91,17 +102,6 @@
       "published": "2026-08-28",
       "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
       "raw_summary": "Our decision to wind down our contract providing OpenAI models to Cursor following its acquisition by SpaceX."
-    },
-    {
-      "id": "news-13967889",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Supporting Thailand’s next generation of AI startups",
-      "authors": "OpenAI",
-      "published": "2026-08-28",
-      "url": "https://openai.com/index/supporting-next-generation-ai-startups-thailand",
-      "raw_summary": "OpenAI and Thailand’s MHESI launch an eight-week accelerator helping 10 health, wellness, and education startups turn AI prototypes into trusted products."
     }
   ]
 }
