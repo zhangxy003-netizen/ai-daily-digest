@@ -1,63 +1,64 @@
 {
-  "fetched_at": "2026-08-31",
+  "fetched_at": "2026-09-01",
   "items": [
     {
-      "id": "paper-2608.27549",
+      "id": "paper-2608.31106",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning",
-      "authors": "Hanyang Wang, Yimo Cai, Weiliang Chen et al.",
-      "published": "2026-08-26",
-      "url": "https://arxiv.org/abs/2608.27549",
-      "raw_summary": "Physical understanding and reasoning depend on forming compact and generalizable representations of the world. While modern vision-language models can recognize and explain diverse physical events, they often lack explicit representations of the underlying mechanisms-such as object states, physical parameters, and governing dynamics-needed for reliably reasoning how the world evolves and responds to interventions. In this work, we introduce Code-as-World, a paradigm that represents physical worlds through executable world representations. By expressing physical composition, dynamic evolution, and visual appearance as executable code, Code-as-World provides a compact, quantitatively grounded, and controllable abstraction of the physical world. To construct such representations from multimodal observations, such as natural-language descriptions or real-world videos, we develop an agentic discovery loop inspired by abductive reasoning, where an agent proposes, executes, renders, verifies, and iteratively refines executable world hypotheses. As a concrete application, we use verified executable worlds to provide scalable physical supervision for training vision-language models on quantitative physical reasoning. Experiments show that Code-as-World-VL achieves state-of-the-art performance on QuantiPhy and surpasses leading proprietary models, highlighting the potential of executable world representations as a scalable foundation for physical intelligence."
+      "title": "DreamX-Creator: Democratizing Native Audio-Video Generation at 2K Resolution",
+      "authors": "Jiashu Zhu, Yanhao Zheng, Ruitian Tian et al.",
+      "published": "2026-08-30",
+      "url": "https://arxiv.org/abs/2608.31106",
+      "raw_summary": "Recent video generators often omit audio or synthesize it in a separate stage, limiting reciprocal modeling of visual dynamics and acoustic events. We present DreamX-Creator 1.0, a compact native joint audio-video generation system centered on a 7B generator. Conditioned on a first frame and a text prompt, the generator jointly denoises modality-specialized audio and video streams. The streams are processed independently in the first half of the network and coupled in the latter half through Gated Cross-Modal Attention, whose token- and head-wise output gates modulate each active cross-modal attention-head output. A unified Audio-Video Data System constructs and filters temporally coherent clips, produces structured multimodal annotations, and organizes clips into capability-oriented data pools. Progressive Joint Training comprises two audio-video pre-training stages followed by High-Quality Finetuning. Audio-Video Reinforcement Learning further post-trains the generator with Modality-Aware Multimodal Feedback that routes video-, audio-, and cross-modal feedback to the corresponding streams. For high-resolution output, our Autoregressive 1-Step 2K Refinement pipeline adapts a bidirectional multi-step teacher into an autoregressive multi-step refiner and distills it into a student requiring one denoising evaluation per temporal chunk. Overall, DreamX-Creator 1.0 achieves native, synchronized audio-video generation with performance competitive with state-of-the-art open-source systems. By releasing our compact 7B generator and 2K Refiner, we seek to democratize native audio-video generation and provide an accessible foundation for future research in unified audio-video generative modeling.",
+      "image": "https://arxiv.org/html/2608.31106v1/pipeline_v2.png"
     },
     {
-      "id": "paper-2608.26582",
+      "id": "paper-2608.29335",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data",
-      "authors": "Gyouk Chu, Myeongho Jeon, Eunho Yang",
-      "published": "2026-08-26",
-      "url": "https://arxiv.org/abs/2608.26582",
-      "raw_summary": "Self-evolving language models have recently emerged as a promising path toward superintelligence, with the advantage of reducing the cost of human supervision. While considerable progress has been made in verifiable domains, self-evolution in unverifiable domains remains substantially less explored. We propose Judge co-adaptation from Zero data (J-Zero), a unified Challenger--Solver--Judge co-evolution framework that supports self-improvement across both domains. The Challenger and Solver co-evolve through an adversarial interaction: the Challenger generates increasingly difficult tasks, while the Solver learns to produce higher-quality responses to them. In parallel, the Judge co-adapts using preference pairs whose ordering is known in advance from how each response was produced, i.e., the Solver's answer over the Challenger's, and its decomposed-and-recombined answer over its one-shot answer, rather than from the Judge's own scores. J-Zero outperforms the baselines by an average of 4.2 points on verifiable and 8.0 points on unverifiable domains, and continues to improve through at least ten iterations, whereas the baselines degrade after two.",
-      "image": "https://arxiv.org/html/2608.26582v1/overview_3rd.png"
+      "title": "GenFirst: Generation Before Reconstruction for Stable End-to-End Latent Generative Modeling",
+      "authors": "Guangting Zheng, Yiyuan Zhang, Tao Yang et al.",
+      "published": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.29335",
+      "raw_summary": "Latent generative models typically follow a two-stage pipeline, training a variational autoencoder for reconstruction and then a generative model on the frozen latent space. Since reconstruction-optimized latents are not necessarily generation-friendly, jointly training both models is an appealing alternative. However, direct end-to-end training remains challenging, as it is prone to latent collapse and faces a generation-reconstruction conflict. We revisit this problem by analyzing how different objectives shape the latent space and identify two key insights. First, the entropy term in the Kullback-Leibler divergence objective is essential for preventing collapse: reconstruction and prior fitting tend to shrink the posterior, while entropy preserves non-degenerate latent uncertainty. Second, reconstruction and generation exhibit asymmetric learning dynamics: reconstruction is fast and strongly supervised, whereas generation is slower and harder to optimize. Based on these insights, we achieve the first direct end-to-end training without latent collapse and propose GenFirst, a simple generation-before-reconstruction strategy. The generative objective first shapes the latent space under weak reconstruction pressure, after which reconstruction is progressively strengthened to recover visual details. We validate GenFirst with continuous autoregressive priors with exact likelihoods and SiT priors with implicit likelihoods. With our end-to-end objective and GenFirst, SiT achieves a gFID of 0.97 with CFG and 1.45 without CFG on ImageNet-256, while MMDiT reaches a GenEval score of 0.90 on text-to-image generation. Beyond image generation, we extend the framework to shared visual latents for generation and representation learning, and to continuous unified text-image generation. These results demonstrate the generality of stable end-to-end latent learning across generative priors and modalities."
     },
     {
-      "id": "paper-2608.27550",
+      "id": "paper-2608.30821",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models",
-      "authors": "Senqiao Yang, Chengyao Wang, Yuxin Chen et al.",
-      "published": "2026-08-26",
-      "url": "https://arxiv.org/abs/2608.27550",
-      "raw_summary": "Scaling robot data is crucial for building generalist Vision-Language-Action (VLA) models, yet robot trajectories are harder to scale than web-scale image-text data because embodied collection is costly and sparsely covers the physical world. This makes representation quality a central bottleneck: under a fixed robot-data budget, continued pre-training must turn limited trajectories into transferable visual-action knowledge rather than merely fit actions. We propose VLAct, a VLA-oriented VLM backbone trained on broad, heterogeneous, multi-embodiment robot data before task-specific fine-tuning. VLAct preserves the broad VLM prior and encourages shared action semantics across embodiments through VLM-prior preservation, multi-head continuous action co-supervision, and a partially unified cross-embodiment action layout, while allowing task-specific action heads during fine-tuning. Across simulation, real-world, and unseen-embodiment transfer, VLAct consistently improves downstream performance under fixed fine-tuning protocols. On LIBERO-Plus and RoboTwin 2.0, VLAct surpasses industrial VLA systems including ABot-M0 and LingBot-VLA, achieving success rates of 82.6% and 92.5%. On RoboDojo, VLAct ranks sixth among all policies by success rate and outperforms all explicitly designated world-action model (WAM) entries on both metrics. Most notably, on RoboCasa-GR1, an unseen humanoid embodiment, VLAct using only 20% of downstream trajectories outperforms the full-data GR00T-N1.6 baseline. These results are obtained using fully open-source data and only a 16-GPU training setup, showing that representation-centric continued pre-training can deliver highly competitive performance under a modest compute budget and is an important independent axis of VLA progress beyond data scaling."
+      "title": "Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling",
+      "authors": "Minghan Qin, Yuang Wang, Xiuyu Yang et al.",
+      "published": "2026-08-30",
+      "url": "https://arxiv.org/abs/2608.30821",
+      "raw_summary": "Composable scene modeling aims to recover a real indoor scene as complete, editable object assets arranged as observed, giving robot simulation and embodied AI a simulation-ready replica of the real environment whose objects can be manipulated individually. Existing pipelines decompose the task into three steps---parse the observations into instances, generate an asset for each, and place each asset back---but every step presumes an input that a cluttered capture rarely provides: accurate instance geometry, unoccluded views, and assets that accurately match the observations. We propose Lucida, which keeps this order but redistributes the requirements, so each step consumes only what a real capture reliably provides and precision is reached at the end of the pipeline rather than demanded at its start. Lucida parses the video into a scene graph whose nodes carry per-instance multi-view evidence, generates a complete asset for each instance from its evidence, and places assets with GizmoAct, a VLM policy that casts placement as multi-turn GUI interaction, manipulating the object's gizmo in a closed loop and deciding itself when alignment is reached. Across scene-level 3D object detection, object pose estimation, and scene reconstruction, Lucida improves mAP over Boxer by 69% on R2S-Scene, raises ADD-SB@0.05 from 57.8% to 83.4% on CA-1M, and increases scene F-Score from 0.794 for SAM3D to 0.924.",
+      "image": "https://arxiv.org/html/2608.30821v1/teaser.png"
     },
     {
-      "id": "paper-2608.27529",
+      "id": "paper-2608.31046",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction",
-      "authors": "Jiarong Han, Jincheng Xiong, Yuzhou Liu et al.",
-      "published": "2026-08-26",
-      "url": "https://arxiv.org/abs/2608.27529",
-      "raw_summary": "Streaming 3D reconstruction from extremely long videos requires estimating camera motion and scene geometry online under bounded memory and computation. Early streaming models achieve causal, bounded-cost inference using finite context buffers or compact recurrent states, yet their estimates often deteriorate as sequences grow. Recent methods improve long-horizon stability by coupling short-range context with persistent or multi-level long-range memory. We pursue a different route: we keep the learned temporal state strictly local and formulate predictions whose targets remain independent of sequence length. We present ABot-Recon, a simple streaming model that caches KV features from only the preceding 11 frames. It predicts a point map in the current camera coordinate system together with an adjacent-frame relative pose. These predictions remain equivariant under changes of reference frame, and global poses and geometry are recovered through sequential composition. To reduce accumulated drift, a lightweight temporal refiner improves relative rotations using recent visual and motion context, while a composition-aware pose loss supervises multi-step pose composition. Extensive evaluations on challenging long-sequence benchmarks demonstrate the superior long-horizon performance of our local-context approach. On Oxford Spires, ABot-Recon achieves an ATE of 4.35 m and an RPE-R of 0.12^circ, reducing both errors by approximately 40\\% relative to the best prior results.",
-      "image": "https://arxiv.org/html/2608.27529v1/teaser-pc10.png"
+      "title": "Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement",
+      "authors": "Yi Ding, Ruqi Zhang",
+      "published": "2026-08-30",
+      "url": "https://arxiv.org/abs/2608.31046",
+      "raw_summary": "On-policy distillation (OPD) offers dense token-level supervision as an alternative to the sparse outcome-level advantages of reinforcement learning with verifiable rewards (RLVR). However, the teacher scores student-generated trajectories that are inherently off-policy for it, so the reliability of its supervision, and hence the source of the student's improvement, remains unclear. We quantitatively analyze teacher supervision during OPD training and find substantial noise whose prevalence increases with teacher scale. Surprisingly, the student policy is insensitive to such noise, converging to comparable performance regardless of whether noisy supervision is retained or removed. Does OPD distill at all? By analyzing what drives its gains, we find that learning concentrates on low log-probability tokens, and using a single fixed negative advantage matches the performance of teacher-provided ones. This suggests that OPD works largely by suppressing low log-probability tokens, which requires no teacher. These findings motivate On-Policy Self-Adaptation (OPSA), a supervision-free method using entropy-adaptive negative advantages. It assigns stronger learning signals to high-entropy positions, suppressing tail tokens, and evenly redistributing probability mass among head tokens. Compared with the base Qwen3-1.7B, OPSA improves Avg@32 by 35.41 points on AIME24, corresponding to a 263\\% relative gain, and more than doubles Pass@32 across all three benchmarks. It also outperforms OPD by 16.77 points in Avg@32 on AIME24. Extensive experiments and analyses across model families and tasks further demonstrate its effectiveness and generalizability.",
+      "image": "https://arxiv.org/html/2608.31046v1/opsa.png"
     },
     {
-      "id": "paper-2608.28476",
+      "id": "paper-2608.31119",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL",
-      "authors": "Zhuoshi Pan, Qizhi Pei, Junru Lu et al.",
-      "published": "2026-08-27",
-      "url": "https://arxiv.org/abs/2608.28476",
-      "raw_summary": "Long-horizon agentic tasks require large language models (LLMs) to iteratively retrieve, integrate, and maintain dispersed information across multi-turn interactions, but preserving all interaction histories leads to a continuously growing working context. Recent proactive context management methods allow models to edit their own working context with specialized tools, yet they still face three key limitations: (1) a limited toolset restricted to search, deletion, and summarization, with no support for global planning, long-term memory, and adaptive compression; (2) inefficient exploration that treats context management actions uniformly despite their heterogeneous impacts on final outcomes; and (3) coarse-grained credit assignment that assigns the final trajectory-level reward to all intermediate context editing actions during RL. To bridge these gaps, we introduce ContextPilot, a proactive context management framework for long-horizon agentic reasoning. Our approach systematically augments the toolset with planning, long-term memory, and soft context offloading tools. We further propose an RL method tailored for context management, which uses context and entropy variation to identify critical editing decisions for branch sampling and estimates action-level advantages from all branched trajectories that pass through the corresponding context editing action. Experiments on long-context QA and deep search tasks show that ContextPilot achieves stronger performance with a more compact working context, consistently outperforming existing baselines across various base models and benchmarks. Code is available at https://github.com/Tencent/ContextPilot.",
-      "image": "https://arxiv.org/html/2608.28476v1/main_figure.png"
+      "title": "PaperGym: Rubric-Centered Evolution for Research-Plan Generation",
+      "authors": "Yuhan Wang, Zhengxi Lu, Yuchen Yan et al.",
+      "published": "2026-08-30",
+      "url": "https://arxiv.org/abs/2608.31119",
+      "raw_summary": "Research planning is the decisive capability of AI scientists. Yet a research plan admits no verifiable answer, so reinforcement learning lacks the environment it requires: tasks paired with a critic. Rubrics extracted from scientific papers can supply the critic. Existing pipelines, however, draw the question and the criteria from the same content, so the reward can be earned by paraphrase. The rubric is further compressed into a single scalar per rollout. We introduce PaperGym, a unified framework that turns each research paper into a complete training environment. PaperGym exploits the structure of a paper: the question is synthesized from the research goal and background, while the criteria are derived from the method and experiments. The criteria span methodological innovation and experimental design, and criterion leakage falls to 3.7%, versus 11.90% to 34.10% in existing datasets. Training uses the rubric twice: first as privileged context for OPSD's self-teacher, then as the reward for GRPO. Across Qwen3-1.7B/4B/8B, this schedule outperforms supervised fine-tuning, either stage alone, and the reverse ordering, improving five-benchmark averages by +5.6, +5.0, and +4.8 points. With the recipe held fixed, models trained on PaperGym-20k win 58.1% of three-way comparisons, against 28.2% for RubricHub Science. The trained Qwen3-8B reaches 73.48 on ResearchQA, above the far larger Kimi K2.6. We release the pipeline, the 20,000-instance corpus PaperGym-20k, and the benchmarks PaperGym-Innov and PaperGym-Design.",
+      "image": "https://arxiv.org/html/2608.31119v1/framework.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -66,9 +67,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-08-31",
+      "published": "2026-09-01",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1054681336",
+      "type": "news",
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/INFTY",
+      "authors": "智谱 GLM",
+      "published": "2026-09-01",
+      "url": "https://github.com/THUDM/INFTY",
+      "raw_summary": "INFTY Engine: An Optimization Toolkit to Support Continual AI"
     },
     {
       "id": "news-gh-1246459259",
@@ -77,31 +89,20 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-08-31",
+      "published": "2026-09-01",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-gh-1191791121",
+      "id": "news-gh-1337133508",
       "type": "news",
       "source": "MiniMax · GitHub",
       "region": "国内",
-      "title": "MiniMax-AI/cli",
+      "title": "MiniMax-AI/MiniMax-Code-Plugins",
       "authors": "MiniMax",
-      "published": "2026-08-31",
-      "url": "https://github.com/MiniMax-AI/cli",
-      "raw_summary": "Generate text, images, video, speech, and music by MiniMax."
-    },
-    {
-      "id": "news-gh-1333065091",
-      "type": "news",
-      "source": "DeepSeek · GitHub",
-      "region": "国内",
-      "title": "deepseek-ai/deepseek-harness",
-      "authors": "DeepSeek",
-      "published": "2026-08-30",
-      "url": "https://github.com/deepseek-ai/deepseek-harness",
-      "raw_summary": "DeepSeek Harness: Everything is a Plugin."
+      "published": "2026-09-01",
+      "url": "https://github.com/MiniMax-AI/MiniMax-Code-Plugins",
+      "raw_summary": "Community registry and contribution toolkit for MiniMax Code plugins."
     }
   ]
 }
