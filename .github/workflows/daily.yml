@@ -22,7 +22,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 330   # 含最长 4 小时的避峰等待
     env:
       DIGEST_DATE: ${{ github.event.inputs.date }}
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
