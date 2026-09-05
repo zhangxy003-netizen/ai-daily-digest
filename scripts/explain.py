@@ -12,14 +12,15 @@ explain.py — 用 DeepSeek-V4 为每条原始内容生成中文解读
 """
 import json, os, sys, time, re, datetime
 from pathlib import Path
-from openai import OpenAI
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from llm import chat_json, HAS_KEY   # 统一的稳健调用封装
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-MODEL = "deepseek-v4-pro"
-BASE_URL = "https://api.deepseek.com"
 
-client = OpenAI(api_key=os.environ.get("DEEPSEEK_API_KEY", ""), base_url=BASE_URL)
+# 少于这个数就不发布本期并让工作流失败(避免再出现只有一条的期)
+MIN_PUBLISH = int(os.environ.get("DIGEST_MIN_PUBLISH", "3"))
 
 SYSTEM = """你是一位擅长把 AI 前沿研究讲给非专业读者听的中文科普编辑。
 你的解读要通俗、准确、有信息量,多用生活化类比,避免堆砌术语,首次出现的英文缩写要解释。面向的读者是对 AI 感兴趣、正在求职的学生。
@@ -192,56 +193,34 @@ def build_prompt(item):
             .replace("{图解要求}", figure))
 
 
-def parse_json(text):
-    """从模型输出中稳健地提取 JSON。"""
-    text = text.strip()
-    # 去掉可能的 markdown 围栏
-    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text, flags=re.MULTILINE).strip()
-    # 截取第一个 { 到最后一个 }
-    s, e = text.find("{"), text.rfind("}")
-    if s != -1 and e != -1:
-        text = text[s:e + 1]
-    return json.loads(text)
-
-
 def explain_one(item):
+    """返回 (解读结果, 诊断meta)。失败时结果为 None。"""
     prompt = build_prompt(item)
     shots = FEWSHOT.get(item["type"], [])
     messages = [{"role": "system", "content": SYSTEM}] + shots + \
                [{"role": "user", "content": prompt}]
-    for attempt in range(3):
-        try:
-            resp = client.chat.completions.create(
-                model=MODEL,
-                messages=messages,
-                temperature=0.4,
-                max_tokens=1800,
-            )
-            data = parse_json(resp.choices[0].message.content)
-            # 合并原始元信息 + AI 解读
-            return {
-                "id": item["id"],
-                "type": item["type"],
-                "source": item["source"],
-                "region": item.get("region", ""),
-                "title": item["title"],
-                "title_zh": data.get("title_zh", item["title"]),
-                "authors": item.get("authors", ""),
-                "published": item.get("published", ""),
-                "url": item["url"],
-                "image": item.get("image"),
-                "tldr": data.get("tldr", ""),
-                "explain": data.get("explain", ""),
-                "figure": data.get("figure"),
-                "terms": data.get("terms", []),
-                "summary": data.get("summary", ""),
-                "tags": data.get("tags", [])[:3],
-                "topics": [t for t in data.get("topics", []) if t in TOPICS][:2],
-            }
-        except Exception as e:
-            print(f"  [{item['id']}] 第{attempt+1}次失败:{e}", file=sys.stderr)
-            time.sleep(2 * (attempt + 1))
-    return None  # 三次都失败则丢弃该条
+    data, meta = chat_json(messages, max_tokens=4096, temperature=0.4, tag=item["id"])
+    if data is None:
+        return None, meta
+    return {
+        "id": item["id"],
+        "type": item["type"],
+        "source": item["source"],
+        "region": item.get("region", ""),
+        "title": item["title"],
+        "title_zh": data.get("title_zh", item["title"]),
+        "authors": item.get("authors", ""),
+        "published": item.get("published", ""),
+        "url": item["url"],
+        "image": item.get("image"),
+        "tldr": data.get("tldr", ""),
+        "explain": data.get("explain", ""),
+        "figure": data.get("figure"),
+        "terms": data.get("terms", []),
+        "summary": data.get("summary", ""),
+        "tags": (data.get("tags") or [])[:3],
+        "topics": [t for t in (data.get("topics") or []) if t in TOPICS][:2],
+    }, meta
 
 
 def main():
@@ -251,27 +230,47 @@ def main():
         sys.exit(1)
     raw = json.loads(raw_path.read_text(encoding="utf-8"))
 
-    if not client.api_key:
+    if not HAS_KEY:
         print("✗ 未设置 DEEPSEEK_API_KEY 环境变量", file=sys.stderr)
         sys.exit(1)
 
-    out = []
+    started = time.time()
+    out, failed, models_used = [], [], {}
     for item in raw["items"]:
         print(f"→ 解读:{item['title'][:50]}…")
-        res = explain_one(item)
+        res, meta = explain_one(item)
         if res:
             out.append(res)
+            models_used[meta["model"]] = models_used.get(meta["model"], 0) + 1
+        else:
+            failed.append({"id": item["id"], "title": item["title"][:60],
+                           "reasons": meta.get("failed", [])})
         time.sleep(1)
 
-    if not out:
-        print("✗ 今日没有成功解读的内容,跳过写入(保留昨日数据)", file=sys.stderr)
-        return
+    run_meta = {
+        "run_at": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "selected": len(raw["items"]),
+        "explained": len(out),
+        "failed": failed,
+        "models_used": models_used,
+        "duration_s": round(time.time() - started, 1),
+    }
+    print(f"→ 解读完成:{len(out)}/{len(raw['items'])} 成功,模型 {models_used},"
+          f"耗时 {run_meta['duration_s']}s")
 
-    today = raw.get("fetched_at") or datetime.date.today().isoformat()
-    save_archive(today, out)
+    if len(out) < MIN_PUBLISH:
+        print(f"✗ 仅 {len(out)} 条成功,低于发布门槛 {MIN_PUBLISH},本期不发布。失败明细:", file=sys.stderr)
+        for f in failed:
+            print(f"   - {f['title']}: {' | '.join(f['reasons'])}", file=sys.stderr)
+        sys.exit(1)      # 让工作流变红,而不是静默跳过
+
+    today = (os.environ.get("DIGEST_DATE")
+             or raw.get("fetched_at")
+             or datetime.date.today().isoformat())
+    save_archive(today, out, run_meta)
 
 
-def save_archive(today, items):
+def save_archive(today, items, run_meta=None):
     """累积归档:存当天归档 + 更新期目录 + 写最新一期 feed.json。"""
     archive_dir = DATA / "archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
@@ -283,34 +282,41 @@ def save_archive(today, items):
     else:
         index = {"issues": []}
 
-    # 若今天已存在(同日重复运行),覆盖当天那期;否则新增一期
-    existing = next((it for it in index["issues"] if it["date"] == today), None)
-    if existing:
-        issue_no = existing["issue_no"]
-    else:
-        issue_no = (max([it["issue_no"] for it in index["issues"]], default=0) + 1)
-
-    # 写当天归档文件
-    archive_obj = {
-        "date": today,
-        "issue_no": issue_no,
-        "items": items,
-    }
-    (archive_dir / f"{today}.json").write_text(
-        json.dumps(archive_obj, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    # 更新期目录(去重后按日期倒序)
+    # 更新期目录:插入/覆盖本期,然后按日期重排期号(期号 = 时间顺序,回填后仍连续)
     index["issues"] = [it for it in index["issues"] if it["date"] != today]
-    index["issues"].append({"date": today, "issue_no": issue_no, "count": len(items)})
+    index["issues"].append({"date": today, "issue_no": 0, "count": len(items)})
+    index["issues"].sort(key=lambda x: x["date"])
+    for n, it in enumerate(index["issues"], start=1):
+        if it["issue_no"] != n:
+            it["issue_no"] = n
+            f = archive_dir / f"{it['date']}.json"
+            if f.exists() and it["date"] != today:
+                try:
+                    obj = json.loads(f.read_text(encoding="utf-8"))
+                    obj["issue_no"] = n
+                    f.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+                except Exception:
+                    pass
+    issue_no = next(it["issue_no"] for it in index["issues"] if it["date"] == today)
     index["issues"].sort(key=lambda x: x["date"], reverse=True)
-    index["latest"] = today
+    index["latest"] = index["issues"][0]["date"]
     index["total_issues"] = len(index["issues"])
     index_path.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    # feed.json = 最新一期(向后兼容前端)
-    feed = {"updated_at": today, "issue_no": issue_no,
-            "total_issues": index["total_issues"], "items": items}
-    (DATA / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, indent=2), encoding="utf-8")
+    # 写本期归档
+    archive_obj = {"date": today, "issue_no": issue_no, "items": items}
+    if run_meta:
+        archive_obj["run_meta"] = run_meta
+    (archive_dir / f"{today}.json").write_text(
+        json.dumps(archive_obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # feed.json 只在本期是最新一期时更新(回填历史期不能覆盖首页)
+    if today == index["latest"]:
+        feed = {"updated_at": today, "issue_no": issue_no,
+                "total_issues": index["total_issues"], "items": items}
+        if run_meta:
+            feed["run_meta"] = run_meta
+        (DATA / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"✓ 第 {issue_no} 期({today})已归档,{len(items)} 条 | 累计 {index['total_issues']} 期")
 

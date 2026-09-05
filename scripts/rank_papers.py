@@ -8,15 +8,13 @@ rank_papers.py — 论文候选打分精选(在 fetch 和 explain 之间)
 """
 import json, os, sys, re
 from pathlib import Path
-from openai import OpenAI
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from llm import chat_json, HAS_KEY   # 统一的稳健调用封装
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-MODEL = "deepseek-v4-pro"
-BASE_URL = "https://api.deepseek.com"
 PAPER_KEEP = 5   # 最终精选保留几篇论文
-
-client = OpenAI(api_key=os.environ.get("DEEPSEEK_API_KEY", ""), base_url=BASE_URL)
 
 SCORE_SYSTEM = """你是 AI 领域的资深编辑,负责从一批候选论文里挑出最值得向大众科普的几篇。
 你的评判标准:
@@ -31,17 +29,8 @@ SCORE_PROMPT = """以下是今天的候选论文(含社区投票数 votes,可作
 
 {papers}
 
-返回 JSON 数组,每个元素形如 {{"index": 候选编号, "score": 分数, "reason": "10字内理由"}}。
-按你的真实判断打分,不要全部给高分。只返回 JSON 数组,不要其他内容。"""
-
-
-def parse_json(text):
-    text = text.strip()
-    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text, flags=re.MULTILINE).strip()
-    s, e = text.find("["), text.rfind("]")
-    if s != -1 and e != -1:
-        text = text[s:e + 1]
-    return json.loads(text)
+返回一个 JSON 对象,形如 {{"scores": [{{"index": 候选编号, "score": 分数, "reason": "10字内理由"}}, ...]}}。
+按你的真实判断打分,不要全部给高分。只返回 JSON,不要其他内容。"""
 
 
 def score_candidates(candidates):
@@ -52,23 +41,25 @@ def score_candidates(candidates):
         listing.append(f"[{i}] (votes={votes}) {c['title']}\n    摘要:{c.get('raw_summary','')[:300]}")
     prompt = SCORE_PROMPT.format(papers="\n\n".join(listing))
 
-    try:
-        resp = client.chat.completions.create(
-            model=MODEL,
-            messages=[{"role": "system", "content": SCORE_SYSTEM},
-                      {"role": "user", "content": prompt}],
-            temperature=0.3,
-            max_tokens=1500,
-        )
-        scores = parse_json(resp.choices[0].message.content)
+    data, meta = chat_json(
+        [{"role": "system", "content": SCORE_SYSTEM},
+         {"role": "user", "content": prompt}],
+        max_tokens=3000, temperature=0.3, tag="rank")
+    scores = None
+    if isinstance(data, dict):
+        scores = data.get("scores")
+    elif isinstance(data, list):
+        scores = data
+    if scores:
         score_map = {s["index"]: s.get("score", 0) for s in scores if "index" in s}
         for i, c in enumerate(candidates):
             # 综合分 = AI 打分为主,社区热度作小幅加权先验
             ai = score_map.get(i, 0)
             c["_score"] = ai + min(c.get("hotness", 0), 50) * 0.2
-        print("  ✓ DeepSeek 打分完成")
-    except Exception as e:
-        print(f"  打分失败,降级为按社区热度排序:{e}", file=sys.stderr)
+        print(f"  ✓ DeepSeek 打分完成(模型 {meta.get('model')},{meta.get('attempts')} 次尝试)")
+    else:
+        # 降级是兜底,不能再静默:醒目打印,让日志里一眼看到
+        print("  ⚠ 打分失败,降级为按社区热度排序:" + " | ".join(meta.get("failed", [])), file=sys.stderr)
         for c in candidates:
             c["_score"] = c.get("hotness", 0)
 
@@ -87,7 +78,7 @@ def main():
     if not candidates:
         print("  无论文候选,跳过打分")
         selected = []
-    elif not client.api_key:
+    elif not HAS_KEY:
         print("  未设置 API key,降级为按社区热度取前 N", file=sys.stderr)
         candidates.sort(key=lambda x: x.get("hotness", 0), reverse=True)
         selected = candidates[:PAPER_KEEP]

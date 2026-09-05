@@ -7,7 +7,7 @@ fetch_sources.py — 抓取原始内容(论文 + 国内外大厂动态)
 - 公司动态走可配置 feed 列表(RSS / GitHub releases),任何一个拉不到就跳过,不影响整体
 - 只抓元信息(标题/摘要/链接),不抓正文图片,规避版权与排版风险
 """
-import json, time, datetime, sys, urllib.request, urllib.error
+import json, os, time, datetime, sys, urllib.request, urllib.error
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -68,6 +68,10 @@ NEWS_KEEP = 4      # 公司动态最终保留条数
 RECENT_DAYS = 3    # 只要最近 N 天内的条目
 
 # ============ 工具函数 ============
+
+# 回填模式:DIGEST_DATE=YYYY-MM-DD 时按该日抓取(HF 支持按日查询;arXiv 按提交日期区间;新闻源无法回溯,跳过)
+DIGEST_DATE = os.environ.get("DIGEST_DATE", "").strip()
+BACKFILL = bool(DIGEST_DATE) and DIGEST_DATE != datetime.date.today().isoformat()
 
 def fetch_url(url):
     req = urllib.request.Request(url, headers=UA)
@@ -222,7 +226,10 @@ def fetch_hf_daily():
     """Hugging Face Daily Papers:社区投票的每日热门 AI 论文。带 upvotes 热度。"""
     out = []
     try:
-        raw = fetch_url(f"{HF_DAILY_API}?limit={HF_CANDIDATES}")
+        q = f"{HF_DAILY_API}?limit={HF_CANDIDATES}"
+        if BACKFILL:
+            q += f"&date={DIGEST_DATE}"
+        raw = fetch_url(q)
         papers = json.loads(raw)
     except Exception as e:
         print(f"  [HF Daily] 跳过:{e}", file=sys.stderr)
@@ -259,7 +266,13 @@ def fetch_arxiv():
     items = []
     ns = {"a": "http://www.w3.org/2005/Atom"}
     for cat in ARXIV_CATEGORIES:
-        q = (f"http://export.arxiv.org/api/query?search_query=cat:{cat}"
+        query = f"cat:{cat}"
+        if BACKFILL:
+            d1 = datetime.date.fromisoformat(DIGEST_DATE)
+            d0 = d1 - datetime.timedelta(days=2)
+            query += (f"+AND+submittedDate:[{d0.strftime('%Y%m%d')}0000+TO+"
+                      f"{d1.strftime('%Y%m%d')}2359]")
+        q = (f"http://export.arxiv.org/api/query?search_query={query}"
              f"&sortBy=submittedDate&sortOrder=descending&max_results={ARXIV_PER_CAT}")
         try:
             raw = fetch_url(q)
@@ -373,6 +386,8 @@ def fetch_github(feed):
 # ============ 主流程 ============
 
 def main():
+    if BACKFILL:
+        print(f"※ 回填模式:目标日期 {DIGEST_DATE}")
     print("→ 抓取论文候选(Hugging Face Daily Papers 主源)…")
     hf = fetch_hf_daily()
     print(f"  HF Daily 得到 {len(hf)} 篇热门候选")
@@ -391,9 +406,9 @@ def main():
     paper_candidates = paper_candidates[:PAPER_CANDIDATES_TOTAL]
     print(f"  论文候选池共 {len(paper_candidates)} 篇(将由 rank_papers.py 打分精选)")
 
-    print("→ 抓取公司动态 / 报告…")
+    print("→ 抓取公司动态 / 报告…" + ("(回填模式:新闻源无法回溯,跳过)" if BACKFILL else ""))
     news = []
-    for feed in FEEDS:
+    for feed in ([] if BACKFILL else FEEDS):
         got = fetch_github(feed) if feed["kind"] == "github" else fetch_rss(feed)
         if got:
             print(f"  [{feed['name']}] {len(got)} 条")
@@ -406,7 +421,7 @@ def main():
     pure_news = pure_news[:NEWS_KEEP]
 
     raw = {
-        "fetched_at": datetime.date.today().isoformat(),
+        "fetched_at": DIGEST_DATE or datetime.date.today().isoformat(),
         "paper_candidates": paper_candidates,   # 待打分精选
         "news": pure_news,                       # 新闻直接用
         "reports": reports[:1],                  # 报告直接用
