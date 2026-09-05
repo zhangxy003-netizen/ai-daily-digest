@@ -41,6 +41,46 @@ client = OpenAI(
 # 若服务端不认 thinking 参数(400),自动降级为不传
 _thinking_param_ok = True
 
+# ---------- 峰谷避让 ----------
+# DeepSeek 峰谷计费:工作日北京时间 09:00–12:00、14:00–18:00 为高峰(价格 ×2),
+# 其余时段与周六周日全天为低谷。GitHub 定时任务可能延迟数小时把运行推进高峰,
+# 所以在调用前检查一次,撞上高峰就等到高峰结束。DIGEST_NO_WAIT=1 可关闭。
+import datetime as _dt
+
+_PEAK_WINDOWS = [(9, 12), (14, 18)]   # 北京时间,左闭右开
+_CN_TZ = _dt.timezone(_dt.timedelta(hours=8))
+_waited_once = False
+
+
+def _beijing_now():
+    return _dt.datetime.now(_CN_TZ)
+
+
+def seconds_until_off_peak(now=None):
+    """返回需要等待的秒数;0 表示当前就是低谷。"""
+    now = now or _beijing_now()
+    if now.weekday() >= 5:            # 周六(5)/周日(6)全天低谷
+        return 0
+    for start, end in _PEAK_WINDOWS:
+        if start <= now.hour < end:
+            target = now.replace(hour=end, minute=0, second=30, microsecond=0)
+            return int((target - now).total_seconds())
+    return 0
+
+
+def wait_for_off_peak():
+    global _waited_once
+    if os.environ.get("DIGEST_NO_WAIT") == "1":
+        return
+    secs = seconds_until_off_peak()
+    if secs <= 0:
+        return
+    if not _waited_once:
+        print(f"⏳ 当前北京时间 {_beijing_now():%H:%M} 处于 DeepSeek 高峰时段(价格×2),"
+              f"等待 {secs // 60} 分钟到低谷再调用…", flush=True)
+        _waited_once = True
+    time.sleep(secs)
+
 
 def parse_json(text):
     """从模型输出中稳健地提取 JSON。"""
@@ -74,6 +114,7 @@ def chat_json(messages, max_tokens=4096, temperature=0.4, tag=""):
         (FALLBACK, max_tokens * 3),
     ]
     reasons = []
+    wait_for_off_peak()
     for i, (model, mt) in enumerate(plan):
         kwargs = dict(
             model=model,
