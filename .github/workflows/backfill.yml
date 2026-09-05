@@ -1,0 +1,78 @@
+name: Backfill Missing Issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      from_date:
+        description: "起始日期 YYYY-MM-DD"
+        required: true
+      to_date:
+        description: "结束日期 YYYY-MM-DD(含)"
+        required: true
+      skip_existing:
+        description: "已有归档的日期是否跳过"
+        required: false
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-digest
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      DIGEST_MIN_PUBLISH: "2"      # 回填只有论文没有新闻,门槛放低
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Backfill day by day
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          d="${{ github.event.inputs.from_date }}"
+          end="${{ github.event.inputs.to_date }}"
+          while [ "$(date -d "$d" +%s)" -le "$(date -d "$end" +%s)" ]; do
+            if [ "${{ github.event.inputs.skip_existing }}" = "true" ] && [ -f "data/archive/$d.json" ]; then
+              echo "== $d 已存在,跳过"
+            else
+              echo "== 回填 $d"
+              if DIGEST_DATE="$d" python scripts/fetch_sources.py \
+                 && DIGEST_DATE="$d" python scripts/rank_papers.py \
+                 && DIGEST_DATE="$d" python scripts/explain.py; then
+                git add data/issues.json data/archive/ data/feed.json
+                git diff --staged --quiet || git commit -m "chore: backfill $d"
+              else
+                echo "::warning::$d 回填失败(可能当日 HF 无数据),继续下一天"
+              fi
+            fi
+            d=$(date -I -d "$d + 1 day")
+          done
+          git pull --rebase --autostash origin main && git push origin main
+
+      - name: Restore latest feed.json
+        # 回填不应改变首页:用最新一期归档重写 feed.json
+        run: |
+          python - <<'PYEOF'
+          import json, pathlib
+          idx = json.loads(pathlib.Path("data/issues.json").read_text(encoding="utf-8"))
+          latest = idx["latest"]
+          a = json.loads(pathlib.Path(f"data/archive/{latest}.json").read_text(encoding="utf-8"))
+          feed = {"updated_at": latest, "issue_no": a["issue_no"],
+                  "total_issues": idx["total_issues"], "items": a["items"]}
+          if "run_meta" in a: feed["run_meta"] = a["run_meta"]
+          pathlib.Path("data/feed.json").write_text(json.dumps(feed, ensure_ascii=False, indent=2), encoding="utf-8")
+          print("feed.json ->", latest)
+          PYEOF
+          git add data/feed.json
+          git diff --staged --quiet || (git commit -m "chore: restore latest feed" && git push origin main)

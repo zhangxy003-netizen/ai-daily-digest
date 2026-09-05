@@ -2,17 +2,30 @@ name: Daily AI Digest
 
 on:
   schedule:
-    # 避开 UTC 整点/半点的拥堵时段(那时 GitHub 定时任务常被延迟或跳过)。
-    # UTC 01:17 = 北京时间 09:17,冷门时间点,触发更可靠。
-    - cron: "17 1 * * *"
-  workflow_dispatch:   # 也允许在 Actions 页面手动触发
+    # 避开 UTC 整点/半点。UTC 22:37 = 北京时间 06:37,冷门时段,延迟通常更小。
+    # 注意:GitHub 定时任务在高峰期可能延迟数小时,这不影响内容,只影响更新时刻。
+    - cron: "37 22 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "回填指定日期(YYYY-MM-DD),留空则跑今天"
+        required: false
+        default: ""
 
 permissions:
-  contents: write       # 允许把更新后的 feed.json 提交回仓库
+  contents: write
+
+concurrency:
+  group: daily-digest
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DIGEST_DATE: ${{ github.event.inputs.date }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,6 +34,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
 
       - name: Install deps
         run: pip install -r requirements.txt
@@ -29,13 +43,10 @@ jobs:
         run: python scripts/fetch_sources.py
 
       - name: Select top papers (AI scoring)
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python scripts/rank_papers.py
 
       - name: Generate explanations
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        # explain.py 在成功条数低于门槛时会 exit 1,让这一步变红并触发邮件通知
         run: python scripts/explain.py
 
       - name: Commit updated feed
@@ -45,12 +56,36 @@ jobs:
           git add data/feed.json data/raw.json data/selected.json data/issues.json data/archive/
           if git diff --staged --quiet; then
             echo "今日无更新"
-          else
-            git commit -m "chore: daily digest $(date -u +%Y-%m-%d)"
-            # 推送前先同步远端最新,避免与手动修改冲突;失败则重试几次
-            for i in 1 2 3; do
-              git pull --rebase --autostash origin main && git push origin main && break
-              echo "推送冲突,第 $i 次重试…"
-              sleep 3
-            done
+            exit 0
           fi
+          git commit -m "chore: digest ${DIGEST_DATE:-$(date -u +%Y-%m-%d)}"
+          ok=0
+          for i in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin main; then
+              ok=1; break
+            fi
+            echo "推送失败,第 $i 次重试…"
+            sleep 5
+          done
+          # 三次都失败必须让步骤变红,不能再静默吞掉
+          if [ "$ok" != "1" ]; then
+            echo "::error::推送失败三次,本次结果未上线"
+            exit 1
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### 本次运行" >> $GITHUB_STEP_SUMMARY
+          python - <<'PYEOF' >> $GITHUB_STEP_SUMMARY
+          import json, pathlib
+          p = pathlib.Path("data/feed.json")
+          if p.exists():
+              f = json.loads(p.read_text(encoding="utf-8"))
+              m = f.get("run_meta", {})
+              print(f"- 最新一期:第 {f.get('issue_no')} 期({f.get('updated_at')}),{len(f.get('items', []))} 条")
+              if m:
+                  print(f"- 解读成功 {m.get('explained')}/{m.get('selected')},模型 {m.get('models_used')},耗时 {m.get('duration_s')}s")
+                  for x in m.get("failed", []):
+                      print(f"  - 失败:{x['title']} — {' | '.join(x['reasons'])}")
+          PYEOF
