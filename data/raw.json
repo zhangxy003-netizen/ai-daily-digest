@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-05",
+  "fetched_at": "2026-09-06",
   "paper_candidates": [
     {
       "id": "paper-2609.04199",
@@ -11,7 +11,7 @@
       "published": "2026-09-02",
       "url": "https://arxiv.org/abs/2609.04199",
       "raw_summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator.",
-      "hotness": 274
+      "hotness": 310
     },
     {
       "id": "paper-2608.26730",
@@ -26,6 +26,18 @@
       "hotness": 149
     },
     {
+      "id": "paper-2609.03199",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
+      "authors": "Howard Qian, Yiting Chen, Yunfei Xie et al.",
+      "published": "2026-09-01",
+      "url": "https://arxiv.org/abs/2609.03199",
+      "raw_summary": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be compared across variations in camera viewpoint, scene appearance, and actor occlusions, while remaining compact enough for efficient search and continual indexing over internet-scale video collections. We evaluate RoboTok against existing robot-data retrieval approaches on retrieval benchmarks and downstream robot policy performance. Our results show that RoboTok retrieves more relevant manipulation demonstrations and improves downstream task success, establishing hand-pose trajectory-aware retrieval as a way to make web video a scalable and continuously growing source of supervision for robot learning.",
+      "hotness": 76
+    },
+    {
       "id": "paper-2609.04196",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -36,18 +48,6 @@
       "url": "https://arxiv.org/abs/2609.04196",
       "raw_summary": "We propose Puffin-World, a unified multimodal architecture that integrates physical understanding, spatial simulation, and 3D world generation and reconstruction without relying on external offline modules. To reliably construct and interact with 3D worlds, our framework jointly models three native world states: physics (gravity field and latitude), geometry (depth), and appearance (image), together with a unified Omni-Camera representation that supports diverse tasks and flexible motions. Beyond modeling these states, we introduce a strategy for propagating physical dynamics across future frames. By grounding absolute camera properties in the real world, Puffin-World enables physically consistent and visually stable world generation. We further couple appearance and geometry within a single generative process, jointly synthesizing each future view and reconstructing its underlying geometry. This unified paradigm enables interleaved closed-loop applications requiring synergy across multiple tasks, including mimic and self-calibrated world exploration. To scale Puffin-World to complex scenarios, we construct Puffin-16M, comprising 15 million vision-language-camera triplets and 1 million trajectories featuring various and challenging motions. To foster further research in this area, we released the code, models, and datasets.",
       "hotness": 65
-    },
-    {
-      "id": "paper-2609.03199",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
-      "authors": "Howard Qian, Yiting Chen, Yunfei Xie et al.",
-      "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.03199",
-      "raw_summary": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be compared across variations in camera viewpoint, scene appearance, and actor occlusions, while remaining compact enough for efficient search and continual indexing over internet-scale video collections. We evaluate RoboTok against existing robot-data retrieval approaches on retrieval benchmarks and downstream robot policy performance. Our results show that RoboTok retrieves more relevant manipulation demonstrations and improves downstream task success, establishing hand-pose trajectory-aware retrieval as a way to make web video a scalable and continuously growing source of supervision for robot learning.",
-      "hotness": 45
     },
     {
       "id": "paper-2609.04201",
@@ -95,7 +95,7 @@
       "published": "2026-09-02",
       "url": "https://arxiv.org/abs/2609.04173",
       "raw_summary": "For scientific progress, we need benchmarks that test the limits of state-of-the-art models, and evaluation methods that inform us about failure cases. As models get stronger, standard benchmarks for machine translation are approaching saturation. Further, automatic translation metrics are unreliable, vulnerable to reward-hacking, and provide unactionable assessments. Even gold human evaluation is not problem-free, because it often lacks reproducibility, objectivity, and scalability. Overall, this prevents us from tracking objective progress in the field and identifying pathways for improvement. We introduce the Last Translation Benchmark, a collection of human-authored and peer-reviewed examples (texts, images, audio, videos) that break leading machine translation models. We also present a new evaluation approach: each example comes with handcrafted verification rules describing concrete failure cases on that example, therefore allowing reliable and actionable future evaluation. The Last Translation Benchmark is a live dataset that accepts ongoing contributions. The latest version is LTBv1, containing accepted contributions prior to September 1st 2026, with future releases planned as new data is continuously collected.",
-      "hotness": 24
+      "hotness": 26
     },
     {
       "id": "paper-2609.04094",
@@ -134,18 +134,6 @@
       "hotness": 22
     },
     {
-      "id": "paper-2608.30391",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Using Grounded Theory for Agent Behavior Analysis at Scale",
-      "authors": "Zhuoran Lu, Yangyang Yu, Zhuoyan Li et al.",
-      "published": "2026-08-30",
-      "url": "https://arxiv.org/abs/2608.30391",
-      "raw_summary": "Understanding agent behavior requires methods that scale to thousands of trajectories and surface new patterns in long, often unfamiliar tasks where pre-built classifiers fall short. We propose to bring grounded theory into agent trajectory analysis: a six-decade-old qualitative method from the social sciences, with a principled saturation criterion and an auditable trail from data to theory. We propose AutoTraceGT (Automated Trace analysis through Grounded Theory), the first multi-agent pipeline that automates grounded theory on agent trajectories. It iteratively performs open, axial, and theoretical coding until saturation, producing a behavioral taxonomy tailored to each task. Across six trajectory corpora, AutoTraceGT produces codebooks that recover 73-91 percent of the failure modes in human-annotated taxonomies and surface additional patterns that those taxonomies miss. The emergent theoretical narrative aligns with prior expert accounts. Used as a deductive feature space, the codebook outperforms zero-shot and few-shot LLM baselines on downstream failure prediction. These results suggest Grounded Theory offers a scalable analytic tool for ML researchers and agent developers studying what agents actually do.",
-      "hotness": 18
-    },
-    {
       "id": "paper-2609.03563",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -155,6 +143,18 @@
       "published": "2026-09-02",
       "url": "https://arxiv.org/abs/2609.03563",
       "raw_summary": "We present FlashRender, a few-step generative rendering framework that retakes a source video along a target camera trajectory in seconds. We identify sampling-step-dependent camera control as a prominent manifestation of discretization error in existing multi-step generative rendering models and show that resolving this inconsistency substantially lowers denoising trajectory curvature, facilitating subsequent step distillation. To this end, we introduce Representation Transformation and Alignment (RETA), which aligns hidden source-video representations with target-video features from a frozen visual geometry model. This directly encodes the geometric transformation within the source-video stream, enabling sampling-step-consistent camera control. We then fine-tune the model with the MeanFlow objective on the lower-curvature denoising trajectory induced by RETA, allowing the model to more effectively address discretization error. Finally, we apply on-policy flow map distillation to correct self-rollout errors under fixed few-step sampling. Extensive experiments show that RETA, MeanFlow, and on-policy flow map distillation play complementary roles in few-step generative rendering. Together, they enable our approach to match multi-step baselines in video quality and geometric consistency at 25x lower sampling cost while achieving superior camera controllability, even under out-of-distribution target camera trajectories.",
+      "hotness": 19
+    },
+    {
+      "id": "paper-2608.30391",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Using Grounded Theory for Agent Behavior Analysis at Scale",
+      "authors": "Zhuoran Lu, Yangyang Yu, Zhuoyan Li et al.",
+      "published": "2026-08-30",
+      "url": "https://arxiv.org/abs/2608.30391",
+      "raw_summary": "Understanding agent behavior requires methods that scale to thousands of trajectories and surface new patterns in long, often unfamiliar tasks where pre-built classifiers fall short. We propose to bring grounded theory into agent trajectory analysis: a six-decade-old qualitative method from the social sciences, with a principled saturation criterion and an auditable trail from data to theory. We propose AutoTraceGT (Automated Trace analysis through Grounded Theory), the first multi-agent pipeline that automates grounded theory on agent trajectories. It iteratively performs open, axial, and theoretical coding until saturation, producing a behavioral taxonomy tailored to each task. Across six trajectory corpora, AutoTraceGT produces codebooks that recover 73-91 percent of the failure modes in human-annotated taxonomies and surface additional patterns that those taxonomies miss. The emergent theoretical narrative aligns with prior expert accounts. Used as a deductive feature space, the codebook outperforms zero-shot and few-shot LLM baselines on downstream failure prediction. These results suggest Grounded Theory offers a scalable analytic tool for ML researchers and agent developers studying what agents actually do.",
       "hotness": 18
     },
     {
@@ -314,7 +314,7 @@
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-3043638",
+      "id": "news-19682333",
       "type": "news",
       "source": "AWS ML",
       "region": "海外",
@@ -325,7 +325,7 @@
       "raw_summary": "Learn how to deploy a multimodal WhatsApp ordering assistant that takes customer orders through text, voice notes, and real-time voice calls on a single business number, built on Amazon Bedrock AgentCore with Amazon Nova 2. The channel and ordering layers stay separate, and one shared memory recognizes each customer across all three channels."
     },
     {
-      "id": "news-40511411",
+      "id": "news-26632403",
       "type": "news",
       "source": "AWS ML",
       "region": "海外",
