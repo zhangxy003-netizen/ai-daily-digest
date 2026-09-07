@@ -1,6 +1,17 @@
 {
-  "fetched_at": "2026-09-06",
+  "fetched_at": "2026-09-07",
   "items": [
+    {
+      "id": "paper-2609.04199",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+      "authors": "Yuntian Deng, Pengyu Nie, Stuart Shieber",
+      "published": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.04199",
+      "raw_summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator."
+    },
     {
       "id": "paper-2609.04196",
       "type": "paper",
@@ -14,15 +25,15 @@
       "image": "https://arxiv.org/html/2609.04196v1/framework_crop.png"
     },
     {
-      "id": "paper-2609.04199",
+      "id": "paper-2609.03199",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
-      "authors": "Yuntian Deng, Pengyu Nie, Stuart Shieber",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.04199",
-      "raw_summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator."
+      "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
+      "authors": "Howard Qian, Yiting Chen, Yunfei Xie et al.",
+      "published": "2026-09-01",
+      "url": "https://arxiv.org/abs/2609.03199",
+      "raw_summary": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be compared across variations in camera viewpoint, scene appearance, and actor occlusions, while remaining compact enough for efficient search and continual indexing over internet-scale video collections. We evaluate RoboTok against existing robot-data retrieval approaches on retrieval benchmarks and downstream robot policy performance. Our results show that RoboTok retrieves more relevant manipulation demonstrations and improves downstream task success, establishing hand-pose trajectory-aware retrieval as a way to make web video a scalable and continuously growing source of supervision for robot learning."
     },
     {
       "id": "paper-2608.26730",
@@ -36,27 +47,15 @@
       "raw_summary": "Large language models offer broad capabilities, but adapting them to evolving domains, tools, and requirements often entails repeated post-training. Autonomous systems automate parts of this process by proposing updates, training candidates, and using evaluation feedback to select subsequent proposals. As evidence accumulates, a central problem emerges: which past update evidence remains actionable after subsequent training has changed the parent model? An update's effect depends on its parent, data, and training stage. Treating past success as context-free permission can waste compute. If the resulting child is promoted, it can also degrade the subsequent training trajectory. We formulate this problem as conditional experience transfer and introduce Boundary-Calibrated Intervention Transfer (BCIT), a method that authorizes experience reuse before weight-changing training. BCIT binds an observed effect to its source context, checks applicability conditions, vetoes candidates with named hard conflicts, and obtains current-state evidence through a bounded training trial when needed. Fully trained candidates still face a shared adoption rule, and only observed events extend memory. On one 4B model adapted across finance reasoning, text-to-SQL, and function calling, candidate updates exhibit heterogeneous target and retention effects across the evaluated contexts. Under matched candidates, evidence, and compute, BCIT authorizes fewer harmful updates and attains higher equal-budget final-model quality than the evaluated alternatives. These results support treating experience authorization as a distinct problem in autonomous post-training."
     },
     {
-      "id": "paper-2609.04094",
+      "id": "paper-2609.04199v1",
       "type": "paper",
-      "source": "Hugging Face Daily",
+      "source": "arXiv · cs.AI",
       "region": "海外",
-      "title": "DRACO: Fine-Grained Credit Assignment with Dynamic Rubrics for Long-Horizon Agent Training",
-      "authors": "Shubham Gandhi, Saurabh Goyal, Kiran Kate et al.",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.04094",
-      "raw_summary": "Reinforcement Learning from Verifiable Rewards works well when a task has a programmatic checker, but most long-horizon agent domains have none. We work in the outcome-blind setting, where ground-truth success signals are not available. Multi-criteria rubrics are a popular way to supply such a reward; they are scored once per trajectory, but a single scalar is a poor signal across tens of steps. We propose DRACO: Distributing Rubric-based Advantage for Credit Optimization. It generates rubrics dynamically during training to track the policy's evolving capability, scores those rubrics once per completed trajectory, and redistributes that judgment over the steps responsible for annotated rubrics to produce differentiated per-step advantages in GRPO. The redistribution is closed-form and does not introduce any trained attribution module. On AppWorld, DRACO gains 15.9 points over the base model and 5.3 points over GRPO trained with a sparse ground-truth reward, despite not using any verifiers itself. On out-of-domain Tau-Bench, it gains 5.3 points over the base model even without a frontier judge, beating both ground-truth-reward training and other rubric-based training settings. The code for DRACO is available at https://github.com/IBM/draco.",
-      "image": "https://arxiv.org/html/2609.04094v1/figures/draco_image.png"
-    },
-    {
-      "id": "paper-2609.03199",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
-      "authors": "Howard Qian, Yiting Chen, Yunfei Xie et al.",
-      "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.03199",
-      "raw_summary": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be compared across variations in camera viewpoint, scene appearance, and actor occlusions, while remaining compact enough for efficient search and continual indexing over internet-scale video collections. We evaluate RoboTok against existing robot-data retrieval approaches on retrieval benchmarks and downstream robot policy performance. Our results show that RoboTok retrieves more relevant manipulation demonstrations and improves downstream task success, establishing hand-pose trajectory-aware retrieval as a way to make web video a scalable and continuously growing source of supervision for robot learning."
+      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
+      "authors": "Yuntian Deng, Pengyu Nie, Stuart Shieber",
+      "published": "2026-09-03",
+      "url": "http://arxiv.org/abs/2609.04199v1",
+      "raw_summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +64,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-05",
+      "published": "2026-09-07",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-53564900",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "An Alien Mind",
+      "authors": "OpenAI",
+      "published": "2026-09-06",
+      "url": "https://openai.com/index/an-alien-mind",
+      "raw_summary": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination."
+    },
+    {
+      "id": "news-87748985",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Research acceleration: The view inside OpenAI",
+      "authors": "OpenAI",
+      "published": "2026-09-06",
+      "url": "https://openai.com/index/research-acceleration-view-inside-openai",
+      "raw_summary": "Inside OpenAI, coding agents are reshaping AI research. Explore early data on agent usage, experiment velocity, task complexity, and research acceleration."
+    },
+    {
+      "id": "news-gh-1315929647",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-09-05",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
-    },
-    {
-      "id": "news-19682333",
-      "type": "news",
-      "source": "AWS ML",
-      "region": "海外",
-      "title": "Deploy a multimodal WhatsApp ordering assistant with Amazon Bedrock AgentCore",
-      "authors": "AWS ML",
-      "published": "2026-09-04",
-      "url": "https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/",
-      "raw_summary": "Learn how to deploy a multimodal WhatsApp ordering assistant that takes customer orders through text, voice notes, and real-time voice calls on a single business number, built on Amazon Bedrock AgentCore with Amazon Nova 2. The channel and ordering layers stay separate, and one shared memory recognizes each customer across all three channels."
-    },
-    {
-      "id": "news-26632403",
-      "type": "news",
-      "source": "AWS ML",
-      "region": "海外",
-      "title": "Designing lifecycle policies for AgentCore memory",
-      "authors": "AWS ML",
-      "published": "2026-09-04",
-      "url": "https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/",
-      "raw_summary": "Long-running AI agents accumulate outdated memories that degrade quality and create compliance risk. Learn how to design memory lifecycle policies for Amazon Bedrock AgentCore: scoring, consolidating, and pruning agent memories on a nightly AWS Step Functions workflow, with a deployable AWS CDK stack."
+      "title": "QwenLM/Qwen-MM-Plugins",
+      "authors": "通义千问 Qwen",
+      "published": "2026-09-06",
+      "url": "https://github.com/QwenLM/Qwen-MM-Plugins",
+      "raw_summary": "Make any agent harness multimodal-native."
     }
   ]
 }
