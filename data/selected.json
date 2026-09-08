@@ -1,61 +1,63 @@
 {
-  "fetched_at": "2026-09-07",
+  "fetched_at": "2026-09-08",
   "items": [
     {
-      "id": "paper-2609.04199",
+      "id": "paper-2609.02750",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
-      "authors": "Yuntian Deng, Pengyu Nie, Stuart Shieber",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.04199",
-      "raw_summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator."
-    },
-    {
-      "id": "paper-2609.04196",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States",
-      "authors": "Kang Liao, Yihang Luo, Xiao-Ming Wu et al.",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.04196",
-      "raw_summary": "We propose Puffin-World, a unified multimodal architecture that integrates physical understanding, spatial simulation, and 3D world generation and reconstruction without relying on external offline modules. To reliably construct and interact with 3D worlds, our framework jointly models three native world states: physics (gravity field and latitude), geometry (depth), and appearance (image), together with a unified Omni-Camera representation that supports diverse tasks and flexible motions. Beyond modeling these states, we introduce a strategy for propagating physical dynamics across future frames. By grounding absolute camera properties in the real world, Puffin-World enables physically consistent and visually stable world generation. We further couple appearance and geometry within a single generative process, jointly synthesizing each future view and reconstructing its underlying geometry. This unified paradigm enables interleaved closed-loop applications requiring synergy across multiple tasks, including mimic and self-calibrated world exploration. To scale Puffin-World to complex scenarios, we construct Puffin-16M, comprising 15 million vision-language-camera triplets and 1 million trajectories featuring various and challenging motions. To foster further research in this area, we released the code, models, and datasets.",
-      "image": "https://arxiv.org/html/2609.04196v1/framework_crop.png"
-    },
-    {
-      "id": "paper-2609.03199",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
-      "authors": "Howard Qian, Yiting Chen, Yunfei Xie et al.",
+      "title": "Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems",
+      "authors": "Yihang Chen, Yuxiang Chen, Yuxuan Huang et al.",
       "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.03199",
-      "raw_summary": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be compared across variations in camera viewpoint, scene appearance, and actor occlusions, while remaining compact enough for efficient search and continual indexing over internet-scale video collections. We evaluate RoboTok against existing robot-data retrieval approaches on retrieval benchmarks and downstream robot policy performance. Our results show that RoboTok retrieves more relevant manipulation demonstrations and improves downstream task success, establishing hand-pose trajectory-aware retrieval as a way to make web video a scalable and continuously growing source of supervision for robot learning."
+      "url": "https://arxiv.org/abs/2609.02750",
+      "raw_summary": "Multi-agent LLM systems commonly use an orchestrator to decompose a task for a team of workers and then improve through textual reflection. Despite strong empirical results, these systems lack a unified account of coordination, memory improvement, and the role of external verification. We model orchestrator-worker interaction as a bilevel coordination game: under bounded coupling, the workers' local-update game is an approximate potential game whose equilibrium slack is controlled by decomposition quality. We then analyse reflection as stochastic movement over semantic memory states. For free-form reflection, we derive a finite-time upper bound, prove worst-case tightness, and give a positive lower bound under a falsifiable persistent-harm condition. We further prove an information-theoretic impossibility result: no gate that observes only the generated transcript can improve uniformly over text-indistinguishable environments, whereas an environment-grounded gate can. Motivated by this separation, we introduce Stochastic Reflective Memory Ascent (SRMA), which accepts a candidate memory only after a grounded evaluation risk strictly decreases. Under calibration and non-degenerate corrective mass, SRMA converges exactly, geometrically or polynomially; matching constructions show that both rate regimes are order-tight. We also provide confidence gating for stochastic evaluation and re-anchoring guarantees for piecewise-stationary environments. Experiments instantiate these objects with environment-grounded metrics and test the predicted coordination and drift laws. On 500 SWE-bench instances, the complete Kimi-based system resolves 72.2% versus a 70.8% public mini-SWE-agent reference. Code: https://github.com/YihangChen9/Bilevel-Coordinated-Reflection"
     },
     {
-      "id": "paper-2608.26730",
+      "id": "paper-2609.04753",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Knowing When Not to Reuse: Conditional Experience Transfer in Autonomous LLM Post-Training",
-      "authors": "Tingyun Li, Wenfeng Feng, Weiqing Li et al.",
-      "published": "2026-08-26",
-      "url": "https://arxiv.org/abs/2608.26730",
-      "raw_summary": "Large language models offer broad capabilities, but adapting them to evolving domains, tools, and requirements often entails repeated post-training. Autonomous systems automate parts of this process by proposing updates, training candidates, and using evaluation feedback to select subsequent proposals. As evidence accumulates, a central problem emerges: which past update evidence remains actionable after subsequent training has changed the parent model? An update's effect depends on its parent, data, and training stage. Treating past success as context-free permission can waste compute. If the resulting child is promoted, it can also degrade the subsequent training trajectory. We formulate this problem as conditional experience transfer and introduce Boundary-Calibrated Intervention Transfer (BCIT), a method that authorizes experience reuse before weight-changing training. BCIT binds an observed effect to its source context, checks applicability conditions, vetoes candidates with named hard conflicts, and obtains current-state evidence through a bounded training trial when needed. Fully trained candidates still face a shared adoption rule, and only observed events extend memory. On one 4B model adapted across finance reasoning, text-to-SQL, and function calling, candidate updates exhibit heterogeneous target and retention effects across the evaluated contexts. Under matched candidates, evidence, and compute, BCIT authorizes fewer harmful updates and attains higher equal-budget final-model quality than the evaluated alternatives. These results support treating experience authorization as a distinct problem in autonomous post-training."
+      "title": "Beneath the Surface of Chains-of-Thought: A Mechanistic Interpretation of Reasoning Operations in LLMs",
+      "authors": "Seogyeong Jeong, Jaehui Hwang, Dongyoon Han et al.",
+      "published": "2026-09-03",
+      "url": "https://arxiv.org/abs/2609.04753",
+      "raw_summary": "Reasoning in large language models unfolds through diverse functional operations, such as problem formulation, goal decomposition, and deduction. Although these operations are explicitly distinguished in text, little is known about how they are geometrically organized in representation spaces. To this end, we investigate whether distinct reasoning operations exhibit corresponding geometric structure in hidden representations. We find that operations are separable in held-out representations, with separability peaking in middle layers, and verify that this structure is not explained by lexical or positional confounds. Across layers, token-wise operation-alignment becomes more distributed over spans, while identical surface tokens are represented differently depending on the operation of its surrounding chunk. Attention-masking interventions further show that operation-aligned representations at chunk onset depend on preceding reasoning context. Consequently, our work demonstrates that language models maintain representational correspondence between linguistic reasoning expressions and their internal geometric structures. Code and project materials are available at https://github.com/naver-ai/beneath-cot.",
+      "image": "https://arxiv.org/html/2609.04753v1/teaser.png"
     },
     {
-      "id": "paper-2609.04199v1",
+      "id": "paper-2609.04250",
       "type": "paper",
-      "source": "arXiv · cs.AI",
+      "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Compile by Training: Turning Natural-Language Specifications into Local Neural Functions",
-      "authors": "Yuntian Deng, Pengyu Nie, Stuart Shieber",
+      "title": "Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue",
+      "authors": "Chengqian Ma, Wei Tao, Haoyu Zhang et al.",
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2609.04250",
+      "raw_summary": "An avatar that holds a conversation should decide what to say and to move while saying it, yet these abilities live in separate model families: spoken dialogue models produce speech without motion, and co-speech motion models produce motion only from audio handed to them. The standard remedy is a cascade that first generates the spoken response and then runs a motion model over the finished audio, which requires a second full inference pass and precludes any joint optimisation between the two. We present Motion-Omni, an end-to-end framework in which a spoken dialogue model natively outputs explicit facial expression together with hand, upper-body and lower-body motion, generated directly from the hidden states that produce the speech. Joint training is not optional here: with the speech pathway frozen, motion remains misaligned with the audio, and co-adapting the LLM, Speech Generator and Motion Generator under both objectives is what recovers alignment while retaining spoken-dialogue ability. Supervision comes from a scalable, model-agnostic pipeline that pseudo-labels consistent-voice speech responses with a replaceable motion teacher, yielding 422,856 quality-ranked pairs (1,402 hours). We further release SwDA-500 and, to our knowledge, the first public evaluation protocol for stochastic open-ended full-body spoken dialogue, matching audio across motion systems while unifying rendering, automatic metrics, human evaluation, and latency measurement. Instantiated with a Qwen2.5-7B-Instruct backbone, Motion-Omni-Q7 matches the same-audio teacher cascade to within 2% on reference-free motion metrics while responding 5.4 x faster (RTF=0.78, faster than real time), surpasses all non-teacher cascades on beat correlation and diversity, and reaches a 2.62% word error rate, the lowest among the omni-modal systems compared.",
+      "image": "https://arxiv.org/html/2609.04250v1/MotionOmni_flat.png"
+    },
+    {
+      "id": "paper-2609.04611",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "τ^τ-Bench: An Environment for End-To-End, Realistic Agent Construction",
+      "authors": "Quan Shi, Keshav Dhandhania, Karthik Narasimhan et al.",
       "published": "2026-09-03",
-      "url": "http://arxiv.org/abs/2609.04199v1",
-      "raw_summary": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator."
+      "url": "https://arxiv.org/abs/2609.04611",
+      "raw_summary": "LLM agents are rapidly becoming production software, deployed to handle customer service, adjudicate disputes, and operate internal systems. Notably, the work of building them is increasingly handed to coding agents, yet existing benchmarks say little about whether an AI system can deliver one under the conditions of a real client engagement. We introduce τ^τ-bench (pronounced hyper-tau-bench), a benchmark that makes agent construction the task. A developer agent is given the records a business actually keeps, a client who holds requirements, a production API that operations must run through, a codebase to inherit, and limits on serving cost and models: the same starting point a real engagement provides. From these it must deliver a complete customer-service agent, scored by deploying that agent against held-out simulated users. Across 53 tasks spanning four domains, the strongest configuration, Claude Opus 5 under Claude Code, passes just 23.9% of evaluation simulations. Meanwhile, an expert-authored reference ceiling scores 82.2%. The failures mirror ones human agent developers see: models issue shallow queries in place of deep comprehension of the records, communicate almost nothing to the client, and experiment too little with agent architecture and serving spend, shipping the first design that runs. We aim for τ^τ-bench to turn the work of cooperative agent building into a measurable target for coding agents.",
+      "image": "https://arxiv.org/html/2609.04611v1/results_panel.png"
+    },
+    {
+      "id": "paper-2609.03586",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "The Attention Triangle in Audio-Video Models",
+      "authors": "Sagi Polaczek, Noa Kraicer, Gal Metzer et al.",
+      "published": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.03586",
+      "raw_summary": "Audio-video diffusion models rely on cross-modal attention to coordinate text, sound, and visual content, yet this same mechanism can introduce subtle and systematic semantic leakage. We study these models by probing and analyzing the ``attention triangle,'' comprising the three cross-attention edges connecting the text, audio, and video streams, and examine how semantic information is routed across modalities during generation. Our analysis reveals that routing along the audio-video edge is bidirectional: audio can influence video generation, while video can influence audio generation. This edge is shaped by biases encoded in the model's parameters and emerges as a major contributor to leakage: when prompts are in tension with learned priors, cross-modal interactions may override the intended conditioning and reroute semantics toward visually canonical but incorrect outcomes. These effects suggest that semantic artifacts arise not merely from attention spreading beyond its intended target, but from structured, bias-driven interactions along specific pathways. Building on this perspective, we extract attention-derived signals that expose how semantics are distributed and grounded across modalities, and use them as a diagnostic tool to both analyze and deliberately incur leakage under controlled conditions. This enables us to probe the internal dynamics of cross-modal routing and isolate the role of individual interactions. We further leverage these signals to guide inference-time interventions that encourage more consistent cross-modal alignment. Extensive experiments support our analysis and demonstrate improved semantic grounding while preserving generation quality."
     },
     {
       "id": "news-gh-1008713177",
@@ -64,42 +66,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-07",
+      "published": "2026-09-08",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-53564900",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "An Alien Mind",
-      "authors": "OpenAI",
-      "published": "2026-09-06",
-      "url": "https://openai.com/index/an-alien-mind",
-      "raw_summary": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination."
-    },
-    {
-      "id": "news-87748985",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Research acceleration: The view inside OpenAI",
-      "authors": "OpenAI",
-      "published": "2026-09-06",
-      "url": "https://openai.com/index/research-acceleration-view-inside-openai",
-      "raw_summary": "Inside OpenAI, coding agents are reshaping AI research. Explore early data on agent usage, experiment velocity, task complexity, and research acceleration."
-    },
-    {
-      "id": "news-gh-1315929647",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
+      "source": "月之暗面 Kimi · GitHub",
       "region": "国内",
-      "title": "QwenLM/Qwen-MM-Plugins",
-      "authors": "通义千问 Qwen",
-      "published": "2026-09-06",
-      "url": "https://github.com/QwenLM/Qwen-MM-Plugins",
-      "raw_summary": "Make any agent harness multimodal-native."
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-09-08",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+    },
+    {
+      "id": "news-81465830",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Supporting independent journalism in Ukraine",
+      "authors": "OpenAI",
+      "published": "2026-09-07",
+      "url": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
+      "raw_summary": "OpenAI, AIRPPU and WAN-IFRA launch an AI program to help Ukrainian news organizations strengthen innovation, resilience, and independent journalism."
+    },
+    {
+      "id": "news-gh-1333065091",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/deepseek-harness",
+      "authors": "DeepSeek",
+      "published": "2026-09-07",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "raw_summary": "DeepSeek Harness: Everything is a Plugin."
     }
   ]
 }
