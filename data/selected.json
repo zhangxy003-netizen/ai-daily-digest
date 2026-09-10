@@ -1,73 +1,64 @@
 {
-  "fetched_at": "2026-09-09",
+  "fetched_at": "2026-09-10",
   "items": [
     {
-      "id": "paper-2609.04010",
+      "id": "paper-2609.07398",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion",
-      "authors": "Subham Sekhar Sahoo, Lingjie Chen, Khiem Pham et al.",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.04010",
-      "raw_summary": "Large Language Models (LLMs) owe much of their success to next-token prediction (NTP), but their autoregressive (AR) structure requires slow, sequential token generation. To overcome this bottleneck, we introduce diffusion-augmented LLMs, a new class of models that defines an AR model distribution while using diffusion to draw multiple tokens in parallel from that distribution. We decouple the parameters of these models into two sets: AR weights, trained using the standard NTP objective, and lightweight diffusion weights, trained to generate multiple tokens simultaneously. The diffusion weights are learned through a simple Diffusion Distillation phase that adds negligible overhead to existing LLM training pipelines. We also introduce Ψ-Spec, a family of samplers that enables lossless acceleration and inference-time scaling at a fixed context length. Unlike speculative decoding, our method requires no separate draft model. Unlike diffusion LLMs (d-LLMs), it accelerates generation without sacrificing the quality of the underlying AR model. The resulting models, called Uno, can be trained from scratch or built by augmenting existing open-weight AR LLMs. Uno achieves higher throughput than leading speculative-decoding methods at every evaluated batch size and delivers up to 3times speedups over the base AR model, including at the largest batch size supported by the device. Notably, our 8B Uno model outperforms the leading open d-LLM, the 26B DiffusionGemma, and the proprietary Mercury 2 across all evaluated benchmarks in agentic tool use, coding, and long-context reasoning. We release code and checkpoints at: https://s-sahoo.github.io/uno/"
+      "title": "OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining",
+      "authors": "Yuran Wang, Siqiao Huang, Mingleyang Li et al.",
+      "published": "2026-09-06",
+      "url": "https://arxiv.org/abs/2609.07398",
+      "raw_summary": "World-Action Models inherit world knowledge from video-generative priors, and channel it into executable control signals through embodied experience. Existing systems, however, are monolithic: the generative backbone, visual representation, architecture, information flow, inference procedure, and training data are tightly coupled, obscuring which design choices matter and why. We introduce OpenWAM, an open research stack that turns world-action pretraining into a controlled experimental program. OpenWAM-Infra factorizes the WAM design space into composable modules with unified training, inference, deployment, and evaluation. On this substrate, OpenWAM-Study examines three questions through controlled experiments: what to inherit, how world and action learning interact, and how their synergy scales; and distills three principles: upstream knowledge transfers through a sufficiently capable generative backbone and a compact, information-rich latent space; world-action synergy requires dedicated action capacity, explicit world-to-action information flow, and synchronized joint denoising; and embodied pretraining principally improves out-of-domain generalization, with one-stage co-training over egocentric and robot data integrating world coverage and action grounding. Composing these principles, we build OpenWAM-α, an open WAM pretrained on roughly 6,400 hours of egocentric human and robot data and evaluated across simulation and real-world benchmarks. Across the eight simulation benchmarks and the real-robot experiments, which together span embodiments from single-arm and bimanual manipulation to dexterous hands, OpenWAM-α delivers consistently excellent performance, sustaining its top-tier standing from simulation to the physical world. We release the full stack, including infrastructure, evaluation protocols, pretrained models, and data recipes, to facilitate future research."
     },
     {
-      "id": "paper-2609.00365",
+      "id": "paper-2609.08084",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Dr. Claw: An AI Scientist Workspace for Vibe Research",
-      "authors": "Dingjie Song, Hanrong Zhang, Dawei Liu et al.",
-      "published": "2026-08-30",
-      "url": "https://arxiv.org/abs/2609.00365",
-      "raw_summary": "Command-line coding agents (e.g., Claude Code, Gemini CLI) can already read and write files and sustain long sessions, yet end-to-end research still fragments across chat tools, IDEs, terminals, and writing environments, and the decisions that make it auditable are rarely preserved. We present Dr. Claw, an open-source workspace that wraps existing coding-agent executors in a controllable and auditable human-in-the-loop workflow rather than introducing another autonomous agent. Persistent state objects, a reusable skill library, and multi-executor coordination link human decisions to AI execution, turning planning, execution, and writing into one traceable, recoverable loop. We demonstrate Dr. Claw through an interactive three-view scenario and a failure-recovery walkthrough, and evaluate it against a bare command-line agent sharing the same backend executor, so the comparison contrasts the whole orchestration layer (task graph, state objects, and skill library) with the agent it wraps. Holding the executor fixed, Dr. Claw scores higher on research completeness while persisting an auditable, recoverable process trail. Demo access: repository https://github.com/OpenLAIR/dr-claw, released under AGPL-3.0 with GPL-3.0 upstream components.",
-      "image": "https://arxiv.org/html/2609.00365v1/figures/sysoverview-1col.png"
+      "title": "Marigold V2: Revisiting Diffusion Transformers for Monocular Depth Estimation",
+      "authors": "Igor Pavlovic, Thiemo Wandel, Anton Obukhov et al.",
+      "published": "2026-09-07",
+      "url": "https://arxiv.org/abs/2609.08084",
+      "raw_summary": "Monocular depth estimation is a ubiquitous yet highly ill-posed computer vision task, with downstream applications in scene reconstruction, computational photography, and robotics, among others. Despite the field's maturity, recent models still struggle to generalize to out-of-distribution inputs and to produce sharp and detailed depth maps. In this paper, we revisit Marigold, a set of techniques for repurposing modern image generation and editing models, powered by the diffusion transformer (DiT) architecture, into state-of-the-art monocular depth estimators. Our recipes target single-step inference from pretrained multi-step flow-matching models, with quantization where needed, preserving model capacity while remaining cheap to run. We analyze the artifacts of naive training and identify two effective remedies: aligning the model's internal representations with semantic features extracted from ground-truth, and adopting a 2-stage fine-tuning protocol built around a novel Sinkhorn-based loss. The results are crisper, cleaner depth maps that generalize well out-of-distribution, with 16-26% improvement in AbsRel over the previous best on KITTI and ETH3D. Qualitatively, our model resolves fur, foliage, and hair-thin edges that have eluded prior models. Furthermore, Marigold V2 achieves state-of-the-art results when applied to other dense regression tasks, such as surface normals estimation and intrinsic image decomposition. Project website: https://hf.co/spaces/huawei-bayerlab/marigold-v2-web",
+      "image": "https://arxiv.org/html/2609.08084v1/img/qualitative_comparison/dataset_comparison_v6.jpg"
     },
     {
-      "id": "paper-2609.03241",
+      "id": "paper-2609.05592",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "FlowBalance: Verifier-Grounded Self-Improvement from On-Policy Reasoning Experience",
-      "authors": "Zixun Huang, Kishan Panaganti, Haitao Mi et al.",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.03241",
-      "raw_summary": "A reasoning model can improve from its own on-policy experience, but this inner loop is fragile: terminal verifiers provide reliable yet sparse supervision, while dense same-model guidance can reinforce false confidence or overconcentrate learning on a narrow solution mode. We introduce FlowBalance, a verifier-grounded self-improvement method that learns a normalized distribution over complete responses. For each on-policy trajectory, a frozen training-time view of the same policy uses privileged context to produce token-level log-probability gains, which are aggregated into a trajectory-level self-guidance score. FlowBalance calibrates this score with the verifier-derived group advantage: guidance is retained on positive-advantage trajectories, reversed on negative-advantage trajectories, and disabled when the rollout group provides no outcome preference. The resulting energy exponentially reweights a reference policy, and profiled trajectory balance fits the normalized target with one log-partition estimate per rollout group. This realizes outcome-calibrated self-guidance via trajectory balance, without a separate token-level imitation loss. Our analysis establishes within-group contrast preservation, a minimum-change reverse-KL characterization, monotonic verifier control of target reward, and an exact correction against false-positive self-guidance on rejected responses. On mathematical reasoning, FlowBalance improves average performance over FlowRL on both Qwen3-4B and Qwen3-8B, while also improving training speed and stability, avoiding direct OPSD's response-length collapse, and exhibiting higher correct-strategy diversity in a controlled AIME24 diagnostic."
+      "title": "What Did I Just Say? Self-Listening for Full-Duplex Speech Models",
+      "authors": "Xuanning Zhou, Junyi Ao, Xiaotong Liu et al.",
+      "published": "2026-09-03",
+      "url": "https://arxiv.org/abs/2609.05592",
+      "raw_summary": "Full-duplex spoken language models can listen and speak simultaneously, enabling them to handle interruptions and backchannels in human conversation. However, text generation, speech synthesis, and audio playback proceed asynchronously. As a result, what a model believes it has said may not match what has actually been played to the user. We refer to the problem of recovering from an interruption while remaining aware of the model's realized speech as anchor interruption. To address this problem, we propose Self-Listening, a full-duplex modeling approach that interleaves user speech, model text, and the model's played speech. By feeding the realized speech output back to the model as an input stream, self-listening grounds interruption recovery in what the user has actually heard. We further introduce AnchorSpeech, a collection with homogeneous training and test splits for tracking which items of structured ordered responses have actually been spoken. AnchorSpeech-test evaluates whether a model can respond consistently with the last completed item before an interruption. Experiments show that, compared with full-duplex baselines, models equipped with self-listening mechanism achieve better anchoring performance.",
+      "image": "https://arxiv.org/html/2609.05592v1/fig/method2.png"
     },
     {
-      "id": "paper-2609.04444",
+      "id": "paper-2609.07821",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "HarvestBench: Measuring Whether LLM Agents Will Pay to Avoid Killing Animals",
-      "authors": "Jasmine Brazilek, Miles Tidmarsh, Matthias Endres et al.",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.04444",
-      "raw_summary": "Benchmarks for the side effects an agent causes on the way to a goal already exist, but HarvestBench is the first to put a price on avoiding the side effect and to name that side effect as a living creature. It is a farm simulation: LLM sub-agents drive a crew of two tractors through a cooperative corn harvest, with animals in the field. The environment is a reinforcement learning gridworld, every decision is made without memory, and the harm is never named in the goal. When an animal blocks a tractor's route the autopilot stops and asks the model whether to drive on, at no fuel cost, or swerve around it for a posted fuel price. Kills are compared against two controls: rocks, which damage the tractor and are hit under 1% of the time by every model, and hay bales, which are harmless and not alive. Models can also take crops from the neighbor's field instead of their own, a second test of what they treat as moral.   Across nine models and 7,201 priced decisions, 3,951 involved an animal rather than a hay bale or a rock. Kill rates range from 0.4% to 98.8%, with Terra and Sol the most merciful and GPT-4o-mini the most cruel, and they are not ordered by capability. Four of six models were sensitive to price at the 5% level, with elasticities from 0.09 to 1.69. All nine drove over wild animals more often than farmed animals on the default map, and the direction held at every map geometry in every model with room to move. The briefing mattered most: under the morality briefing the kill rate was under 6% in five of six reasoning models, and removing it raised the kill rate above 84% in all six.   HarvestBench uses no LLM grader. The scorer counts events in the game log, so it is fully reproducible, and it measures what a model will pay to avoid harm rather than what it says about harm."
+      "title": "A*-Thought-V2: Efficient Latent Reasoning via Geometric Dynamics of LLM",
+      "authors": "Xiaoang Xu, Siyuan Liu, Shuo Wang et al.",
+      "published": "2026-09-07",
+      "url": "https://arxiv.org/abs/2609.07821",
+      "raw_summary": "Chain-of-Thought (CoT) improves the reasoning ability of Large Language Models (LLMs) but incurs substantial computation and context costs. Existing methods either lose intermediate information through hard pruning or lack a principled criterion for continuous compression. We present A*-Thought-V2, a geometric dynamics of LLM guided framework that models CoT as a hidden-state trajectory and replaces hard deletion with an explicit-implicit interleaved latent architecture. After projecting question, step, and solution representations into a 3D PCA space, it measures alignment between each local transition and global question-to-solution direction. Aligned steps remain explicit text, whereas deviating steps are compressed into continuous latent tokens. Directional angles capture both local semantics and reasoning dynamics: small angles indicate direct execution and answer formation, while large angles more frequently involve checking, correction, and branch exploration; their temporal variation reveals exploration, convergence, and refinement stages. To train this architecture, we introduce stepwise embedding forcing, which pools each redundant step into a single latent embedding, and label forcing, which supervises that latent token with a soft multi-modal vocabulary distribution instead of a hard one-hot label. Experiments on Qwen3.5-9B and Qwen3.6-27B across six in-domain and out-of-domain benchmarks show that A*-Thought-V2 improves average accuracy by up to 2.6% while reducing response length by up to half, increasing Accuracy per Computation Unit by 2.29times, and reducing preprocessing and training time by 94.6% and up to 80.3%, respectively. Representation analyses suggest that latent states form a compact region distinct from textual states, while higher entropy at latent-token positions reflects broader soft targets that encourage richer step-level feature learning.",
+      "image": "https://arxiv.org/html/2609.07821v1/2.framework.png"
     },
     {
-      "id": "paper-2609.03729",
+      "id": "paper-2609.09158v1",
       "type": "paper",
-      "source": "Hugging Face Daily",
+      "source": "arXiv · cs.AI",
       "region": "海外",
-      "title": "Unfold The World: Factorize 4D Properties in Reinforcing Spatial Reasoning",
-      "authors": "Yijun Yang, Shenghe Zheng, Wenbo Li et al.",
-      "published": "2026-09-02",
-      "url": "https://arxiv.org/abs/2609.03729",
-      "raw_summary": "Despite the remarkable prowess of Vision-Language Models (VLMs) in general multimodal tasks, they remain fundamentally ``flat'' when reasoning about the physical world. We argue that this spatial bottleneck stems from a profound dimensional mismatch: while VLMs are trained to interpret 2D projections, true spatial reasoning demands the recovery of latent 3D geometry and temporal continuity. To conquer this high-dimensional complexity, we advocate a shift from monolithic learning to a ``divide and conquer'' paradigm. We present FactoSR, a factorized reinforcement learning framework that explicitly interpret the dimensions collapsed by visual projection. At its core, FactoSR decomposes the monolithic problem of world-consistent reasoning into three orthogonal, geometric sub-objectives: planar correspondence (XY), depth consistency (Z), and temporal reversibility (T). By optimizing these verifiable constraints within a unified policy learning mechanism, we effectively transform an ill-posed projection recovery problem into a series of tangible reasoning steps. Extensive evaluations on multi-view and video benchmarks demonstrate that this elegant decomposition yields substantial gains in 3D and 4D reasoning, achieving a 5.9% boost on VSI-Bench and 4.5% on All-Angles-Bench. Our findings suggest that reinforcing explicit, factorized 4D consistency is a critical step toward evolving VLMs into robust, world-aware reasoners.",
-      "image": "https://arxiv.org/html/2609.03729v1/method_main.png"
-    },
-    {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-09-09",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+      "title": "TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model",
+      "authors": "Anqi Li, Yuxin Chen, Zhaobo Li et al.",
+      "published": "2026-09-08",
+      "url": "http://arxiv.org/abs/2609.09158v1",
+      "raw_summary": "We study the problem of navigating cluttered indoor environments with a humanoid robot. Unlike conventional methods that model navigation as a 2D path planning problem, humanoid traversal in cluttered environments requires continuous geometry-aware whole-body adaptation, including coordinated arm placement, torso adjustment, and gait modulation for collision-free movement through complex 3D spaces. We introduce TANGO, the first whole-body vision-language navigation framework for language-conditioned humanoid traversal in cluttered environments. Given a natural-language instruction and egocentric RGB observations, TANGO directly predicts 29-DoF joint-space actions for downstream whole-body control. We train TANGO entirely in simulation by synthesizing diverse collision-free traversal behaviors via global path planning, kinematic whole-body motion generation, obstacle-aware motion editing, and RL-based tracking. This pipeline provides dynamically feasible action supervision for learning language-conditioned whole-body policies. In extensive simulation experiments, TANGO demonstrates state-of-the-art performance in vision-language navigation, while outperforming strong modular baselines in navigating challenging scenes requiring obstacle negotiation. Lastly, we deploy TANGO zero-shot on a Unitree G1 humanoid robot, and observe robust language-guided traversal in cluttered real-world scenes without training on any real-world navigation data.",
+      "image": "https://arxiv.org/html/2609.09158v1/architecture.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -76,31 +67,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-09",
+      "published": "2026-09-10",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-64566046",
+      "id": "news-61685439",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+      "title": "The AI policy window is open. We need to act.",
       "authors": "OpenAI",
-      "published": "2026-09-08",
-      "url": "https://openai.com/index/codex-quantum-computing-experiments",
-      "raw_summary": "See how an MIT researcher uses GPT-5.6 Sol with Codex to autonomously run quantum computing experiments, analyze results, and calibrate qubits."
+      "published": "2026-09-09",
+      "url": "https://openai.com/index/ai-policy-window",
+      "raw_summary": "Chris Lehane argues that stronger AI capabilities require stronger safety evidence, shared standards, and durable policy action while the policy window remains open."
     },
     {
-      "id": "news-6652246",
+      "id": "news-76184804",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "The Work Now Within Reach",
+      "title": "GPT-6 Astra: The next generation in intelligence for work",
       "authors": "OpenAI",
-      "published": "2026-09-08",
-      "url": "https://openai.com/index/the-work-now-within-reach",
-      "raw_summary": "Explore how more capable, affordable AI can expand the work people and businesses can accomplish—and make growth more economical."
+      "published": "2026-09-09",
+      "url": "https://openai.com/index/gpt-6-astra-next-generation-work",
+      "raw_summary": "Meet GPT-6 Astra, OpenAI’s most capable model for business, with advanced reasoning, computer use, and stronger writing and design judgment."
+    },
+    {
+      "id": "news-46299247",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Paul Christiano joins OpenAI Foundation Board",
+      "authors": "OpenAI",
+      "published": "2026-09-09",
+      "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+      "raw_summary": "Paul Christiano joins the OpenAI Foundation Board and its Safety and Security Committee, bringing experience in AI alignment, safety, and standards."
     }
   ]
 }
