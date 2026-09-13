@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-12",
+  "fetched_at": "2026-09-13",
   "items": [
     {
       "id": "paper-2609.05903",
@@ -59,7 +59,7 @@
       "image": "https://arxiv.org/html/2609.11699v1/intro.png"
     },
     {
-      "id": "news-16078654",
+      "id": "news-34053379",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
@@ -76,12 +76,23 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-12",
+      "published": "2026-09-13",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-83956787",
+      "id": "news-gh-1041478561",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-09-12",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+    },
+    {
+      "id": "news-71800258",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
@@ -90,17 +101,6 @@
       "published": "2026-09-11",
       "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
       "raw_summary": "Learn how OpenAI evolved Habitat from a Python library into a globally distributed storage platform serving 1 billion ChatGPT users and 22M requests per second."
-    },
-    {
-      "id": "news-34307385",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
-      "authors": "OpenAI",
-      "published": "2026-09-11",
-      "url": "https://openai.com/index/cognition-devin-testing-with-astra",
-      "raw_summary": "GPT‑6 Astra improves Devin’s ability to test software and show that it works, with the goal of helping engineers review less code and ship more."
     }
   ]
 }
