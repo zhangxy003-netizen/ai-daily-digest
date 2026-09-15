@@ -1,65 +1,89 @@
 {
-  "fetched_at": "2026-09-14",
+  "fetched_at": "2026-09-15",
   "items": [
     {
-      "id": "paper-2609.10712",
+      "id": "paper-2609.06107",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics",
-      "authors": "Ivan Moshkov, Stephen Ge, George Armstrong et al.",
-      "published": "2026-09-08",
-      "url": "https://arxiv.org/abs/2609.10712",
-      "raw_summary": "We study how model post-training and test-time inference design affect natural-language proof generation for hard olympiad mathematics. Starting from Nemotron 3 Ultra, we train two specialist checkpoints using supervised fine-tuning and reinforcement learning, and evaluate checkpoint choice, verification, and refinement. Based on these findings, we present an open-model test-time-compute pipeline. The system operates entirely in natural language, with no formal prover, external tools, or internet access. Three Nemotron 3 Ultra checkpoints - the general-availability model and two post-trained specialists - power an iterative search that generates, verifies, and refines candidate proofs; a separate high-compute stage then selects each final submission. The system scored 30 out of 42 points at IMO 2026, reaching the gold-medal threshold. We release the two post-trained checkpoints as well as the training data, the training and inference code, the submitted solutions, and Nemotron-IMO-Bench, a new benchmark of 200 novel olympiad-level problems."
-    },
-    {
-      "id": "paper-2609.05903",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents",
-      "authors": "Nanxi Li, Yingzi Ma, Yulong Cao et al.",
+      "title": "DataFlex-RL: An Evaluation Platform for RLVR Data Policies",
+      "authors": "Hao Liang, Mingrui Chen, Hengyi Feng et al.",
       "published": "2026-09-04",
-      "url": "https://arxiv.org/abs/2609.05903",
-      "raw_summary": "Large Language Model (LLM) agents are turning language into real-world effects, making safety necessary against both indirect prompt injections and direct harmful requests. System-level safety harnesses add an enforcement layer beyond model-level defenses, but existing harnesses are usually designed once by experts and applied across heterogeneous models and domains. Effective protection is deployment-dependent: models differ in how much enforcement they need before utility declines, while domains differ in the effects, state, and action sequences that must be governed. A harness that is strict enough for one model may over-block another, and a policy that transfers across domains may miss application-specific safety relations.   We present EvoSafeHarness, a safety-specific optimization framework that synthesizes a deployable harness for a frozen model in a target domain. It jointly searches a natural-language policy and executable code logic, guided by model behavior, domain specifications, and fresh-context adversarial review to reject benchmark-specific rules. Across four agent benchmark families, EvoSafeHarness achieves a stronger safety-utility frontier than fixed expert-designed defenses. On DecodingTrust-Agent, it reduces average attack success rate from 45.6% to 10.0% at a 3.3-point utility cost and achieves the best score in 14 of 15 cells. On AgentDojo, it reaches 82.8% utility at 0.0% ASR, twice CaMeL's utility at the same operating point, and transfers unchanged to unseen AgentDyn suites. It also achieves the best score on Agent-SafetyBench for every victim and keeps mean ASR below 20% under adaptive PAIR attacks with a refinement budget of 16. Analysis shows that domain semantics determine which safety relations and trajectory state are needed, while model and runtime behavior determine how and where those relations should be enforced."
+      "url": "https://arxiv.org/abs/2609.06107",
+      "raw_summary": "Data policies for reinforcement learning with verifiable rewards (RLVR) determine which rollouts are used, how strongly they are weighted, and which domains contribute to subsequent training batches. We introduce DataFlex-RL, an evaluation platform for comparing these choices under a common GRPO recipe. Our primary experiment evaluates 13 configurations across 12 matched seeds using Qwen2.5-7B-Base and 12 mathematics, logic, and science benchmarks. Uniform GRPO improves the domain-balanced average accuracy by 7.76 percentage points over the untrained checkpoint. None of the eight rollout-selection or reweighting methods achieves a paired 95% confidence interval that excludes zero relative to uniform sampling, and none of the three adaptive mixtures outperforms a fixed equal mixture at the same level of precision. A corrected 12-seed extension on Llama-3.1-8B-Base places the additional methods on the same score scale as the original controls, but does not reveal a consistent winner in terms of observed mean performance. We also quantify evaluation sensitivity by rescoring nine Qwen2.5-7B-Instruct runs using a math-heavy six-benchmark summary, consisting of five mathematics benchmarks and GPQA-Diamond but no logic benchmark, and comparing it with the domain-balanced 12-benchmark summary. The resulting rankings are negatively correlated, with a correlation coefficient of -0.33, whereas summaries that retain all 12 benchmarks largely agree. Across the controlled settings studied here, changing the data policy measurably changes the training process but does not produce a reproducible improvement over uniform training.",
+      "image": "https://arxiv.org/html/2609.06107v1/dataflex_rl_overview.png"
     },
     {
-      "id": "paper-2609.11561",
+      "id": "paper-2609.08418",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Memory as Plans: World-Action Modeling with Memory-Grounded Planning",
-      "authors": "Sizhe Zhao, Haozhe Xie, Weiyu Zhao et al.",
-      "published": "2026-09-09",
-      "url": "https://arxiv.org/abs/2609.11561",
-      "raw_summary": "Mainstream robotic policies often adopt a Markovian formulation, but many complex real-world manipulation tasks are inherently non-Markovian, requiring long-horizon memory beyond the current observation. Existing memory mechanisms often rely on language summaries, growing visual windows, or their combinations, and may therefore lose fine-grained visual evidence or face a trade-off between history coverage and execution efficiency. We introduce MaP-WAM, a Memory-as-Plans framework that decomposes memory-dependent world-action modeling into memory-grounded planning and plan-conditioned execution, and uses long-term multimodal episodic context as planning-time evidence rather than repeatedly conditioning the executor on the full history. MaP-WAM represents memory as completed segment records containing language instructions and sparse visual context, and converts this episodic memory into compact plans comprising the next segment-level language plan and corresponding visual guidance. A World-Action-Progress (WAP) model executes each plan over an unknown duration by jointly predicting action chunks and corresponding execution progress at inference time, calibrating predicted progress through plan-observation alignment for adaptive segment transitions and closed-loop context updates. MaP-WAM keeps the executor context length fixed, while structured attention further enables key-value caching in both planning and execution. MaP-WAM achieves state-of-the-art performance on RMBench with an 83.3% success rate and attains 78.0% success on real-robot tasks, while maintaining approximately constant executor inference latency as task history grows.",
-      "image": "https://arxiv.org/html/2609.11561v1/framework_cropped.png"
+      "title": "Feyospace-v1: How the Cyber Mercury Seven Trained Frontier Cyber Models",
+      "authors": "Zongjie Li, Alan Z. W, John Nicolas J et al.",
+      "published": "2026-09-07",
+      "url": "https://arxiv.org/abs/2609.08418",
+      "raw_summary": "Training capable cyber agents is often treated primarily as a problem of model scale, yet open-weight post-training is constrained more directly by the cost of executable environments, reliable multi-turn supervision, and access to strong teachers. We present a data-centric framework that addresses these bottlenecks through five complementary systems: Choulea analyzes hidden reasoning signatures, SkyReal reduces teacher-sampling cost, Hongzwang bypasses API restrictions on teacher execution, PSBreakup restores capabilities weakened by model merging, and Kreator converts expert interventions into trainable reasoning. Our data engine constructs resettable coding, vulnerability, CTF, kernel-history, full-exploit, firmware, and device-backed environments. Candidate trajectories are retained only after execution verification and evidence auditing, yielding 164,269 trajectories for long-context supervised fine-tuning. The three checkpoints improve over their starting models by an average of 23.76% on the full CyberGym suite and 10.49% across the pooled CTF suites. As of September 1, 2026, Feyospace-s1 achieves a verified success rate of 63.24% and ranks 10th on the official CyberGym leaderboard, while all three checkpoints rank 1st among models at comparable parameter scales. To our knowledge, this is the first end-to-end demonstration that a seven-person independent team can train open-weight models with leading agentic cyber capability.",
+      "image": "https://arxiv.org/html/2609.08418v1/figure2-overview.png"
     },
     {
-      "id": "paper-2609.11699",
+      "id": "paper-2609.11977",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Negative Self-Distillation: Learning to Reason by Avoiding Flaws",
-      "authors": "Rongcan Pei, Zhepei Wei, Shuyao Xu et al.",
-      "published": "2026-09-09",
-      "url": "https://arxiv.org/abs/2609.11699",
-      "raw_summary": "On-Policy Self-Distillation (OPSD) has emerged as a popular paradigm for large language model (LLM) self-improvement, allowing models to act as their own teachers by leveraging privileged information such as ground-truth solutions. However, recent findings indicate that OPSD can severely degrade the performance of LLMs on complex reasoning tasks: By forcing the student to imitate an artificially confident reasoning trace conditioned on privileged information, OPSD inadvertently suppresses expressions of uncertainty and penalizes the exploratory, self-corrective behaviors required to solve challenging problems. To address this, we introduce Negative Self-Distillation (NSD), a new framework that optimizes LLMs by diverging from flawed reasoning rather than imitating privileged solutions. Instead of relying on ground-truth answers or external supervision, NSD uses the model itself to generate a question-specific negative condition (eg, acting as a ``careless reasoner'') and pushes the student's distribution away from this self-generated negative teacher. Naively applying unlearning objectives to achieve this divergence is problematic, as flawed reasoning tokens are confounded with basic linguistic tokens; indiscriminately penalizing both risks catastrophically degrading the model's foundational language capabilities. We resolve this by designing a dynamic gating mechanism that automatically identifies and isolates reasoning-critical tokens, ensuring gradient updates target only behavioral flaws while preserving the model's linguistic priors. Empirically, NSD consistently outperforms OPSD and other label-free, self-bootstrapping reinforcement learning (RL) baselines.",
-      "image": "https://arxiv.org/html/2609.11699v1/intro.png"
+      "title": "Occamy-1.0: Open Pareto-frontier 35B Intelligence for Co-work",
+      "authors": "Wenhui Chen, Shiwen Cheng, Hao Dong et al.",
+      "published": "2026-09-03",
+      "url": "https://arxiv.org/abs/2609.11977",
+      "raw_summary": "Co-work agents execute complex workflows that combine information gathering, tool use, coding, and file manipulation across many model invocations. Because cost and latency accumulate over the full episode, their practical value depends not only on peak capability but also on how efficiently that capability is delivered. Yet many steps in everyday work emphasize state tracking, coordination, recovery, and follow-through rather than frontier-scale reasoning. We present Occamy-1.0, a cost-efficient co-work model obtained by further training the post-trained Qwen3.6-35B-A3B checkpoint. We construct execution-grounded data and environments, capture replayable long-horizon trajectories across multiple harnesses, and use staged post-training to develop and consolidate complementary execution capabilities. Across a broad suite of co-work benchmarks, Occamy-1.0 is consistently among the strongest comparably sized models and remains competitive with substantially larger frontier systems on several tasks. Under our stated evaluation and pricing protocol, its aggregate performance across four representative benchmarks places it at the low-cost knee of the observed cost--performance Pareto frontier. Supporting evaluations in tool calling, coding, and instruction following further show that this specialization preserves broad agentic capability. We release the model weights and a subset of the training data to support research on practical co-work agents and agentic post-training.",
+      "image": "https://arxiv.org/html/2609.11977v1/01-overview-v7.png"
     },
     {
-      "id": "paper-2609.10445",
+      "id": "paper-2609.12945",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Building Multilingual Bridges: Data Mixing as the Pillar of Generalization for In-Language Reasoning",
-      "authors": "Mehrnaz Mofakhami, Ananya Sahu, Alejandro R. Salamanca et al.",
+      "title": "StepAudio 3 Gen Technical Report",
+      "authors": "Bin Lin, Bo Zhao, Boyang Wang et al.",
+      "published": "2026-09-10",
+      "url": "https://arxiv.org/abs/2609.12945",
+      "raw_summary": "We introduce StepAudio 3 Gen, a general-purpose audio generation model that supports zero-shot text-to-speech (TTS), voice design, vocal generation, sound effects, music, vibe speech, and mixtures of multiple audio types within a unified framework. At its core, StepAudio 3 Gen is a discrete autoregressive generator that models audio directly over residual vector quantization (RVQ) tokens, departing from the diffusion Transformer-based continuous generation paradigm prevalent in recent general audio models. Its StepAudio Tokenizer represents general audio at 12.5 Hz in a shared 16 times 2048 residual code space, jointly quantizing semantic and waveform-level acoustic features so that each code layer preserves both types of information. For generation, the backbone predicts the first codebook along the time axis using autoregressive modeling, while a lightweight causal Transformer completes the remaining fifteen codebooks along the codebook axis. Our study further identifies three key design principles: (1) interference-aware progressive pretraining for acquiring audio capabilities while preserving the textual abilities of the large language model, (2) RVQ Adaptor for effectively incorporating multi-codebook acoustic representations, and (3) discrete autoregressive modeling over a shared representation across general audio domains. With progressive pretraining, multi-task instruction training, and supervised fine-tuning, StepAudio 3 Gen achieves state-of-the-art performance on both TTS and voice design, while retaining strong generation capabilities across speech, vocals, sound effects, and music. Audio samples are available at https://stepaudiollm.github.io/step-audio-3-gen/."
+    },
+    {
+      "id": "paper-2609.10895",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "ReactHuman: A Physics-Grounded Benchmark for Human-Like Reactive Decision-Making in Embodied Multimodal LLMs",
+      "authors": "Yizhan Li, Jianxin You, Mengyang Xiong et al.",
       "published": "2026-09-08",
-      "url": "https://arxiv.org/abs/2609.10445",
-      "raw_summary": "Reasoning language models have made substantial advances on a variety of complex tasks, yet their capabilities remain overwhelmingly English-centric: models primarily reason in English regardless of the language they are prompted in. This is inaccessible for non-English-speaking users, risks losing the intent of the original question, and forgoes knowledge more readily expressed in the target language. In this work, we advance L2 reasoning, the ability of a model to reason consistently in the language of the user's prompt, thus building an in-language bridge between the prompt and the answer. We approach this problem from a data-centric angle, investigating how to optimize data composition and scheduling in SFT for reasoning generalization. Building Tiny Aya L2-Thinker at 3.35B scale, we achieve an L2 reasoning rate above 93% across 60 languages on 6 benchmarks spanning math, commonsense reasoning, instruction following, open-ended generation, and cultural reasoning while keeping performance strong. We show the path to generalizing L2 reasoning to held-out languages goes through broader language coverage, readily available multilingual non-reasoning data, and a sufficient English reasoning backbone. These findings indicate that reasoning is a language-agnostic behavior that can be transferred across typologically diverse languages through careful data mixing and without requiring reasoning supervision in every target language. We release our model weights and multilingual reasoning data to support further research on accessible, in-language reasoning."
+      "url": "https://arxiv.org/abs/2609.10895",
+      "raw_summary": "Reacting to sudden physical hazards (catching a slipping plate, dodging a falling knife) is both a meaningful test of embodied intelligence and a hard requirement for deploying multimodal large language models (MLLMs) as the decision coreof household robots. Existing evaluations, however, probe intuitive physics passively through question answering over videos, or target deliberate, long-horizon tasks such as navigation and rearrangement; none measure whether a model can turn physical understanding into immediate, safety-critical action. We introduce ReactHuman, the first physics-grounded benchmark for human-like reactive decision-making, in which the evaluated MLLM acts as the brain of a simulated humanoid facing sudden household hazards; it spans 17 event families and over 1,000 bit-for-bit reproducible scenes with exact, annotation-free ground truth derived from 240 Hz rigid-body simulation, including adversarial objects whose appearance contradicts their physics (a foam anvil, a steel apple). We further design a five-metric suite that scores each reaction along three axes: reasonable, safe, and physically grounded. We physically execute every committed plan so that decisions have observable consequences. With this harness we evaluate seven representative MLLMs. Results show that reactive safety is far from solved: models mishandle roughly one hazard in three, act from fixed dispositions rather than the observed scene, trust appearance over motion, and miss interception points at meter scale even when the chosen action is correct; none of these failures shrink with model scale. ReactHuman thus offers both a fine-grained diagnosis and a scalable training signal toward physically grounded, safety-aware embodied agents. The benchmark can be found here: https://huggingface.co/datasets/Alan123/reacthuman-benchmark-scaled",
+      "image": "https://arxiv.org/html/2609.10895v1/pipeline.png"
     },
     {
-      "id": "news-16218945",
+      "id": "news-gh-1008713177",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code",
+      "authors": "通义千问 Qwen",
+      "published": "2026-09-15",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-41291614",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "How Fyxer built an AI executive assistant people trust",
+      "authors": "OpenAI",
+      "published": "2026-09-14",
+      "url": "https://openai.com/index/fyxer",
+      "raw_summary": "Fyxer uses OpenAI models, fine-tuning, memory, and real user feedback to organize inboxes and draft emails in each user’s voice."
+    },
+    {
+      "id": "news-49345677",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
@@ -70,37 +94,15 @@
       "raw_summary": "Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models."
     },
     {
-      "id": "news-gh-1008713177",
+      "id": "news-771679",
       "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code",
-      "authors": "通义千问 Qwen",
+      "source": "AWS ML",
+      "region": "海外",
+      "title": "Abnormal AI: Amazon Bedrock AgentCore for agentic email security at scale",
+      "authors": "AWS ML",
       "published": "2026-09-14",
-      "url": "https://github.com/QwenLM/qwen-code",
-      "raw_summary": "An open-source AI coding agent that lives in your terminal."
-    },
-    {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-09-13",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
-    },
-    {
-      "id": "news-gh-1246459259",
-      "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-09-13",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+      "url": "https://aws.amazon.com/blogs/machine-learning/abnormal-ai-amazon-bedrock-agentcore-for-agentic-email-security-at-scale/",
+      "raw_summary": "Learn how Abnormal AI deployed Amazon Bedrock AgentCore Code Interpreter as an ephemeral compute scratch pad for the agents behind its real-time email threat detection at billion-message scale, plus the sandbox design decisions and practical lessons for builders deploying Code Interpreter in production."
     }
   ]
 }
