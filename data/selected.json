@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-20",
+  "fetched_at": "2026-09-21",
   "items": [
     {
       "id": "paper-2609.19969",
@@ -25,17 +25,6 @@
       "image": "https://arxiv.org/html/2609.18323v1/fig1.png"
     },
     {
-      "id": "paper-2609.20511",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation",
-      "authors": "Yuxiao Yang, Tianrun Yu, Shangzhe Li et al.",
-      "published": "2026-09-16",
-      "url": "https://arxiv.org/abs/2609.20511",
-      "raw_summary": "We study length inflation in on-policy distillation (OPD), where student responses can become excessively long and even exhaust the generation budget. We identify termination-token mismatch between base students and post-trained teachers as an important source of this behavior. Across Qwen3, Llama, and Gemma, the two models can place their stopping probability on different EOS tokens, even when their declared stopping sets are identical. This mismatch can suppress the student's preferred termination action without reliably transferring the teacher-preferred alternative. We show that aligning the decoding stopping set alone is insufficient, while treating functionally equivalent EOS tokens as a shared semantic stopping action substantially mitigates mismatch-induced length inflation across all three model families. To further understand how termination behavior evolves over training, we study OPD across different K2-Horizon training stages. This stage-wise analysis shows that termination preferences can shift substantially during training, while also revealing a distinct length inflation late in the OPD run that persists beyond termination alignment. Together, these results identify termination mismatch as an important, but not exhaustive, source of OPD length dynamics. We release an implementation incorporating the proposed termination-handling corrections."
-    },
-    {
       "id": "paper-2609.20800",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -46,6 +35,17 @@
       "url": "https://arxiv.org/abs/2609.20800",
       "raw_summary": "World modeling enables intelligence to anticipate consequences, guide interventions, and learn from interaction. Yet predictive models remain domain-specific: can a common learning principle support world modeling across radically different systems? We introduce JEPA-Anything, a domain-agnostic framework based on orthogonal predictive factorization (OPF). Extending joint-embedding predictive architectures, OPF decomposes latent targets into complementary factors, learns them through dedicated pathways, and recombines them within a shared predictive design. We evaluate JEPA-Anything across seven domains: vision, biology, clinical trajectories, control, molecular dynamics, physical fields, and weather. Experiments span representation learning, intervention prediction, out-of-distribution generalization, and long-horizon dynamics, including 10 matched dynamics tasks, forecasting of over 1,000 clinical events, and 100-step molecular rollouts across four systems. Against matched JEPA baselines, JEPA-Anything improves reported metrics on all 10 dynamics tasks and reduces single-intervention prediction error on Interventional Pong by 34.8%. It achieves the lowest one-step and 100-step molecular errors among compared methods in all four systems. Beyond prediction, a factor-nominated biological intervention receives experimental support in cell co-cultures, patient-derived organoids, tumor fragments, and mice; latent orbital modes recover the Keplerian scaling exponent with a fitted slope of -1.4991. These results support a common factorized predictive principle across heterogeneous worlds, connecting world modeling with intervention and experimentally grounded scientific discovery. Code: https://github.com/Gen-Verse/JEPA-Anything",
       "image": "https://arxiv.org/html/2609.20800v1/figures/JEPA-Anything-final.png"
+    },
+    {
+      "id": "paper-2609.20511",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation",
+      "authors": "Yuxiao Yang, Tianrun Yu, Shangzhe Li et al.",
+      "published": "2026-09-16",
+      "url": "https://arxiv.org/abs/2609.20511",
+      "raw_summary": "We study length inflation in on-policy distillation (OPD), where student responses can become excessively long and even exhaust the generation budget. We identify termination-token mismatch between base students and post-trained teachers as an important source of this behavior. Across Qwen3, Llama, and Gemma, the two models can place their stopping probability on different EOS tokens, even when their declared stopping sets are identical. This mismatch can suppress the student's preferred termination action without reliably transferring the teacher-preferred alternative. We show that aligning the decoding stopping set alone is insufficient, while treating functionally equivalent EOS tokens as a shared semantic stopping action substantially mitigates mismatch-induced length inflation across all three model families. To further understand how termination behavior evolves over training, we study OPD across different K2-Horizon training stages. This stage-wise analysis shows that termination preferences can shift substantially during training, while also revealing a distinct length inflation late in the OPD run that persists beyond termination alignment. Together, these results identify termination mismatch as an important, but not exhaustive, source of OPD length dynamics. We release an implementation incorporating the proposed termination-handling corrections."
     },
     {
       "id": "paper-2609.20744",
@@ -65,7 +65,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-20",
+      "published": "2026-09-21",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -76,20 +76,9 @@
       "region": "国内",
       "title": "QwenLM/qwen-code-docs",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "url": "https://github.com/QwenLM/qwen-code-docs",
       "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
-    },
-    {
-      "id": "news-gh-1004140701",
-      "type": "news",
-      "source": "智谱 GLM · GitHub",
-      "region": "国内",
-      "title": "THUDM/slime",
-      "authors": "智谱 GLM",
-      "published": "2026-09-19",
-      "url": "https://github.com/THUDM/slime",
-      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
       "id": "news-gh-1246459259",
@@ -98,9 +87,20 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+    },
+    {
+      "id": "news-gh-1310847317",
+      "type": "news",
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/MoonEP",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-09-20",
+      "url": "https://github.com/MoonshotAI/MoonEP",
+      "raw_summary": "MoonEP: A Perfectly Balanced Expert Parallelism Library via Dynamic Redundant Experts"
     }
   ]
 }
