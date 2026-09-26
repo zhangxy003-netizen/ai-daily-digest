@@ -1,63 +1,62 @@
 {
-  "fetched_at": "2026-09-25",
+  "fetched_at": "2026-09-26",
   "items": [
     {
-      "id": "paper-2609.27334",
+      "id": "paper-2609.28654",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Just-in-Time Memory: Learning to Curate Task-Adaptive Memory for LLM Agents",
-      "authors": "Yefan Zhou, Yang Li, Zeyu Leo Liu et al.",
+      "title": "Training Object Permanence in World Models",
+      "authors": "Haotian Zhang, Fengyuan Yu, Dezhi Luo et al.",
       "published": "2026-09-22",
-      "url": "https://arxiv.org/abs/2609.27334",
-      "raw_summary": "Agentic memory systems reuse past experience to improve future performance, yet most existing designs curate memory at write time: once a task is completed, its trajectory is distilled into a fixed artifact, such as a reflection, workflow, skill, or reasoning strategy, that is later retrieved by similarity. This forces the system to decide what is worth remembering before the future query is known, irreversibly discarding information and producing a query-independent summary that must serve many possible downstream tasks. Learning such a write-time curator is also difficult because the value of a storage decision may only become apparent when a relevant query arrives, potentially many tasks later, creating a long-horizon credit-assignment problem. We instead retain raw trajectories and defer curation until read time, when the current task is known. Given the retrieved traces and the new task, a memory curator synthesizes a compact, task-adaptive payload tailored to the immediate need. Because this payload is consumed on the same task, the curator can be trained directly from immediate task success, avoiding delayed utility signals and the need to artificially group related tasks. Across ALFWorld, WebShop, and τ^2-bench, our Just-in-Time Memory (JitMem) consistently outperforms no-memory agents as well as heuristic and learned write-time memory methods, improving over the strongest baseline by 16.2, 16.3, and 3.9 absolute success-rate points, respectively. Notably, even an untrained curator is already competitive with or surpasses these baselines, showing that task-adaptive read-time curation itself is a major source of the gain; training the curator further compounds the improvement.",
-      "image": "https://arxiv.org/html/2609.27334v1/Figure1_MemCurator_Train.png"
+      "url": "https://arxiv.org/abs/2609.28654",
+      "raw_summary": "Object permanence and solidity are hallmarks of human cognitive priors. Recent studies show that video generation models, a paradigmatic class of current world models, have begun to show emerged reasoning abilities, making them ideal candidates for building human-like physical intelligence. Do video models have emerged object permanence in them? If not, could we train them with a core-cognition inspired dataset? We introduce WROP (World Reasoning with Object Permanence), a data infrastructure of 150 hand-designed cognitive science inspired tasks, divided into six cognitive categories. We build Blender generators that randomize speed, lighting, camera angle, and other nuisance parameters while preserving each task's cognitive structure, yielding 10,000+ samples per task. We release a 1.5M-sample training corpus and a 300-question exam. On this exam we evaluate 14 video models: 3 reference-to-video, 7 edit, and 4 continuation, among which PWM-WROP, our 16B world model. In a blind pairwise Elo study, PWM-WROP ranks first among continuation models and third overall, behind only a statistical tie between two reference-to-video models. We release the data, exam, model answers, scores, weights, and PWM, our native-PyTorch training stack on AWS Trainium2."
     },
     {
-      "id": "paper-2609.23038",
+      "id": "paper-2609.29845",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Spatial-Interactor: Learning Spatial Reasoning through Interaction with the Observable Physical World",
-      "authors": "Kaixiang Yao, Xu Wang, Miao Pan et al.",
-      "published": "2026-09-18",
-      "url": "https://arxiv.org/abs/2609.23038",
-      "raw_summary": "Spatial reasoning is essential for vision-language models (VLMs) to understand and act in the physical world. Reasoning in dynamic environments requires VLMs to perceive local state transitions caused by object motion and viewpoint changes and integrate them over long trajectories to maintain an updated spatial state, yet existing VLMs remain limited in both capabilities. Current spatial training primarily focuses on static questions about object attributes and spatial relations, providing limited direct supervision for state transitions; in contrast, interaction trajectories naturally connect a preceding observation, an action, and a subsequent observation, offering direct supervision for local state transitions, while complete trajectories reveal dependencies among consecutive transitions. We therefore introduce Spatial-Interactor, a framework that trains VLMs to model physical-world state transitions through interaction, organizing this learning process into a three-level curriculum covering L1 passive world-state transitions, L2 active self-state transitions, and L3 long-horizon interaction trajectories. Accordingly, we construct the Learning from Spatial Interaction dataset (LSI-108K) from simulated and real interaction trajectories, with tasks aligned with the objective of each level. Our two-stage training strategy applies Supervised Fine-Tuning (SFT) to L1 and L2 for local transition modeling, and On-Policy Distillation (OPD) then uses privileged self-distillation: a teacher branch given segment-level transition descriptions supervises the student's on-policy CoT, helping the student learn to integrate consecutive transitions over L3 long trajectories. Experiments across multiple VLMs and spatial benchmarks show consistent gains in local transition modeling and long-horizon integration.",
-      "image": "https://arxiv.org/html/2609.23038v1/fig7_manual_preview/updated_figures/fig1_overview.png"
+      "title": "Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs",
+      "authors": "Pavel Tikhonov, Anton Korznikov, Matvey Mikhalchuk et al.",
+      "published": "2026-09-23",
+      "url": "https://arxiv.org/abs/2609.29845",
+      "raw_summary": "While Large Language Models (LLMs) rely on highly non-linear components, in this work we demonstrate that they exhibit fundamental linearity: when inputs from distinct text streams are linearly combined, the model outputs a superposition of the individual next-token distributions. We term this the Superposition Linearity Hypothesis. We provide evidence that superposition is an intrinsic property of the Transformer architecture rather than an emergent consequence of training; in fact, we observe that it tends to diminish as pretraining progresses. However, we demonstrate that linearity can be substantially restored through lightweight fine-tuning, significantly reducing the divergence between the predicted next-token distribution and the average of the individual next-token distributions. Finally, we introduce a guided decoding procedure that disentangles superposed outputs, enabling the simultaneous generation of two coherent continuations from a single forward pass."
     },
     {
-      "id": "paper-2609.26637",
+      "id": "paper-2609.28603",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Capable yet Parsimonious: Extracting and Characterizing Hidden Chain-of-Thought in Frontier Models",
-      "authors": "Xiaoyu Luo, Tao Ren, Wenrui Yu et al.",
-      "published": "2026-09-21",
-      "url": "https://arxiv.org/abs/2609.26637",
-      "raw_summary": "The rapid capability gains of frontier language models are widely attributed to improved reasoning abilities, yet this cannot be verified as raw CoT traces in closed-source systems are hidden. By registering a simple custom tool through a standard API feature, we induce frontier models to externalize intermediate reasoning. Because these traces may reflect post-hoc rationalization rather than genuine reasoning, we first evaluate against native CoT on open-source models and extend to closed-source frontier models including GPT-6 Astra. We find that the extracted reasoning matches native reasoning performance and substantially outperforms no-reasoning baselines, across competition mathematics, science, and code generation. We then characterize how frontier models structure their intermediate reasoning. Across token efficiency, reasoning-step types, and induced reasoning trees, we identify systematic differences in how models externalize, compress, and organize reasoning. We find that Astra exhibits token-efficient directed reasoning, selecting a correct trajectory earlier, while resolving elementary steps internally and externalizing only crucial reasoning. These findings provide a behavioral lens on frontier-model reasoning beyond benchmark scores."
+      "title": "Learning to Discover Interesting Mathematics",
+      "authors": "Niket Patel, Ahmad Rammal, Amaury Hayat et al.",
+      "published": "2026-09-22",
+      "url": "https://arxiv.org/abs/2609.28603",
+      "raw_summary": "Recently, Large Language Models (LLMs) have been increasingly able to solve advanced mathematical problems, including many that have been open for decades. This opens the door to expansion of mathematical knowledge at unprecedented scale. Yet, while LLMs may be able to conjecture and prove more and more theorems, it remains open whether this new mathematical knowledge is interesting or useful. We define intrinsic interestingness of a theorem as the ratio between the length of its proof and the length of its statement. We show that this correlates strongly with an extrinsic measure of the downstream utility of a theorem. We identify the difficulty of a proof conditioned on a set of premises as a useful primitive for computing these metrics, and train a 27B model that predicts proof difficulty more accurately than frontier general-purpose models. Optimizing for our metric creates a model capable of producing more interesting theorems, while also reducing substantial or full overlap with Mathlib from 91.9% to 30.6%, showcasing the creation of more out-of-distribution math. We show that our system can generate candidate theorems, select the most interesting among them, and iteratively build on a self-expanding mathematical library. These metrics provide a practical and quantifiable signal for ranking conjectures and guiding proof search within formal mathematical libraries. Our framework provides a path towards self-expanding, machine-verified mathematical libraries that can choose worthwhile statements without relying on human-supplied targets."
     },
     {
-      "id": "paper-2609.24308",
+      "id": "paper-2609.28416",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "HappyWorld-Bench",
-      "authors": "Zhiqi Bai, Junai Cai, Yixin Chen et al.",
-      "published": "2026-09-20",
-      "url": "https://arxiv.org/abs/2609.24308",
-      "raw_summary": "Evaluating world models requires assessing both the quality of the worlds they generate and their consistency and responsiveness under exploration, interaction, and modification. We introduce HappyWorld-Bench, a comprehensive benchmark that evaluates whether generated worlds remain reliable as agents interact with them. Our design is built on a hierarchical capability framework of six world capabilities (W1-W6), from generative construction to unified world modeling, instantiated across three independent evaluation tracks: video world models, spatial world models, and embodied world models. HappyWorld-Bench comprises 1,138 video prompts, 300 spatial scenes, and 254 embodied test cases. Across all three tracks, we build and operate HappyWorld-Arena to organize human A/B comparisons and derive model-level Elo ratings, which complement newly designed automated metrics that capture behavioral correctness. We evaluate 14 video world models, 9 spatial systems, and 8 embodied candidates under this unified framework. Results reveal remaining reliability gaps across all three tracks: video models exhibit reduced consistency during extended rollouts and revisits, spatial models achieve at best 70.14% placement accuracy and 73.33% edit execution, and embodied models struggle to preserve state across multi-step actions and respond precisely to altered action conditions and physical rules. These findings highlight the need to evaluate world models not only by visual quality, but also by state consistency and the correctness of their responses to actions and interventions.",
-      "image": "https://arxiv.org/html/2609.24308v1/HappyWorld_Fig1_0914.png"
+      "title": "Agent-Editing World Model: Rethinking World Modeling for LLM Agents",
+      "authors": "Shuang Sun, Guoxin Chen, Fanzhe Meng et al.",
+      "published": "2026-09-22",
+      "url": "https://arxiv.org/abs/2609.28416",
+      "raw_summary": "Recent advances in large language models (LLMs) have enabled agents to tackle long-horizon tasks across diverse environments. To further improve agent performance, existing language world models typically predict environment observations, yet reconstructing high-entropy, execution-dependent tool responses offers limited value when real feedback is available. Meanwhile, agents suffer from task-state contamination, where unsupported assumptions and outdated plans persist in history and distort subsequent decisions. We propose the Agent-Editing World Model (AEWM), which models how reasoning and actions shape future task progress rather than simulating tool responses. AEWM combines Action Judge to distinguish Critical, Exploratory, and Noisy decisions with State Revision to edit noisy reasoning--action continuations from the same observed history. EditAct integrates these capabilities with real execution, directly changing the state underlying subsequent decisions rather than merely providing critiques. We train AEWM across Search, Terminal, and Software Engineering through mid-training and supervised fine-tuning. AEWM achieves 70.5\\% macro-F1 on our Action Judge benchmark, exceeding the strongest frontier baseline by 10.6 points. Across six benchmarks and three agent backbones, EditAct improves average scores by 3.2--6.7 points over the strongest baseline. Furthermore, rejection sampling fine-tuning on verified EditAct trajectories, termed AEWM-RFT, improves over Self-RFT by 2.2--2.6 points across three domains without online AEWM guidance.",
+      "image": "https://arxiv.org/html/2609.28416v1/main.png"
     },
     {
-      "id": "paper-2609.22682",
+      "id": "paper-2609.30221",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Self-Organizing Agent Teams Learn to Reason Together",
-      "authors": "Aneesh Pappu, Mirac Suzgun, Yongchan Kwon et al.",
-      "published": "2026-09-18",
-      "url": "https://arxiv.org/abs/2609.22682",
-      "raw_summary": "Collective intelligence depends not only on what team members know, but also on how they organize their work. When the structure of a solution is unknown, useful roles and divisions of labor cannot be specified in advance; teams must learn from experience how to organize reasoning as it unfolds. Human teams routinely adapt this way, while existing AI agent teams rely on fixed protocols, explicit task decomposition, or routing. We introduce Self-Organizing Agent Teams (SAT), fixed teams of AI agents that learn reusable strategies from prior collaborations to organize roles, conversational phases, participation, and information flow. These strategies enable what we call collaborative computation: agents exchange, challenge, repair, and synthesize partial reasoning into solutions no member produced independently. In two independent settings, we learn teamwork strategies that transfer unchanged to unseen benchmarks, using only 15 mathematics and 25 graduate-level knowledge problems. Across five mathematics and physics benchmarks, self-organizing teams average 66.7% accuracy, versus 48.8% for their strongest member, 58.7% for compute-matched inference by that agent, and 59.0% for a perfect router over members' independent answers; on AIME 2026, they exceed this router by 13.4 points. Because gains vary across benchmarks, we ask when self-organizing collaboration helps. Across eight benchmarks, demonstrability (the organizational-psychology construct of whether a team can distinguish correct from incorrect reasoning) strongly tracks improvement over the strongest member (Spearman ρ=0.90, p=0.005): teams benefit most when correct reasoning can be recognized once it appears. More broadly, these results suggest that organization itself can become an agent capability: agent teams can learn how to reason together and produce solutions their members could not reach independently."
+      "title": "WanPE: Towards Cinematic Prompt Enhancement for Modern Text-to-Video Generation",
+      "authors": "Yubo Zhu, Yawen Shao, Ziyun Dai et al.",
+      "published": "2026-09-23",
+      "url": "https://arxiv.org/abs/2609.30221",
+      "raw_summary": "Video generation begins in text space by authoring a cinematic screenplay, then materializes into pixels. As contemporary video generators scale to 30 seconds and faithfully follow complex conditions, the textual prompt largely directs the production, planning how actions, camera trajectories, lighting, and sound unfold across multi-shot sequences. In this paper, we present WanPE, a 397B-parameter prompt enhancement model trained on 1.05M real-world videos to master director-level cinematic planning. WanPE formulates shot-level cinematic plans via video-grounded reverse construction and employs Semantic-Consistency GRPO (SC-GRPO) to faithfully preserve user requirements across shots and over time. To benchmark this capability, we curate WanPEval, a human-annotated testbed covering durations from 5 to 30 seconds across varying intent granularities, supported by approximately 11K blind pairwise assessments. When powering Wan3.0's video generator, WanPE-397B boosts human preference over raw user prompts by 10.66-18.84 points at 5-15 seconds and by a dramatic 50.86 points in the 30-second arena. Ablation studies show that reverse construction demonstrates clear superiority over forward rewriting, while SC-GRPO robustly preserves semantic fidelity across model scales. Ultimately, WanPE leads all evaluated commercial offerings at 5-15 seconds and remains competitive with Seedance 2.5 at 30 seconds.",
+      "image": "https://arxiv.org/html/2609.30221v1/pipeline.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -66,42 +65,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-25",
+      "published": "2026-09-26",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-62905926",
+      "id": "news-68595389",
       "type": "news",
-      "source": "Hugging Face",
+      "source": "OpenAI",
       "region": "海外",
-      "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
-      "authors": "Hugging Face",
-      "published": "2026-09-24",
-      "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
-      "raw_summary": ""
+      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "authors": "OpenAI",
+      "published": "2026-09-25",
+      "url": "https://openai.com/index/proaction",
+      "raw_summary": "With Codex, GPT-Live-1, and GPT-6 Astra, Proaction builds, operates, and sells modern fleet management faster."
     },
     {
-      "id": "news-56993597",
+      "id": "news-54829328",
       "type": "news",
-      "source": "Google Research",
+      "source": "AWS ML",
       "region": "海外",
-      "title": "Automating coherent long-form video generation",
-      "authors": "Google Research",
-      "published": "2026-09-24",
-      "url": "https://research.google/blog/coherent-long-form-video-generation/",
-      "raw_summary": "Generative AI"
+      "title": "Scaling MoE reinforcement learning on Amazon EKS with EFA and DeepEP with 40% more throughput",
+      "authors": "AWS ML",
+      "published": "2026-09-25",
+      "url": "https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/",
+      "raw_summary": "Learn how to scale Mixture-of-Experts (MoE) reinforcement learning on Amazon EKS using Elastic Fabric Adapter (EFA) and DeepEP. This post presents an architecture that combines Amazon EKS, EFA, and Amazon S3 and increased aggregate reinforcement learning rollout throughput by 40% for large-scale RLHF and GRPO training."
     },
     {
-      "id": "news-41338879",
+      "id": "news-61325882",
       "type": "news",
-      "source": "Apple ML",
+      "source": "AWS ML",
       "region": "海外",
-      "title": "Compressing Streaming Neural Audio Encoders via Latent-Space Distillation",
-      "authors": "Apple ML",
-      "published": "2026-09-24",
-      "url": "https://machinelearning.apple.com/research/latent-space-distillation",
-      "raw_summary": "System-wide Dictation on Apple devices runs entirely on-device, and the speech it transcribes reaches the foundation model through a tokenizer: an encoder that maps short windows of waveform onto the representation the language model reads. Because that model is sparsely activated under Instruction-Following Pruning, only a small subset of its experts occupies DRAM at any time, so the always-on tokenizer competes for the same memory, and its parameter count bears directly on power and latency. In this work we study how to compress such a tokenizer by distillation, taking as the supervision…"
+      "title": "Accelerate multimodal RL training with SkyRL on Amazon SageMaker HyperPod",
+      "authors": "AWS ML",
+      "published": "2026-09-25",
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/",
+      "raw_summary": "Learn how to run SkyRL, an open-source reinforcement learning framework, on Amazon SageMaker HyperPod to post-train a Qwen3-VL-8B vision-language model with GRPO. This walkthrough covers building the container image, launching a Ray cluster from SageMaker Studio, submitting and monitoring the job, and hosting the trained LoRA adapter for inference."
     }
   ]
 }
