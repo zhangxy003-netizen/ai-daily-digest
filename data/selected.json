@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-26",
+  "fetched_at": "2026-09-27",
   "items": [
     {
       "id": "paper-2609.28654",
@@ -24,15 +24,15 @@
       "raw_summary": "While Large Language Models (LLMs) rely on highly non-linear components, in this work we demonstrate that they exhibit fundamental linearity: when inputs from distinct text streams are linearly combined, the model outputs a superposition of the individual next-token distributions. We term this the Superposition Linearity Hypothesis. We provide evidence that superposition is an intrinsic property of the Transformer architecture rather than an emergent consequence of training; in fact, we observe that it tends to diminish as pretraining progresses. However, we demonstrate that linearity can be substantially restored through lightweight fine-tuning, significantly reducing the divergence between the predicted next-token distribution and the average of the individual next-token distributions. Finally, we introduce a guided decoding procedure that disentangles superposed outputs, enabling the simultaneous generation of two coherent continuations from a single forward pass."
     },
     {
-      "id": "paper-2609.28603",
+      "id": "paper-2609.30199",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Learning to Discover Interesting Mathematics",
-      "authors": "Niket Patel, Ahmad Rammal, Amaury Hayat et al.",
-      "published": "2026-09-22",
-      "url": "https://arxiv.org/abs/2609.28603",
-      "raw_summary": "Recently, Large Language Models (LLMs) have been increasingly able to solve advanced mathematical problems, including many that have been open for decades. This opens the door to expansion of mathematical knowledge at unprecedented scale. Yet, while LLMs may be able to conjecture and prove more and more theorems, it remains open whether this new mathematical knowledge is interesting or useful. We define intrinsic interestingness of a theorem as the ratio between the length of its proof and the length of its statement. We show that this correlates strongly with an extrinsic measure of the downstream utility of a theorem. We identify the difficulty of a proof conditioned on a set of premises as a useful primitive for computing these metrics, and train a 27B model that predicts proof difficulty more accurately than frontier general-purpose models. Optimizing for our metric creates a model capable of producing more interesting theorems, while also reducing substantial or full overlap with Mathlib from 91.9% to 30.6%, showcasing the creation of more out-of-distribution math. We show that our system can generate candidate theorems, select the most interesting among them, and iteratively build on a self-expanding mathematical library. These metrics provide a practical and quantifiable signal for ranking conjectures and guiding proof search within formal mathematical libraries. Our framework provides a path towards self-expanding, machine-verified mathematical libraries that can choose worthwhile statements without relying on human-supplied targets."
+      "title": "ExplorationBench: Measuring AI Systems' Exploration in Verifiable Alien Worlds",
+      "authors": "Ming Zhang, Zhenghao Xiang, Peizhong Gao et al.",
+      "published": "2026-09-23",
+      "url": "https://arxiv.org/abs/2609.30199",
+      "raw_summary": "Scientific discovery begins where known problems end. There, AI systems must engage in exploration: framing hypotheses, designing experiments, and iterating on the results. However, evaluating this ability is difficult: (1) how to verify whether a genuinely new hypothesis holds, and (2) how to determine whether a system has discovered it through exploration or merely recalled related knowledge from pre-training data. To this end, we introduce ExplorationBench, which turns the wicked problem of evaluating scientific exploration into a concrete and tractable framework built on verifiable Alien Worlds: their rules are executable, so every answer can be checked exactly, and they conflict with familiar knowledge, so recall alone cannot solve the tasks. The benchmark contains two sandboxes, AlienCode (31 discovery targets, 70 tasks) and AlienLogic (24 discovery targets, 70 tasks). Each sandbox provides a flawed manual, task-specific environmental feedback, and a dedicated tool-call schema. Systems use these resources to explore the sandbox, then solve held-out tasks. We evaluate 10 AI systems and find that the strongest systems can acquire and apply unfamiliar rules, while performance varies substantially across trajectories and continued exploration can stall or reverse earlier gains. ExplorationBench represents a step towards AI systems that can acquire and apply genuinely new knowledge through exploration in unknown environments."
     },
     {
       "id": "paper-2609.28416",
@@ -65,42 +65,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-09-26",
+      "published": "2026-09-27",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-68595389",
+      "id": "news-gh-1219841349",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
-      "authors": "OpenAI",
-      "published": "2026-09-25",
-      "url": "https://openai.com/index/proaction",
-      "raw_summary": "With Codex, GPT-Live-1, and GPT-6 Astra, Proaction builds, operates, and sells modern fleet management faster."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/FlashQLA",
+      "authors": "通义千问 Qwen",
+      "published": "2026-09-26",
+      "url": "https://github.com/QwenLM/FlashQLA",
+      "raw_summary": "high-performance linear attention kernel library built on TileLang"
     },
     {
-      "id": "news-54829328",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "AWS ML",
-      "region": "海外",
-      "title": "Scaling MoE reinforcement learning on Amazon EKS with EFA and DeepEP with 40% more throughput",
-      "authors": "AWS ML",
-      "published": "2026-09-25",
-      "url": "https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/",
-      "raw_summary": "Learn how to scale Mixture-of-Experts (MoE) reinforcement learning on Amazon EKS using Elastic Fabric Adapter (EFA) and DeepEP. This post presents an architecture that combines Amazon EKS, EFA, and Amazon S3 and increased aggregate reinforcement learning rollout throughput by 40% for large-scale RLHF and GRPO training."
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-09-26",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-61325882",
+      "id": "news-gh-1256070689",
       "type": "news",
-      "source": "AWS ML",
-      "region": "海外",
-      "title": "Accelerate multimodal RL training with SkyRL on Amazon SageMaker HyperPod",
-      "authors": "AWS ML",
-      "published": "2026-09-25",
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/",
-      "raw_summary": "Learn how to run SkyRL, an open-source reinforcement learning framework, on Amazon SageMaker HyperPod to post-train a Qwen3-VL-8B vision-language model with GRPO. This walkthrough covers building the container image, launching a Ray cluster from SageMaker Studio, submitting and monitoring the job, and hosting the trained LoRA adapter for inference."
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/minimax-code",
+      "authors": "MiniMax",
+      "published": "2026-09-26",
+      "url": "https://github.com/MiniMax-AI/minimax-code",
+      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
     }
   ]
 }
