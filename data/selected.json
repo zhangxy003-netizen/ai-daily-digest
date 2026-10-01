@@ -1,105 +1,106 @@
 {
-  "fetched_at": "2026-09-30",
+  "fetched_at": "2026-10-01",
   "items": [
     {
-      "id": "paper-2609.33325",
+      "id": "paper-2609.32722",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "VisionHOPE: Visual Backbones as Self-Modifying Learning Systems",
-      "authors": "Siran Peng, Tianshuo Zhang, Tianyu Fu et al.",
-      "published": "2026-09-26",
-      "url": "https://arxiv.org/abs/2609.33325",
-      "raw_summary": "Visual backbones have evolved from Convolutional Neural Networks (CNNs) with local aggregation to Vision Transformers (ViTs) with global interactions, State-Space Models (SSMs) with input-dependent state transitions, and Test-Time Training (TTT) layers that adapt an inner learner while processing an image. Across this progression, visual computation has become increasingly adaptive to each input, yet the rules governing that adaptation remain largely prescribed by the trained backbone. We introduce VisionHOPE, the first generic visual backbone formulated as a self-modifying learning system, in which what the model remembers and how it learns co-evolve within an image. Building on the self-referential construction of Nested Learning (NL), VisionHOPE realizes this co-evolution through five coupled memories that store content, generate key and value representations, and govern learning rate and retention. These memories evolve jointly as visual context accumulates along each scan. However, directly applying the unconstrained self-referential update to a visual backbone leads to instability. We therefore derive a stability-matched step-size control scheme that combines a soft cap on self-referential injection with a spectral clamp on the retained memory transition, and prove that the resulting memory dynamics are non-expansive along each scan. For two-dimensional feature maps, we adapt NL's chunk formulation by aligning chunks with image rows and columns across four directional scans. The proposed VisionHOPE achieves competitive results on ImageNet-1K, COCO, and ADE20K, establishing self-modifying learning systems as a practical foundation for general-purpose visual backbones. The code is available at https://github.com/PSRben/VisionHOPE."
-    },
-    {
-      "id": "paper-2608.18486",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "WhiteMatter: All-to-All Cross-Layer Connections via KV Source Mixing",
-      "authors": "Wenbo Zhang, Xiang Ren",
-      "published": "2026-09-26",
-      "url": "https://arxiv.org/abs/2608.18486",
-      "raw_summary": "When generating text, a Transformer produces representations of past tokens at every layer, but each layer can normally use only representations from the same depth. This restriction prevents the model from fully reusing information it has already computed. We introduce WhiteMatter, which allows every layer to draw on past-token representations from any depth. A learned mixer selects the most useful depths for the current context and combines their representations into shared key-value (KV) cache channels. Sharing these channels across layers can reduce the cache size. Given the same number of training tokens, WhiteMatter with a full-size cache performs comparably to a standard Transformer with 50% more layers. With half the KV cache, WhiteMatter outperforms matched standard Transformers at two model scales, up to 1.3B parameters. Cross-layer connections, however, introduce dependencies that slow training and prompt processing. We address this problem with cyclic iteration, which updates interleaved groups of tokens in turn while processing the tokens within each group in parallel. On a reference model trained with exact autoregressive execution, cyclic iteration converges 12.5x faster than standard Jacobi iteration."
-    },
-    {
-      "id": "paper-2609.33780",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Selecting Diverse SFT Traces Improves Post-RL Generalization",
-      "authors": "Dylan Zhang, Mingyuan Wu, Jinning Li",
-      "published": "2026-09-26",
-      "url": "https://arxiv.org/abs/2609.33780",
-      "raw_summary": "Verified solutions are not equally useful for preparing reasoning models for reinforcement learning (RL). We present a comprehensive study of route diversity, the variation in the sequences of reasoning steps in supervised fine-tuning (SFT) data, and propose a lightweight, rule-based fingerprint to select for it. From one pool at one budget, with matched training recipes and checkpoints, selecting diverse rather than similar routes improves post-RL problem coverage across puzzles and mathematics, including on problems harder than those seen in either training stage. In synthetic experiments, route-diverse SFT improves OLMo3-7B's pass@8 by 16.9 points on environments held out from SFT. In a single-model condition, where one model writes every candidate, diverse selection gains up to 6.2 points of mean pass@8 across 10 mathematics benchmarks. Pre-RL diagnostics suggest why: diverse SFT can produce both successful and failed attempts on more prompts despite slightly lower mean accuracy, giving group-relative RL more prompts with a learning signal. On 3 open-source corpora, our CPU-only selector, without model calls, outperforms more expensive alternatives in every comparison of mean post-RL performance. These results identify reasoning-route diversity as a practical criterion for selecting SFT data that better prepares models for RL."
-    },
-    {
-      "id": "paper-2609.34479",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "SentZero: An Enhanced Sentence-Centric Vision-Language Pretraining for Multi-Task Zero-Shot Chest X-Ray Analysis",
-      "authors": "Hangyul Yoon, Hyungyung Lee, Edward Choi et al.",
-      "published": "2026-09-27",
-      "url": "https://arxiv.org/abs/2609.34479",
-      "raw_summary": "Vision-language (VL) pretraining using paired chest X-ray (CXR) images and radiology reports has shown strong potential for medical image understanding. However, existing methods often remain dependent on task-specific finetuning because radiology reports are lengthy, clinically dense, and difficult to align with simple zero-shot prompts. Recent sentence-level approaches partially address this limitation using clinical phrases extracted by large language models (LLMs), but they largely overlook the intrinsic characteristics of radiology discourse. In particular, limited positive-pair diversity constrains further gains, while clinically equivalent sentences frequently recur across patients, creating false negatives in contrastive learning. To address these issues, we propose SentZero, an enhanced sentence-centric VL pretraining framework for zero-shot, multi-task CXR analysis. SentZero introduces LLM-based abstract-level sentence structuring and mapping to expand positive-pair diversity, together with an additional loss term to mitigate false negatives. We further introduce sentence-conditioned residual modulation of visual embeddings, enabling visual features to adapt to the semantic characteristics of each input sentence. Across diverse downstream tasks and datasets, SentZero improves zero-shot generalization and outperforms prior multi-task zero-shot methods.",
-      "image": "https://arxiv.org/html/2609.34479v1/figure/main_figure.png"
-    },
-    {
-      "id": "paper-2609.32913",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Allspark: Weak to Strong Transfer via Alternating Chain of Thought",
-      "authors": "Kaizhao Liang, Junxiong Wang, Chen Liang et al.",
+      "title": "Scaling Properties of Same-Family On-Policy Distillation",
+      "authors": "Yuntai Bao, Qinfeng Li, Guoqing Jiang et al.",
       "published": "2026-09-25",
-      "url": "https://arxiv.org/abs/2609.32913",
-      "raw_summary": "Recent progress in frontier models has renewed interest in large-scale reinforcement learning (RL), but the cost of generating large-model rollouts makes even testing RL recipes expensive. We ask whether reasoning improvements learned by a small, weak model can benefit a larger, stronger model without using the strong model's rollouts during training. We introduce Allspark, a training and inference framework for weak-to-strong transfer through alternating chains of thought. A weak teacher is trained alongside a frozen copy of the same model; the two alternate reasoning segments, and the frozen model produces the final answer. At inference time, a stronger student replaces the frozen training partner, while both models remain fixed. Because they communicate through text, the teacher can steer students from different model families and with different tokenizers. We study Allspark at two scales: controlled Qwen experiments across math and reasoning, and larger-scale Inkling experiments on ARC-AGI-2. The Inkling experiments show accuracy gains in within-family and cross-family settings, including transfer to Kimi and Nemotron, with benefits that vary across inference settings. These findings motivate reusing a trained weak teacher across strong students and examining the resulting accuracy--token tradeoff."
+      "url": "https://arxiv.org/abs/2609.32722",
+      "raw_summary": "*Reinforcement learning (RL)* can induce substantial reasoning capabilities in large language models (LLMs), but how much of this capability transfers across model scales, and how quickly, remains unclear. We study the scaling properties of *on-policy distillation (OPD)* across *weak-to-strong*, *same-base*, and *strong-to-weak* teacher--student setups. We find that early OPD training dynamics uniformly exhibit a regular *useful-transfer* regime, in which held-out accuracy (the *gold score*, G) rises approximately linearly in d=mathrm{KL(π_θVert π_{ref})}, the square root of token-level reverse KL divergence from the student initialization. In every observed weak-to-strong pair, the student's peak gold score exceeds its teacher's own, so a compact RL expert can transfer capability to a much larger student via OPD. To estimate OPD outcomes, we fit *power laws* for how G_{peak} and the slope of the useful-transfer regime scale with student and teacher parameter counts and with teacher gold score. These laws show that peak gold score improves with teacher scale only up to roughly the student's scale, and that at a matched gold score smaller teachers transfer better, so a teacher's score alone does not define its supervision value. We also study the scaling effects of two OPD variants, bootstrapping weak-to-strong OPD, and the degree of on-policy supervision."
     },
     {
-      "id": "news-45868009",
-      "type": "news",
-      "source": "AWS ML",
+      "id": "paper-2609.36322",
+      "type": "paper",
+      "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Amazon Bedrock expands Claude model availability to in-country inferencing in India",
-      "authors": "AWS ML",
-      "published": "2026-09-30",
-      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-expands-claude-model-availability-to-india-cross-region-inference/",
-      "raw_summary": "Anthropic's Claude Opus 5, Claude Sonnet 5, and Claude Haiku 4.5 are now available in India through Amazon Bedrock geographic cross-Region inference. You can access these models while processing data within the India Regions, and get started from the Amazon Bedrock console or with the Messages, InvokeModel, and Converse APIs."
+      "title": "Periodic Weak Spots: Phase Sensitivity from Chunked KV-Cache Compression",
+      "authors": "Xingyu Zhu, Pu, Yi et al.",
+      "published": "2026-09-27",
+      "url": "https://arxiv.org/abs/2609.36322",
+      "raw_summary": "Chunked KV-cache compression reduces the memory and attention costs of long-context inference by compressing windows of consecutive tokens into fewer cache entries at a fixed stride. Such compression also introduces a new positional coordinate: a token's phase, or its position relative to compression-window boundaries. We uncover a systematic asymmetry in models using such compression: the same information can be easy to retrieve at one phase and difficult at another. We call this periodic variation in retrieval performance phase sensitivity. In large open-weight models with such compression, long-context retrieval accuracy can differ by up to 40 percentage points across phases, revealing periodic weak spots that average benchmark scores can conceal.   To investigate this behavior, we pretrain a family of transformers from scratch across multiple KV-compression designs, reproducing phase sensitivity across the variants. Mechanistic analysis using causal interventions in these models reveals phase specialization: different attention components contribute asymmetrically to retrieving information at different source phases. We further analyze idealized retrieval models, showing how gradient flow dynamics may favor sharp phase specialization. Evaluating models with chunked KV-cache compression thus requires measuring across compression phases: high average accuracy can coexist with systematic positional failures."
     },
     {
-      "id": "news-26112098",
-      "type": "news",
-      "source": "AWS ML",
+      "id": "paper-2609.36730",
+      "type": "paper",
+      "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Introducing Anthropic models on Amazon Bedrock for in-region inference in Seoul and Singapore",
-      "authors": "AWS ML",
-      "published": "2026-09-30",
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-anthropic-models-on-amazon-bedrock-for-in-region-inference-in-seoul-and-singapore/",
-      "raw_summary": "Amazon Bedrock now supports Anthropic's Claude Opus 5 and Claude Sonnet 5 with in-region inference in Seoul, and Claude Sonnet 5 in Singapore. If you have local data processing requirements in South Korea or Singapore, you can now use these Anthropic models at scale, with inference processed entirely within the Region you call."
+      "title": "Can Agents Design Libraries for Agents?",
+      "authors": "Gabriel Orlanski, Alex L. Zhang, Avi Trost et al.",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.36730",
+      "raw_summary": "Agents increasingly build on code written by other agents, and they reimplement rather than reuse, growing the codebases later agents must work in. To measure how well agents design libraries for other agents, we introduce LibraryDesignBench, a two-phase benchmark in which an agent implements a full-featured library from a specification that defines required capabilities and potential use cases without prescribing the design. We evaluate the library through the correctness and simplicity of programs written by three user agents from different model families. The benchmark spans 242 expert-validated programming problems across 15 library-design tasks in four languages. On eleven of the fifteen tasks, agent designers reproduce the abstractions of the human-written production library. Downstream agents adopt agent- and human-written libraries alike but underuse them, reimplementing capabilities the library already provides. Our failure analysis finds that downstream agents write extra code mainly because agent-written libraries are rigid or hard to use, not because capabilities are missing. We also experiment with giving designers more prescriptive, agent-first guidance and having them test their library with subagents; this improves downstream scores and yields simpler programs. LibraryDesignBench provides both a testbed for evaluating library-design practices for agent users and an initial design baseline that improves downstream reuse."
     },
     {
-      "id": "news-gh-1360898986",
-      "type": "news",
-      "source": "DeepSeek · GitHub",
-      "region": "国内",
-      "title": "deepseek-ai/DeepJIT",
-      "authors": "DeepSeek",
-      "published": "2026-09-30",
-      "url": "https://github.com/deepseek-ai/DeepJIT",
-      "raw_summary": "A lightweight library for xPU kernel JIT compilation"
+      "id": "paper-2609.36653",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Scheduling Recursive Reasoning in Looped Transformers",
+      "authors": "Boyuan Wang, Chengyao Yu, Jiaxi Ren et al.",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.36653",
+      "raw_summary": "Recurrent reasoning models have attracted growing attention for scaling test-time computation, typically by iteratively refining latent states with shared parameters. However, these models apply each learned update with a fixed unit scale, which can be conservative when updates make persistent progress and overly aggressive when they fluctuate, limiting the benefit of additional loops. To understand how the scale should vary along the trajectory, we first analyze the sensitivity of terminal loss to recurrent update scale. We show that its temporal average admits an exact decomposition into persistent-progress and centered-fluctuation contributions. Based on this, we introduce the Trajectory Adaptive Progress-Fluctuation Scheduler (TAPS), which tracks their balance across recurrent updates and adapts the step size online. Theoretically, we establish sufficient conditions under which TAPS reduces expected terminal loss and reaches a target quality in fewer recurrent loops. Empirically, we show that TAPS improves terminal accuracy across structured reasoning tasks without retraining. By further incorporating the progress-fluctuation principle into training, TAPS yields additional accuracy gains with up to 1.56 times wall-clock speedup at matched baseline accuracy. The broad applicability of TAPS is supported by its effectiveness across diverse recurrent architectures and inference strategies. Together, these results establish update scale as complementary control axis of recurrent inference alongside architecture and depth.",
+      "image": "https://arxiv.org/html/2609.36653v1/fig/motivation2.png"
     },
     {
-      "id": "news-gh-933928679",
+      "id": "paper-2609.36636",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "What Makes Recurrence Effective in Looped Language Models?",
+      "authors": "Xinlin Zhuang, Siyuan Wang, Imran Razzak et al.",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.36636",
+      "raw_summary": "Looped language models (LoopLMs) increase computational depth through parameter sharing, offering a path to scale inference computation without adding parameters. However, it remains unclear when additional recurrence is beneficial and how architectural choices affect its effectiveness. Through controlled experiments, we systematically examine (1) when recurrence helps, (2) where it should be applied, and (3) how its conditioning affects performance. Our evaluation covers inference budgets below, within, and beyond the training horizon under knowledge and reasoning tasks. (1) We find that recurrence can improve reasoning beyond the training horizon while degrading knowledge performance, but harder reasoning instances do not consistently benefit more. (2) Performance also depends on how distinct layers and recurrent iterations are allocated, showing that effective depth alone is insufficient to predict behavior. Non-recurrent output layers improve robustness to under-unrolling, while the preferred placement of input and output layers varies with inference budget. (3) Finally, we find that conventional initial-state injection offers limited robustness to varying recurrence depth. We therefore propose history-state injection as an alternative, and show that channel-wise history-state injection combined with timestep conditioning offers a low-cost and more effective design, better preserving knowledge under extended unrolling while improving robustness across inference budgets. Overall, our results clarify when recurrent computation helps, where it fails, and offer practical guidelines for designing LoopLMs across variable inference budgets.",
+      "image": "https://arxiv.org/html/2609.36636v1/llama_motivation_trends_final.png"
+    },
+    {
+      "id": "news-gh-1008713177",
       "type": "news",
-      "source": "DeepSeek · GitHub",
+      "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "deepseek-ai/DeepEP",
-      "authors": "DeepSeek",
+      "title": "QwenLM/qwen-code",
+      "authors": "通义千问 Qwen",
+      "published": "2026-10-01",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1256070689",
+      "type": "news",
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/minimax-code",
+      "authors": "MiniMax",
+      "published": "2026-10-01",
+      "url": "https://github.com/MiniMax-AI/minimax-code",
+      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
+    },
+    {
+      "id": "news-gh-1379023782",
+      "type": "news",
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/OpenAgentCore",
+      "authors": "MiniMax",
+      "published": "2026-10-01",
+      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
+      "raw_summary": "Open-source, self-hosted implementation of the OpenAI Agents API with multiple native harnesses."
+    },
+    {
+      "id": "news-35653182",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "authors": "OpenAI",
       "published": "2026-09-30",
-      "url": "https://github.com/deepseek-ai/DeepEP",
-      "raw_summary": "DeepEP: an efficient expert-parallel communication library"
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "raw_summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation."
     }
   ]
 }
