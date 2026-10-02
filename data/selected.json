@@ -1,62 +1,75 @@
 {
-  "fetched_at": "2026-10-01",
+  "fetched_at": "2026-10-02",
   "items": [
     {
-      "id": "paper-2609.32722",
+      "id": "paper-2609.34563",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Scaling Properties of Same-Family On-Policy Distillation",
-      "authors": "Yuntai Bao, Qinfeng Li, Guoqing Jiang et al.",
-      "published": "2026-09-25",
-      "url": "https://arxiv.org/abs/2609.32722",
-      "raw_summary": "*Reinforcement learning (RL)* can induce substantial reasoning capabilities in large language models (LLMs), but how much of this capability transfers across model scales, and how quickly, remains unclear. We study the scaling properties of *on-policy distillation (OPD)* across *weak-to-strong*, *same-base*, and *strong-to-weak* teacher--student setups. We find that early OPD training dynamics uniformly exhibit a regular *useful-transfer* regime, in which held-out accuracy (the *gold score*, G) rises approximately linearly in d=mathrm{KL(π_θVert π_{ref})}, the square root of token-level reverse KL divergence from the student initialization. In every observed weak-to-strong pair, the student's peak gold score exceeds its teacher's own, so a compact RL expert can transfer capability to a much larger student via OPD. To estimate OPD outcomes, we fit *power laws* for how G_{peak} and the slope of the useful-transfer regime scale with student and teacher parameter counts and with teacher gold score. These laws show that peak gold score improves with teacher scale only up to roughly the student's scale, and that at a matched gold score smaller teachers transfer better, so a teacher's score alone does not define its supervision value. We also study the scaling effects of two OPD variants, bootstrapping weak-to-strong OPD, and the degree of on-policy supervision."
-    },
-    {
-      "id": "paper-2609.36322",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Periodic Weak Spots: Phase Sensitivity from Chunked KV-Cache Compression",
-      "authors": "Xingyu Zhu, Pu, Yi et al.",
+      "title": "Rethinking Latent Visual Reasoning: Grounding Latent Reasoning in Visual Evidence",
+      "authors": "Xi Xiao, Tianchen Zhao, Youngeun Kim et al.",
       "published": "2026-09-27",
-      "url": "https://arxiv.org/abs/2609.36322",
-      "raw_summary": "Chunked KV-cache compression reduces the memory and attention costs of long-context inference by compressing windows of consecutive tokens into fewer cache entries at a fixed stride. Such compression also introduces a new positional coordinate: a token's phase, or its position relative to compression-window boundaries. We uncover a systematic asymmetry in models using such compression: the same information can be easy to retrieve at one phase and difficult at another. We call this periodic variation in retrieval performance phase sensitivity. In large open-weight models with such compression, long-context retrieval accuracy can differ by up to 40 percentage points across phases, revealing periodic weak spots that average benchmark scores can conceal.   To investigate this behavior, we pretrain a family of transformers from scratch across multiple KV-compression designs, reproducing phase sensitivity across the variants. Mechanistic analysis using causal interventions in these models reveals phase specialization: different attention components contribute asymmetrically to retrieving information at different source phases. We further analyze idealized retrieval models, showing how gradient flow dynamics may favor sharp phase specialization. Evaluating models with chunked KV-cache compression thus requires measuring across compression phases: high average accuracy can coexist with systematic positional failures."
+      "url": "https://arxiv.org/abs/2609.34563",
+      "raw_summary": "Latent visual reasoning (LVR) enables multimodal large language models (MLLMs) to perform intermediate computation in continuous latent tokens rather than expressing every reasoning step in words. However, unlike textual CoT, latent reasoning is not directly observable, making it difficult to supervise what latent tokens learn. In this work, we first conduct a thorough analysis of latent-token behavior and identify a latent evidence-credit gap: latent tokens respond only weakly to image perturbations that alter the correct answer. We hypothesize that this issue stems from the lack of explicit supervision during GRPO training. These findings suggest that a final-answer reward provides too little guidance on what visual evidence to preserve or how credit should be assigned across latent tokens. To bridge this gap, we propose ReaLVR, which brings visual-evidence supervision to the model's own free-running latent trajectories. ReaLVR contrasts correct and model-generated wrong answers to determine where stronger supervision is needed, and relevant and mismatched visual evidence to specify what to preserve. Across three model families, ReaLVR consistently outperforms evaluated LVR baselines, achieving the highest five-task average of 63.7% on Qwen2.5-VL-7B. Crucially, we are the first to scale visual reasoning in latent space, showing that our framework continues to deliver robust improvements at frontier model scales up to 235B. Further analyses show more question-sensitive latent-token positions, stronger alignment with relevant visual regions, and greater fixed-context dependence on the most attended latent tokens.",
+      "image": "https://arxiv.org/html/2609.34563v1/fig5b_slot_ablation_heatmap_comic.png"
     },
     {
-      "id": "paper-2609.36730",
+      "id": "paper-2609.38349",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Can Agents Design Libraries for Agents?",
-      "authors": "Gabriel Orlanski, Alex L. Zhang, Avi Trost et al.",
+      "title": "MILO: Automated Harness Discovery via Orchestrated Multi-Agent Evolution",
+      "authors": "Prithwish Jana, Mononito Goswami, Hao Liu et al.",
       "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.36730",
-      "raw_summary": "Agents increasingly build on code written by other agents, and they reimplement rather than reuse, growing the codebases later agents must work in. To measure how well agents design libraries for other agents, we introduce LibraryDesignBench, a two-phase benchmark in which an agent implements a full-featured library from a specification that defines required capabilities and potential use cases without prescribing the design. We evaluate the library through the correctness and simplicity of programs written by three user agents from different model families. The benchmark spans 242 expert-validated programming problems across 15 library-design tasks in four languages. On eleven of the fifteen tasks, agent designers reproduce the abstractions of the human-written production library. Downstream agents adopt agent- and human-written libraries alike but underuse them, reimplementing capabilities the library already provides. Our failure analysis finds that downstream agents write extra code mainly because agent-written libraries are rigid or hard to use, not because capabilities are missing. We also experiment with giving designers more prescriptive, agent-first guidance and having them test their library with subagents; this improves downstream scores and yields simpler programs. LibraryDesignBench provides both a testbed for evaluating library-design practices for agent users and an initial design baseline that improves downstream reuse."
+      "url": "https://arxiv.org/abs/2609.38349",
+      "raw_summary": "Modern agentic systems combine an AI model with a harness that controls execution and environmental interactions. Harness design strongly affects long-horizon performance, yet its combinatorial search space demands substantial human effort that must be repeated as models change. Existing automated methods explore this space narrowly, optimizing only components such as prompts or skills or becoming trapped by fixed, exploitative search strategies. We introduce MILO (Meta-evolutionary Island Orchestration), a framework that co-evolves agent harnesses and the strategy used to discover them. MILO combines: (i) hierarchical lineage memory over island-based trees, using rejected mutations as negative evidence; (ii) per-island mutator agents that rewrite complete harnesses using global search history and parent-specific feedback; and (iii) an orchestrator that adapts search through lineage grafting and speciation, mutator reassignment and curriculum revision. Across Terminal-Bench 2.1, PaperBench, and DeepSWE, MILO-discovered harnesses outperform eight state-of-the-art harnesses and six search methods using frontier (Opus 4.8) and open-weight (gpt-oss-120b) models. With Opus 4.8, MILO improves resolution over its initial harness by +12.0%, +28.3%, and +10.3%, respectively, compared with best prior-search gains of +4.5%, +18.3%, and 0%. On Terminal-Bench 2.1, it achieves 86.1 pm 2.0%, exceeding the official leaderboard's top entry (83.8 pm 2.3%) while using 26\\% fewer tokens than its initial harness. On EinsteinArena open problems, MILO improves best-known upper bounds for Erdős minimum-overlap (0.3808586 to 0.3808568) and the first and third autocorrelation inequalities (1.50274365 to 1.50274360; 1.45081 to 1.44889).",
+      "image": "https://arxiv.org/html/2609.38349v1/llmscholar_pipeline.png"
     },
     {
-      "id": "paper-2609.36653",
+      "id": "paper-2609.38597",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Scheduling Recursive Reasoning in Looped Transformers",
-      "authors": "Boyuan Wang, Chengyao Yu, Jiaxi Ren et al.",
+      "title": "PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation",
+      "authors": "Cong Wei, Xuanchi Ren, Bryan Chu et al.",
       "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.36653",
-      "raw_summary": "Recurrent reasoning models have attracted growing attention for scaling test-time computation, typically by iteratively refining latent states with shared parameters. However, these models apply each learned update with a fixed unit scale, which can be conservative when updates make persistent progress and overly aggressive when they fluctuate, limiting the benefit of additional loops. To understand how the scale should vary along the trajectory, we first analyze the sensitivity of terminal loss to recurrent update scale. We show that its temporal average admits an exact decomposition into persistent-progress and centered-fluctuation contributions. Based on this, we introduce the Trajectory Adaptive Progress-Fluctuation Scheduler (TAPS), which tracks their balance across recurrent updates and adapts the step size online. Theoretically, we establish sufficient conditions under which TAPS reduces expected terminal loss and reaches a target quality in fewer recurrent loops. Empirically, we show that TAPS improves terminal accuracy across structured reasoning tasks without retraining. By further incorporating the progress-fluctuation principle into training, TAPS yields additional accuracy gains with up to 1.56 times wall-clock speedup at matched baseline accuracy. The broad applicability of TAPS is supported by its effectiveness across diverse recurrent architectures and inference strategies. Together, these results establish update scale as complementary control axis of recurrent inference alongside architecture and depth.",
-      "image": "https://arxiv.org/html/2609.36653v1/fig/motivation2.png"
+      "url": "https://arxiv.org/abs/2609.38597",
+      "raw_summary": "Unified Multimodal Models (UMMs) often rely on separate visual representations for understanding and generation, increasing visual context length and complicating integration with established vision-language pretraining pipelines. Recent advances in pixel-space modeling offer an encoder-free alternative, but extending this paradigm from images to videos is non-trivial: video understanding and generation adopt different temporal representations, leaving the design of a unified visual interface an open question. We present PixelUMM, an encoder-free model for unified image and video understanding and generation directly in pixel space. PixelUMM represents images as spatial patches and videos as spatiotemporal tubelets, connecting raw pixels to a shared multimodal backbone through single-layer linear projections. Its Mixture-of-Transformers architecture combines shared attention with task-specific parameters and extends clean-pixel prediction to video generation, jointly supporting autoregressive text prediction and pixel-space flow matching. Experiments show that PixelUMM achieves competitive performance across image and video understanding and generation tasks. We further conduct empirical studies of key design choices, including decoder design and spatial-temporal patch size, providing insights for future pixel-space unified multimodal models.",
+      "image": "https://arxiv.org/html/2609.38597v1/pixelumm-teaser-cropped.png"
     },
     {
-      "id": "paper-2609.36636",
+      "id": "paper-2609.32720",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "What Makes Recurrence Effective in Looped Language Models?",
-      "authors": "Xinlin Zhuang, Siyuan Wang, Imran Razzak et al.",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.36636",
-      "raw_summary": "Looped language models (LoopLMs) increase computational depth through parameter sharing, offering a path to scale inference computation without adding parameters. However, it remains unclear when additional recurrence is beneficial and how architectural choices affect its effectiveness. Through controlled experiments, we systematically examine (1) when recurrence helps, (2) where it should be applied, and (3) how its conditioning affects performance. Our evaluation covers inference budgets below, within, and beyond the training horizon under knowledge and reasoning tasks. (1) We find that recurrence can improve reasoning beyond the training horizon while degrading knowledge performance, but harder reasoning instances do not consistently benefit more. (2) Performance also depends on how distinct layers and recurrent iterations are allocated, showing that effective depth alone is insufficient to predict behavior. Non-recurrent output layers improve robustness to under-unrolling, while the preferred placement of input and output layers varies with inference budget. (3) Finally, we find that conventional initial-state injection offers limited robustness to varying recurrence depth. We therefore propose history-state injection as an alternative, and show that channel-wise history-state injection combined with timestep conditioning offers a low-cost and more effective design, better preserving knowledge under extended unrolling while improving robustness across inference budgets. Overall, our results clarify when recurrent computation helps, where it fails, and offer practical guidelines for designing LoopLMs across variable inference budgets.",
-      "image": "https://arxiv.org/html/2609.36636v1/llama_motivation_trends_final.png"
+      "title": "BiasReducer: Adaptive Bias Mitigation for Reward Models",
+      "authors": "Shuang Liu, Yongliang Miao, Yanguang Liu et al.",
+      "published": "2026-09-25",
+      "url": "https://arxiv.org/abs/2609.32720",
+      "raw_summary": "Reward models score responses from large language models (LLMs) and guide LLM training toward human preferences. However, reward models can favor superficial attributes such as length or confidence, leading LLMs to produce higher-scoring but not more correct responses. Existing mitigation methods either retrain the reward model or apply a fixed correction to one known bias, such as a preference for longer responses. Retraining requires additional data and computational resources, while existing editing methods require the target bias to be specified in advance and use a fixed edit for that bias. To this end, we propose BiasReducer, a lightweight framework that edits only the linear reward head and selects the relevant edits for each new dataset. First, BiasReducer uses a sparse autoencoder (SAE)-style encoder to learn which attributes (e.g., length and confidence) the reward model is sensitive to. Second, it learns how to reduce the reward model's dependence on each attribute by determining which direction to adjust the reward head and how much to adjust it. Third, for a new dataset, it ranks the attributes by their influence on reward scores, selects the relevant ones, and edits the reward model accordingly. BiasReducer consistently improves reward-model robustness to biases toward superficial response attributes. Across five reward models, BiasReducer-M improves the three benchmarks by 8.3, 18.0, and 6.9 percentage points on average, outperforming the two training-based baselines. The gains transfer downstream, reducing unnecessary verbosity and sycophancy while maintaining comparable judged quality.",
+      "image": "https://arxiv.org/html/2609.32720v1/pipeline.png"
+    },
+    {
+      "id": "paper-2609.38792",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Training LLM Judges from Language Feedback via Position-Selective Self-Distillation",
+      "authors": "Ilgee Hong, Changlong Yu, Zhenghao Xu et al.",
+      "published": "2026-09-29",
+      "url": "https://arxiv.org/abs/2609.38792",
+      "raw_summary": "We study training LLM judges from natural language feedback, especially for subjective tasks where the verdict depends strongly on which evaluation criteria the judge invokes and how it weighs them. The dominant approach, outcome-supervised RL (e.g., GRPO), credits every token in the rollout with a single scalar determined only by the accuracy of the final verdict, providing no separate credit at the criterion-choice tokens and ignoring the rich language feedback (e.g., preference rationales) that naturally accompanies preference labels. Self-Distillation (SD) is one natural way to use this language feedback: the same model, conditioned on this feedback, acts as a teacher providing dense, position-level supervision. However, not all positions carry equally useful signal. Using the per-position entropy shift between teacher and student, we identify two regimes: context sharpening, where the teacher concentrates probability on a particular feedback-aligned criterion expression, and context spreading, where the teacher distributes probability across multiple feedback-aligned alternatives. We interpret these patterns as follows: sharpening encourages memorization of a particular criterion expression, whereas spreading promotes semantic understanding by preserving these alternatives. Motivated by this asymmetry, we introduce position masking based on the entropy shift that retains the lower tail of the entropy-shift distribution. Experiments show that masking higher-entropy-shift positions improves out-of-distribution generalization over naive SD. The resulting self-distilled judges outperform judges trained with outcome-supervised RL by 2-9 percentage points on the evaluated subjective subcategories, while remaining competitive on objective ones."
+    },
+    {
+      "id": "news-gh-1315929647",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/Qwen-MM-Plugins",
+      "authors": "通义千问 Qwen",
+      "published": "2026-10-02",
+      "url": "https://github.com/QwenLM/Qwen-MM-Plugins",
+      "raw_summary": "Make any agent harness multimodal-native."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,7 +78,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-01",
+      "published": "2026-10-02",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -76,31 +89,20 @@
       "region": "国内",
       "title": "MiniMax-AI/minimax-code",
       "authors": "MiniMax",
-      "published": "2026-10-01",
+      "published": "2026-10-02",
       "url": "https://github.com/MiniMax-AI/minimax-code",
       "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
     },
     {
-      "id": "news-gh-1379023782",
-      "type": "news",
-      "source": "MiniMax · GitHub",
-      "region": "国内",
-      "title": "MiniMax-AI/OpenAgentCore",
-      "authors": "MiniMax",
-      "published": "2026-10-01",
-      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
-      "raw_summary": "Open-source, self-hosted implementation of the OpenAI Agents API with multiple native harnesses."
-    },
-    {
-      "id": "news-35653182",
+      "id": "news-36740568",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Disrupting a coordinated model-distillation campaign",
+      "title": "The eternal complement",
       "authors": "OpenAI",
-      "published": "2026-09-30",
-      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
-      "raw_summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation."
+      "published": "2026-10-01",
+      "url": "https://openai.com/index/the-eternal-complement",
+      "raw_summary": "Advanced AI may matter most for the routine work behind breakthrough ideas. Explore why execution could shape the next economy and the pace of progress."
     }
   ]
 }
