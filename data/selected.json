@@ -1,75 +1,73 @@
 {
-  "fetched_at": "2026-10-02",
+  "fetched_at": "2026-10-03",
   "items": [
     {
-      "id": "paper-2609.34563",
+      "id": "paper-2609.35259",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Rethinking Latent Visual Reasoning: Grounding Latent Reasoning in Visual Evidence",
-      "authors": "Xi Xiao, Tianchen Zhao, Youngeun Kim et al.",
+      "title": "On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics",
+      "authors": "Julianna Piskorz, Antonin Berthon, Mihaela van der Schaar",
       "published": "2026-09-27",
-      "url": "https://arxiv.org/abs/2609.34563",
-      "raw_summary": "Latent visual reasoning (LVR) enables multimodal large language models (MLLMs) to perform intermediate computation in continuous latent tokens rather than expressing every reasoning step in words. However, unlike textual CoT, latent reasoning is not directly observable, making it difficult to supervise what latent tokens learn. In this work, we first conduct a thorough analysis of latent-token behavior and identify a latent evidence-credit gap: latent tokens respond only weakly to image perturbations that alter the correct answer. We hypothesize that this issue stems from the lack of explicit supervision during GRPO training. These findings suggest that a final-answer reward provides too little guidance on what visual evidence to preserve or how credit should be assigned across latent tokens. To bridge this gap, we propose ReaLVR, which brings visual-evidence supervision to the model's own free-running latent trajectories. ReaLVR contrasts correct and model-generated wrong answers to determine where stronger supervision is needed, and relevant and mismatched visual evidence to specify what to preserve. Across three model families, ReaLVR consistently outperforms evaluated LVR baselines, achieving the highest five-task average of 63.7% on Qwen2.5-VL-7B. Crucially, we are the first to scale visual reasoning in latent space, showing that our framework continues to deliver robust improvements at frontier model scales up to 235B. Further analyses show more question-sensitive latent-token positions, stronger alignment with relevant visual regions, and greater fixed-context dependence on the most attended latent tokens.",
-      "image": "https://arxiv.org/html/2609.34563v1/fig5b_slot_ablation_heatmap_comic.png"
+      "url": "https://arxiv.org/abs/2609.35259",
+      "raw_summary": "On-policy learning has been argued to reduce catastrophic forgetting, produce sparser parameter updates, and improve generalisation. However, existing comparisons between supervised fine-tuning and reinforcement learning vary many factors simultaneously, making the contribution of rollout policy difficult to isolate. We study the effect of rollout policy in a controlled strong-to-weak distillation setting, by independently varying rollout policy, token-level KL direction, and learning rate across the Llama3 and Qwen2.5 model families and reasoning tasks spanning scientific, medical, and arithmetic domains. Our analysis reveals a nuanced picture of distillation dynamics in which rollout policy does not necessarily play a central role. Instead, token-level KL direction more clearly shapes task performance and output coverage, while learning rate governs forgetting and update sparsity. Analysis of KL gradients and experiments along a continuous student-teacher rollout-policy spectrum explain this pattern: forward KL is remarkably robust to rollout policy, with its performance stable and strong despite changes to the rollout policy, whereas reverse KL is substantially more sensitive and favours student-generated rollouts. On-policy data nevertheless improves generalisation to harder variants of the Countdown arithmetic task under both KL directions, although this advantage does not reliably persist after subsequent RLVR. Our broader conclusions remain robust to removing gradient clipping, using sampled KL estimators, and training on tasks requiring longer reasoning chains. Overall, our results challenge the view that on-policy rollouts are inherently preferable and show that their value depends critically on the objective, evaluation setting, and optimisation hyperparameters."
     },
     {
-      "id": "paper-2609.38349",
+      "id": "paper-2609.32993",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "MILO: Automated Harness Discovery via Orchestrated Multi-Agent Evolution",
-      "authors": "Prithwish Jana, Mononito Goswami, Hao Liu et al.",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.38349",
-      "raw_summary": "Modern agentic systems combine an AI model with a harness that controls execution and environmental interactions. Harness design strongly affects long-horizon performance, yet its combinatorial search space demands substantial human effort that must be repeated as models change. Existing automated methods explore this space narrowly, optimizing only components such as prompts or skills or becoming trapped by fixed, exploitative search strategies. We introduce MILO (Meta-evolutionary Island Orchestration), a framework that co-evolves agent harnesses and the strategy used to discover them. MILO combines: (i) hierarchical lineage memory over island-based trees, using rejected mutations as negative evidence; (ii) per-island mutator agents that rewrite complete harnesses using global search history and parent-specific feedback; and (iii) an orchestrator that adapts search through lineage grafting and speciation, mutator reassignment and curriculum revision. Across Terminal-Bench 2.1, PaperBench, and DeepSWE, MILO-discovered harnesses outperform eight state-of-the-art harnesses and six search methods using frontier (Opus 4.8) and open-weight (gpt-oss-120b) models. With Opus 4.8, MILO improves resolution over its initial harness by +12.0%, +28.3%, and +10.3%, respectively, compared with best prior-search gains of +4.5%, +18.3%, and 0%. On Terminal-Bench 2.1, it achieves 86.1 pm 2.0%, exceeding the official leaderboard's top entry (83.8 pm 2.3%) while using 26\\% fewer tokens than its initial harness. On EinsteinArena open problems, MILO improves best-known upper bounds for Erdős minimum-overlap (0.3808586 to 0.3808568) and the first and third autocorrelation inequalities (1.50274365 to 1.50274360; 1.45081 to 1.44889).",
-      "image": "https://arxiv.org/html/2609.38349v1/llmscholar_pipeline.png"
-    },
-    {
-      "id": "paper-2609.38597",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation",
-      "authors": "Cong Wei, Xuanchi Ren, Bryan Chu et al.",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.38597",
-      "raw_summary": "Unified Multimodal Models (UMMs) often rely on separate visual representations for understanding and generation, increasing visual context length and complicating integration with established vision-language pretraining pipelines. Recent advances in pixel-space modeling offer an encoder-free alternative, but extending this paradigm from images to videos is non-trivial: video understanding and generation adopt different temporal representations, leaving the design of a unified visual interface an open question. We present PixelUMM, an encoder-free model for unified image and video understanding and generation directly in pixel space. PixelUMM represents images as spatial patches and videos as spatiotemporal tubelets, connecting raw pixels to a shared multimodal backbone through single-layer linear projections. Its Mixture-of-Transformers architecture combines shared attention with task-specific parameters and extends clean-pixel prediction to video generation, jointly supporting autoregressive text prediction and pixel-space flow matching. Experiments show that PixelUMM achieves competitive performance across image and video understanding and generation tasks. We further conduct empirical studies of key design choices, including decoder design and spatial-temporal patch size, providing insights for future pixel-space unified multimodal models.",
-      "image": "https://arxiv.org/html/2609.38597v1/pixelumm-teaser-cropped.png"
-    },
-    {
-      "id": "paper-2609.32720",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "BiasReducer: Adaptive Bias Mitigation for Reward Models",
-      "authors": "Shuang Liu, Yongliang Miao, Yanguang Liu et al.",
+      "title": "X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization",
+      "authors": "Sitao Cheng, Xunjian Yin, Zhiyuan Sun et al.",
       "published": "2026-09-25",
-      "url": "https://arxiv.org/abs/2609.32720",
-      "raw_summary": "Reward models score responses from large language models (LLMs) and guide LLM training toward human preferences. However, reward models can favor superficial attributes such as length or confidence, leading LLMs to produce higher-scoring but not more correct responses. Existing mitigation methods either retrain the reward model or apply a fixed correction to one known bias, such as a preference for longer responses. Retraining requires additional data and computational resources, while existing editing methods require the target bias to be specified in advance and use a fixed edit for that bias. To this end, we propose BiasReducer, a lightweight framework that edits only the linear reward head and selects the relevant edits for each new dataset. First, BiasReducer uses a sparse autoencoder (SAE)-style encoder to learn which attributes (e.g., length and confidence) the reward model is sensitive to. Second, it learns how to reduce the reward model's dependence on each attribute by determining which direction to adjust the reward head and how much to adjust it. Third, for a new dataset, it ranks the attributes by their influence on reward scores, selects the relevant ones, and edits the reward model accordingly. BiasReducer consistently improves reward-model robustness to biases toward superficial response attributes. Across five reward models, BiasReducer-M improves the three benchmarks by 8.3, 18.0, and 6.9 percentage points on average, outperforming the two training-based baselines. The gains transfer downstream, reducing unnecessary verbosity and sycophancy while maintaining comparable judged quality.",
-      "image": "https://arxiv.org/html/2609.32720v1/pipeline.png"
+      "url": "https://arxiv.org/abs/2609.32993",
+      "raw_summary": "Multi-step agents are trained on flat action streams: SFT and RLVR weight every token uniformly and ignore the sub-procedures that recur across tasks, the hierarchy that lets humans plan top-down from reusable routines. This structure sits unused, and flat training uses each scarce trajectory less fully than its content allows. Recent agents do use that structure, but only as LLM-written skills in context, never in the weights, so their gains do not generalize beyond retrieval. We instead recover this hierarchy from the data itself and train on it, with no LLM calls. Following text tokenizers, which build a vocabulary by counting alone, we score action spans by reusability and merge canonicalized actions into a reusable eXperience tree (X-Tree). Each X-Tree node captures how a frequent and success-bearing skill is composed from sub-skills, guiding efficient generalization. We integrate X-Tree into three training settings: offline RL, with each node as a training instance; online RLVR, with an adaptive skill bonus; and on-policy self-distillation, with X-Tree as the self-teacher's privileged context. Across WebArena, ScienceWorld, and WebShop at three model scales, X-Tree improves over standard recipes at matched data and budget by up to 4.5% SR on WebArena, 5.8% SR on ScienceWorld and 4.1% success on WebShop. Matched analyses attribute the gains to the X-Tree structure and the three integrations."
     },
     {
-      "id": "paper-2609.38792",
+      "id": "paper-2610.00812",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Training LLM Judges from Language Feedback via Position-Selective Self-Distillation",
-      "authors": "Ilgee Hong, Changlong Yu, Zhenghao Xu et al.",
+      "title": "Video Generation Models: A Survey of Post-Training and Alignment",
+      "authors": "Chaoyu Li, Xiaoyi Gu, Yogesh Kulkarni et al.",
       "published": "2026-09-29",
-      "url": "https://arxiv.org/abs/2609.38792",
-      "raw_summary": "We study training LLM judges from natural language feedback, especially for subjective tasks where the verdict depends strongly on which evaluation criteria the judge invokes and how it weighs them. The dominant approach, outcome-supervised RL (e.g., GRPO), credits every token in the rollout with a single scalar determined only by the accuracy of the final verdict, providing no separate credit at the criterion-choice tokens and ignoring the rich language feedback (e.g., preference rationales) that naturally accompanies preference labels. Self-Distillation (SD) is one natural way to use this language feedback: the same model, conditioned on this feedback, acts as a teacher providing dense, position-level supervision. However, not all positions carry equally useful signal. Using the per-position entropy shift between teacher and student, we identify two regimes: context sharpening, where the teacher concentrates probability on a particular feedback-aligned criterion expression, and context spreading, where the teacher distributes probability across multiple feedback-aligned alternatives. We interpret these patterns as follows: sharpening encourages memorization of a particular criterion expression, whereas spreading promotes semantic understanding by preserving these alternatives. Motivated by this asymmetry, we introduce position masking based on the entropy shift that retains the lower tail of the entropy-shift distribution. Experiments show that masking higher-entropy-shift positions improves out-of-distribution generalization over naive SD. The resulting self-distilled judges outperform judges trained with outcome-supervised RL by 2-9 percentage points on the evaluated subjective subcategories, while remaining competitive on objective ones."
+      "url": "https://arxiv.org/abs/2610.00812",
+      "raw_summary": "Video generation has rapidly progressed from short, low-quality clips to high-resolution, long-duration sequences with complex spatiotemporal dynamics. Despite strong generative priors learned through large-scale pretraining, pretrained video models often fail to reliably follow human intent, maintain temporal coherence, or satisfy physical and safety constraints. Compared with image and text generation, alignment in video generation presents unique challenges, including error accumulation over time, motion-appearance coupling, multi-objective trade-offs, and limited supervision for temporal properties. These challenges motivate systematic post-training strategies that adapt pretrained models without retraining them from scratch. In this survey, we present the first comprehensive review of post-training and alignment in video generation models. We frame post-training as a unifying framework and distinguish between implicit alignment and explicit alignment based on how alignment signals are enforced. From this perspective, we organize existing approaches into four broad categories: supervised fine-tuning methods, self-training and distillation methods, preference- and reward-based methods, and inference-time methods. This taxonomy provides a coherent view of how alignment signals shape model behavior across both training and deployment. Beyond methodological advances, we review commonly used datasets, benchmarks, and evaluation practices, and discuss open challenges such as scalable reward design, long-horizon temporal consistency, stability-expressiveness trade-offs, and safety-aware generation. This survey aims to provide a structured conceptual foundation and practical guidance for advancing controllable and reliable video generation models.",
+      "image": "https://arxiv.org/html/2610.00812v1/teaser.png"
     },
     {
-      "id": "news-gh-1315929647",
+      "id": "paper-2609.36585",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
+      "authors": "Zehao Jin, Ruixuan Deng, Junran Wang",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.36585",
+      "raw_summary": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressively further up the chain, and removing parent-line attention stops the relay. A frozen-model measurement locates the last useful intervention layer within tolerance in three of four held-out models. Task-specific LoRAs also improve MuSiQue. Default answers therefore understate the computation accessible through a tiny edit. Code and an interactive demo are available at https://lunamos.github.io/stop-thinking-too-early/"
+    },
+    {
+      "id": "paper-2609.34210",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers",
+      "authors": "Haitong Ma, Chenxiao Gao, Rushi Qiang et al.",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.34210",
+      "raw_summary": "Coding agents are beginning to move beyond purely digital tasks to tackle physical-world challenges, particularly in robotics. Existing robotics benchmarks, however, primarily focus on the performance of individual artifacts, such as policies or controllers, offering limited coverage of coding agents' broader engineering capabilities. Real-world robotics extends beyond control: agents must build, integrate, diagnose, and improve heterogeneous artifacts under resource constraints and reason from multimodal feedback. To evaluate these broader capabilities, we introduce RLE-Bench, a benchmark of robot-learning tasks spanning four representative robotics development workflows: interactive control, policy learning, perception and estimation, and mechanical design. We use diverse task-specific metrics to evaluate the artifacts submitted by the coding agents, from the success rate the agents achieved to the policy agents trained, the harness agent built, and the mechanical structures the agent designed. We aggregate these metrics into an overall RLE Index and report workflow-specific capability profiles, enabling systematic comparison of coding agents' capabilities across multiple capability dimensions. Beyond performance ranks, we also conduct in-depth case studies examining agent behavior on representative tasks, highlighting both current capabilities and limitations, and pointing to the opportunities robotics tasks have to offer for future agent training.",
+      "image": "https://arxiv.org/html/2609.34210v2/major_leaderboard_v2.png"
+    },
+    {
+      "id": "news-gh-1333065091",
       "type": "news",
-      "source": "通义千问 Qwen · GitHub",
+      "source": "DeepSeek · GitHub",
       "region": "国内",
-      "title": "QwenLM/Qwen-MM-Plugins",
-      "authors": "通义千问 Qwen",
-      "published": "2026-10-02",
-      "url": "https://github.com/QwenLM/Qwen-MM-Plugins",
-      "raw_summary": "Make any agent harness multimodal-native."
+      "title": "deepseek-ai/deepseek-harness",
+      "authors": "DeepSeek",
+      "published": "2026-10-03",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "raw_summary": "DeepSeek Harness: Everything is a Plugin."
     },
     {
       "id": "news-gh-1008713177",
@@ -78,31 +76,31 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-02",
+      "published": "2026-10-03",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1256070689",
+      "id": "news-gh-1379023782",
       "type": "news",
       "source": "MiniMax · GitHub",
       "region": "国内",
-      "title": "MiniMax-AI/minimax-code",
+      "title": "MiniMax-AI/OpenAgentCore",
       "authors": "MiniMax",
-      "published": "2026-10-02",
-      "url": "https://github.com/MiniMax-AI/minimax-code",
-      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
+      "published": "2026-10-03",
+      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
+      "raw_summary": "Open-source, self-hosted implementation of the OpenAI Agents API with multiple native harnesses."
     },
     {
-      "id": "news-36740568",
+      "id": "news-33950747",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "The eternal complement",
+      "title": "A model guide for the GPT-6 family",
       "authors": "OpenAI",
-      "published": "2026-10-01",
-      "url": "https://openai.com/index/the-eternal-complement",
-      "raw_summary": "Advanced AI may matter most for the routine work behind breakthrough ideas. Explore why execution could shape the next economy and the pace of progress."
+      "published": "2026-10-02",
+      "url": "https://openai.com/index/practical-guide-building-gpt-6",
+      "raw_summary": "Learn how startups can choose GPT-6 models, tune reasoning effort, improve prompts and skills, coordinate tools, and prepare workflows for production."
     }
   ]
 }
