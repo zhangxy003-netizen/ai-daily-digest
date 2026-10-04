@@ -1,6 +1,17 @@
 {
-  "fetched_at": "2026-10-03",
+  "fetched_at": "2026-10-04",
   "items": [
+    {
+      "id": "paper-2609.36585",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
+      "authors": "Zehao Jin, Ruixuan Deng, Junran Wang",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.36585",
+      "raw_summary": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressively further up the chain, and removing parent-line attention stops the relay. A frozen-model measurement locates the last useful intervention layer within tolerance in three of four held-out models. Task-specific LoRAs also improve MuSiQue. Default answers therefore understate the computation accessible through a tiny edit. Code and an interactive demo are available at https://lunamos.github.io/stop-thinking-too-early/"
+    },
     {
       "id": "paper-2609.35259",
       "type": "paper",
@@ -36,27 +47,37 @@
       "image": "https://arxiv.org/html/2610.00812v1/teaser.png"
     },
     {
-      "id": "paper-2609.36585",
+      "id": "paper-2609.36388",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
-      "authors": "Zehao Jin, Ruixuan Deng, Junran Wang",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.36585",
-      "raw_summary": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressively further up the chain, and removing parent-line attention stops the relay. A frozen-model measurement locates the last useful intervention layer within tolerance in three of four held-out models. Task-specific LoRAs also improve MuSiQue. Default answers therefore understate the computation accessible through a tiny edit. Code and an interactive demo are available at https://lunamos.github.io/stop-thinking-too-early/"
+      "title": "Persona Dosing: Calibrated Activation Steering for Graded Trait Control",
+      "authors": "Zehao Jin, Junran Wang, Ruixuan Deng et al.",
+      "published": "2026-09-27",
+      "url": "https://arxiv.org/abs/2609.36388",
+      "raw_summary": "An activation-steering coefficient sets intervention strength, but requesting a particular degree of persona expression requires a behavioral scale. We study persona dosing: controlling a language model through a trait description and a requested mean intensity. PersonaDose specializes a shared, description-conditioned FLAS controller on persona responses, then calibrates its flow time against measured trait expression. Training responses are not paired with requested target intensities. Across Llama-3.1-8B, Qwen3-8B, and Gemma-3-4B, PersonaDose raises core-trait expression at the Persona Vectors coherence floor of 75 by 33.2, 18.3, and 17.8 points over contrastive activation addition. Calibration-selected settings retain an expression advantage on held-out questions, although the coherence floor does not hold for every trait there. Across seven trained traits, calibrated requests yield mean targeting errors of 4.7-6.2 points over 14-22 calibration-reachable targets out of 28 per model. These results separate the behavioral range learned by a controller from the accuracy of requests within that range."
     },
     {
-      "id": "paper-2609.34210",
-      "type": "paper",
-      "source": "Hugging Face Daily",
+      "id": "news-gh-1008713177",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code",
+      "authors": "通义千问 Qwen",
+      "published": "2026-10-04",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-86145182",
+      "type": "news",
+      "source": "Hugging Face",
       "region": "海外",
-      "title": "RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers",
-      "authors": "Haitong Ma, Chenxiao Gao, Rushi Qiang et al.",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.34210",
-      "raw_summary": "Coding agents are beginning to move beyond purely digital tasks to tackle physical-world challenges, particularly in robotics. Existing robotics benchmarks, however, primarily focus on the performance of individual artifacts, such as policies or controllers, offering limited coverage of coding agents' broader engineering capabilities. Real-world robotics extends beyond control: agents must build, integrate, diagnose, and improve heterogeneous artifacts under resource constraints and reason from multimodal feedback. To evaluate these broader capabilities, we introduce RLE-Bench, a benchmark of robot-learning tasks spanning four representative robotics development workflows: interactive control, policy learning, perception and estimation, and mechanical design. We use diverse task-specific metrics to evaluate the artifacts submitted by the coding agents, from the success rate the agents achieved to the policy agents trained, the harness agent built, and the mechanical structures the agent designed. We aggregate these metrics into an overall RLE Index and report workflow-specific capability profiles, enabling systematic comparison of coding agents' capabilities across multiple capability dimensions. Beyond performance ranks, we also conduct in-depth case studies examining agent behavior on representative tasks, highlighting both current capabilities and limitations, and pointing to the opportunities robotics tasks have to offer for future agent training.",
-      "image": "https://arxiv.org/html/2609.34210v2/major_leaderboard_v2.png"
+      "title": "The Agent Said It Was Done. The Database Disagreed.",
+      "authors": "Hugging Face",
+      "published": "2026-10-03",
+      "url": "https://huggingface.co/blog/microsoft/thinkingbox",
+      "raw_summary": ""
     },
     {
       "id": "news-gh-1333065091",
@@ -70,37 +91,15 @@
       "raw_summary": "DeepSeek Harness: Everything is a Plugin."
     },
     {
-      "id": "news-gh-1008713177",
+      "id": "news-gh-1041478561",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "QwenLM/qwen-code",
+      "title": "QwenLM/qwen-code-docs",
       "authors": "通义千问 Qwen",
       "published": "2026-10-03",
-      "url": "https://github.com/QwenLM/qwen-code",
-      "raw_summary": "An open-source AI coding agent that lives in your terminal."
-    },
-    {
-      "id": "news-gh-1379023782",
-      "type": "news",
-      "source": "MiniMax · GitHub",
-      "region": "国内",
-      "title": "MiniMax-AI/OpenAgentCore",
-      "authors": "MiniMax",
-      "published": "2026-10-03",
-      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
-      "raw_summary": "Open-source, self-hosted implementation of the OpenAI Agents API with multiple native harnesses."
-    },
-    {
-      "id": "news-33950747",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "A model guide for the GPT-6 family",
-      "authors": "OpenAI",
-      "published": "2026-10-02",
-      "url": "https://openai.com/index/practical-guide-building-gpt-6",
-      "raw_summary": "Learn how startups can choose GPT-6 models, tune reasoning effort, improve prompts and skills, coordinate tools, and prepare workflows for production."
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     }
   ]
 }
