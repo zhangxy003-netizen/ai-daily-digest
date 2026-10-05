@@ -1,17 +1,6 @@
 {
-  "fetched_at": "2026-10-04",
+  "fetched_at": "2026-10-05",
   "items": [
-    {
-      "id": "paper-2609.36585",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
-      "authors": "Zehao Jin, Ruixuan Deng, Junran Wang",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.36585",
-      "raw_summary": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressively further up the chain, and removing parent-line attention stops the relay. A frozen-model measurement locates the last useful intervention layer within tolerance in three of four held-out models. Task-specific LoRAs also improve MuSiQue. Default answers therefore understate the computation accessible through a tiny edit. Code and an interactive demo are available at https://lunamos.github.io/stop-thinking-too-early/"
-    },
     {
       "id": "paper-2609.35259",
       "type": "paper",
@@ -22,6 +11,17 @@
       "published": "2026-09-27",
       "url": "https://arxiv.org/abs/2609.35259",
       "raw_summary": "On-policy learning has been argued to reduce catastrophic forgetting, produce sparser parameter updates, and improve generalisation. However, existing comparisons between supervised fine-tuning and reinforcement learning vary many factors simultaneously, making the contribution of rollout policy difficult to isolate. We study the effect of rollout policy in a controlled strong-to-weak distillation setting, by independently varying rollout policy, token-level KL direction, and learning rate across the Llama3 and Qwen2.5 model families and reasoning tasks spanning scientific, medical, and arithmetic domains. Our analysis reveals a nuanced picture of distillation dynamics in which rollout policy does not necessarily play a central role. Instead, token-level KL direction more clearly shapes task performance and output coverage, while learning rate governs forgetting and update sparsity. Analysis of KL gradients and experiments along a continuous student-teacher rollout-policy spectrum explain this pattern: forward KL is remarkably robust to rollout policy, with its performance stable and strong despite changes to the rollout policy, whereas reverse KL is substantially more sensitive and favours student-generated rollouts. On-policy data nevertheless improves generalisation to harder variants of the Countdown arithmetic task under both KL directions, although this advantage does not reliably persist after subsequent RLVR. Our broader conclusions remain robust to removing gradient clipping, using sampled KL estimators, and training on tasks requiring longer reasoning chains. Overall, our results challenge the view that on-policy rollouts are inherently preferable and show that their value depends critically on the objective, evaluation setting, and optimisation hyperparameters."
+    },
+    {
+      "id": "paper-2609.36585",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
+      "authors": "Zehao Jin, Ruixuan Deng, Junran Wang",
+      "published": "2026-09-28",
+      "url": "https://arxiv.org/abs/2609.36585",
+      "raw_summary": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressively further up the chain, and removing parent-line attention stops the relay. A frozen-model measurement locates the last useful intervention layer within tolerance in three of four held-out models. Task-specific LoRAs also improve MuSiQue. Default answers therefore understate the computation accessible through a tiny edit. Code and an interactive demo are available at https://lunamos.github.io/stop-thinking-too-early/"
     },
     {
       "id": "paper-2609.32993",
@@ -64,12 +64,34 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-04",
+      "published": "2026-10-05",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-86145182",
+      "id": "news-gh-1256070689",
+      "type": "news",
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/minimax-code",
+      "authors": "MiniMax",
+      "published": "2026-10-04",
+      "url": "https://github.com/MiniMax-AI/minimax-code",
+      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
+    },
+    {
+      "id": "news-gh-1379023782",
+      "type": "news",
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/OpenAgentCore",
+      "authors": "MiniMax",
+      "published": "2026-10-04",
+      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
+      "raw_summary": "Open-source, self-hosted implementation of the OpenAI Agents API with multiple native harnesses."
+    },
+    {
+      "id": "news-21417875",
       "type": "news",
       "source": "Hugging Face",
       "region": "海外",
@@ -78,28 +100,6 @@
       "published": "2026-10-03",
       "url": "https://huggingface.co/blog/microsoft/thinkingbox",
       "raw_summary": ""
-    },
-    {
-      "id": "news-gh-1333065091",
-      "type": "news",
-      "source": "DeepSeek · GitHub",
-      "region": "国内",
-      "title": "deepseek-ai/deepseek-harness",
-      "authors": "DeepSeek",
-      "published": "2026-10-03",
-      "url": "https://github.com/deepseek-ai/deepseek-harness",
-      "raw_summary": "DeepSeek Harness: Everything is a Plugin."
-    },
-    {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-10-03",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     }
   ]
 }
