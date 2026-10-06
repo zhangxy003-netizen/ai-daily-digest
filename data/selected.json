@@ -1,61 +1,61 @@
 {
-  "fetched_at": "2026-10-05",
+  "fetched_at": "2026-10-06",
   "items": [
     {
-      "id": "paper-2609.35259",
+      "id": "paper-2610.01780",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics",
-      "authors": "Julianna Piskorz, Antonin Berthon, Mihaela van der Schaar",
-      "published": "2026-09-27",
-      "url": "https://arxiv.org/abs/2609.35259",
-      "raw_summary": "On-policy learning has been argued to reduce catastrophic forgetting, produce sparser parameter updates, and improve generalisation. However, existing comparisons between supervised fine-tuning and reinforcement learning vary many factors simultaneously, making the contribution of rollout policy difficult to isolate. We study the effect of rollout policy in a controlled strong-to-weak distillation setting, by independently varying rollout policy, token-level KL direction, and learning rate across the Llama3 and Qwen2.5 model families and reasoning tasks spanning scientific, medical, and arithmetic domains. Our analysis reveals a nuanced picture of distillation dynamics in which rollout policy does not necessarily play a central role. Instead, token-level KL direction more clearly shapes task performance and output coverage, while learning rate governs forgetting and update sparsity. Analysis of KL gradients and experiments along a continuous student-teacher rollout-policy spectrum explain this pattern: forward KL is remarkably robust to rollout policy, with its performance stable and strong despite changes to the rollout policy, whereas reverse KL is substantially more sensitive and favours student-generated rollouts. On-policy data nevertheless improves generalisation to harder variants of the Countdown arithmetic task under both KL directions, although this advantage does not reliably persist after subsequent RLVR. Our broader conclusions remain robust to removing gradient clipping, using sampled KL estimators, and training on tasks requiring longer reasoning chains. Overall, our results challenge the view that on-policy rollouts are inherently preferable and show that their value depends critically on the objective, evaluation setting, and optimisation hyperparameters."
+      "title": "RealCompanion: Benchmarking Human Understanding from Reasoning over Longitudinal Real-World Conversations",
+      "authors": "Arman Behnam, Sunglyoung Kim, Liangwei Yang",
+      "published": "2026-09-30",
+      "url": "https://arxiv.org/abs/2610.01780",
+      "raw_summary": "A companion that talks with a person for months should come to understand them. It should remember what they said, infer who they are, and know when the past bears on the message in front of it. Testing this requires a real person's record, and such records are private, so benchmarks generate the person and the questions and settle in advance what matters. We release \\bench, ten real relationships with an AI companion: 27,218 messages over up to 120 days, released as the conversation and four files derived from it, a profile, a persona, a chat ground truth and a question set, each citing the messages it rests on. Every chat label carries the reasoning trace that produced it, checked stage by stage against the conversation. Three findings follow. First, the past is rarely needed and far away. Pooled measures mislead: a recency window finds the required message for 95.9\\% of probes and 2.2\\% of those that need memory, and at the natural rate 96\\% of the gain from supplying recorded evidence comes from messages that need none. Second, no detector we tried can tell when memory is needed on real messages, authored questions over the same histories leak the cue, and labeling the same messages as memories raises their use by ten to fourteen points. Third, three agent systems reconstruct the persona with the same F1 at a 31-fold difference in cost."
     },
     {
-      "id": "paper-2609.36585",
+      "id": "paper-2610.02840",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Transformers Stop Thinking Too Early, and a Tiny LoRA Fixes It",
-      "authors": "Zehao Jin, Ruixuan Deng, Junran Wang",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.36585",
-      "raw_summary": "Pretrained transformers use little of their depth to follow references in context. Thirteen base models reliably follow only 1.4-3.6 lines, and extra pretrained loops add little. A task-trained rank-8 LoRA at one early layer extends this computation with all model weights frozen. Qwen3-8B improves from 15.5% to 99% exact accuracy on 24-line chains; a longer-trained LoRA reaches 50 lines. Ouro-1.4B reaches 60 lines after four loops and at least 160 after eight. The LoRA starts a relay: program lines pass on their chain identity through a short range of middle layers. Frozen heads read progressively further up the chain, and removing parent-line attention stops the relay. A frozen-model measurement locates the last useful intervention layer within tolerance in three of four held-out models. Task-specific LoRAs also improve MuSiQue. Default answers therefore understate the computation accessible through a tiny edit. Code and an interactive demo are available at https://lunamos.github.io/stop-thinking-too-early/"
+      "title": "PointWAM: 3D World Action Modeling for Dexterous Robotic Manipulation",
+      "authors": "Chunghyun Park, Beomjun Kim, Seungcheol Park et al.",
+      "published": "2026-10-01",
+      "url": "https://arxiv.org/abs/2610.02840",
+      "raw_summary": "World action models jointly learn to forecast world dynamics and predict robot actions, such that the learned internal world dynamics guide accurate actions. Existing approaches typically represent the world as RGB frames or latent counterparts while predicting actions as end-effector poses or joint angles, but they often struggle to capture the 3D spatial structure and contact geometry central to dexterous manipulation. We introduce Point World Action Model (PointWAM), a 3D world action model that decomposes the world into a scene (i.e., environment) and hands (i.e., actor), and jointly forecasts both as 3D point trajectories within a shared space-time coordinate frame. This explicit, disentangled representation enables effective pre-training on large-scale human demonstration videos without requiring any task-specific object or keypoint selection. Given a colored point cloud and a language instruction, PointWAM predicts how the scene and hands co-evolve in 3D space over time, then retargets the forecast hand motion to robot actions. Pre-training on human videos improves average DexJoCo success by 56.9 percentage points, and scene-trajectory supervision adds 10.9 points over forecasting the hands alone. With both, PointWAM surpasses the prior state of the art on ten DexJoCo tasks by 11.7 points and outperforms strong VLAs on a real robot.",
+      "image": "https://arxiv.org/html/2610.02840v1/figures/method/input_cloud.png"
     },
     {
-      "id": "paper-2609.32993",
+      "id": "paper-2610.02381",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization",
-      "authors": "Sitao Cheng, Xunjian Yin, Zhiyuan Sun et al.",
-      "published": "2026-09-25",
-      "url": "https://arxiv.org/abs/2609.32993",
-      "raw_summary": "Multi-step agents are trained on flat action streams: SFT and RLVR weight every token uniformly and ignore the sub-procedures that recur across tasks, the hierarchy that lets humans plan top-down from reusable routines. This structure sits unused, and flat training uses each scarce trajectory less fully than its content allows. Recent agents do use that structure, but only as LLM-written skills in context, never in the weights, so their gains do not generalize beyond retrieval. We instead recover this hierarchy from the data itself and train on it, with no LLM calls. Following text tokenizers, which build a vocabulary by counting alone, we score action spans by reusability and merge canonicalized actions into a reusable eXperience tree (X-Tree). Each X-Tree node captures how a frequent and success-bearing skill is composed from sub-skills, guiding efficient generalization. We integrate X-Tree into three training settings: offline RL, with each node as a training instance; online RLVR, with an adaptive skill bonus; and on-policy self-distillation, with X-Tree as the self-teacher's privileged context. Across WebArena, ScienceWorld, and WebShop at three model scales, X-Tree improves over standard recipes at matched data and budget by up to 4.5% SR on WebArena, 5.8% SR on ScienceWorld and 4.1% success on WebShop. Matched analyses attribute the gains to the X-Tree structure and the three integrations."
+      "title": "Latent-MOPD: Latent Multi-Teacher On-Policy Distillation",
+      "authors": "Zhengyu Fang, Seoyeon Hong, Jie Yang et al.",
+      "published": "2026-09-30",
+      "url": "https://arxiv.org/abs/2610.02381",
+      "raw_summary": "On-policy distillation (OPD) trains a student on the responses it generates. Existing LLM multi-teacher OPD transfers what specialists predict through their output distributions. We introduce Latent-MOPD, to our knowledge the first representation-level multi-teacher OPD method for LLMs. It integrates existing specialists through both their predictions and the hidden states used to compute them, without additional teacher training. To coordinate representation supervision from multiple specialists, we select late-layer targets according to the teacher-student relationship, bridge unequal hidden widths with a shared projection, and group updates by domain. Each teacher's supervision gradually shifts from hidden states to token predictions, with both channels using the same routed specialist. In our main same-family setting, Latent-MOPD outperforms the token-only, representation-only and uniform-averaging baselines on all nine benchmarks across math, code and logic. With the same parameter count as each teacher, the student also surpasses the per-benchmark best teacher on a majority of these benchmarks. With larger, separately developed cross-family teachers, Latent-MOPD outperforms both single-channel baselines on all benchmarks. A same-family all-layer representation-only control remains stable with domain-pure updates but collapses when teacher domains are interleaved within an update. Our results show that a single student can integrate capabilities from several specialists through both their output distributions and internal representations."
     },
     {
-      "id": "paper-2610.00812",
+      "id": "paper-2609.28339",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Video Generation Models: A Survey of Post-Training and Alignment",
-      "authors": "Chaoyu Li, Xiaoyi Gu, Yogesh Kulkarni et al.",
-      "published": "2026-09-29",
-      "url": "https://arxiv.org/abs/2610.00812",
-      "raw_summary": "Video generation has rapidly progressed from short, low-quality clips to high-resolution, long-duration sequences with complex spatiotemporal dynamics. Despite strong generative priors learned through large-scale pretraining, pretrained video models often fail to reliably follow human intent, maintain temporal coherence, or satisfy physical and safety constraints. Compared with image and text generation, alignment in video generation presents unique challenges, including error accumulation over time, motion-appearance coupling, multi-objective trade-offs, and limited supervision for temporal properties. These challenges motivate systematic post-training strategies that adapt pretrained models without retraining them from scratch. In this survey, we present the first comprehensive review of post-training and alignment in video generation models. We frame post-training as a unifying framework and distinguish between implicit alignment and explicit alignment based on how alignment signals are enforced. From this perspective, we organize existing approaches into four broad categories: supervised fine-tuning methods, self-training and distillation methods, preference- and reward-based methods, and inference-time methods. This taxonomy provides a coherent view of how alignment signals shape model behavior across both training and deployment. Beyond methodological advances, we review commonly used datasets, benchmarks, and evaluation practices, and discuss open challenges such as scalable reward design, long-horizon temporal consistency, stability-expressiveness trade-offs, and safety-aware generation. This survey aims to provide a structured conceptual foundation and practical guidance for advancing controllable and reliable video generation models.",
-      "image": "https://arxiv.org/html/2610.00812v1/teaser.png"
+      "title": "Beyond Future Prediction: Denoising as Generative Adaptation for Robot Control",
+      "authors": "Zanyi Wang, Yuheng Lei, Dengyang Jiang et al.",
+      "published": "2026-09-22",
+      "url": "https://arxiv.org/abs/2609.28339",
+      "raw_summary": "Pretrained generative Diffusion Transformers (DiTs) capture rich pixel-level visual and language-conditioned structure through large-scale image and video generation training. A growing line of robot policies builds on this generative prior, but how it should be transferred to control remains unclear, and existing approaches commonly instantiate this transfer through future visual prediction. We ask a more basic question: what a pretrained generative DiT actually contributes to action learning, and how this prior should be adapted for control. We introduce NowWAM, a future-target-free co-training formulation that denoises the current observation and predicts robot actions from the same visual stream, directly coupling the native generative objective to the action-facing representation across the denoising trajectory. Under matched controlled settings, past and future visual targets perform comparably, while restricting training to the clean endpoint substantially reduces robustness, suggesting that a separate future target is not essential for generative adaptation, while the denoising trajectory remains an effective interface for control. On LIBERO-Plus, NowWAM reaches 87.7% with FLUX2-Klein, improving over the future-target co-training baseline by 6.1 points while halving training visual tokens (784 to 392) and reducing step time from 2.85 s to 1.63 s, a 1.8x speedup. With the pure text-to-image Z-Image backbone, NowWAM further reaches 87.8%, showing that strong control adaptation is not tied to video generation or image-editing backbones."
     },
     {
-      "id": "paper-2609.36388",
+      "id": "paper-2610.03715",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Persona Dosing: Calibrated Activation Steering for Graded Trait Control",
-      "authors": "Zehao Jin, Junran Wang, Ruixuan Deng et al.",
-      "published": "2026-09-27",
-      "url": "https://arxiv.org/abs/2609.36388",
-      "raw_summary": "An activation-steering coefficient sets intervention strength, but requesting a particular degree of persona expression requires a behavioral scale. We study persona dosing: controlling a language model through a trait description and a requested mean intensity. PersonaDose specializes a shared, description-conditioned FLAS controller on persona responses, then calibrates its flow time against measured trait expression. Training responses are not paired with requested target intensities. Across Llama-3.1-8B, Qwen3-8B, and Gemma-3-4B, PersonaDose raises core-trait expression at the Persona Vectors coherence floor of 75 by 33.2, 18.3, and 17.8 points over contrastive activation addition. Calibration-selected settings retain an expression advantage on held-out questions, although the coherence floor does not hold for every trait there. Across seven trained traits, calibrated requests yield mean targeting errors of 4.7-6.2 points over 14-22 calibration-reachable targets out of 28 per model. These results separate the behavioral range learned by a controller from the accuracy of requests within that range."
+      "title": "4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes",
+      "authors": "Ruihong Shen, Žiga Kovačič, Peter Kulits et al.",
+      "published": "2026-10-01",
+      "url": "https://arxiv.org/abs/2610.03715",
+      "raw_summary": "We introduce 4DCodeBench, a benchmark for 4D inverse graphics through code generation, in which agents reconstruct dynamic scenes from video as executable graphics programs. To accomplish this, agents must translate visual observations into compact representations of scene structure and dynamics, by implementing abstractions such as physical simulations to reproduce complex behavior. To evaluate this capability, we curate a set of real-world videos and construct synthetic scenes spanning diverse physical phenomena, including deformation, fluid flow, and fracture. We perform extensive benchmarking of frontier models, finding that strong static reconstruction capabilities do not yet translate into reliable reconstruction of complex dynamics. 4DCodeBench provides a testbed for tracking progress toward agents that can interpret the dynamics of the world through code. Our benchmark is available at https://github.com/4DCodeBench/4DCodeBench"
     },
     {
       "id": "news-gh-1008713177",
@@ -64,7 +64,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-05",
+      "published": "2026-10-06",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -75,31 +75,31 @@
       "region": "国内",
       "title": "MiniMax-AI/minimax-code",
       "authors": "MiniMax",
-      "published": "2026-10-04",
+      "published": "2026-10-06",
       "url": "https://github.com/MiniMax-AI/minimax-code",
       "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
     },
     {
-      "id": "news-gh-1379023782",
+      "id": "news-43419545",
       "type": "news",
-      "source": "MiniMax · GitHub",
-      "region": "国内",
-      "title": "MiniMax-AI/OpenAgentCore",
-      "authors": "MiniMax",
-      "published": "2026-10-04",
-      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
-      "raw_summary": "Open-source, self-hosted implementation of the OpenAI Agents API with multiple native harnesses."
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Our approach to EU text provenance rules",
+      "authors": "OpenAI",
+      "published": "2026-10-05",
+      "url": "https://openai.com/index/eu-text-provenance",
+      "raw_summary": "How OpenAI is approaching text watermarking under EU rules. Learn where watermarks apply, how detection works, and why access starts with researchers."
     },
     {
-      "id": "news-21417875",
+      "id": "news-58802127",
       "type": "news",
-      "source": "Hugging Face",
+      "source": "OpenAI",
       "region": "海外",
-      "title": "The Agent Said It Was Done. The Database Disagreed.",
-      "authors": "Hugging Face",
-      "published": "2026-10-03",
-      "url": "https://huggingface.co/blog/microsoft/thinkingbox",
-      "raw_summary": ""
+      "title": "Building advertising for the way people use AI",
+      "authors": "OpenAI",
+      "published": "2026-10-05",
+      "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement",
+      "raw_summary": "OpenAI introduces a new visual ad format in ChatGPT and expands measurement tools, attribution partnerships, and brand suitability for advertisers."
     }
   ]
 }
