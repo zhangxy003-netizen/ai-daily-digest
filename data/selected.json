@@ -1,61 +1,61 @@
 {
-  "fetched_at": "2026-10-06",
+  "fetched_at": "2026-10-07",
   "items": [
     {
-      "id": "paper-2610.01780",
+      "id": "paper-2610.02331",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "RealCompanion: Benchmarking Human Understanding from Reasoning over Longitudinal Real-World Conversations",
-      "authors": "Arman Behnam, Sunglyoung Kim, Liangwei Yang",
+      "title": "World Editing: Intervening on Executable Worlds at Increasing Depth",
+      "authors": "Max Ku, Nok-Kan Law, Yu-Chien Tang et al.",
       "published": "2026-09-30",
-      "url": "https://arxiv.org/abs/2610.01780",
-      "raw_summary": "A companion that talks with a person for months should come to understand them. It should remember what they said, infer who they are, and know when the past bears on the message in front of it. Testing this requires a real person's record, and such records are private, so benchmarks generate the person and the questions and settle in advance what matters. We release \\bench, ten real relationships with an AI companion: 27,218 messages over up to 120 days, released as the conversation and four files derived from it, a profile, a persona, a chat ground truth and a question set, each citing the messages it rests on. Every chat label carries the reasoning trace that produced it, checked stage by stage against the conversation. Three findings follow. First, the past is rarely needed and far away. Pooled measures mislead: a recency window finds the required message for 95.9\\% of probes and 2.2\\% of those that need memory, and at the natural rate 96\\% of the gain from supplying recorded evidence comes from messages that need none. Second, no detector we tried can tell when memory is needed on real messages, authored questions over the same histories leak the cue, and labeling the same messages as memories raises their use by ten to fourteen points. Third, three agent systems reconstruct the persona with the same F1 at a 31-fold difference in cost."
+      "url": "https://arxiv.org/abs/2610.02331",
+      "raw_summary": "Interactive world models are increasingly capable of generating environments and acting within them, yet deliberately editing an existing executable world remains underexplored. We formulate world editing as intervening on an existing world while preserving properties that should remain unchanged, and introduce intervention depth as an axis describing how strongly an edit couples world entities, dynamics, and systems. We instantiate this capability through industry-grade game modding and introduce IGMWorld, together with IGMBench, a benchmark of 110 tasks and over 1.1K executable state and behavioral criteria across Minecraft and Terraria. The tasks span property, entity, dynamics, and system interventions and are evaluated through deterministic executability, behavioral, preservation, and visual checks. Frontier coding agents already exhibit substantial world-editing capability: the strongest configuration solves 78.2% of tasks under a strict task-level criterion, while criterion-level performance reaches 94.8%. Reliability generally decreases with intervention depth, and this pattern persists even among tasks with similar numbers of evaluation criteria. Most failed edits still build and load successfully, suggesting that the main difficulty is making the edited world behave as requested. Visual consistency remains a separate weakness, with all evaluated configurations below 50% joint visual pass rate. These results show that world editing is a distinct capability from world generation and interaction, and that executable games provide a practical testbed for studying it.",
+      "image": "https://arxiv.org/html/2610.02331v1/igmworld_pipeline.png"
     },
     {
-      "id": "paper-2610.02840",
+      "id": "paper-2610.06647",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "PointWAM: 3D World Action Modeling for Dexterous Robotic Manipulation",
-      "authors": "Chunghyun Park, Beomjun Kim, Seungcheol Park et al.",
+      "title": "LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches",
+      "authors": "Shaokun Zhang, Yifan Zhang, Jian Hu et al.",
+      "published": "2026-10-04",
+      "url": "https://arxiv.org/abs/2610.06647",
+      "raw_summary": "Reinforcement learning (RL) has greatly advanced the capabilities of large language models (LLMs), but its memory demands remain a barrier to broader adoption. We introduce LoGRA, an approach to RL post-training that reduces memory by retaining useful learning signals in low-rank gradient sketches. These compact representations support both model updates and efficient policy synchronization. To prevent overly large updates from disrupting learning, we complement gradient compression with predicted-KL step control, which estimates policy changes before applying each update and adjusts its magnitude accordingly. Across reasoning tasks, LoGRA reduces average training memory by up to 45.7\\% without sacrificing performance. It also enables stable training of a 27B-parameter model for over 1,100 steps on a single eight-GPU node, where dense Adam runs out of memory, making previously memory-infeasible RL training practical. Code is available in the https://github.com/skzhang1/labs-molt/tree/logra/examples/scripts/logra{Molt library}."
+    },
+    {
+      "id": "paper-2610.05750",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Beyond Semantic Similarity: Performance and Costs of Agentic Retrieval for Complex Tasks",
+      "authors": "Reza Esfandiarpoor, Radek Osmulski, Yauhen Babakhin et al.",
+      "published": "2026-10-04",
+      "url": "https://arxiv.org/abs/2610.05750",
+      "raw_summary": "Modern information systems, including many agentic workflows, use dense retrieval to explore large amounts of unstructured data. However, dense retrieval relies on surface-level semantic similarity, which is insufficient for increasingly complex search applications. Here, we investigate agentic retrieval that combines the reasoning capabilities of Large Language Models (LLMs) with the efficient corpus exploration of retrievers in a ReAct agentic loop to solve complex retrieval tasks. In our experiments, we show that agentic retrieval is more effective than standard retrieval, improving nDCG@10 by 8.7 points using the same embedding model. Moreover, while specialized retrieval methods struggle on out-of-domain tasks, agentic retrieval is highly generalizable: the same pipeline achieves competitive results on both the ViDoRe v3 and BRIGHT leaderboards. However, this improvement comes at a cost. On average, agentic retrieval takes 107.4 seconds, compared to 0.67 seconds for standard retrieval, and consumes 764.1K input and 5.8K output tokens per query. In short, our study demonstrates the effectiveness of agentic retrieval in modern data systems and motivates future work on more cost-efficient retrieval agents for large-scale deployment."
+    },
+    {
+      "id": "paper-2610.04109",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "SEER: Self-Evolving Event Reasoning and Retrieval for Time Series Forecasting",
+      "authors": "Mingtian Tan, Palash Goyal, Mihir Parmar et al.",
       "published": "2026-10-01",
-      "url": "https://arxiv.org/abs/2610.02840",
-      "raw_summary": "World action models jointly learn to forecast world dynamics and predict robot actions, such that the learned internal world dynamics guide accurate actions. Existing approaches typically represent the world as RGB frames or latent counterparts while predicting actions as end-effector poses or joint angles, but they often struggle to capture the 3D spatial structure and contact geometry central to dexterous manipulation. We introduce Point World Action Model (PointWAM), a 3D world action model that decomposes the world into a scene (i.e., environment) and hands (i.e., actor), and jointly forecasts both as 3D point trajectories within a shared space-time coordinate frame. This explicit, disentangled representation enables effective pre-training on large-scale human demonstration videos without requiring any task-specific object or keypoint selection. Given a colored point cloud and a language instruction, PointWAM predicts how the scene and hands co-evolve in 3D space over time, then retargets the forecast hand motion to robot actions. Pre-training on human videos improves average DexJoCo success by 56.9 percentage points, and scene-trajectory supervision adds 10.9 points over forecasting the hands alone. With both, PointWAM surpasses the prior state of the art on ten DexJoCo tasks by 11.7 points and outperforms strong VLAs on a real robot.",
-      "image": "https://arxiv.org/html/2610.02840v1/figures/method/input_cloud.png"
+      "url": "https://arxiv.org/abs/2610.04109",
+      "raw_summary": "Real-world time series are frequently driven by exogenous events and structural shifts, rendering conventional forecasting based solely on historical numerical observations insufficient. While language models can retrieve external news, standard retrieval-augmented approaches struggle with high noise, missing signals, and an inability to reason causally about event impacts. We propose SEER (Self-Evolving Event Reasoning and Retrieval), a closed-loop framework that dynamically optimizes event conditioning for time series forecasting. SEER translates prediction errors into two decoupled feedback mechanisms: (i) a reflective retrieval memory that refines subsequent search queries and filters spurious noise, and (ii) a persistent causal knowledge base that distills transferable domain dynamics. SEER enforces strict chronological boundaries across both event retrieval and reflection, preventing look-ahead bias and data leakage. Across six volatile time-series benchmarks, SEER consistently outperforms state-of-the-art time series foundation models and language model baselines."
     },
     {
-      "id": "paper-2610.02381",
+      "id": "paper-2609.34227",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Latent-MOPD: Latent Multi-Teacher On-Policy Distillation",
-      "authors": "Zhengyu Fang, Seoyeon Hong, Jie Yang et al.",
-      "published": "2026-09-30",
-      "url": "https://arxiv.org/abs/2610.02381",
-      "raw_summary": "On-policy distillation (OPD) trains a student on the responses it generates. Existing LLM multi-teacher OPD transfers what specialists predict through their output distributions. We introduce Latent-MOPD, to our knowledge the first representation-level multi-teacher OPD method for LLMs. It integrates existing specialists through both their predictions and the hidden states used to compute them, without additional teacher training. To coordinate representation supervision from multiple specialists, we select late-layer targets according to the teacher-student relationship, bridge unequal hidden widths with a shared projection, and group updates by domain. Each teacher's supervision gradually shifts from hidden states to token predictions, with both channels using the same routed specialist. In our main same-family setting, Latent-MOPD outperforms the token-only, representation-only and uniform-averaging baselines on all nine benchmarks across math, code and logic. With the same parameter count as each teacher, the student also surpasses the per-benchmark best teacher on a majority of these benchmarks. With larger, separately developed cross-family teachers, Latent-MOPD outperforms both single-channel baselines on all benchmarks. A same-family all-layer representation-only control remains stable with domain-pure updates but collapses when teacher domains are interleaved within an update. Our results show that a single student can integrate capabilities from several specialists through both their output distributions and internal representations."
-    },
-    {
-      "id": "paper-2609.28339",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Beyond Future Prediction: Denoising as Generative Adaptation for Robot Control",
-      "authors": "Zanyi Wang, Yuheng Lei, Dengyang Jiang et al.",
-      "published": "2026-09-22",
-      "url": "https://arxiv.org/abs/2609.28339",
-      "raw_summary": "Pretrained generative Diffusion Transformers (DiTs) capture rich pixel-level visual and language-conditioned structure through large-scale image and video generation training. A growing line of robot policies builds on this generative prior, but how it should be transferred to control remains unclear, and existing approaches commonly instantiate this transfer through future visual prediction. We ask a more basic question: what a pretrained generative DiT actually contributes to action learning, and how this prior should be adapted for control. We introduce NowWAM, a future-target-free co-training formulation that denoises the current observation and predicts robot actions from the same visual stream, directly coupling the native generative objective to the action-facing representation across the denoising trajectory. Under matched controlled settings, past and future visual targets perform comparably, while restricting training to the clean endpoint substantially reduces robustness, suggesting that a separate future target is not essential for generative adaptation, while the denoising trajectory remains an effective interface for control. On LIBERO-Plus, NowWAM reaches 87.7% with FLUX2-Klein, improving over the future-target co-training baseline by 6.1 points while halving training visual tokens (784 to 392) and reducing step time from 2.85 s to 1.63 s, a 1.8x speedup. With the pure text-to-image Z-Image backbone, NowWAM further reaches 87.8%, showing that strong control adaptation is not tied to video generation or image-editing backbones."
-    },
-    {
-      "id": "paper-2610.03715",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes",
-      "authors": "Ruihong Shen, Žiga Kovačič, Peter Kulits et al.",
-      "published": "2026-10-01",
-      "url": "https://arxiv.org/abs/2610.03715",
-      "raw_summary": "We introduce 4DCodeBench, a benchmark for 4D inverse graphics through code generation, in which agents reconstruct dynamic scenes from video as executable graphics programs. To accomplish this, agents must translate visual observations into compact representations of scene structure and dynamics, by implementing abstractions such as physical simulations to reproduce complex behavior. To evaluate this capability, we curate a set of real-world videos and construct synthetic scenes spanning diverse physical phenomena, including deformation, fluid flow, and fracture. We perform extensive benchmarking of frontier models, finding that strong static reconstruction capabilities do not yet translate into reliable reconstruction of complex dynamics. 4DCodeBench provides a testbed for tracking progress toward agents that can interpret the dynamics of the world through code. Our benchmark is available at https://github.com/4DCodeBench/4DCodeBench"
+      "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
+      "authors": "Rishabh Sharma, Rishika Lall",
+      "published": "2026-09-27",
+      "url": "https://arxiv.org/abs/2609.34227",
+      "raw_summary": "Does conversational memory need LLM-extracted facts, or is selecting the right raw turns enough? Published results disagree. Extraction-based systems report gains from distilled facts. Recent studies find raw history with good ranking does as well, but disagree about whether ranking matters. We ran a pre-registered study on held-out LoCoMo conversations and LongMemEval. At a tight budget on LoCoMo, raw turns selected by a single call to Jev, a typed decision model, are non-inferior to an LLM-extraction memory (one-sided 95% bound -3.0 points against a -5-point margin). Blind human grading narrows the margin but does not change the result. Raw turns cost 3,061 times less to write, and the result holds with a second answer model. Within this study, reranking's gain shrinks as the budget grows. It adds 17.4 points on LoCoMo and 9.1 on LongMemEval when three of 30 candidates are kept. At generous budgets it adds 1.5 and 1.1, and extraction systems are more accurate. This suggests why published results disagree. At matched context, Jev selects as accurately as an LLM reranker (non-inferiority bound -2.0) at a third of the latency, and more accurately than a multi-call graph traversal. Reranking lowers correct abstention. Plans, code and graded answers are released."
     },
     {
       "id": "news-gh-1008713177",
@@ -64,42 +64,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-06",
+      "published": "2026-10-07",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1256070689",
+      "id": "news-gh-1004140701",
+      "type": "news",
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-10-07",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
+    },
+    {
+      "id": "news-gh-1379023782",
       "type": "news",
       "source": "MiniMax · GitHub",
       "region": "国内",
-      "title": "MiniMax-AI/minimax-code",
+      "title": "MiniMax-AI/OpenAgentCore",
       "authors": "MiniMax",
+      "published": "2026-10-07",
+      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
+      "raw_summary": "Open-source, self-hosted implementation of the OpenAI Agents API with multiple native harnesses."
+    },
+    {
+      "id": "news-55673911",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "How Jump Trading is scaling quant research with ChatGPT",
+      "authors": "OpenAI",
       "published": "2026-10-06",
-      "url": "https://github.com/MiniMax-AI/minimax-code",
-      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
-    },
-    {
-      "id": "news-43419545",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Our approach to EU text provenance rules",
-      "authors": "OpenAI",
-      "published": "2026-10-05",
-      "url": "https://openai.com/index/eu-text-provenance",
-      "raw_summary": "How OpenAI is approaching text watermarking under EU rules. Learn where watermarks apply, how detection works, and why access starts with researchers."
-    },
-    {
-      "id": "news-58802127",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Building advertising for the way people use AI",
-      "authors": "OpenAI",
-      "published": "2026-10-05",
-      "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement",
-      "raw_summary": "OpenAI introduces a new visual ad format in ChatGPT and expands measurement tools, attribution partnerships, and brand suitability for advertisers."
+      "url": "https://openai.com/index/jump-trading",
+      "raw_summary": "Jump Trading uses OpenAI to expand quantitative research. See how longer-running AI workflows combine multiple data sources with human review."
     }
   ]
 }
