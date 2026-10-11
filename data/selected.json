@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-10",
+  "fetched_at": "2026-10-11",
   "items": [
     {
       "id": "paper-2610.11794",
@@ -47,16 +47,15 @@
       "image": "https://arxiv.org/html/2609.33987v2/overview.png"
     },
     {
-      "id": "paper-2610.09146",
+      "id": "paper-2609.35855",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Frozen Models, Evolving Expertise: Model-Agnostic Learning from Deployment Experience for Multimodal Medical AI",
-      "authors": "Yexiao He, Yucheng Tang, Pengfei Guo et al.",
-      "published": "2026-10-05",
-      "url": "https://arxiv.org/abs/2610.09146",
-      "raw_summary": "Large language models (LLMs) and vision-language models (VLMs) are usually frozen after deployment, so they do not learn from the cases they solve. This is especially concerning in medicine, where new clinical evidence, updated guidelines, and new therapies can change established practice. Fine-tuning can update the model, but it requires access to model weights and additional training. Parameter-free methods avoid training, but they may overfit a fixed validation set, lack reliable domain knowledge, or lose visual details by saving experience only as text. To address these limitations, we present a model-agnostic framework that allows frozen LLMs and VLMs to learn from deployment experience through three forms of external expertise: a Skill that guides reasoning and tool use, a Knowledge Memory that stores reliable facts supported by earlier cases or trusted external evidence, and a Multimodal Knowledge Base that keeps visual examples and guides the model to relate each retrieved case to the current image. Instead of relying on a fixed validation set, a validation strategy keeps an update only if it helps on new cases without degrading performance on earlier ones. Across six benchmarks covering clinical diagnosis, clinical workflows, medical reasoning, and medical and non-medical visual reasoning, and with four open-weight and closed-source base models, our framework improves performance during online deployment by up to 34.2% over the base model on medical tasks, generalizes to unseen cases, transfers to other models without further optimization, and works in non-medical domains.",
-      "image": "https://arxiv.org/html/2610.09146v1/overview_method.png"
+      "title": "Mara Chain: Rethinking Failure as a Stepping Stone for AI System Auto-Evolution",
+      "authors": "Yubin Lyu, Fu Li, Jiawei Fei et al.",
+      "published": "2026-09-24",
+      "url": "https://arxiv.org/abs/2609.35855",
+      "raw_summary": "Optimizing deployed AI systems increasingly amounts to editing prompts, skills, harnesses, and code rather than model weights. Existing approaches commonly optimize these artifacts through propose-evaluate-select procedures, where candidate configurations are evaluated and only those meeting an acceptance criterion are selected. Yet our analysis shows that discarded candidates often contain information critical for subsequent optimization. Discarding them causes later proposals to revisit the same failure modes. We introduce Mara Chain, a refinement procedure that turns rejected candidates into stepping stones. Rather than discarding a rejected candidate, Mara Chain retains and iteratively refines it using evidence accumulated across preceding attempts. The procedure limits each refinement chain to a fixed depth and applies Pareto-filtered Top-N selection to bound the candidate pool. Across AppWorld skill optimization, TerminalBench 2.1 harness optimization, and MuSiQue retrieval-pipeline optimization, Mara Chain delivers greater task-performance gains with fewer rollouts. It outperforms GEPA, ACE, and SkillOpt-Lite by up to 20.5% in relative performance on AppWorld, reaching the target score with 65.5% fewer rollouts than GEPA. It improves the pass rate by 20.2 and 22.5 percentage points over AHE and Meta-Harness on TerminalBench 2.1, respectively, and improves MuSiQue test nDCG@10 and Recall@10 by 0.104 and 0.131 over a hand-written retrieval pipeline."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +64,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-10",
+      "published": "2026-10-11",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-11931151",
+      "id": "news-gh-1315929647",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
-      "authors": "OpenAI",
-      "published": "2026-10-09",
-      "url": "https://openai.com/index/sophos",
-      "raw_summary": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/Qwen-MM-Plugins",
+      "authors": "通义千问 Qwen",
+      "published": "2026-10-10",
+      "url": "https://github.com/QwenLM/Qwen-MM-Plugins",
+      "raw_summary": "Make any agent harness multimodal-native."
     },
     {
-      "id": "news-50016496",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
-      "authors": "OpenAI",
-      "published": "2026-10-09",
-      "url": "https://openai.com/index/asana-browser-agent",
-      "raw_summary": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models."
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-10-10",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM post-training framework for RL Scaling."
     },
     {
-      "id": "news-20154450",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Impactful scheduling for GPU clusters",
-      "authors": "Hugging Face",
-      "published": "2026-10-09",
-      "url": "https://huggingface.co/blog/allenai/impactful-scheduling",
-      "raw_summary": ""
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-10-10",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     }
   ]
 }
