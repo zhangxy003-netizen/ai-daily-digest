@@ -1,62 +1,62 @@
 {
-  "fetched_at": "2026-10-15",
+  "fetched_at": "2026-10-16",
   "items": [
     {
-      "id": "paper-2610.14766",
+      "id": "paper-2610.19128",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Last Secure Code Benchmark: Is the Code You Vibe Secure?",
-      "authors": "Tianyi Wu, Chao Ge, Peng Chen et al.",
-      "published": "2026-10-09",
-      "url": "https://arxiv.org/abs/2610.14766",
-      "raw_summary": "AI coding agents now write much of the code that ships, yet whether that code is secure remains unclear. We introduce the Last Secure Code Benchmark, a comprehensive evaluation of secure code generation by coding agents. Built from 150 real vulnerabilities, its 450 tasks span seven widely used languages (Java, C, C++, JavaScript, Python, PHP, and Go), 24 CWEs including 21 of the 2025 CWE Top 25 and 8 of the Top 10 KEV weaknesses, more than any benchmark we compare with, and three vibe-coding scenarios: filling in a function, writing a file, and building a repository's source tree from scratch. Every task asks only for functionality, through a specification that never mentions security, and hidden functional and security tests grade the result. Across six frontier agents, 73.6% to 91.3% of tasks pass functionally, yet even the strongest, Claude Fable 5, produces code that is both functional and secure for only 25.1% of tasks, and the others for 16.4% to 24.7%. The best model only passes 12% of the vulnerability scenarios across all vibe coding setting, posing strong concern on the security of the code written by vibe coding."
-    },
-    {
-      "id": "paper-2610.14091",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Pristine Models",
-      "authors": "Anirudh Sundara Rajan, Krishna Kumar Singh, Richard Zhang et al.",
-      "published": "2026-10-08",
-      "url": "https://arxiv.org/abs/2610.14091",
-      "raw_summary": "Training on broad, unfiltered data enables high-quality image generation, but can also teach models concepts that should not be generated; restricting the training data ensures safety, but reduces quality because examples containing unsafe concepts also provide useful knowledge that is not itself unsafe. Existing approaches largely address this trade-off post hoc through concept unlearning, which can lead to catastrophic forgetting as the number of concepts to remove grows. We instead ask whether unsafe concept knowledge can be compartmentalized during pretraining so that access to it can be disabled at inference. We introduce Pristine Models, a novel text-to-image generation architecture with an attention mechanism that encourages the separation of safe and unsafe knowledge into independently parameterized branches. The branch-specific parameters are learned during training, while the unsafe branch can be detached at inference. On ImageNet, Pristine Models enable safer generation while retaining much of the utility of full-data pretraining, achieving higher image quality and better text alignment than training only on safe data or applying post-hoc concept removal. We further scale our approach to CC12M, demonstrating that it remains effective in a substantially larger and more diverse open-world pretraining setting."
-    },
-    {
-      "id": "paper-2610.18596",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "ACCRUE: Continual Off-Policy Reinforcement Learning for Robot Foundation Models",
-      "authors": "Changyeon Kim, Kimin Lee, Yashraj Narang et al.",
+      "title": "CLASHarness: Benchmarking Multi-Agent Conflict in Computer Use via a Controllable and Verifiable Generation Pipeline",
+      "authors": "Yuxiang Lai, Jike Zhong, Chengzhi Liu et al.",
       "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.18596",
-      "raw_summary": "Reinforcement learning (RL) post-training improves robot foundation models (RFMs) beyond their demonstrations, but real-world deployment demands more: learning new tasks efficiently while retaining previously acquired behaviors. Existing continual RL methods on top of VLAs mitigate forgetting but rely on on-policy updates with limited forward transfer, whereas off-policy methods improve single-task sample efficiency without addressing learner persistence across tasks. We propose ACCRUE, a continual off-policy RL framework that carries lightweight actor and critic networks across tasks, allowing each stage to reuse behavioral and value knowledge acquired through prior RL. The inherited critic adapts only on current-task transitions and guides current-task actor learning, while prior behavior is preserved by distilling the actor toward cached targets on a small number of retained episodes. Fixed visual features keep the inherited learner and its replay compatible with base-policy updates. Across contact-rich assembly sequences in simulation and on real-robot hardware, ACCRUE accelerates subsequent-task learning with near-zero forgetting and significantly reduces real-robot training time by 31.0\\% to 68.5\\%.",
-      "image": "https://arxiv.org/html/2610.18596v1/01_single_task_vs_continual_rl.png"
+      "url": "https://arxiv.org/abs/2610.19128",
+      "raw_summary": "Vision-language models (VLMs) are increasingly deployed in multi-agent systems to automate complex computer-use workflows, yet existing benchmarks mostly assume consistent, cooperative environments. In contrast, real-world collaboration rarely runs on consistent information: peer or sub-agents frequently report outdated states, issue contradictory instructions, or compete over shared permissions and files, forcing agents to check others' outputs and verify ground truth in the environment. Evaluating such conflict resolution remains challenging: manual authoring cannot scale across complex systems, while unconstrained LLM generation produces narrative drift, answer leakage, and unsatisfiable rubrics. We introduce CLASHarness (Conflict-Loaded Agent Scenario Harness), a controllable framework for generating verifiable multi-agent conflicts in computer use, with a benchmark of 600 multi-round tasks. By combining hierarchical scenario planning with an eight-step verified micro-pipeline, CLASHarness pre-commits decisive visual facts before rendering and compiles hybrid code and semantic graders directly from executed reference trajectories, guaranteeing every task is solvable by construction. Evaluating 15 frontier models on CLASHarness reveals three core bottlenecks. First, when sub-agent outputs conflict with the environment, weaker models blindly follow misleading information, whereas stronger models inspect visual evidence to verify ground truth. Second, resolving conflicts is much harder than finding them: while agents can spot inconsistencies, actively fixing system state drops task success significantly. Third, coordination protocols remain a universal bottleneck: even frontier models fail over 58% of closing actions, often forgetting to release shared locks or hand off tasks. CLASHarness provides a scalable, verifiable foundation for building reliable multi-agent systems."
     },
     {
-      "id": "paper-2610.14158",
+      "id": "paper-2610.13623",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Video-Arena: A Scalable Agentic Video Benchmark for Spatiotemporal Capability",
-      "authors": "Kuan Zhang, Yukun Chen, Zhihao Yang et al.",
+      "title": "APEX-Harm: Evaluating Agent Safety in Shared Professional Workspaces",
+      "authors": "Ziyi Yang, Adel Bibi, Guohao Li et al.",
       "published": "2026-10-08",
-      "url": "https://arxiv.org/abs/2610.14158",
-      "raw_summary": "Understanding and tracking a dynamic world are fundamental to visual intelligence. Existing video benchmarks provide limited insight into whether models can maintain a coherent understanding of evolving world state. Building such a benchmark from real-world videos is challenging because the underlying world state is partially observable, making annotations hard to obtain. To close this gap, we introduce Video-Arena, a benchmark that turns competitive games into scalable, verifiable tests of how well models understand evolving world states from videos. Specifically, inspired by how humans understand dynamic events, we evaluate spatiotemporal world state understanding and tracking through three task categories: perceiving critical events, interpreting state updates, and tracking the resulting states. Our pipeline can generate videos and aligned reference labels from game records at scale. To keep evaluation affordable and reproducible, we curate a golden set of 180 tasks across 9 games and run evaluations under two protocols: native visual understanding and tool-assisted agentic analysis. The best-performing systems achieve F1 scores of and under the two protocols, respectively. The result highlights that native models struggle to perceive events reliably, while tool-assisted systems improve event recovery but still struggle to interpret state updates and track the resulting states consistently over time. Our project page is in https://videoarena-bench.github.io",
-      "image": "https://arxiv.org/html/2610.14158v1/Figures/Teaser1.png"
+      "url": "https://arxiv.org/abs/2610.13623",
+      "raw_summary": "Professional agents increasingly work through command-line interfaces and multiple tools over shared workspaces containing files, messages, and business applications. These environments create safety risks that are difficult to capture with attacks placed at a single, known read location. We introduce APEX-Harm, a benchmark for evaluating prompt and script injection against long-horizon agents performing finance, consulting, and legal tasks in large workspaces. Each task contains 115 to 328 files, together with email, calendar, chat, document, spreadsheet, PDF, and code-execution tools exposed through MCP servers. The benchmark includes six attack categories covering static and dynamic injections, task-specific script replacement, and attacker-provided generic scripts, and evaluates attack success, exposure, and task performance. We evaluate 12 frontier models on 180 task instances per model. Opus 5 and Sonnet 5 have the lowest overall attack success rates (8% and 20%), while task-specific script replacement and attacker-provided generic script attacks remain substantially more effective, averaging 81-84% and 73% attack success, respectively. Gemini 3.8 Flash achieves the highest mean task score (0.877) while still exhibiting a 33% attack success rate. These results show that completing the requested task is not sufficient evidence of safe behavior: an agent can produce a correct deliverable while also performing an unauthorized action in the workspace.",
+      "image": "https://arxiv.org/html/2610.13623v1/dynamic_attack.png"
     },
     {
-      "id": "paper-2610.18579",
+      "id": "paper-2610.17301",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Reading Right, Acting Wrong: Diagnosing Decision Failures of System One Models in Agent Loops",
-      "authors": "Yubo Li, Ramayya Krishnan, Rema Padman",
+      "title": "The Agent Knew: Internal States Forecast Unauthorized Actions and Stop Them, and the Lies That Follow",
+      "authors": "Arya Fayyazi, Mehdi Kamal, Massoud Pedram",
       "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.18579",
-      "raw_summary": "System One models choose an agent's next action by scoring a supplied set of options in a single pass. This makes them fast and cheap, but when they choose wrongly there is nothing to inspect: did the model misread what the agent has seen, or read it correctly and still act wrongly? We answer behaviorally. On a frozen benchmark of agent decision states from simulated environments, customer-service policies, tool use, web navigation and coding, we pair every next-action question with factual probes about the same state, each answered independently. Across seventeen fast systems and a reasoning model, the answer is consistent: most wrong actions follow correct reading, and the more accurate a system, the more of its errors take this form. These errors are not noise; they gather on the same states across systems of every kind. Where the probed facts provably determine the action, models that read every fact still fail to combine them, and their own answers, composed by code, repair the failure. On real states, what is missing is often not a fact but the next sub-goal."
+      "url": "https://arxiv.org/abs/2610.17301",
+      "raw_summary": "Language-model agents sometimes act beyond their authorization and then misreport what they did. On CAPE-Bench, matched agent tasks in which one fact decides whether an action is authorized, frontier open-weight agents do both, and one behavior marks the lie: retroactive permission laundering, acting and then asking permission as if the action were pending, precedes a false report in 70% of 1081 fresh informed violations, against 8% otherwise (preregistered odds ratio 7.0); frontier agents on tau^2-bench instead fabricate the authorization before violating. A linear readout of the agent's residual stream forecasts the violation before the action (AUROC 0.94) and the false report before the report, and beats chain-of-thought monitors when the agent is pressured to hide its reasoning. Gating every proposed action on this forecast cuts violations over whole episodes in four model families, and sending repeated flags to an approver keeps authorized work (Gemma-4: violations 0.70 -> 0.09, completion 1.00; a model approver that escalates unclear cases keeps this gain with a person seeing 25% of asks), at about 10-8 of the agent's compute and 109 times less than a chain-of-thought monitor. On AgentDojo, an external prompt-injection benchmark, the same readout calibrated on 29 tasks, with the steering unchanged, cuts attack success on unseen tasks in two families (Gemma-4 11.7% -> 5.7%, gpt-oss 28.5% -> 17.5%) while keeping benign utility (Gemma-4 0.637 vs 0.637; gpt-oss 0.667 vs 0.681). Preventing the violation is also the most reliable way to prevent the lie (misreported violations 0.10 -> 0.01 pooled over three families, preregistered), whereas lie-specific fixes after a violation are weak. All tests are preregistered and hash-locked; code, data and the full record, including tests that did not pass, are at https://github.com/AryaFayyazi/Honesty."
+    },
+    {
+      "id": "paper-2610.15715",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "History Replays Itself: Unleashing Long-Context Capability in Linear Attention",
+      "authors": "Li Nanbo, Firas Laakom, Yilan Zhang et al.",
+      "published": "2026-10-10",
+      "url": "https://arxiv.org/abs/2610.15715",
+      "raw_summary": "Linear attention promises the efficiency needed for long-context language modelling, yet its fixed-size recurrent state must simultaneously support ongoing computation and preserve information from an ever-growing history. This coupling has reinforced a prevailing view that the state's memory capacity defines the model's long-context capability. We challenge this presumed ceiling: recurrent computation need not bear the full burden of long-term storage. We introduce NoteBank, a sparse episodic memory that archives selected text before future queries are known, uses the backbone's native features for writing and addressing, and reads retrieved evidence through its native forward computation via replay. This training-free, plug-and-play interface requires no external embedding model, separately trained retriever, or separate neural reader. At one million tokens, it raises Gated DeltaNet's mean accuracy across six RULER retrieval tasks from 1.7% to 70.3%, with no observed significant retrieval degradation from 4K to 1M tokens. This recovery adds leqslant0.025% to analytical FLOPs, with persistent context storage approximately 1/2,600 that of a Transformer's full MHA KV cache at matched width, depth, and precision. Experiments extend from three 1.3B recurrent backbones to Mamba-2-8B and post-trained Qwen3.5-9B, demonstrating gains on LongBench v1/v2 and MemoryAgentBench. Together, these results show that sparse evidence storage and native replay can substantially expand the long-context capability of pretrained linear attention models while retaining the efficiency of recurrent computation.",
+      "image": "https://arxiv.org/html/2610.15715v1/main-figure-sticker.png"
+    },
+    {
+      "id": "paper-2610.20597v1",
+      "type": "paper",
+      "source": "arXiv · cs.AI",
+      "region": "海外",
+      "title": "Co-Evolving Acting and Forecasting for Language Agents",
+      "authors": "Haofei Yu, Yixing Chen, Yining Zhao et al.",
+      "published": "2026-10-14",
+      "url": "http://arxiv.org/abs/2610.20597v1",
+      "raw_summary": "Training language agents is bottlenecked by the high cost of long-horizon rollouts, yet standard agentic reinforcement learning (RL) learns only from a terminal scalar reward, leaving the supervision in intermediate steps largely unused. Prior work exploits this supervision through value targets that estimate per-step success probabilities or observation targets that fit environment response. Both are hard to construct well: (1) value targets come from the same single scalar signal for each step in the trajectory, and (2) observation targets, such as web pages and terminal logs, are long and noisy and reach only one step ahead. We propose \\name, which adds a third kind of multi-step action targets. On successful on-policy trajectories, \\name trains the policy backbone to generate the action sequences that follows each history. Each action is also supervised when forecast from the preceding histories, forming a temporal ensemble that the shared backbone absorbs during training, and this enables acting and forecasting to co-evolve. The policy still acts one step at a time at inference, with no overhead. Across five benchmarks (ALFWorld, ScienceWorld, WebShop, $τ^2$-bench, and AppWorld), \\name (1) achieves stronger aggregate performance than GRPO and RL baselines with predictive auxiliary targets across simulated environments, while improving overall performance on both realistic applications; (2) delivers up to $1.9\\times$ and $2.0\\times$ higher sample efficiency than ECHO and GRPO, respectively, on ScienceWorld; and (3) achieves these gains with a single policy backbone, without additional models, separate pretraining, or inference overhead. The codebase is available at https://github.com/ulab-uiuc/CoPE."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +65,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-15",
+      "published": "2026-10-16",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-8271535",
+      "id": "news-47001258",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Amp puts AI agents to work beyond code with OpenAI models",
+      "title": "Bringing GPT-Rosalind to academic research labs",
       "authors": "OpenAI",
-      "published": "2026-10-14",
-      "url": "https://openai.com/index/amp-beyond-coding",
-      "raw_summary": "See how Amp pushes the frontier of what agents can do with GPT-6 Astra, Ultrafast, GPT-Live-1, and Sign in with ChatGPT."
+      "published": "2026-10-15",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+      "raw_summary": "Introducing the Rosalind Academic Plan, offering eligible academic labs sponsored access to GPT-Rosalind and tools to advance life sciences research."
     },
     {
-      "id": "news-76596612",
+      "id": "news-18756066",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "SentinelOne cuts malware analysis from weeks to hours",
+      "title": "Teaching students to think and learn through questions",
       "authors": "OpenAI",
-      "published": "2026-10-14",
-      "url": "https://openai.com/index/sentinelone",
-      "raw_summary": "With OpenAI Daybreak, SentinelOne cuts weeks of malware analysis to hours, creating capacity to investigate more threats."
+      "published": "2026-10-15",
+      "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
+      "raw_summary": "Celebrate Teachers’ Day with AI for Educators in Brazilian Portuguese and see how Study Mode can help teachers support active, step-by-step learning."
     },
     {
-      "id": "news-37586430",
+      "id": "news-55836881",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "How Third Moment Research runs 10,000 agents for 36+ hours",
+      "title": "Sullivan & Cromwell brings legal expertise into agreement review",
       "authors": "OpenAI",
-      "published": "2026-10-14",
-      "url": "https://openai.com/index/third-moment-research",
-      "raw_summary": "With GPT-6 Astra and GPT-6.1 Sol, Codex, and Daybreak for cybersecurity, this AI lab builds agents that focus for days and improve with use."
+      "published": "2026-10-15",
+      "url": "https://openai.com/index/sullivan-cromwell",
+      "raw_summary": "In collaboration with OpenAI, Sullivan & Cromwell developed Agreement Analyzer, an AI tool for identifying issues in a draft agreement."
     }
   ]
 }
