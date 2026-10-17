@@ -1,62 +1,64 @@
 {
-  "fetched_at": "2026-10-16",
+  "fetched_at": "2026-10-17",
   "items": [
     {
-      "id": "paper-2610.19128",
+      "id": "paper-2610.21095",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "CLASHarness: Benchmarking Multi-Agent Conflict in Computer Use via a Controllable and Verifiable Generation Pipeline",
-      "authors": "Yuxiang Lai, Jike Zhong, Chengzhi Liu et al.",
-      "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.19128",
-      "raw_summary": "Vision-language models (VLMs) are increasingly deployed in multi-agent systems to automate complex computer-use workflows, yet existing benchmarks mostly assume consistent, cooperative environments. In contrast, real-world collaboration rarely runs on consistent information: peer or sub-agents frequently report outdated states, issue contradictory instructions, or compete over shared permissions and files, forcing agents to check others' outputs and verify ground truth in the environment. Evaluating such conflict resolution remains challenging: manual authoring cannot scale across complex systems, while unconstrained LLM generation produces narrative drift, answer leakage, and unsatisfiable rubrics. We introduce CLASHarness (Conflict-Loaded Agent Scenario Harness), a controllable framework for generating verifiable multi-agent conflicts in computer use, with a benchmark of 600 multi-round tasks. By combining hierarchical scenario planning with an eight-step verified micro-pipeline, CLASHarness pre-commits decisive visual facts before rendering and compiles hybrid code and semantic graders directly from executed reference trajectories, guaranteeing every task is solvable by construction. Evaluating 15 frontier models on CLASHarness reveals three core bottlenecks. First, when sub-agent outputs conflict with the environment, weaker models blindly follow misleading information, whereas stronger models inspect visual evidence to verify ground truth. Second, resolving conflicts is much harder than finding them: while agents can spot inconsistencies, actively fixing system state drops task success significantly. Third, coordination protocols remain a universal bottleneck: even frontier models fail over 58% of closing actions, often forgetting to release shared locks or hand off tasks. CLASHarness provides a scalable, verifiable foundation for building reliable multi-agent systems."
-    },
-    {
-      "id": "paper-2610.13623",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "APEX-Harm: Evaluating Agent Safety in Shared Professional Workspaces",
-      "authors": "Ziyi Yang, Adel Bibi, Guohao Li et al.",
-      "published": "2026-10-08",
-      "url": "https://arxiv.org/abs/2610.13623",
-      "raw_summary": "Professional agents increasingly work through command-line interfaces and multiple tools over shared workspaces containing files, messages, and business applications. These environments create safety risks that are difficult to capture with attacks placed at a single, known read location. We introduce APEX-Harm, a benchmark for evaluating prompt and script injection against long-horizon agents performing finance, consulting, and legal tasks in large workspaces. Each task contains 115 to 328 files, together with email, calendar, chat, document, spreadsheet, PDF, and code-execution tools exposed through MCP servers. The benchmark includes six attack categories covering static and dynamic injections, task-specific script replacement, and attacker-provided generic scripts, and evaluates attack success, exposure, and task performance. We evaluate 12 frontier models on 180 task instances per model. Opus 5 and Sonnet 5 have the lowest overall attack success rates (8% and 20%), while task-specific script replacement and attacker-provided generic script attacks remain substantially more effective, averaging 81-84% and 73% attack success, respectively. Gemini 3.8 Flash achieves the highest mean task score (0.877) while still exhibiting a 33% attack success rate. These results show that completing the requested task is not sufficient evidence of safe behavior: an agent can produce a correct deliverable while also performing an unauthorized action in the workspace.",
-      "image": "https://arxiv.org/html/2610.13623v1/dynamic_attack.png"
-    },
-    {
-      "id": "paper-2610.17301",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "The Agent Knew: Internal States Forecast Unauthorized Actions and Stop Them, and the Lies That Follow",
-      "authors": "Arya Fayyazi, Mehdi Kamal, Massoud Pedram",
-      "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.17301",
-      "raw_summary": "Language-model agents sometimes act beyond their authorization and then misreport what they did. On CAPE-Bench, matched agent tasks in which one fact decides whether an action is authorized, frontier open-weight agents do both, and one behavior marks the lie: retroactive permission laundering, acting and then asking permission as if the action were pending, precedes a false report in 70% of 1081 fresh informed violations, against 8% otherwise (preregistered odds ratio 7.0); frontier agents on tau^2-bench instead fabricate the authorization before violating. A linear readout of the agent's residual stream forecasts the violation before the action (AUROC 0.94) and the false report before the report, and beats chain-of-thought monitors when the agent is pressured to hide its reasoning. Gating every proposed action on this forecast cuts violations over whole episodes in four model families, and sending repeated flags to an approver keeps authorized work (Gemma-4: violations 0.70 -> 0.09, completion 1.00; a model approver that escalates unclear cases keeps this gain with a person seeing 25% of asks), at about 10-8 of the agent's compute and 109 times less than a chain-of-thought monitor. On AgentDojo, an external prompt-injection benchmark, the same readout calibrated on 29 tasks, with the steering unchanged, cuts attack success on unseen tasks in two families (Gemma-4 11.7% -> 5.7%, gpt-oss 28.5% -> 17.5%) while keeping benign utility (Gemma-4 0.637 vs 0.637; gpt-oss 0.667 vs 0.681). Preventing the violation is also the most reliable way to prevent the lie (misreported violations 0.10 -> 0.01 pooled over three families, preregistered), whereas lie-specific fixes after a violation are weak. All tests are preregistered and hash-locked; code, data and the full record, including tests that did not pass, are at https://github.com/AryaFayyazi/Honesty."
-    },
-    {
-      "id": "paper-2610.15715",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "History Replays Itself: Unleashing Long-Context Capability in Linear Attention",
-      "authors": "Li Nanbo, Firas Laakom, Yilan Zhang et al.",
-      "published": "2026-10-10",
-      "url": "https://arxiv.org/abs/2610.15715",
-      "raw_summary": "Linear attention promises the efficiency needed for long-context language modelling, yet its fixed-size recurrent state must simultaneously support ongoing computation and preserve information from an ever-growing history. This coupling has reinforced a prevailing view that the state's memory capacity defines the model's long-context capability. We challenge this presumed ceiling: recurrent computation need not bear the full burden of long-term storage. We introduce NoteBank, a sparse episodic memory that archives selected text before future queries are known, uses the backbone's native features for writing and addressing, and reads retrieved evidence through its native forward computation via replay. This training-free, plug-and-play interface requires no external embedding model, separately trained retriever, or separate neural reader. At one million tokens, it raises Gated DeltaNet's mean accuracy across six RULER retrieval tasks from 1.7% to 70.3%, with no observed significant retrieval degradation from 4K to 1M tokens. This recovery adds leqslant0.025% to analytical FLOPs, with persistent context storage approximately 1/2,600 that of a Transformer's full MHA KV cache at matched width, depth, and precision. Experiments extend from three 1.3B recurrent backbones to Mamba-2-8B and post-trained Qwen3.5-9B, demonstrating gains on LongBench v1/v2 and MemoryAgentBench. Together, these results show that sparse evidence storage and native replay can substantially expand the long-context capability of pretrained linear attention models while retaining the efficiency of recurrent computation.",
-      "image": "https://arxiv.org/html/2610.15715v1/main-figure-sticker.png"
-    },
-    {
-      "id": "paper-2610.20597v1",
-      "type": "paper",
-      "source": "arXiv · cs.AI",
-      "region": "海外",
-      "title": "Co-Evolving Acting and Forecasting for Language Agents",
-      "authors": "Haofei Yu, Yixing Chen, Yining Zhao et al.",
+      "title": "Can World and Action Modeling Benefit Each Other under Unified Causal Training?",
+      "authors": "Yue Su, Bokai Lin, Xinkai Wang et al.",
       "published": "2026-10-14",
-      "url": "http://arxiv.org/abs/2610.20597v1",
-      "raw_summary": "Training language agents is bottlenecked by the high cost of long-horizon rollouts, yet standard agentic reinforcement learning (RL) learns only from a terminal scalar reward, leaving the supervision in intermediate steps largely unused. Prior work exploits this supervision through value targets that estimate per-step success probabilities or observation targets that fit environment response. Both are hard to construct well: (1) value targets come from the same single scalar signal for each step in the trajectory, and (2) observation targets, such as web pages and terminal logs, are long and noisy and reach only one step ahead. We propose \\name, which adds a third kind of multi-step action targets. On successful on-policy trajectories, \\name trains the policy backbone to generate the action sequences that follows each history. Each action is also supervised when forecast from the preceding histories, forming a temporal ensemble that the shared backbone absorbs during training, and this enables acting and forecasting to co-evolve. The policy still acts one step at a time at inference, with no overhead. Across five benchmarks (ALFWorld, ScienceWorld, WebShop, $τ^2$-bench, and AppWorld), \\name (1) achieves stronger aggregate performance than GRPO and RL baselines with predictive auxiliary targets across simulated environments, while improving overall performance on both realistic applications; (2) delivers up to $1.9\\times$ and $2.0\\times$ higher sample efficiency than ECHO and GRPO, respectively, on ScienceWorld; and (3) achieves these gains with a single policy backbone, without additional models, separate pretraining, or inference overhead. The codebase is available at https://github.com/ulab-uiuc/CoPE."
+      "url": "https://arxiv.org/abs/2610.21095",
+      "raw_summary": "World and action modeling are closely related, yet their reciprocal benefits under unified causal training remain unclear. We introduce OneWM, a simple framework for unified causal training that treats actions as both conditions for world prediction and targets for policy learning within a shared video-action architecture. Using this framework, we investigate whether learning forward dynamics conditioned on specified actions improves action learning, and whether learning to generate actions in turn improves action-conditioned world modeling. We use LIBERO, LIBERO-Plus, and RoboCasa365 as embodied testbeds to evaluate both policy learning and world modeling, complemented by real-world policy experiments. Learning the visual consequences of specified actions improves policy performance and generalization across changing scenes. In turn, action learning improves multi-view world-prediction fidelity under the same architecture. Together, these results answer both questions positively, supporting reciprocal benefits between world modeling and action generation under unified causal training.",
+      "image": "https://arxiv.org/html/2610.21095v1/onewm-method-pipeline.png"
+    },
+    {
+      "id": "paper-2610.22280",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "LEASH: Uncertainty-Aware Weak-to-Strong Escalation and Oversight for Computer-Use Agents",
+      "authors": "Qingni Wang, Changdae Oh, Yuzhe Yang et al.",
+      "published": "2026-10-14",
+      "url": "https://arxiv.org/abs/2610.22280",
+      "raw_summary": "Computer-use agents increasingly tackle long-horizon tasks, where running a frontier model at every step is expensive and a small open-weight model alone often fails. Weak-to-strong escalation offers a middle ground where a weak agent acts by default and hands control to a strong one only when needed. The core challenge is deciding when to escalate, which requires an uncertainty signal cheap enough to check at every step. However, even after handoff, the strong agent can still get lost, but a black-box API that the strong agent is usually served exposes no internals to monitor. To this end, we propose LEASH, a training-free framework that unleashes the strong agent only when the weak agent's latent uncertainty signals it is needed, and keeps it on a leash afterward. LEASH has three layers: (1) initial task uncertainty for early routing, (2) step-level uncertainty for runtime escalation, and, after handoff, (3) a shadow observer for continued oversight of the strong black-box agent. Here, we use latent uncertainty as a fuel for all three layers. Specifically, we compare the weak model's hidden states with those from its past successful and failed trajectories, and a state that looks more like the failures signals higher uncertainty. During weak-agent execution, our uncertainty estimator reuses activations already produced during action generation, so it needs no extra forward pass or dedicated monitor training. Experiments on OSWorld across four contemporary model backbones show that LEASH consistently improves over standalone weak agents and outperforms random escalation by 6.55--11.94 points at matched escalation rates. With Qwen3.5-35B-A3B, LEASH achieves 73.66% task success at $0.4117 per task, matching always-on Claude Opus 5 (72.90%) while reducing inference cost by 19.2%.",
+      "image": "https://arxiv.org/html/2610.22280v1/overview.png"
+    },
+    {
+      "id": "paper-2610.22371",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Gen4P: Video Generators are 4D Perceivers",
+      "authors": "Yitong Xia, Zeren Jiang, Chuanxia Zheng",
+      "published": "2026-10-14",
+      "url": "https://arxiv.org/abs/2610.22371",
+      "raw_summary": "We introduce Gen4P, a unified framework for recovering 4D geometry and motion from monocular video. We show that a pretrained video generator can be repurposed into a feed-forward 4D perceiver without iterative denoising. Building on on-demand querying, Gen4P processes clean video latents in a single encoder pass and predicts the requested 4D attributes through a lightweight cross-attention decoder. The on-demand query formulation enables flexible spatial sampling, and our proposed continuous-time queries further provide temporal flexibility. To strengthen geometric knowledge, we propose a straightforward plug-in solution by incorporating a pretrained video-depth LoRA as a frozen geometry prior, improving overall performance without adding extra trainable parameters. Gen4P achieves state-of-the-art or competitive performance on tasks of 3D point tracking, video depth and camera pose estimation. Qualitative results on in-the-wild videos illustrate its capability of tracking complex motion while maintaining the delicate structure. Together, these results demonstrate the potential of video generative pretraining for unified 4D perception. See https://gen4p.github.io for more visual results.",
+      "image": "https://arxiv.org/html/2610.22371v1/pipeline_v2_2.png"
+    },
+    {
+      "id": "paper-2610.17697",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "LeanPRM: Lean-Grounded Process Supervision for Natural Language Proof Verification",
+      "authors": "Rodney Lafuente-Mercado, Salman Rahman, Jingyan Shen et al.",
+      "published": "2026-10-12",
+      "url": "https://arxiv.org/abs/2610.17697",
+      "raw_summary": "AI systems now write long and difficult mathematical proofs, and checking their step-by-step validity is becoming a bottleneck. A learned verifier could check proofs cheaply, but training one requires a correctness label on every step, and such labels are hard to obtain for open-ended proofs. Existing methods take them from human annotators, which is costly, or derive them from final answers, which proofs do not have, and formalizing each proof in Lean requires expert effort. We introduce LeanPRM, a framework that uses the Lean proof assistant to create step-level labels for natural-language proofs. A model writes a natural-language proof together with a paired formal proof, without feedback from Lean. Lean then labels every step, and a second model discards failures caused only by the formal syntax, so that the negative labels mark errors in the mathematics. LeanPRM contains 10,634 proofs with 152K labeled steps and no human annotation. A Qwen3-4B verifier trained on LeanPRM raises exact step-label accuracy on a held-out set of 200 proofs (LeanPRM-Bench) from 48.2 to 74.7, as opposed to 60.3 when the same base model is trained on PRM800K. It also selects better proofs in best-of-N selection on IMO-level problems, and outperforms the PRM800K-trained verifier on three of four external verification benchmarks. Training on LeanPRM improves verifiers at every size from 0.6B to 8B parameters on LeanPRM-Bench, Hard2Verify and IMO-GradingBench. Given the labels need no human annotation, LeanPRM can grow with the supply of formal statements, offering a path to step-level feedback on AI-generated proofs that are hard for humans to check.",
+      "image": "https://arxiv.org/html/2610.17697v1/overview.png"
+    },
+    {
+      "id": "paper-2610.21025",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Learning to Read Out: Unembedding Dynamics in Language Model Pretraining",
+      "authors": "Matteo He, William F. Shen, Alex Iacob et al.",
+      "published": "2026-10-13",
+      "url": "https://arxiv.org/abs/2610.21025",
+      "raw_summary": "When does a language model acquire a capability? Developmental studies usually answer this by tracking when models start producing the correct token. But that prediction passes through the unembedding matrix, or readout, which is itself still being learned during pretraining. We show that a model's hidden states can encode task information before its own readout expresses it, so timelines read from outputs conflate what the model encodes with what its readout expresses. To track the readout directly, we introduce parameter-trajectory crosscoding, which fits one sparse dictionary to every token's readout row at every checkpoint. Unlike crosscoders on activations, it needs only checkpoint weights. We use it to locate a narrow early window, 0.4-1.1% of the way through Pythia's pretraining, in which the readout reorganizes and WordNet word categories become decodable from its rows. By then, linear probes on the hidden states already decode task information that the model's own outputs do not yet show. To test whether such gaps depend on how fast the readout learns, we pretrain small models from scratch that differ only in the readout's learning rate. We find that raising it makes the readout develop earlier and the gap close sooner, with little effect on final loss. Together, these results imply that early in training, where many developmental transitions are dated, a behavioral date can reflect when the readout learns to express task information and not when the model learns it."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +67,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-16",
+      "published": "2026-10-17",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-47001258",
+      "id": "news-30906298",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Bringing GPT-Rosalind to academic research labs",
+      "title": "How Itaú is building generative AI for its entire customer base",
       "authors": "OpenAI",
-      "published": "2026-10-15",
-      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
-      "raw_summary": "Introducing the Rosalind Academic Plan, offering eligible academic labs sponsored access to GPT-Rosalind and tools to advance life sciences research."
+      "published": "2026-10-16",
+      "url": "https://openai.com/index/itau-generative-ai",
+      "raw_summary": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s most regulated sectors."
     },
     {
-      "id": "news-18756066",
+      "id": "news-43989841",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Teaching students to think and learn through questions",
+      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
       "authors": "OpenAI",
-      "published": "2026-10-15",
-      "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
-      "raw_summary": "Celebrate Teachers’ Day with AI for Educators in Brazilian Portuguese and see how Study Mode can help teachers support active, step-by-step learning."
+      "published": "2026-10-16",
+      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
+      "raw_summary": "Two engineers shipped Stack Overflow for Agents in a few weeks with Codex, and its ChatGPT plugin helped drive up to 10× growth in agent creation."
     },
     {
-      "id": "news-55836881",
+      "id": "news-67467546",
       "type": "news",
-      "source": "OpenAI",
+      "source": "Hugging Face",
       "region": "海外",
-      "title": "Sullivan & Cromwell brings legal expertise into agreement review",
-      "authors": "OpenAI",
-      "published": "2026-10-15",
-      "url": "https://openai.com/index/sullivan-cromwell",
-      "raw_summary": "In collaboration with OpenAI, Sullivan & Cromwell developed Agreement Analyzer, an AI tool for identifying issues in a draft agreement."
+      "title": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
+      "authors": "Hugging Face",
+      "published": "2026-10-16",
+      "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
+      "raw_summary": ""
     }
   ]
 }
