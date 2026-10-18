@@ -1,17 +1,16 @@
 {
-  "fetched_at": "2026-10-17",
+  "fetched_at": "2026-10-18",
   "items": [
     {
-      "id": "paper-2610.21095",
+      "id": "paper-2610.21261",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Can World and Action Modeling Benefit Each Other under Unified Causal Training?",
-      "authors": "Yue Su, Bokai Lin, Xinkai Wang et al.",
+      "title": "Behavioral Compositionality of Sparse Autoencoder Representations",
+      "authors": "Haotian Ma, Ziye Mei, Frederic Sala",
       "published": "2026-10-14",
-      "url": "https://arxiv.org/abs/2610.21095",
-      "raw_summary": "World and action modeling are closely related, yet their reciprocal benefits under unified causal training remain unclear. We introduce OneWM, a simple framework for unified causal training that treats actions as both conditions for world prediction and targets for policy learning within a shared video-action architecture. Using this framework, we investigate whether learning forward dynamics conditioned on specified actions improves action learning, and whether learning to generate actions in turn improves action-conditioned world modeling. We use LIBERO, LIBERO-Plus, and RoboCasa365 as embodied testbeds to evaluate both policy learning and world modeling, complemented by real-world policy experiments. Learning the visual consequences of specified actions improves policy performance and generalization across changing scenes. In turn, action learning improves multi-view world-prediction fidelity under the same architecture. Together, these results answer both questions positively, supporting reciprocal benefits between world modeling and action generation under unified causal training.",
-      "image": "https://arxiv.org/html/2610.21095v1/onewm-method-pipeline.png"
+      "url": "https://arxiv.org/abs/2610.21261",
+      "raw_summary": "Sparse autoencoders (SAEs) represent model activations with sparse, linearly decoded features, but the downstream effects of those features need not compose additively. We introduce SAE Additivity Residuals (SAR), which measure the behavioral variation left unexplained above a chosen interaction order. Under independent feature subset sampling, population SAR is exactly the normalized energy of interactions above that order and bounds coalition ordering error for the optimal low order approximation. To distinguish compositionality associated with the SAE representation from that induced by downstream computation, we compare learned SAE coordinates with sum preserving random rotations of the same selected subspace and find lower first order residuals for the learned coordinates across all 18 model and behavior settings. The coordinates are nevertheless not fully additive: pairwise terms improve held out coalition ordering in every setting and outperform parameter matched models using randomly selected third order terms. In a combined steering experiment, pairwise modeling raises rank fidelity from 0.5874 to 0.7790 and reduces ordering error from 0.1444 to 0.0606. Together, these results show that SAE coordinates support comparatively compositional behavioral descriptions while faithful joint explanations and interventions still require interactions beyond individual feature effects. Code is available at https://github.com/OpenSAE/SAE-Behavioral-Compositionality."
     },
     {
       "id": "paper-2610.22280",
@@ -26,6 +25,29 @@
       "image": "https://arxiv.org/html/2610.22280v1/overview.png"
     },
     {
+      "id": "paper-2610.17959",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Virtual Head Attention",
+      "authors": "Xibo Ding, Guoxia Wang, Jinle Zeng et al.",
+      "published": "2026-10-12",
+      "url": "https://arxiv.org/abs/2610.17959",
+      "raw_summary": "The design of attention mechanisms in long-context large language models faces an ``impossible triangle'' among KV cache size, training and prefill FLOPs, and model quality. GQA achieves strong quality but incurs high KV cache overhead; alternative approaches such as MLA and MFA can compress the cache, but MLA suffers from quality loss while MFA substantially increases training and prefill compute. We propose Virtual Head Attention (VHA), which simultaneously improves all three vertices through two lightweight linear operations: Q Premix applies a near-identity transformation to queries within each KV group to recover virtual head diversity from halved physical query heads, and Linear Postmix fuses inter-head features via a low-rank I + AB^top residual structure. Since VHA introduces no nonlinear operations, Premix can be folded into the query projection and Postmix into the output projection at inference time, reducing the model to a standard GQA-2 architecture that directly reuses all existing GQA inference optimizations. With only two KV heads, the group size in large models readily reaches 64, fully exploiting Tensor Core parallelism during decoding. Across four scales with 4K-context 50B-token pretraining, VHA consistently surpasses the standard GQA baseline at every scale (+0.05\\% to +0.81\\%), while reducing KV cache by 4times vs.\\ GQA-8 at dense scales and 2times vs.\\ GQA-4 at the MoE scale, and lowering training and prefill FLOPs by 7.9\\% (1.7B, S{=}4096). On an industrial 30B-A3B MoE model trained on 500B tokens at 8K context, VHA outperforms both MLA and GQA-4 by +0.70\\,/\\,+2.60\\,\\% on a 12-benchmark base-model evaluation suite; in a separate matched 10B-A1B MoE comparison after long-context mid-training, VHA attains an average RULER score of 84.4 over 8K--128K versus 73.0 for GQA, while using two rather than four KV heads in the full-attention layers."
+    },
+    {
+      "id": "paper-2610.17901",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "FlashMask-3: Efficient and Expressive Mask-Aware Distributed Attention",
+      "authors": "Guoxia Wang, Qianyue He, Siming Wu et al.",
+      "published": "2026-10-12",
+      "url": "https://arxiv.org/abs/2610.17901",
+      "raw_summary": "Long-context training of large language and multimodal models couples structured attention masks (document, prefix-LM, share-question, sliding-window, block-sparse) with multi-node context parallelism, making the mask a dominant bottleneck. FlashMask's column-wise sparse mask compresses them from O(n^2) to O(n) via four query-axis boundary vectors, covering broad structured patterns. Implemented for Ampere GPUs, it neither exploits FlashAttention-3's TMA/WGMMA warp-specialized pipeline on Hopper nor supports distribution. The column-wise sparse mask is indexed by key positions but stores query-axis interval boundaries. Under any multi-chunk context-parallel assignment, it reduces per-rank mask localization to a provably zero-communication clip--shift--max on the boundary vectors, compatible with the single-GPU kernel. FlashMask-3 introduces a mask-aware Hopper kernel with three-role warp specialization atop FlashAttention-3's TMA/WGMMA pipeline, plus a mask-aware distributed extension: zero-communication mask localization, a sparsity-aware load balancer (HCC-IPO), and a mask-aware compute-communication overlap with mask-driven communication pruning, whose forward all-gather uses topology-aware hierarchical routing. On a single H100 across 12 masks at 4K--128K context, it improves achieved TFLOPs over FlashMask, FlexAttention, and MagiAttention by 45--141%, 34--71%, and 2--44%. At context-parallel degrees 4--32 with 8K sequence per device, it attains 31--75% compute-communication overlap efficiency and improves throughput over Megatron-Core CP ring, Megatron-Core CP all-gather, and MagiAttention by 1.80times--3.71times, 1.71times--2.92times, and 1.09times--1.46times. In end-to-end training of a 118B-A14B MoE at 128K on 128 H100 GPUs, it raises throughput by 7.3--11.0% over a Dual Chunk all-gather baseline, with attention forward+backward 24.5--44.9% faster.",
+      "image": "https://arxiv.org/html/2610.17901v1/FlashMaskV3_overview.png"
+    },
+    {
       "id": "paper-2610.22371",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -38,27 +60,15 @@
       "image": "https://arxiv.org/html/2610.22371v1/pipeline_v2_2.png"
     },
     {
-      "id": "paper-2610.17697",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LeanPRM: Lean-Grounded Process Supervision for Natural Language Proof Verification",
-      "authors": "Rodney Lafuente-Mercado, Salman Rahman, Jingyan Shen et al.",
-      "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.17697",
-      "raw_summary": "AI systems now write long and difficult mathematical proofs, and checking their step-by-step validity is becoming a bottleneck. A learned verifier could check proofs cheaply, but training one requires a correctness label on every step, and such labels are hard to obtain for open-ended proofs. Existing methods take them from human annotators, which is costly, or derive them from final answers, which proofs do not have, and formalizing each proof in Lean requires expert effort. We introduce LeanPRM, a framework that uses the Lean proof assistant to create step-level labels for natural-language proofs. A model writes a natural-language proof together with a paired formal proof, without feedback from Lean. Lean then labels every step, and a second model discards failures caused only by the formal syntax, so that the negative labels mark errors in the mathematics. LeanPRM contains 10,634 proofs with 152K labeled steps and no human annotation. A Qwen3-4B verifier trained on LeanPRM raises exact step-label accuracy on a held-out set of 200 proofs (LeanPRM-Bench) from 48.2 to 74.7, as opposed to 60.3 when the same base model is trained on PRM800K. It also selects better proofs in best-of-N selection on IMO-level problems, and outperforms the PRM800K-trained verifier on three of four external verification benchmarks. Training on LeanPRM improves verifiers at every size from 0.6B to 8B parameters on LeanPRM-Bench, Hard2Verify and IMO-GradingBench. Given the labels need no human annotation, LeanPRM can grow with the supply of formal statements, offering a path to step-level feedback on AI-generated proofs that are hard for humans to check.",
-      "image": "https://arxiv.org/html/2610.17697v1/overview.png"
-    },
-    {
-      "id": "paper-2610.21025",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Learning to Read Out: Unembedding Dynamics in Language Model Pretraining",
-      "authors": "Matteo He, William F. Shen, Alex Iacob et al.",
-      "published": "2026-10-13",
-      "url": "https://arxiv.org/abs/2610.21025",
-      "raw_summary": "When does a language model acquire a capability? Developmental studies usually answer this by tracking when models start producing the correct token. But that prediction passes through the unembedding matrix, or readout, which is itself still being learned during pretraining. We show that a model's hidden states can encode task information before its own readout expresses it, so timelines read from outputs conflate what the model encodes with what its readout expresses. To track the readout directly, we introduce parameter-trajectory crosscoding, which fits one sparse dictionary to every token's readout row at every checkpoint. Unlike crosscoders on activations, it needs only checkpoint weights. We use it to locate a narrow early window, 0.4-1.1% of the way through Pythia's pretraining, in which the readout reorganizes and WordNet word categories become decodable from its rows. By then, linear probes on the hidden states already decode task information that the model's own outputs do not yet show. To test whether such gaps depend on how fast the readout learns, we pretrain small models from scratch that differ only in the readout's learning rate. We find that raising it makes the readout develop earlier and the gap close sooner, with little effect on final loss. Together, these results imply that early in training, where many developmental transitions are dated, a behavioral date can reflect when the readout learns to express task information and not when the model learns it."
+      "id": "news-gh-1333065091",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/deepseek-harness",
+      "authors": "DeepSeek",
+      "published": "2026-10-17",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "raw_summary": "DeepSeek Harness: Everything is a Plugin."
     },
     {
       "id": "news-gh-1008713177",
@@ -72,37 +82,26 @@
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-30906298",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "How Itaú is building generative AI for its entire customer base",
-      "authors": "OpenAI",
-      "published": "2026-10-16",
-      "url": "https://openai.com/index/itau-generative-ai",
-      "raw_summary": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s most regulated sectors."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-10-17",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-43989841",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
-      "authors": "OpenAI",
-      "published": "2026-10-16",
-      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
-      "raw_summary": "Two engineers shipped Stack Overflow for Agents in a few weeks with Codex, and its ChatGPT plugin helped drive up to 10× growth in agent creation."
-    },
-    {
-      "id": "news-67467546",
-      "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
-      "authors": "Hugging Face",
-      "published": "2026-10-16",
-      "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
-      "raw_summary": ""
+      "source": "智谱 GLM · GitHub",
+      "region": "国内",
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-10-17",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM training framework for RL Scaling."
     }
   ]
 }
