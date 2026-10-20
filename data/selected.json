@@ -1,62 +1,63 @@
 {
-  "fetched_at": "2026-10-19",
+  "fetched_at": "2026-10-20",
   "items": [
     {
-      "id": "paper-2610.21261",
+      "id": "paper-2610.09872",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Behavioral Compositionality of Sparse Autoencoder Representations",
-      "authors": "Haotian Ma, Ziye Mei, Frederic Sala",
+      "title": "LiveMACE: Process-Aware Evaluation of LLM Agent Capabilities in Evolving Markets",
+      "authors": "Jun Zhao, Leiming Fu, Yanbo Wen et al.",
+      "published": "2026-10-06",
+      "url": "https://arxiv.org/abs/2610.09872",
+      "raw_summary": "Evaluating agents by outcomes alone can obscure the capabilities that produce them. This problem is especially pronounced in evolving environments, where outcomes reflect a closed-loop interaction between agent behavior and changing external conditions. We introduce LiveMACEBench, a process-aware benchmark that uses live financial markets as a naturally evolving testbed for persistent LLM agents. Five frontier LLMs operate along continuous trajectories under matched Tool Use, Persistent Memory, Rule Following, and Multi-Agent Collaboration configurations. We evaluate them through both realized outcomes and mechanism-specific diagnostics derived from complete decision traces. Across 30 days of live evaluation, we find a pronounced outcome-capability gap: realized returns often diverge from capability-specific measurements, and similar outcomes can arise from markedly different patterns of mechanism use. Trace-level diagnostics further expose distinct bottlenecks across capabilities, demonstrating that mechanism access, effective mechanism use, and downstream performance are not interchangeable measures of agent capability. LiveMACEBench makes this distinction measurable, turning live markets from a performance leaderboard into a diagnostic environment for agent capability"
+    },
+    {
+      "id": "paper-2610.23121",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Scene-Designer: Learning Design Intelligence for Agentic 3D Scene Generation",
+      "authors": "Xuanyu Liu, Hongyan Feng, Miao Pan et al.",
+      "published": "2026-10-15",
+      "url": "https://arxiv.org/abs/2610.23121",
+      "raw_summary": "Generating complete, coherent, and usable 3D indoor scenes from natural language requires strong design intelligence: the ability to design high-quality scenes and critique their quality. However, existing approaches either rely on general-purpose models lacking domain-specific design experience or learn from static scenes. In this work, we introduce Scene-Designer, an agentic framework that learns design intelligence through complementary design and critique experiences. We construct two datasets: Scene-OTA-35K, which provides Observation--Thought--Action supervision for learning scene design and efficient error correction, and Scene-OTC-15K, which provides Observation--Thought--Critic supervision for learning scene quality critique across physical validity, functional correctness, and layout coherence. Based on these experiences, we propose Scene-GRPO, a Critic-guided GRPO framework that improves design decisions and reduces unnecessary trial-and-error corrections. Extensive experiments demonstrate that Scene-Designer achieves superior performance in physical validity, functional correctness, and layout coherence, while the learned Scene-Critic significantly outperforms general-purpose models in scene critique. Moreover, test-time Critic guidance further improves scene generation, showing that the Critic can provide useful guidance beyond training. Additional analysis suggests a trend of mutual enhancement between scene design and critique abilities.",
+      "image": "https://arxiv.org/html/2610.23121v1/teaser.png"
+    },
+    {
+      "id": "paper-2610.09221",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Consistent Distribution Matching for Data-Free Diffusion Distillation",
+      "authors": "Yuxiang Fu, Qi Yan, Zike Wu et al.",
+      "published": "2026-10-05",
+      "url": "https://arxiv.org/abs/2610.09221",
+      "raw_summary": "Flow and diffusion models suffer from slow inference due to computationally expensive numerical integration. Distillation provides a promising way for a student model to learn from a teacher's dynamics, enabling one-step or few-step generation. However, existing methods often depend on curated distillation datasets, costly teacher rollouts, or auxiliary proxy networks, which complicate model training and scaling. In this work, we propose Consistent Distribution Matching, a simulation-free and data-free distillation method for accelerating diffusion and flow models while preserving strong generative capacity. Our key insight is to unify sample generation and score estimation with one student network. Thus, our framework uses only two models, a frozen teacher and a trainable student, and optimizes one objective. We prove that minimizing our objective indicates Wasserstein convergence of the student flow-map pushforwards to the teacher marginals. On ImageNet 256times256, our method attains an FID of 2.04 with a single function evaluation (1-NFE) and a 4-NFE FID of 1.37 within 40 epochs of training, surpassing the state-of-the-art distillation baselines without data. Our code code and model are available at https://consistentdmd.github.io/.",
+      "image": "https://arxiv.org/html/2610.09221v1/cdmd_main_diagram_v3.png"
+    },
+    {
+      "id": "paper-2610.22448",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Lean4AgenticRL: Advancing Agentic RL with Verifiable Multi-level Process Rewards",
+      "authors": "Ruida Wang, Gerald Friedland, Tong Zhang et al.",
       "published": "2026-10-14",
-      "url": "https://arxiv.org/abs/2610.21261",
-      "raw_summary": "Sparse autoencoders (SAEs) represent model activations with sparse, linearly decoded features, but the downstream effects of those features need not compose additively. We introduce SAE Additivity Residuals (SAR), which measure the behavioral variation left unexplained above a chosen interaction order. Under independent feature subset sampling, population SAR is exactly the normalized energy of interactions above that order and bounds coalition ordering error for the optimal low order approximation. To distinguish compositionality associated with the SAE representation from that induced by downstream computation, we compare learned SAE coordinates with sum preserving random rotations of the same selected subspace and find lower first order residuals for the learned coordinates across all 18 model and behavior settings. The coordinates are nevertheless not fully additive: pairwise terms improve held out coalition ordering in every setting and outperform parameter matched models using randomly selected third order terms. In a combined steering experiment, pairwise modeling raises rank fidelity from 0.5874 to 0.7790 and reduces ordering error from 0.1444 to 0.0606. Together, these results show that SAE coordinates support comparatively compositional behavioral descriptions while faithful joint explanations and interventions still require interactions beyond individual feature effects. Code is available at https://github.com/OpenSAE/SAE-Behavioral-Compositionality."
+      "url": "https://arxiv.org/abs/2610.22448",
+      "raw_summary": "Enhancing the agentic capabilities of Large Language Models (LLMs) to tackle complex software engineering (SWE) and general terminal-usage problems is a pressing challenge. Current state-of-the-art LLMs often go through large-scale agentic Reinforcement Learning (RL). However, they mostly rely on high-level outcome rewards, with minimal consideration of low-level toolcall and mid-level workflow-stage rewards, which makes the training less effective. To overcome this limitation, we propose **Lean4AgenticRL**, which, to the best of our knowledge, is the first framework that grounds multi-level process rewards in the unified Lean4 formalization schema for open-ended agentic RL. **Lean4AgenticRL** first builds a *problem-specific workflow* system that balances the agent's own capability and controllability during execution, laying the foundation for further verification. Subsequently, our workflow formalization and multi-level reward annotation methods enable agent behavior verification within a general harness system. It provides multi-level rewards to support more effective agentic RL with the workflow-stage-normalized GRPO algorithm. Using **Lean4AgenticRL**, we train **LAR-9B/27B**, a family of models with enhanced agentic capability. Extensive experiments indicate that our model outperforms the leading model of similar size. **LAR-27B** achieves **77.3%** on TerminalBench-2.1. On average, our models outperform the base model by **9.89%** and surpass the second-best model of comparable size we know by **5.07%**. These results indicate the potential of integrating formal methods in enhancing open-ended agentic RL."
     },
     {
-      "id": "paper-2610.22280",
+      "id": "paper-2610.22744",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "LEASH: Uncertainty-Aware Weak-to-Strong Escalation and Oversight for Computer-Use Agents",
-      "authors": "Qingni Wang, Changdae Oh, Yuzhe Yang et al.",
+      "title": "OmniXRef: A Unified Framework for Multimodal Multi-Reference Video Editing",
+      "authors": "Xiaoyan Cong, Tianyu Wang, Hyeonho Jeong et al.",
       "published": "2026-10-14",
-      "url": "https://arxiv.org/abs/2610.22280",
-      "raw_summary": "Computer-use agents increasingly tackle long-horizon tasks, where running a frontier model at every step is expensive and a small open-weight model alone often fails. Weak-to-strong escalation offers a middle ground where a weak agent acts by default and hands control to a strong one only when needed. The core challenge is deciding when to escalate, which requires an uncertainty signal cheap enough to check at every step. However, even after handoff, the strong agent can still get lost, but a black-box API that the strong agent is usually served exposes no internals to monitor. To this end, we propose LEASH, a training-free framework that unleashes the strong agent only when the weak agent's latent uncertainty signals it is needed, and keeps it on a leash afterward. LEASH has three layers: (1) initial task uncertainty for early routing, (2) step-level uncertainty for runtime escalation, and, after handoff, (3) a shadow observer for continued oversight of the strong black-box agent. Here, we use latent uncertainty as a fuel for all three layers. Specifically, we compare the weak model's hidden states with those from its past successful and failed trajectories, and a state that looks more like the failures signals higher uncertainty. During weak-agent execution, our uncertainty estimator reuses activations already produced during action generation, so it needs no extra forward pass or dedicated monitor training. Experiments on OSWorld across four contemporary model backbones show that LEASH consistently improves over standalone weak agents and outperforms random escalation by 6.55--11.94 points at matched escalation rates. With Qwen3.5-35B-A3B, LEASH achieves 73.66% task success at $0.4117 per task, matching always-on Claude Opus 5 (72.90%) while reducing inference cost by 19.2%.",
-      "image": "https://arxiv.org/html/2610.22280v1/overview.png"
-    },
-    {
-      "id": "paper-2610.15924",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Scalable Weak-to-Strong Verifier Hardening for Agent Environments",
-      "authors": "Chong Zeng, Ziqian Zhong, Kexun Zhang et al.",
-      "published": "2026-10-10",
-      "url": "https://arxiv.org/abs/2610.15924",
-      "raw_summary": "Agent environments are essential for large language model (LLM) development. They use programmatic verifiers to turn complex outcomes into rewards. Verifiers can be attacked into awarding full credit to cheating agents without completing the intended task, causing inaccurate evaluation and misalignment in training. As agent environments scale in numbers and difficulty, so must the repairing of exploitable verifiers. To this end, we ask whether today's model with scaled compute can automatically harden agent environments to prevent potentially stronger future models from reward hacking. We introduce a scalable, fully automatic approach to weak-to-strong verifier hardening. It first sets up an isolated verifier sandbox that agents cannot directly modify, then uses a hacker-fixer loop to find and repair remaining verifier vulnerabilities.   We apply this loop to Terminal Bench, KernelBench, and SETA, substantially reducing attack success across these agent environments. The iterative design scales with the hardening budget, producing progressively stronger defenses as the number of loop iterations increases and outperforming the static, non-iterative baseline. An earlier version of our hacker-fixer loop has been adopted by the official Terminal Bench repository as a way to audit exploits in its environments. Project page: https://verifier-hardening.github.io/."
-    },
-    {
-      "id": "paper-2610.17697",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "LeanPRM: Lean-Grounded Process Supervision for Natural Language Proof Verification",
-      "authors": "Rodney Lafuente-Mercado, Salman Rahman, Jingyan Shen et al.",
-      "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.17697",
-      "raw_summary": "AI systems now write long and difficult mathematical proofs, and checking their step-by-step validity is becoming a bottleneck. A learned verifier could check proofs cheaply, but training one requires a correctness label on every step, and such labels are hard to obtain for open-ended proofs. Existing methods take them from human annotators, which is costly, or derive them from final answers, which proofs do not have, and formalizing each proof in Lean requires expert effort. We introduce LeanPRM, a framework that uses the Lean proof assistant to create step-level labels for natural-language proofs. A model writes a natural-language proof together with a paired formal proof, without feedback from Lean. Lean then labels every step, and a second model discards failures caused only by the formal syntax, so that the negative labels mark errors in the mathematics. LeanPRM contains 10,634 proofs with 152K labeled steps and no human annotation. A Qwen3-4B verifier trained on LeanPRM raises exact step-label accuracy on a held-out set of 200 proofs (LeanPRM-Bench) from 48.2 to 74.7, as opposed to 60.3 when the same base model is trained on PRM800K. It also selects better proofs in best-of-N selection on IMO-level problems, and outperforms the PRM800K-trained verifier on three of four external verification benchmarks. Training on LeanPRM improves verifiers at every size from 0.6B to 8B parameters on LeanPRM-Bench, Hard2Verify and IMO-GradingBench. Given the labels need no human annotation, LeanPRM can grow with the supply of formal statements, offering a path to step-level feedback on AI-generated proofs that are hard for humans to check.",
-      "image": "https://arxiv.org/html/2610.17697v1/overview.png"
-    },
-    {
-      "id": "paper-2610.17959",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Virtual Head Attention",
-      "authors": "Xibo Ding, Guoxia Wang, Jinle Zeng et al.",
-      "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.17959",
-      "raw_summary": "The design of attention mechanisms in long-context large language models faces an ``impossible triangle'' among KV cache size, training and prefill FLOPs, and model quality. GQA achieves strong quality but incurs high KV cache overhead; alternative approaches such as MLA and MFA can compress the cache, but MLA suffers from quality loss while MFA substantially increases training and prefill compute. We propose Virtual Head Attention (VHA), which simultaneously improves all three vertices through two lightweight linear operations: Q Premix applies a near-identity transformation to queries within each KV group to recover virtual head diversity from halved physical query heads, and Linear Postmix fuses inter-head features via a low-rank I + AB^top residual structure. Since VHA introduces no nonlinear operations, Premix can be folded into the query projection and Postmix into the output projection at inference time, reducing the model to a standard GQA-2 architecture that directly reuses all existing GQA inference optimizations. With only two KV heads, the group size in large models readily reaches 64, fully exploiting Tensor Core parallelism during decoding. Across four scales with 4K-context 50B-token pretraining, VHA consistently surpasses the standard GQA baseline at every scale (+0.05\\% to +0.81\\%), while reducing KV cache by 4times vs.\\ GQA-8 at dense scales and 2times vs.\\ GQA-4 at the MoE scale, and lowering training and prefill FLOPs by 7.9\\% (1.7B, S{=}4096). On an industrial 30B-A3B MoE model trained on 500B tokens at 8K context, VHA outperforms both MLA and GQA-4 by +0.70\\,/\\,+2.60\\,\\% on a 12-benchmark base-model evaluation suite; in a separate matched 10B-A1B MoE comparison after long-context mid-training, VHA attains an average RULER score of 84.4 over 8K--128K versus 73.0 for GQA, while using two rather than four KV heads in the full-attention layers."
+      "url": "https://arxiv.org/abs/2610.22744",
+      "raw_summary": "Creative intent in video editing can be expressed through text instructions (e.g., \"remove the people\"), image references (e.g., subject appearance), video references (e.g., camera movement), or a combination of the above. We introduce OmniXRef, a unified framework for multimodal multi-reference video editing that allows users to combine variable numbers of text, image, and video references to control diverse attributes of a source video. We first devise a unified input design with a reference-bank interface and introduce R^2-RoPE to support generalization to more references. Then our model, OmniXRef-Model, uses a single-stream diffusion transformer to jointly process the source video and multimodal context from an MLLM in an interleaved sequence. To address the scarcity of training data for video-reference editing, we construct OmniXRef-Data using synthesis pipelines for different editing tasks and combinations of references. We use curriculum learning to progressively increase task complexity and resolution. To support systematic evaluation of video as a control modality, we introduce OmniXRef-Bench, a benchmark for video-reference attribute transfer across Camera, Motion, Content, Style, and Visual Effects (VFX). Comprehensive evaluations show that our OmniXRef-Model outperforms task-specific baselines and commercial models.",
+      "image": "https://arxiv.org/html/2610.22744v1/pipeline_v2.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +66,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-19",
+      "published": "2026-10-20",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1041478561",
+      "id": "news-86862303",
       "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-10-18",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Advancing coding in low‑resource programming languages",
+      "authors": "OpenAI",
+      "published": "2026-10-19",
+      "url": "https://openai.com/index/low-resource-programming-languages",
+      "raw_summary": "Learn how OpenAI is improving ChatGPT across low-resource programming languages, with new evaluations for software engineering, SQLite, and COBOL migration."
     },
     {
-      "id": "news-gh-1379023782",
+      "id": "news-19260116",
       "type": "news",
-      "source": "MiniMax · GitHub",
-      "region": "国内",
-      "title": "MiniMax-AI/OpenAgentCore",
-      "authors": "MiniMax",
-      "published": "2026-10-18",
-      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
-      "raw_summary": "The OpenAI Agents API, open source and self-hosted. Run Codex, Claude Code or MiniMax Code on your own machines with your own models, through the official OpenAI SDK."
+      "source": "Hugging Face",
+      "region": "海外",
+      "title": "TorchNeuron: running HF models on AWS Trainium is easier than ever",
+      "authors": "Hugging Face",
+      "published": "2026-10-19",
+      "url": "https://huggingface.co/blog/hf-torchneuron",
+      "raw_summary": ""
     },
     {
-      "id": "news-gh-1333065091",
+      "id": "news-80819688",
       "type": "news",
-      "source": "DeepSeek · GitHub",
-      "region": "国内",
-      "title": "deepseek-ai/deepseek-harness",
-      "authors": "DeepSeek",
-      "published": "2026-10-17",
-      "url": "https://github.com/deepseek-ai/deepseek-harness",
-      "raw_summary": "DeepSeek Harness: Everything is a Plugin."
+      "source": "AWS ML",
+      "region": "海外",
+      "title": "Structured outputs for Anthropic Claude models on Amazon Bedrock",
+      "authors": "AWS ML",
+      "published": "2026-10-19",
+      "url": "https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/",
+      "raw_summary": "Amazon Bedrock now supports structured outputs for all Anthropic Claude models on both the bedrock-runtime and bedrock-mantle endpoints. Receive schema-compliant JSON that conforms to a defined structure, without custom parsing, retry logic, or post-processing, using JSON Schema output format and strict tool use."
     }
   ]
 }
