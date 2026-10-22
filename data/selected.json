@@ -1,62 +1,61 @@
 {
-  "fetched_at": "2026-10-21",
+  "fetched_at": "2026-10-22",
   "items": [
     {
-      "id": "paper-2610.19005",
+      "id": "paper-2609.34565",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "CyberArena: Benchmarking AI Agents in Live Symmetric Attack-and-Defense Combat",
-      "authors": "Bangya Liu, Jianhong Tu, Yueyang Pan et al.",
-      "published": "2026-10-13",
-      "url": "https://arxiv.org/abs/2610.19005",
-      "raw_summary": "AI agents are demonstrating increasingly strong offensive and defensive cybersecurity capabilities in the real world. Current benchmarks mostly evaluate agents in isolation against static targets. Real cyber operations, however, are dynamic and coupled: security postures constantly change as attackers and defenders adapt to each other in real time. Static benchmarks quickly saturate and miss an agent's ability to attack and defend simultaneously under live pressure. To address this gap, we present CyberArena, a dynamic, symmetric adversarial benchmark built around multi-round attack-and-defense combat. In isolated sandboxes, two agents compete under identical rules, acting concurrently as both attackers and defenders over continuously changing services. This converts static targets into evolving, semi-open challenges, directly testing an agent's speed and precision in discovering, exploiting, and patching vulnerabilities. To sustain the benchmark's longevity, an automated agentic pipeline continuously generates, reviews, and validates new environments. Furthermore, because pairwise contests are notoriously hard to quantify, we introduce a dynamical model that maps match dynamics into unified, multidimensional scores across offensive, defensive, and domain-specific capabilities. Evaluating 12 frontier LLM agents across 40 challenges in 466 matches, CyberArena separates model capabilities where single-agent baselines hit a ceiling. The trajectories read like a fight rather than an exam: defenders patch one hole and miss the next and certify repairs on stale evidence, while capable agents think a move ahead, planting backdoors for later rounds and, in one case, writing their own packet sniffer to watch the opponent. Beyond a benchmark, CyberArena serves as an adaptable, scalable experimental platform for future research on cybersecurity agents."
+      "title": "FlowState: Execution State as Memory for Long-Horizon LLM Agents",
+      "authors": "Minghao Li, Bangyan Li, Zifan Wang et al.",
+      "published": "2026-10-07",
+      "url": "https://arxiv.org/abs/2609.34565",
+      "raw_summary": "Long-horizon tasks require LLM agents to continually draw on information from earlier interactions. However, retaining the full history increases context costs, while compressing it risks losing details needed later, and the relevance of historical information often becomes apparent as the task progresses. To address these challenges, we propose FlowState, which treats execution state as memory that can be retained and revisited across requests, unifying current decision-making with the reuse of historical information. FlowState preserves semantically typed state nodes, their relations, and references to raw tool observations, separating persistent retention from on-demand access. Within a single execution loop, Incremental State Update (ISU) maintains the current state based on new inputs and feedback, while Progressive State Access (PSA) progressively reveals historical states and supporting evidence as needed during reasoning. Together, these mechanisms enable agents to reassess prior decisions in light of new information and guide subsequent actions. Compared with a full-context baseline using the same DeepSeek-V4-Flash model, FlowState improves the average success rate on MemoryArena and the average pass rate on τ^3-Bench by 4.55 and 13.95 percentage points, respectively, while reducing total token consumption by 43.2% and 40.6%. These results demonstrate the performance and efficiency advantages of FlowState on long-horizon tasks."
     },
     {
-      "id": "paper-2610.25525",
+      "id": "paper-2610.27190",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "StopLoss: Teaching Agents to Predict Failure and Stop Early",
-      "authors": "Jiarong Liang, Xueguang Ma, Dongfu Jiang et al.",
-      "published": "2026-10-17",
-      "url": "https://arxiv.org/abs/2610.25525",
-      "raw_summary": "Coding agents keep working on runs that will fail verification, and asking a frontier model to watch for this is expensive in its own right. We introduce StopLoss, a small external monitor that learns failure recognition from completed trajectories and their verifier outcomes. The name is inspired by the stop-loss order in finance: StopLoss ends a run early when the run is likely to fail, which saves resources. Final outcomes label earlier local windows, so a fine-tuned language model can score the most recent tool steps in a single forward pass, and a threshold calibrated on successful runs turns that score into an abort decision without changing the executor. Trained on GPT-family SWE-rebench trajectories and evaluated on SWE-bench Verified and a SWE-bench Pro subset with GPT and Claude executors, StopLoss is compared against six general-purpose judges reading identical windows. Outcome supervision lifts failure prediction from near chance to a useful signal at the first check, at one to two orders of magnitude lower cost per check than any tested judge. This translates into savings: relative to completing every task, StopLoss lowers cost per retained solve by 4.5\\% on Verified while preserving 99\\% of successful runs, and by up to 31\\% on the costlier Pro subset, reaching 48\\% with a Qwen3-8B backbone, and in all four settings its cost per retained solve is below that of every judge policy. Outcome-trained small monitors can make failure recognition cheap enough for early stopping to pay for itself."
+      "title": "On the Fragility of Tasks under Composition: Implicit Budgeting in Language Models",
+      "authors": "Chenpan Li, Thies Brockmoeller, Stefanie Jegelka et al.",
+      "published": "2026-10-18",
+      "url": "https://arxiv.org/abs/2610.27190",
+      "raw_summary": "Modern language models are increasingly asked to handle several tasks within a single prompt. Doing so requires solving each task correctly while integrating the resulting answers into a coherent response. In this paper, we identify a fundamental limitation in this process, where models make substantially more errors when tasks are composed, even when they can solve every constituent task reliably in isolation. This degradation cannot be fully explained by the accumulation of independent errors. Across both open-weight models and the frontier model Claude Opus 5, our findings instead point to an implicit thinking budget underlying this effect. In particular, under composition, models use substantially fewer tokens per task than in isolation, even when the full sequence remains well within the context window. Tasks that require longer solution traces in isolation are consequently more fragile under composition, i.e., models make more errors on prompts containing these tasks. In isolation, non-fragile tasks receive more reasoning than they need and waste compute. However, by grouping tasks according to their fragility, the implicit budgeting can be manipulated to reduce token usage by 43\\% across a range of math and linguistic tasks while also preserving accuracy.",
+      "image": "https://arxiv.org/html/2610.27190v1/fragility-correlation-cross-k-and-model.png"
     },
     {
-      "id": "paper-2610.22324",
+      "id": "paper-2610.28069",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Training Reasoning Models to Generate Diverse Scientific Ideas",
-      "authors": "Manya Wadhwa, Pranav Narayanan Venkit, Hiroaki Hayashi et al.",
-      "published": "2026-10-14",
-      "url": "https://arxiv.org/abs/2610.22324",
-      "raw_summary": "One of the first steps of a research pipeline is generating ideas. Large Language Models (LLMs) are increasingly used to automate this step, but most of this work optimizes the quality of individual ideas, while overlooking diversity. In our work, we study document-grounded ideation, focusing on increasing the diversity of LLM generated ideas and ensuring they are high quality. Given prior papers, a model must propose a set of ideas that are each high-quality and clearly distinct from one another, while also being grounded in the input documents. To optimize for this, we propose training with a set-level reinforcement learning objective. In our setup, in a single generation, the model writes K structured idea cards grounded in the source papers, and the set is scored jointly, where each idea's quality is weighted by its distance from the ideas written before it. This teaches the model to steer each new idea away from its predecessors. We show that our trained 8B model achieves higher creative utility (a measure combining quality and diversity) than Claude Opus 4.8 and GPT-6 Astra on our contamination-free benchmark. In a pilot human study with four experts, our sets are judged as promising as Claude Opus 4.8's and contain marginally more unique ideas. When a coding agent runs proof-of-concept experiments on the ideas, our model's success@k is comparable to Claude Opus 4.8's, so we see that the added diversity does not cost any executability.",
-      "image": "https://arxiv.org/html/2610.22324v1/per-domain.png"
+      "title": "Training the Whole Agent, Not Just the Model",
+      "authors": "Lingxiao Tang, Wei Tao, Yiwen Guo et al.",
+      "published": "2026-10-19",
+      "url": "https://arxiv.org/abs/2610.28069",
+      "raw_summary": "Training coding agents typically updates the policy while keeping the harness fixed. During training, trajectories reveal flawed repair strategies and interaction problems that vary across tasks and change as the policy learns. We introduce HarnessAdapt-RL, which trains the policy and adapts its harness during reinforcement learning. For flawed repair strategies, a frozen teacher generates task-specific mechanism-level skills. For interaction problems recurring across tasks, a separate teacher model evolves tools and hooks, keeping each change only if it improves the observed pass rate or the observed trainable rate without lowering either. The policy trains with the adapted harness, and its new trajectories guide further adaptation. With a 9B base model, HarnessAdapt-RL improves pass@1 over GRPO by 9.8, 12.6, and 6.4 percentage points on SWE-bench Verified, Multilingual, and Pro, and outperforms GRPO with the human-designed OpenHands harness. Gains from mechanism-level skills persist after their removal at evaluation. Re-evolving tools and hooks as the policy changes outperforms freezing early versions. Removing them at deployment, in contrast, costs up to 7.7 percentage points. Training therefore produces a model-harness pair: the trained policy and the evolved tools and hooks, with skills removed at deployment."
     },
     {
-      "id": "paper-2610.19439",
+      "id": "paper-2610.28388",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Progress-Aware Distillation for Mitigating Stagnation in Small Language Model Agents",
-      "authors": "Yuanpu Cao, Saket Sathe, Hanyu Wang et al.",
-      "published": "2026-10-16",
-      "url": "https://arxiv.org/abs/2610.19439",
-      "raw_summary": "While LLM-based agent systems have demonstrated remarkable proficiency in reasoning and solving complex real-world tasks, they also come with substantial token consumption and inference latency, limiting their practical deployment. To enhance the efficiency of agent systems, recent efforts have focused on transferring agentic capabilities from large-scale models to small language models (SLMs) via supervised fine-tuning-based distillation. Nevertheless, as interaction trajectories grow longer, involving extended reasoning-action chains and extensive environmental feedback, distilled student agents tend to experience progress stagnation: becoming trapped in unproductive loops characterized by persistent failed strategies and difficulty making meaningful progress. Our systematic analysis shows that this phenomenon consistently occurs across diverse SLMs and task domains. To address this issue, we propose Progress-Aware Distillation (ProD), which explicitly detects and penalizes stagnation in student-generated trajectories. ProD encodes the stagnation gap between student and teacher into an adaptive margin for dynamically penalizing possible stagnation. By iteratively applying this procedure, ProD enables student agents to progressively approximate teacher behavior. Extensive experiments involving 8 SLMs, ranging from 0.6B to 8B parameters, on both in-domain and out-of-domain benchmarks, demonstrate that ProD substantially mitigates progress stagnation while enhancing both the success rates and task-completion efficiency of distilled SLM agents."
+      "title": "Self-Credit: Credit Assignment for Long-Horizon Agentic RL via Intra-group Rescaling",
+      "authors": "Fangcong Yin, Ming Yin, Tanvi Bhandarkar et al.",
+      "published": "2026-10-19",
+      "url": "https://arxiv.org/abs/2610.28388",
+      "raw_summary": "LLM agents are commonly trained with RLVR, but the sparse nature of typical RLVR rewards makes credit assignment challenging, especially for long-horizon tasks. We propose Self-Credit, an end-to-end agentic RL method that creates dense supervision signals from sparse outcome rewards using self-generated credit assignment via intra-group rescaling. Self-Credit builds on group-based RL with three components. First, during its rollouts, the policy model generates summaries with citations to earlier turns containing critical evidence, which serve as self-generated credit. Second, we refine this model-generated credit with intra-group rescaling, which compares cited actions across successful and failed rollouts for the same prompt. This approach uses group-level agreement and disagreement to remove undeserved credit and further emphasize credit assigned to critical actions. Third, advantage reweighting uses the rescaled credit weights to update the advantages of the cited turns. On BrowseComp-Plus, Self-Credit improves over the base models by 37.0 and 36.2 points on Qwen3 8B and 32B respectively, and outperforms the strongest agentic RL baselines by 8.5 and 5.6 points, respectively. Self-Credit also improves over the strongest baselines by 4.9 points on GAIA and 4.7 points on xBench-DeepSearch. Analyses show that self-generated credit provides useful signals for selecting critical actions, and that intra-group rescaling, especially on failed rollouts, is important across model scales."
     },
     {
-      "id": "paper-2610.22328",
+      "id": "paper-2610.16523",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "ACEdit: Stable Multi-Turn Image Editing via Asymmetric Conditioning",
-      "authors": "Sara Dorfman, Nir Goren, Gal Barak et al.",
-      "published": "2026-10-14",
-      "url": "https://arxiv.org/abs/2610.22328",
-      "raw_summary": "Image editing models produce impressive results for individual edits, but their quality often deteriorates over multiple editing turns. Each editing turn introduces small distribution shifts that accumulate over successive edits, creating a gap between the input distributions encountered during the editor's original training and multi-turn inference. We introduce a training scheme that makes multi-turn image editing stable under this accumulating distribution shift. A key is to force the editor to operate on its own outputs from previous editing turns during training, bringing the principle of Self-Forcing to image editing. The main challenge is that self-generated editing trajectories deviate from ground-truth trajectories, making direct supervision unreliable. We address this challenge through a distillation objective that leverages a teacher image editor to provide a reliable training signal when the model operates on its own previous outputs. We introduce an asymmetric conditioning scheme: while the student performs edits sequentially on its own outputs, the teacher remains anchored to the original clean image and receives a compound editing instruction. Experiments show substantially reduced degradation over long multi-turn sequences while maintaining editing quality and instruction adherence.",
-      "image": "https://arxiv.org/html/2610.22328v1/overview.png"
+      "title": "EAU: Environment-Agent-User Co-evolution for Training User-Centric Agents",
+      "authors": "Min Cai, Dan Zhang, Gao Xing et al.",
+      "published": "2026-10-11",
+      "url": "https://arxiv.org/abs/2610.16523",
+      "raw_summary": "Training LLM agents to interact with users over multiple turns is challenging because the learning signal depends not only on the agent, but also on the user simulator and environment, which jointly shape the agent's experience. Simulated users can be stochastic or inconsistent, while environments may contain unreliable tools, incomplete state coverage, and incorrect verifiers. Prior work mainly addresses the resulting instability through reward shaping or denser supervision, while treating these components as fixed. We instead introduce EAU, a meta-agent framework for environment--agent--user co-evolution. During training, EAU monitors trajectories, tool traces, rewards, and training statistics; diagnoses failures and uninformative interactions; and proposes targeted modifications to the user simulator, environment, reward design, and RL configuration. Validated changes are hot-swapped into the ongoing run, allowing the training setup to evolve together with the policy. These adaptations also persist across runs, so later training can build on previously discovered improvements rather than restarting from a fixed setup. We enable this process through an editable symbolic representation of user and environment dynamics, while the agent remains a neural LLM optimized with RL. Across three interactive-agent benchmarks and two backbone models, EAU consistently outperforms prior RL methods, improving the overall score over the strongest baseline by 14.7--15.0% and increasing successful task completion on ColBench by up to 36.7%, showing that co-evolving the training system with the policy can substantially improve multi-turn RL."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +64,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-21",
+      "published": "2026-10-22",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-56373662",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "How AT&T is rethinking in-house legal work with OpenAI",
+      "authors": "OpenAI",
       "published": "2026-10-21",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+      "url": "https://openai.com/index/att-legal",
+      "raw_summary": "AT&T is working with OpenAI to make legal knowledge easier to access. Learn how its LegalEdge team is rethinking intake and scaling legal judgment."
     },
     {
-      "id": "news-91508374",
+      "id": "news-78017902",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Franchisee reconciles cash in 94% less time with ChatGPT Work",
+      "title": "Broad access through consistent standards",
       "authors": "OpenAI",
-      "published": "2026-10-20",
-      "url": "https://openai.com/index/ted-taylor-restaurant",
-      "raw_summary": "An independent Schlotzsky’s and Cinnabon franchisee cut menu repricing time by 95% and built a workflow that could free up $100K in cash flow."
+      "published": "2026-10-21",
+      "url": "https://openai.com/index/broad-access-through-consistent-standards",
+      "raw_summary": "How OpenAI works with distribution partners to uphold consistent safeguards, support responsible access, and clarify expectations in our Usage Policies."
     },
     {
-      "id": "news-52740692",
+      "id": "news-45990254",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "OpenAI acquires Orchestra Bio",
+      "title": "OpenAI models are coming to Google Cloud",
       "authors": "OpenAI",
-      "published": "2026-10-20",
-      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
-      "raw_summary": "OpenAI is acquiring Orchestra Bio to bring AI-powered operations to life sciences R&D, helping biopharma teams accelerate drug development and advance new treatments."
+      "published": "2026-10-21",
+      "url": "https://openai.com/index/openai-models-google-cloud",
+      "raw_summary": "OpenAI and Google Cloud are bringing frontier models and Codex workflows to Gemini’s Model Garden, available through Google Cloud Marketplace."
     }
   ]
 }
