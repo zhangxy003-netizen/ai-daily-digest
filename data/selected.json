@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24",
+  "fetched_at": "2026-10-25",
   "items": [
     {
       "id": "paper-2610.31329",
@@ -83,26 +83,26 @@
       "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-42188693",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
-      "authors": "OpenAI",
-      "published": "2026-10-23",
-      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
-      "raw_summary": "Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT."
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-10-24",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-83082083",
+      "id": "news-gh-1379023782",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Securing our frontier model training environment",
-      "authors": "OpenAI",
-      "published": "2026-10-23",
-      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
-      "raw_summary": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming."
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/OpenAgentCore",
+      "authors": "MiniMax",
+      "published": "2026-10-24",
+      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
+      "raw_summary": "The OpenAI Agents API, open source and self-hosted. Run Codex, Claude Code or MiniMax Code on your own machines with your own models, through the official OpenAI SDK."
     }
   ]
 }

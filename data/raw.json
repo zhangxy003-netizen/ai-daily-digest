@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-24",
+  "fetched_at": "2026-10-25",
   "paper_candidates": [
     {
       "id": "paper-2610.31329",
@@ -11,7 +11,7 @@
       "published": "2026-10-21",
       "url": "https://arxiv.org/abs/2610.31329",
       "raw_summary": "Existing vision-language models (VLMs) remain unreliable for fine-grained visual perception. In this report, we present WeVisOne-VL (WeChat Vision All-in-One), a powerful VLM that unifies object-level and pixel-level perception through structured next-token prediction. It supports multiple visual tasks including object detection, referring localization, counting, OCR, segmentation, and matting, enabling localization at any user-specific granularity, from points and boxes to masks and alpha mattes. Architecturally, we integrate a lightweight pixel decoder into the VLM via a special <OBJ> token to generate instance-level pixel outputs. We train the model with a three-stage curriculum SFT followed by mixed-task RL. Across over 30 benchmarks, WeVisOne-VL demonstrates leading performance on both object-level and pixel-level tasks, while maintaining robust rejection for object-absent queries. By releasing WeVisOne-VL to the open-source community, we hope to advance VLMs from broad visual understanding toward truly reliable perception systems for real-world deployment.",
-      "hotness": 222
+      "hotness": 238
     },
     {
       "id": "paper-2610.30949",
@@ -23,7 +23,7 @@
       "published": "2026-10-21",
       "url": "https://arxiv.org/abs/2610.30949",
       "raw_summary": "We present IQuest-Q1, a sparse Mixture-of-Experts (MoE) agentic foundation model with 320B total parameters (15B activated). IQuest-Q1 is developed through a three-stage process: (1) stable and efficient pre-training, combining Stable SplitNorm, Muon, and muP with a two-stage curriculum whose second stage increases the coding-data mixture, preserving a wide stability margin between safe and optimal learning rates; (2) fine-grained mid-training, expanding the data mixture across domains and formats and progressively extending the context; and (3) multi-scaffold with multi-version post-training, combining SFT, domain-specialized RL, and MOPD across various scaffolds to integrate complementary training signals and strengthen agentic coding capabilities. Furthermore, model merging combines different experts and checkpoints from different stages while mitigating conflicts among their parameter updates. The resulting IQuest-Q1 demonstrates capabilities in both coding and general tasks. We release IQuest-Q1 as an open-source model to support community research and development.",
-      "hotness": 54
+      "hotness": 91
     },
     {
       "id": "paper-2610.23987",
@@ -35,7 +35,7 @@
       "published": "2026-10-13",
       "url": "https://arxiv.org/abs/2610.23987",
       "raw_summary": "Fine-grained visual understanding requires distinguishing subtle differences in local attributes and spatial relations, yet remains challenging for existing vision-language models. Unified multimodal models (UMMs) offer a new opportunity through generation pathways that preserve rich visual information complementary to understanding. However, existing generation-assisted understanding methods mainly rely on generative supervision or explicit generation and have not systematically explored direct use of native generation-side representations. To address this gap, we systematically analyze what generation-side representations offer for fine-grained understanding, finding that they are more sensitive to fine-grained semantic changes, capture task-relevant changes missed by understanding-side representations, and depend on correct spatial organization for this advantage. Guided by these findings, we design GAFU, a post-training framework that unlocks native generation-side information for fine-grained understanding. It compresses generation-side visual representations into compact \\(G\\) tokens that preserve fine-grained visual details, enabling task-conditioned retrieval by the understanding pathway. Experiments show that GAFU consistently outperforms SFT baselines trained on the same data across diverse visual understanding tasks and UMM architectures, with maximum relative improvements of 20.00\\%, 17.94\\%, and 8.62\\% on VStar-Bench, OmniSpatial, and VSR-Bench, respectively. Overall, GAFU converts complementary information from the generation pathway into gains in fine-grained visual understanding, providing an effective path toward synergy between generation and understanding in UMMs.",
-      "hotness": 32
+      "hotness": 38
     },
     {
       "id": "paper-2610.30753",
@@ -47,7 +47,7 @@
       "published": "2026-10-21",
       "url": "https://arxiv.org/abs/2610.30753",
       "raw_summary": "Complex camera motion is central to visual storytelling, yet translating cinematographic intent into controllable, executable camera trajectories remains challenging. We introduce FilmFlow, an agentic framework that converts natural-language instructions or reference videos into explicit camera trajectories for dynamic 3D environments. To generate these trajectories, a Director agent constructs executable camera plans by composing high-level motions from concurrent atomic operations that jointly control translation, rotation, and framing. The Director is supported by three specialized agents: an Interpreter that extracts scene-grounded cinematographic intent, a Scout that selects initial viewpoints, and a Critic that evaluates rendered results and provides visual feedback for iterative plan refinement. We also introduce CinemaBench, comprising 150 Blender scenes from self-created and licensed sources, with five camera instructions per scene for 750 text-directed tasks and 60 reference videos associated with a subset of scenes. CinemaBench supports evaluation of both text-directed camera generation and video reference-directed camera generation. Across a diverse set of evaluated baselines, FilmFlow achieves the strongest benchmark performance and the highest user preference, demonstrating effective spatial reasoning, temporal coordination, and visual composition for executable 3D cinematography.",
-      "hotness": 13
+      "hotness": 31
     },
     {
       "id": "paper-2610.30418",
@@ -59,43 +59,7 @@
       "published": "2026-10-20",
       "url": "https://arxiv.org/abs/2610.30418",
       "raw_summary": "Modern LLM agents can retrieve information from accessible documents, and then disclose a sensitive conclusion assembled from them. This mosaic effect creates a critical risk for agents operating over confidential data. We quantify its realization with 30 synthetic cybersecurity, medical, and military examples, yielding 10,800 final answers from three LLM agents in controlled simulation and 1,440 answers from live agents in two open-source harnesses. Even under benign queries designed to be answerable from one document, GPT-5.6-Sol, the best performing model tested, discloses forbidden composites in 7.08% of answers (95% CI: 3.75-10.67%) in simulation, with worse disclosure rates in live harnesses. Adding visible classification headers and explicit aggregation rules reduces pooled disclosure rates substantially, yet unsafe disclosures persist in 32.37% of simulated answers (95% CI: 28.33-36.19%) across all intents despite these safeguards. Furthermore, increased refusals do not guarantee confidentiality, since significant refusals reveal the prohibited conclusion regardless. These results point to a troubling conclusion: sensitive data leaks via mosaic-style events are an observed confidentiality failure mode in the evaluated settings at non-negligible rates. They motivate stronger controls on what agents may infer and disclose in sensitive data environments with mixed-clearance users.",
-      "hotness": 12
-    },
-    {
-      "id": "paper-2610.20091",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "RTAformer: Relation-Transition-Aware Transformer for Video Scene Graph Generation",
-      "authors": "Jaeyeon Heo, Geuntaek Lim, Yukyung Choi",
-      "published": "2026-10-13",
-      "url": "https://arxiv.org/abs/2610.20091",
-      "raw_summary": "Video scene graph generation (VidSGG) aims to capture objects and their evolving relationships in videos. This requires accounting for both the persistence of object identities and abrupt changes in relationships. Existing methods aggregate information across frames to exploit temporal context, but an emphasis on consistency can obscure these changes. As a result, a model may retain its previous prediction even after the underlying relation has changed. We refer to this failure mode as relational semantic inertia. To address this issue, we propose Relation-Transition-Aware Transformer (RTAformer), a one-stage framework that separately models entity persistence and relation changes. It injects calibrated differences between adjacent-frame relation queries to guide predicate updates, while cross-frame instance alignment during training helps reduce cross-frame representational drift. Experiments on Action Genome show improvements in recall and mean recall over existing methods, with ablation studies supporting the contributions of the proposed components and comparisons using matched backbones showing larger gains on relation-transition frames than on non-transition frames.",
-      "hotness": 12
-    },
-    {
-      "id": "paper-2610.31372",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "RIDAR: Safeguarding Research Integrity in Autonomous Research Agents via Automated Detection and Runtime Intervention",
-      "authors": "Jiening Siow, Amy Xin, Junjie Wang et al.",
-      "published": "2026-10-21",
-      "url": "https://arxiv.org/abs/2610.31372",
-      "raw_summary": "Autonomous research agents are increasingly used to automate large portions of scientific research, yet they are prone to research integrity violations (RIVs): behaviors that compromise the validity, reproducibility, or faithfulness of the research process. We present RIDAR, a framework for automated RIV detection and runtime intervention. First, we introduce RIVT, a comprehensive taxonomy of 14 RIV types spanning the full research lifecycle. Building on RIVT, we present RIDAR-post-hoc, a framework to detect RIVs within agent trajectories. RIDAR-post-hoc achieves 85.2% F1 performance on RIV-Gold, a benchmark for RIV detection with 60 expert-annotated trajectories. Applying RIDAR-post-hoc to RIV-Wild, a dataset of 300 agent trajectories across 50 distinct research tasks, we detect 3,964 RIV instances in 99.7% of trajectories, revealing the prevalence of RIVs in current agents. Finally, we present RIDAR-runtime, a framework for dynamically detecting and correcting RIVs during agent runtime. RIDAR-runtime effectively reduces agent RIVs remaining at task completion by 36.8%. We will release our code and data to facilitate future research.",
-      "hotness": 6
-    },
-    {
-      "id": "paper-2610.31576",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "What Makes a Good Unmasking Policy? A Controlled Study of Learned Unmasking in Diffusion Language Models",
-      "authors": "Jinya Sakurai, Xun Xu, Jaehong Yoon",
-      "published": "2026-10-21",
-      "url": "https://arxiv.org/abs/2610.31576",
-      "raw_summary": "Masked diffusion language models generate tokens in parallel, but their efficiency depends on which predictions are committed. Learned unmasking policies improve the speed--accuracy trade-off, yet differ in supervision, inputs, and capacity, obscuring which choices matter. We view supervised policies as distilling a decoding procedure through a teacher and examine independently what the teacher labels as committable, on which states the policy imitates it, what the policy observes, and how much the number of function evaluations (NFE) must decrease to offset policy overhead. We find that labeling predictions matching the final output is overly permissive at low NFE, and hidden states are weak alone but can complement confidence. About a 10% NFE reduction suffices to offset policy overhead for policies up to 7.5M parameters across tested settings. We therefore train a policy on trajectory-contraction targets, which accept only commitments staying on a reference trajectory, using confidence and hidden states. On LLaDA-8B-Instruct, the resulting 856K-parameter policy achieves the best accuracy--NFE frontier and highest throughput on GSM8K, is competitive at moderate targets on MATH-500 and HumanEval, and largely transfers to Dream-7B-Instruct.",
-      "hotness": 5
+      "hotness": 22
     },
     {
       "id": "paper-2610.31198",
@@ -107,19 +71,19 @@
       "published": "2026-10-21",
       "url": "https://arxiv.org/abs/2610.31198",
       "raw_summary": "Diffusion Language Models (DLMs) introduce unique quantization challenges due to their iterative denoising process. In this work, we reveal that quantization sensitivity is both taskand time-dependent, with different downstream tasks exhibiting distinct precision requirements across denoising steps. We further show that these patterns can be predicted without groundtruth labels or task-specific evaluation metrics. Building on these findings, we introduce T 2Quant, a task and time-aware mixedprecision quantization framework that uses a label-free sensitivity signal to optimally allocate activation precision across denoising steps under a fixed bit-width budget. Extensive experiments across three DLMs and six benchmarks demonstrate that T 2Quant consistently improves the average accuracy of existing quantization methods, achieving gains of up to 6.7 percentage points under the same budget.",
-      "hotness": 4
+      "hotness": 19
     },
     {
-      "id": "paper-2610.27148",
+      "id": "paper-2610.20091",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Who Takes the Lead? Model Ability and Task-Conditioned Collaboration with Humans",
-      "authors": "Weien Li, Haochen Liu, Zeyu Li et al.",
-      "published": "2026-10-18",
-      "url": "https://arxiv.org/abs/2610.27148",
-      "raw_summary": "As language-model agents grow more capable, they can carry more of a task without asking anyone for help. Falling reliance on a human partner is easy to read as a failure of collaboration when it may instead be a correct division of labor, and the rate of human involvement alone cannot tell the two apart. We study this systematically by placing an agent and a person under a shared objective while varying who holds the advantage: the human has a clear advantage, neither does, or the agent does. To obtain this control, we introduce a shared-control maze, in which an agent-controlled and a human-controlled avatar share the objective of reaching a common target in as few team turns as possible. The agent allocates each team turn between acting itself and handing the move to the person, and initial placement sets the human's shortest-path advantage while the task is otherwise unchanged. We evaluate GPT~5.6~Sol, Command~A+, Qwen~3.8~27B, and Command~R, first measuring solo capability with a single avatar and full-map observability, then running co-play with human participants across the three advantage conditions. Across the four models, stronger solo performance is associated with selective, route-conditioned human involvement: the models that solve the maze reliably on their own act for themselves almost without exception when the human holds no advantage, and involve the human on roughly 80% of initial decisions when the human route is shorter. Command R, the model with substantially weaker solo performance, shows no such selectivity.",
-      "hotness": 4
+      "title": "RTAformer: Relation-Transition-Aware Transformer for Video Scene Graph Generation",
+      "authors": "Jaeyeon Heo, Geuntaek Lim, Yukyung Choi",
+      "published": "2026-10-13",
+      "url": "https://arxiv.org/abs/2610.20091",
+      "raw_summary": "Video scene graph generation (VidSGG) aims to capture objects and their evolving relationships in videos. This requires accounting for both the persistence of object identities and abrupt changes in relationships. Existing methods aggregate information across frames to exploit temporal context, but an emphasis on consistency can obscure these changes. As a result, a model may retain its previous prediction even after the underlying relation has changed. We refer to this failure mode as relational semantic inertia. To address this issue, we propose Relation-Transition-Aware Transformer (RTAformer), a one-stage framework that separately models entity persistence and relation changes. It injects calibrated differences between adjacent-frame relation queries to guide predicate updates, while cross-frame instance alignment during training helps reduce cross-frame representational drift. Experiments on Action Genome show improvements in recall and mean recall over existing methods, with ablation studies supporting the contributions of the proposed components and comparisons using matched backbones showing larger gains on relation-transition frames than on non-transition frames.",
+      "hotness": 18
     },
     {
       "id": "paper-2610.31651",
@@ -131,19 +95,31 @@
       "published": "2026-10-21",
       "url": "https://arxiv.org/abs/2610.31651",
       "raw_summary": "Frontier coding agents are becoming increasingly adept at 3D modeling. Yet, they still face challenges when building objects meant to be assembled in the physical world, often creating invalid assemblies with floating, colliding, or disconnected parts. We argue that providing agents with tools for assembling builds and verifying their physical feasibility is sufficient for them to produce physically valid assemblies that still adhere to input prompts. Focusing on the domain of LEGO brick builds, we present BrickWright, a framework for generating physically feasible brick builds from text or image prompts using pre-trained agents, where a build is physically feasible if it uses only real parts, has no colliding or floating parts, and forms a connected structure if possible. BrickWright guides agents to create builds by writing code with BrickLayer, a Python toolkit with two main components: an ergonomic brick assembly API that halves inference cost compared to working in raw LDraw, and a validator that provides feedback on physical feasibility. Whereas baseline agents achieve physical validity rates ranging from only 9% (GPT-6 Luna) to 69% (GPT-6 Astra), BrickWright-guided agents achieve 100% validity on a sample of 512 prompts, while improving prompt adherence for lightweight agents and maintaining it for stronger agents. Additionally, they outperform specialized models on the text-to-brick task. Code is available on our project page: https://avalovelace1.github.io/brickwright/",
-      "hotness": 3
+      "hotness": 13
     },
     {
-      "id": "paper-2610.22951",
+      "id": "paper-2610.31372",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "MambaAct: Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models",
-      "authors": "Khuyen Pham, Tran Nguyen Le, Edoardo Fazzari et al.",
-      "published": "2026-10-15",
-      "url": "https://arxiv.org/abs/2610.22951",
-      "raw_summary": "Vision-language-action (VLA) models have shown strong promise for generalist robotic manipulation, but their inference cost remains a major bottleneck for real-time control. This limitation is especially pronounced in flow-matching VLAs such as π_{0.5}, where the action expert is evaluated repeatedly during iterative denoising. We introduce MambaAct, an efficient Mamba action expert for flow-matching VLA policies. MambaAct retains the pretrained visual-language prefix encoder of π_{0.5}, while replacing its transformer-based action expert with a compact Mamba-based action expert. Within this expert, Mamba serves as the action mixer that models dependencies across the noisy continuous-action sequence. To preserve visual-language conditioning without repeated token-level cross-attention, MambaAct uses a lightweight Context Compressor to map Vision-language model (VLM) prefix tokens into a compact conditioning signal that gates and modulates each Mamba action block. MambaAct uses a 10times smaller action expert and reduces flow-matching denoising latency by 64.8% on LIBERO and 58.8% in real-world deployment, while improving mean LIBERO success by 1.08 percentage points across three independent fine-tuning seeds and maintaining gains on LIBERO-Plus and real-world benchmarks. Our code and model weights are publicly available at https://github.com/giakhuyendihoc/MambaAct.",
-      "hotness": 3
+      "title": "RIDAR: Safeguarding Research Integrity in Autonomous Research Agents via Automated Detection and Runtime Intervention",
+      "authors": "Jiening Siow, Amy Xin, Junjie Wang et al.",
+      "published": "2026-10-21",
+      "url": "https://arxiv.org/abs/2610.31372",
+      "raw_summary": "Autonomous research agents are increasingly used to automate large portions of scientific research, yet they are prone to research integrity violations (RIVs): behaviors that compromise the validity, reproducibility, or faithfulness of the research process. We present RIDAR, a framework for automated RIV detection and runtime intervention. First, we introduce RIVT, a comprehensive taxonomy of 14 RIV types spanning the full research lifecycle. Building on RIVT, we present RIDAR-post-hoc, a framework to detect RIVs within agent trajectories. RIDAR-post-hoc achieves 85.2% F1 performance on RIV-Gold, a benchmark for RIV detection with 60 expert-annotated trajectories. Applying RIDAR-post-hoc to RIV-Wild, a dataset of 300 agent trajectories across 50 distinct research tasks, we detect 3,964 RIV instances in 99.7% of trajectories, revealing the prevalence of RIVs in current agents. Finally, we present RIDAR-runtime, a framework for dynamically detecting and correcting RIVs during agent runtime. RIDAR-runtime effectively reduces agent RIVs remaining at task completion by 36.8%. We will release our code and data to facilitate future research.",
+      "hotness": 13
+    },
+    {
+      "id": "paper-2610.27148",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Who Takes the Lead? Model Ability and Task-Conditioned Collaboration with Humans",
+      "authors": "Weien Li, Haochen Liu, Zeyu Li et al.",
+      "published": "2026-10-18",
+      "url": "https://arxiv.org/abs/2610.27148",
+      "raw_summary": "As language-model agents grow more capable, they can carry more of a task without asking anyone for help. Falling reliance on a human partner is easy to read as a failure of collaboration when it may instead be a correct division of labor, and the rate of human involvement alone cannot tell the two apart. We study this systematically by placing an agent and a person under a shared objective while varying who holds the advantage: the human has a clear advantage, neither does, or the agent does. To obtain this control, we introduce a shared-control maze, in which an agent-controlled and a human-controlled avatar share the objective of reaching a common target in as few team turns as possible. The agent allocates each team turn between acting itself and handing the move to the person, and initial placement sets the human's shortest-path advantage while the task is otherwise unchanged. We evaluate GPT~5.6~Sol, Command~A+, Qwen~3.8~27B, and Command~R, first measuring solo capability with a single avatar and full-map observability, then running co-play with human participants across the three advantage conditions. Across the four models, stronger solo performance is associated with selective, route-conditioned human involvement: the models that solve the maze reliably on their own act for themselves almost without exception when the human holds no advantage, and involve the human on roughly 80% of initial decisions when the human route is shorter. Command R, the model with substantially weaker solo performance, shows no such selectivity.",
+      "hotness": 10
     },
     {
       "id": "paper-2610.22722",
@@ -155,31 +131,7 @@
       "published": "2026-10-14",
       "url": "https://arxiv.org/abs/2610.22722",
       "raw_summary": "Split language models keep input text on a client but send intermediate representations to a server. Attacks can reconstruct text from these messages. Comparing privacy evaluations is difficult when attackers see different messages, know different model weights or use different datasets and recovery measures. We present LLM-Attacker, a framework that records these choices and lets researchers check, compare and extend an evaluation. Compatible attacks reuse recorded messages, and their predictions are saved for independent scoring. The scoring rule requires a linked undefended reference before a defence can pass. Reports also identify attacks that remain untested. In a controlled GPT-2 experiment, adding gradients returned during training increased token recovery from 94.20% to 97.38% and exact-document recovery from 13.71% to 37.77%. The 95% interval for the token gain lay above the two-percentage-point threshold fixed before testing. This experiment is shared with a companion study; here, it tests how the evaluation responds to a change in attacker access. Further studies measure how corpus choice and compression defences affect recovery, compare an adapted published attack with its reference implementation, and test the measurement code. The framework reports implementation checks separately from measured attack effectiveness. Each privacy claim should state the attacker, dataset and scoring rule, report its controls and identify untested attacks.",
-      "hotness": 2
-    },
-    {
-      "id": "paper-2610.24383",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
-      "authors": "Jie Mao, Pingchen Lu, Zikun Qu et al.",
-      "published": "2026-10-16",
-      "url": "https://arxiv.org/abs/2610.24383",
-      "raw_summary": "Improving every agent in an LLM-based multi-agent system can be prohibitively costly, making it important to identify which agent should be prioritized to achieve the greatest system-level gain with limited resources. Failure attribution can inform this decision, but an agent's responsibility for failures does not directly reveal the system-level gains achievable by improving it. We therefore introduce IF-MAP, an influence-function-inspired method for identifying agents with high potential for system-level improvement. For each agent, IF-MAP measures end-to-end loss changes under controlled semantic prompt perturbations, fits a regularized local response model in a low-dimensional prompt-embedding subspace, and uses the estimated response norm as a priority score. This black-box procedure requires no access to model parameters or gradients and produces agent priorities that can guide subsequent improvement effort. We evaluate IF-MAP across six multi-agent workflows spanning code generation, question answering, and mathematical reasoning, using the same priorities for prompt optimization and model upgrades. Optimizing the selected agents' prompts achieves a macro-average gain of 3.81 percentage points, compared with 1.85 for uniform agent selection. Across five target models, upgrading the selected agents yields macro-average gains of 7.62-16.42 percentage points, compared with 3.81-8.62 for uniform agent selection. Despite its probing overhead, IF-MAP reduces Qwen3-8B and DeepSeek-V3.2 token use by 74.2% and 35.2%, respectively, relative to optimizing every agent, and reduces target-model tokens by 63.6-64.9% relative to upgrading every agent. These results support the use of IF-MAP to identify promising agents and direct improvement effort toward greater end-to-end performance gains.",
-      "hotness": 2
-    },
-    {
-      "id": "paper-2610.30468",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "SplatLab: Autonomous Scientific Discovery for 3DGS Research",
-      "authors": "Seemandhar Jain, Manmohan Chandraker",
-      "published": "2026-10-20",
-      "url": "https://arxiv.org/abs/2610.30468",
-      "raw_summary": "Reproducing a published 3DGS paper takes weeks of expert engineering before any extension can be proposed. Prior autonomous-research systems read papers, draft hypotheses, and write code, but are limited by short fixed templates, low executability, and weak traceability, and none has been demonstrated end-to-end in a live computer-vision subfield with intense activity. SplatLab is an autonomous research system for 3D Gaussian Splatting that addresses these limitations. Given a research prompt, a target-paper URL, or no input at all, it reproduces a published baseline, proposes an extension, trains and ablates across Mip-NeRF 360 and LLFF, writes the manuscript, and binds every reported number to a logged training run. Five design choices distinguish it: (i) candidates mutate plugins from a verified-reproduction backbone matched to published baselines; (ii) a cascade-weighted Elo tournament across eight islands scores candidates on measured GPU PSNR with verbal-gradient feedback; (iii) a standing falsifier subtracts Elo on failure, integrating stress-test survival into selection; (iv) every reported number is bound to a logged training run, and the run cannot terminate while any claim is unbacked; (v) a seven-category 3DGS taxonomy wraps EVOLVE-BLOCK markers in domain-aligned scaffolds transferable across 3DGS repositories. On PSNR-targeted runs, SplatLab's manuscripts beat their reproduced targets by +0.18 to +3.78 dB, including +3.78 dB on astrophotographic nebula rendering, for which no prior 3DGS method exists. The research cycle compresses from months of graduate-student time to days of mostly autonomous compute. Code, all manuscripts, experiment ledgers, and the cross-run paper store are available on the project page.",
-      "hotness": 2
+      "hotness": 9
     },
     {
       "id": "paper-2610.25835",
@@ -191,19 +143,31 @@
       "published": "2026-10-19",
       "url": "https://arxiv.org/abs/2610.25835",
       "raw_summary": "Diffusion language models can write several tokens in one forward pass, and they decide during generation how many passes to spend. Two outputs of the same token length can therefore vary a lot in cost. To understand the underlying factors of this cost variation, we analyze two diffusion models across 10 tasks. We find that the number of forward passes per token depends heavily on the task. Text copied or lightly edited from the input is cheap, while open-ended writing is costly. In DiffusionGemma, generating a token for story writing requires more than three times as many forward passes as for grammar correction. Two output properties explain much of this gap: how much of it is new relative to the input, and how rare its words are within the task. The same holds within a single response when thinking is involved. The final answer is cheap when it repeats the model's reasoning trace and costly when it adds something new. In multilingual generation, we find that highly tokenized languages also require more passes per token, adding to the cost they already pay with more tokens. Finally, cost tracks correctness: on the same math problem, wrong answers take more passes per token than correct ones, and weighting candidate answers by decoding speed beats majority voting by up to 4.2 points at no extra cost. Taken together, our results show that diffusion's computational advantage depends on how much of the output is already determined, while its decoding effort offers a practical signal for making inference more efficient and reliable.",
-      "hotness": 1
+      "hotness": 9
     },
     {
-      "id": "paper-2610.24385",
+      "id": "paper-2610.30043",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Bridging Exploration and Persona: Information-Directed Dueling for Test-Time Agent Personalization",
-      "authors": "Jie Mao, Pingchen Lu, Xiangyi Wang et al.",
+      "title": "TARSphere: A Robot-Oriented Full-Stack Framework for Long-Horizon Embodied Agents in Evolving Physical and Social Environments",
+      "authors": "Yicheng Xu, Zhikai Xu, Ziyuan Chen et al.",
+      "published": "2026-10-20",
+      "url": "https://arxiv.org/abs/2610.30043",
+      "raw_summary": "Robots must act under physical and social constraints while adapting to changes in their environment and human needs. Existing embodied-agent systems often focus on specified goals or abstract execution into symbolic actions, limiting evaluation in an evolving world. We introduce TARSphere, a robot-oriented full-stack framework for physically and socially grounded long-horizon embodied agents. TARSphere-Infra runs robot policies in a physics simulator with embodied NPCs and constrained dialogue. An event-driven finite-state machine (FSM) uses completed actions and delivered information to update task states and evaluate outcomes. TARSphere-Harness, its embodied brain harness, lets a frozen multimodal large language model (MLLM) act through multi-level executable skills, using observations, hierarchical memory, and execution feedback to revise its decisions. On this foundation, agent-in-the-loop curation aligns task semantics, causal dependencies, and scene geometry to construct TARSphere-Bench: 360 episodes across 30 indoor scenes. Five paired conditions assess perceptual robustness, disruption adaptation, task update, human coordination, and intent understanding for navigate-and-report and fetch-and-deliver tasks. Our evaluation of 8 MLLMs shows that general-purpose models can outperform embodied models, while task updates and human interaction remain difficult. Frequent collisions and falls further motivate evaluating execution safety alongside task success, even with a shared action interface and decision budget.",
+      "hotness": 8
+    },
+    {
+      "id": "paper-2610.24383",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "IF-MAP: Influence-Function-Inspired Agent Prioritization in Multi-Agent Systems",
+      "authors": "Jie Mao, Pingchen Lu, Zikun Qu et al.",
       "published": "2026-10-16",
-      "url": "https://arxiv.org/abs/2610.24385",
-      "raw_summary": "Effective test-time personalization requires LLM agents to adapt to query-dependent user preferences from lightweight interaction. We study persona selection with binary comparisons between candidate responses as the online signal. We present ID-TAP, a scalable, IDS-inspired neural dueling-bandit framework for large discrete persona spaces. ID-TAP combines a query-conditioned neural utility model with a lightweight Bradley-Terry explorer, and transfers comparison evidence across related queries through similarity-weighted warm starts. The neural model shares statistical strength across queries while preserving query-specific scores, and efficient BT updates score hypothetical challengers. Across seven user-conditioned generation benchmarks under reference- and model-based preference simulators, ID-TAP achieves the strongest aggregate performance among the evaluated baselines within a fixed ten-round comparison budget. These results support information-directed challenger selection as an effective design for test-time persona adaptation.",
-      "hotness": 1
+      "url": "https://arxiv.org/abs/2610.24383",
+      "raw_summary": "Improving every agent in an LLM-based multi-agent system can be prohibitively costly, making it important to identify which agent should be prioritized to achieve the greatest system-level gain with limited resources. Failure attribution can inform this decision, but an agent's responsibility for failures does not directly reveal the system-level gains achievable by improving it. We therefore introduce IF-MAP, an influence-function-inspired method for identifying agents with high potential for system-level improvement. For each agent, IF-MAP measures end-to-end loss changes under controlled semantic prompt perturbations, fits a regularized local response model in a low-dimensional prompt-embedding subspace, and uses the estimated response norm as a priority score. This black-box procedure requires no access to model parameters or gradients and produces agent priorities that can guide subsequent improvement effort. We evaluate IF-MAP across six multi-agent workflows spanning code generation, question answering, and mathematical reasoning, using the same priorities for prompt optimization and model upgrades. Optimizing the selected agents' prompts achieves a macro-average gain of 3.81 percentage points, compared with 1.85 for uniform agent selection. Across five target models, upgrading the selected agents yields macro-average gains of 7.62-16.42 percentage points, compared with 3.81-8.62 for uniform agent selection. Despite its probing overhead, IF-MAP reduces Qwen3-8B and DeepSeek-V3.2 token use by 74.2% and 35.2%, respectively, relative to optimizing every agent, and reduces target-model tokens by 63.6-64.9% relative to upgrading every agent. These results support the use of IF-MAP to identify promising agents and direct improvement effort toward greater end-to-end performance gains.",
+      "hotness": 8
     },
     {
       "id": "paper-2610.28950",
@@ -215,19 +179,19 @@
       "published": "2026-10-19",
       "url": "https://arxiv.org/abs/2610.28950",
       "raw_summary": "We present HyperDrone, an extremely fast quadrotor simulator focused on high-performance batch rendering that is more than 20x faster than existing state-of-the-art batch quadrotor simulators. HyperDrone combines highly optimized multirotor dynamics with HyperLux, a new ray-tracing engine that supports Nvidia OptiX, Vulkan, Apple Metal and WebGPU backends that takes full advantage of modern ray-tracing hardware, capable of running both components entirely on the GPU. HyperLux renders RGB, depth, semantic/instance segmentation, surface normals and optical flow observations at configurable levels of fidelity, including reflections, realistic lighting, motion blur, anti-aliasing, and Physically Based Rendering (PBR). Even in the highest-fidelity settings, HyperLux achieves millions of Frames Per Second (FPS) on consumer-grade GPUs while rendering realistic 3D scenes. We demonstrate the merits of HyperDrone by training a vision-based yaw-control policy purely in simulation and transferring it to a real small-scale quadrotor (Crazyflie) with a camera, running completely onboard.",
-      "hotness": 1
+      "hotness": 8
     },
     {
-      "id": "paper-2610.12586",
+      "id": "paper-2610.22951",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Realism VS Accuracy: Event Sequence Forecasting from a Generative Modeling Perspective",
-      "authors": "Dmitry Osin, Egor Surkov, Petr Mokrov et al.",
-      "published": "2026-10-07",
-      "url": "https://arxiv.org/abs/2610.12586",
-      "raw_summary": "Event sequences are chains of random events, each described by heterogeneous (numerical and categorical) features. The problem of event sequence forecasting occurs in finance, healthcare, business process intelligence, and other fields. In this work, we study multi-horizon forecasting of event sequences as a conditional generative modeling problem. We evaluate forecasts not only for prediction accuracy, but also for distributional realism. To this end, we present a benchmark comprising metrics for both quality aspects, strong statistical baselines, recent models adapted from adjacent fields, and curated real-world datasets. Careful evaluation reveals that no method excels at both accuracy and realism, highlighting a fundamental trade-off between the two. Finally, we introduce Wasserstein BaryBooster, an algorithm that aggregates samples from a realism-strong diffusion model into a state-of-the-art predictor, demonstrating that distributional realism can be converted into prediction accuracy. Code is available at https://github.com/xaosina/event-sequence-forecasting.",
-      "hotness": 1
+      "title": "MambaAct: Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models",
+      "authors": "Khuyen Pham, Tran Nguyen Le, Edoardo Fazzari et al.",
+      "published": "2026-10-15",
+      "url": "https://arxiv.org/abs/2610.22951",
+      "raw_summary": "Vision-language-action (VLA) models have shown strong promise for generalist robotic manipulation, but their inference cost remains a major bottleneck for real-time control. This limitation is especially pronounced in flow-matching VLAs such as π_{0.5}, where the action expert is evaluated repeatedly during iterative denoising. We introduce MambaAct, an efficient Mamba action expert for flow-matching VLA policies. MambaAct retains the pretrained visual-language prefix encoder of π_{0.5}, while replacing its transformer-based action expert with a compact Mamba-based action expert. Within this expert, Mamba serves as the action mixer that models dependencies across the noisy continuous-action sequence. To preserve visual-language conditioning without repeated token-level cross-attention, MambaAct uses a lightweight Context Compressor to map Vision-language model (VLM) prefix tokens into a compact conditioning signal that gates and modulates each Mamba action block. MambaAct uses a 10times smaller action expert and reduces flow-matching denoising latency by 64.8% on LIBERO and 58.8% in real-world deployment, while improving mean LIBERO success by 1.08 percentage points across three independent fine-tuning seeds and maintaining gains on LIBERO-Plus and real-world benchmarks. Our code and model weights are publicly available at https://github.com/giakhuyendihoc/MambaAct.",
+      "hotness": 8
     },
     {
       "id": "paper-2610.04184",
@@ -239,7 +203,43 @@
       "published": "2026-10-15",
       "url": "https://arxiv.org/abs/2610.04184",
       "raw_summary": "Recursive self-improvement (RSI) relies on evaluation feedback to assess progress and guide further research, yet repeatedly running complex benchmarks is costly and slows iteration. Human experts reduce this cost by selecting benchmark subsets or designing compact suites. We ask whether AI agents can automate this design process and introduce EvalResearchBench (ERB), a benchmark for autonomous evaluation research. Given target materials, development references, candidate APIs, and fixed time and API budgets, an agent called the researcher selects or synthesizes tasks, implements graders, and revises them in pilot tests before freezing an executable evaluator for coding, co-work, and reasoning. We study 9 researchers and 13 candidate models and compare each frozen evaluator with 14 target benchmarks on score concordance and pairwise agreement. The best evaluators order about 75\\% of candidate pairs as the targets do, below the 91\\% ceiling set by disagreements among the targets. No researcher leads on every metric, and the best evaluator on development targets is not the best on sealed targets hidden from the researcher. A human-designed sample of public tasks remains a strong baseline, and the evaluator with the lowest recorded execution cost attains the highest pairwise agreement. Agents repair tasks and graders through pilot feedback, yet their evaluators can still truncate answers, exhaust the evaluation budget, or let a few questions dominate a domain score.",
-      "hotness": 0
+      "hotness": 7
+    },
+    {
+      "id": "paper-2610.24385",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Bridging Exploration and Persona: Information-Directed Dueling for Test-Time Agent Personalization",
+      "authors": "Jie Mao, Pingchen Lu, Xiangyi Wang et al.",
+      "published": "2026-10-16",
+      "url": "https://arxiv.org/abs/2610.24385",
+      "raw_summary": "Effective test-time personalization requires LLM agents to adapt to query-dependent user preferences from lightweight interaction. We study persona selection with binary comparisons between candidate responses as the online signal. We present ID-TAP, a scalable, IDS-inspired neural dueling-bandit framework for large discrete persona spaces. ID-TAP combines a query-conditioned neural utility model with a lightweight Bradley-Terry explorer, and transfers comparison evidence across related queries through similarity-weighted warm starts. The neural model shares statistical strength across queries while preserving query-specific scores, and efficient BT updates score hypothetical challengers. Across seven user-conditioned generation benchmarks under reference- and model-based preference simulators, ID-TAP achieves the strongest aggregate performance among the evaluated baselines within a fixed ten-round comparison budget. These results support information-directed challenger selection as an effective design for test-time persona adaptation.",
+      "hotness": 7
+    },
+    {
+      "id": "paper-2610.12586",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Realism VS Accuracy: Event Sequence Forecasting from a Generative Modeling Perspective",
+      "authors": "Dmitry Osin, Egor Surkov, Petr Mokrov et al.",
+      "published": "2026-10-07",
+      "url": "https://arxiv.org/abs/2610.12586",
+      "raw_summary": "Event sequences are chains of random events, each described by heterogeneous (numerical and categorical) features. The problem of event sequence forecasting occurs in finance, healthcare, business process intelligence, and other fields. In this work, we study multi-horizon forecasting of event sequences as a conditional generative modeling problem. We evaluate forecasts not only for prediction accuracy, but also for distributional realism. To this end, we present a benchmark comprising metrics for both quality aspects, strong statistical baselines, recent models adapted from adjacent fields, and curated real-world datasets. Careful evaluation reveals that no method excels at both accuracy and realism, highlighting a fundamental trade-off between the two. Finally, we introduce Wasserstein BaryBooster, an algorithm that aggregates samples from a realism-strong diffusion model into a state-of-the-art predictor, demonstrating that distributional realism can be converted into prediction accuracy. Code is available at https://github.com/xaosina/event-sequence-forecasting.",
+      "hotness": 7
+    },
+    {
+      "id": "paper-2610.30468",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "SplatLab: Autonomous Scientific Discovery for 3DGS Research",
+      "authors": "Seemandhar Jain, Manmohan Chandraker",
+      "published": "2026-10-20",
+      "url": "https://arxiv.org/abs/2610.30468",
+      "raw_summary": "Reproducing a published 3DGS paper takes weeks of expert engineering before any extension can be proposed. Prior autonomous-research systems read papers, draft hypotheses, and write code, but are limited by short fixed templates, low executability, and weak traceability, and none has been demonstrated end-to-end in a live computer-vision subfield with intense activity. SplatLab is an autonomous research system for 3D Gaussian Splatting that addresses these limitations. Given a research prompt, a target-paper URL, or no input at all, it reproduces a published baseline, proposes an extension, trains and ablates across Mip-NeRF 360 and LLFF, writes the manuscript, and binds every reported number to a logged training run. Five design choices distinguish it: (i) candidates mutate plugins from a verified-reproduction backbone matched to published baselines; (ii) a cascade-weighted Elo tournament across eight islands scores candidates on measured GPU PSNR with verbal-gradient feedback; (iii) a standing falsifier subtracts Elo on failure, integrating stress-test survival into selection; (iv) every reported number is bound to a logged training run, and the run cannot terminate while any claim is unbacked; (v) a seven-category 3DGS taxonomy wraps EVOLVE-BLOCK markers in domain-aligned scaffolds transferable across 3DGS repositories. On PSNR-targeted runs, SplatLab's manuscripts beat their reproduced targets by +0.18 to +3.78 dB, including +3.78 dB on astrophotographic nebula rendering, for which no prior 3DGS method exists. The research cycle compresses from months of graduate-student time to days of mostly autonomous compute. Code, all manuscripts, experiment ledgers, and the cross-run paper store are available on the project page.",
+      "hotness": 7
     },
     {
       "id": "paper-2610.31667v1",
@@ -314,26 +314,26 @@
       "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-42188693",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
-      "authors": "OpenAI",
-      "published": "2026-10-23",
-      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
-      "raw_summary": "Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT."
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-10-24",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-83082083",
+      "id": "news-gh-1379023782",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Securing our frontier model training environment",
-      "authors": "OpenAI",
-      "published": "2026-10-23",
-      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
-      "raw_summary": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming."
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/OpenAgentCore",
+      "authors": "MiniMax",
+      "published": "2026-10-24",
+      "url": "https://github.com/MiniMax-AI/OpenAgentCore",
+      "raw_summary": "The OpenAI Agents API, open source and self-hosted. Run Codex, Claude Code or MiniMax Code on your own machines with your own models, through the official OpenAI SDK."
     }
   ],
   "reports": []
