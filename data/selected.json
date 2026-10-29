@@ -1,62 +1,63 @@
 {
-  "fetched_at": "2026-10-28",
+  "fetched_at": "2026-10-29",
   "items": [
     {
-      "id": "paper-2610.33861",
+      "id": "paper-2610.35013",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "ReGE: Stronger Agents through Experience Synthesis",
-      "authors": "Jiarong Liang, Yubo Wang, Zijie Liu et al.",
-      "published": "2026-10-23",
-      "url": "https://arxiv.org/abs/2610.33861",
-      "raw_summary": "Repeated attempts at interactive tasks uncover facts, useful operations, and failures that can inform subsequent execution. We introduce ReGE, a framework for turning this recorded experience into guidance for a fresh attempt. Its main implementation, ReGE-Syn, uses a single coach call to jointly synthesize bounded execution records and available artifacts into self-contained guidance, connecting task-specific findings with proposed actions and relevant pitfalls. A student starts from the task's initial environment state and adapts this guidance to current observations. Source generation, synthesis, and student execution use the same base model, without parameter updates or a stronger teacher. Across four benchmarks, ReGE improves accuracy by an average of 9.9 percentage points for GPT and 8.8 percentage points for Claude compared with unguided execution. On matched BrowseComp-Plus subsets, ReGE-Syn reduces guidance-construction tokens by 98.2\\% on GPT and 95.5\\% on Claude relative to adapted AggAgent, with observed success. Combined construction and execution tokens decrease by 15.7\\% and 35.4\\%, respectively, counting input plus output and excluding source generation. BrowseComp-Plus ablations further associate access to process information with fewer student steps and show that joint synthesis produces substantially shorter guidance than Direct history or Independent summaries, with observed success. These results demonstrate how agents can use their own recorded experience to improve subsequent task completion, and suggest a low-cost way to consolidate the execution records of parallel agent systems such as agent swarms."
-    },
-    {
-      "id": "paper-2610.34735",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "iPrefBench: A User-Centric Benchmark for Personalized Mobile Use Agents",
-      "authors": "Yuting Ning, Ruijia Cheng, Sushobhan Ghosh et al.",
+      "title": "Multiscale Policy Optimization for Long-Horizon LLM Agents",
+      "authors": "Tao Ren, Hui Yang, Jia Deng et al.",
       "published": "2026-10-25",
-      "url": "https://arxiv.org/abs/2610.34735",
-      "raw_summary": "An agent that truly knows and acts on behalf of its user has been a long-standing promise of AI assistants. Computer-use agents bring this promise within reach by capably executing fully specified tasks across apps. However, real-world user requests are often underspecified. To act correctly for the particular user, an agent must infer some missing information from the user's activity history and ask for other information that only the user can provide, without making unsupported assumptions or burdening the user with unnecessary questions. We present iPrefBench, a benchmark for evaluating the infer and ask capabilities of personal mobile-use agents in an executable iOS environment with an interactive simulated user. Grounded in a coherent persona with 3,051 past activity events, iPrefBench comprises 130 underspecified user tasks across 26 apps. Each omitted user-dependent requirement is, by construction, either history-inferable or ask-only. iPrefBench evaluates personalized mobile agents on both whether agents complete tasks correctly for the user (i.e., personalized task completion) and whether they seek user input when necessary (i.e., user-agent interaction). Evaluation of 7 frontier agents reveals a substantial gap between execution and personalization. Agents achieve high action completion scores (up to 91.6%) but low full task success (up to 47.7%) because personalization lags behind. They especially struggle with ask-only information, failing to request enough necessary information. Our findings highlight a challenge for personalized agents in knowing what to infer and when to ask. We hope that iPrefBench can serve as a valuable testbed for building agents that know their user and work with them."
+      "url": "https://arxiv.org/abs/2610.35013",
+      "raw_summary": "Long-horizon LLM agents interact with their environments through complete assistant turns while generating each action token by token. We observe that critic values vary primarily across turns, motivating optimization anchored at turns with finer credit allocation among tokens. We propose Multiscale Policy Optimization (MPO), combining Multiscale Advantage Estimation (MAE) and turn-level importance sampling to align credit assignment and policy updates at the turn scale. Extensive experiments across search, tool-use, and automation tasks with 4B and 30B-A3B models demonstrate consistent gains over strong RL baselines."
     },
     {
-      "id": "paper-2610.19025",
+      "id": "paper-2610.35864",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "How Far Can Coding Agents Go in Visual Generation?",
-      "authors": "Hengguang Zhou, Yuanhao Ban, Jiaqi Feng et al.",
-      "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.19025",
-      "raw_summary": "Modern image generation largely relies on specialized generative models that leave the process of image construction implicit in learned parameters. We explore an alternative: general-purpose coding agents that construct images through executable programs. Our study of zero-shot drawing on AgentDrawBench, a 200-prompt benchmark, reveals a distinctive capability profile. Agents excel at preserving structure and satisfying precise visual constraints, achieving competitive results in domains where compositional accuracy matters more than photorealistic appearance, while remaining limited in perceptual richness. Their visual expressiveness varies with the drawing interface, and a qualitative study on reconstruction shows how procedural skills extracted from human demonstrations support different artistic media. We then examine code as an external visual language of thought: a structured, executable representation that agents can construct and inspect. We test it in visual question answering task and find reconstructed visual code retains substantial information for question answering and, in some domains, supports higher accuracy than the original image. These abilities raise a further question: do agents draw on a shared internal representation of scene content beyond a particular drawing program? We explore an internal visual language-of-thought hypothesis, in which a shared, compositionally structured representation supports visual operations across drawing languages. Cross-harness drawings and images assembled from independent single-pixel queries exhibit related layouts and tones. Agents also maintain self-generated room arrangements across viewpoints after visible drawings are removed. These results demonstrate that the coding agent would maintain a consistent and coherent world inside its imagine even before the harness gets involved and the generation starts.",
-      "image": "https://arxiv.org/html/2610.19025v1/stroke_rollouts.png"
-    },
-    {
-      "id": "paper-2610.32177",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Ψ-0.6: Adaptive Streams of Thought in a Unified Vision-Language World Model",
-      "authors": "Khai Loong Aw, Klemen Kotar, Baihan Zhang et al.",
-      "published": "2026-10-22",
-      "url": "https://arxiv.org/abs/2610.32177",
-      "raw_summary": "Humans reason about the physical world by flexibly combining different forms of inference as a problem unfolds. Achieving this flexibility is a major open challenge in AI: capabilities often remain separated across specialized models, limiting how they can be composed and jointly adapted to a task. We introduce Ψ-0.6, a unified vision-language world model that adaptively composes perception, language, geometry, and simulation within a shared reasoning process we call streams of thought. These streams interleave images, text, and explicit representations of geometry and motion, all of which the model can generate and interpret through a shared token interface. Ψ-0.6 surpasses leading open-weight models zero-shot on multi-view spatial reasoning, with further gains from reasoning through geometric intermediates. It also supports counterfactual simulation: generating and interpreting imagined scenes to determine, for example, whether moving an object would obstruct a pathway. Reinforcement learning from task feedback jointly optimizes the selection, generation, and use of intermediate representations, improving visual question-answering accuracy with gains that transfer to unseen benchmarks. Ψ-0.6 offers a path toward adaptive physical reasoning -- not only predicting the physical world but also choosing the representations through which to reason.",
-      "image": "https://arxiv.org/html/2610.32177v1/figMain_architecture.png"
-    },
-    {
-      "id": "paper-2610.35868v1",
-      "type": "paper",
-      "source": "arXiv · cs.AI",
-      "region": "海外",
-      "title": "Retriever-Free Retrieval: Navigating Documents with Decision Models",
-      "authors": "Chao Wan, Paul Jünger, Beixi Du et al.",
+      "title": "VibeVideoBench: Evaluating Multimodal Agents on Code-Driven Video Generation",
+      "authors": "Muxi Diao, Wenbin Xu, Lele Yang et al.",
       "published": "2026-10-26",
-      "url": "http://arxiv.org/abs/2610.35868v1",
-      "raw_summary": "While language models have become dramatically more capable, retrieval still largely relies on lexical matching or similarity in fixed embedding spaces. This creates a capability asymmetry: what the retriever fails to find, even the strongest generator cannot recover. We propose DecisionRAG, which brings the capabilities of pretrained language models to retrieval using decision models that jointly evaluate candidate branches in a single forward pass, without generating any tokens, and show that judging candidates in a shared context makes their relevance estimates comparable. Like a person browsing a library, DecisionRAG navigates the corpus's inherent structure from broad topics down to individual passages, deciding at each level which branches are worth exploring. Without task-specific training or a first-stage retriever, DecisionRAG outperforms dense retrieval with an 8B reranker by 13.8 R@1 points on MultiDoc2Dial and 17.4 Hit@1 points on Natural Questions. Across four benchmarks, including a corpus of 2.68 million Wikipedia paragraphs, retrieval takes just 0.7-1.8 seconds per query."
+      "url": "https://arxiv.org/abs/2610.35864",
+      "raw_summary": "Diffusion video models produce striking clips, but they cannot reliably render an exact formula, a correct chart, a rule-consistent game or narration synchronized to on-screen events. A different route is emerging: multimodal agents that write code to render every frame and synthesize every sound. We introduce VibeVideoBench, a benchmark for evaluating agents on code-driven video generation. Its 239 self-contained tasks in English and Chinese span 12 categories, from data stories and music-driven pieces to classroom lessons and paper explainers; each asks an agent, running in its native harness inside a sandbox with no image or video generation model, to deliver a finished MP4 with sound within one hour. Evaluation is hierarchical and evidence-based: program checks of the delivery spec, about 13k task-specific rubric checks traced to the requirements they enforce, and five quality dimensions anchored per task, scored by three VLM judge panels. Across nine frontier agent systems and 2,151 scored rollouts, GPT-6 Astra and Claude Opus 5.5 rank first and second with both the judges and human annotators, and the strongest system satisfies every core requirement on 76.3% of tasks. Delivery is a second axis: counting missing videos as zero changes the ranking, and three quarters of the lost videos are final renders that started too late, ran too slowly or never started, a failure of how agents plan their hour. Agents build their own rendering pipelines and inspect their own frames, yet how much they look does not predict quality. The judges' ranking of the systems closely matches blind human preferences.",
+      "image": "https://arxiv.org/html/2610.35864v2/overview_art.png"
+    },
+    {
+      "id": "paper-2610.37662",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
+      "authors": "Jialv Zou, Xiaotong Li, Zhengrong Yue et al.",
+      "published": "2026-10-26",
+      "url": "https://arxiv.org/abs/2610.37662",
+      "raw_summary": "Discrete visual tokens represent vision in a discrete form analogous to language, offering a native interface for multimodal modeling under a shared next-token prediction objective. However, quantization error is widely assumed to cause unavoidable semantic loss, fundamentally limiting the semantic fidelity of discrete visual tokens and positioning continuous visual representations as an intrinsic upper bound. Using multimodal understanding as a proxy for semantic fidelity, we revisit this assumption and find quantization error unreliable, as discrete representations with substantially larger errors can achieve better understanding. Instead, the effective bit budget of discrete indices emerges as a key determinant of downstream performance. However, existing quantizers eventually saturate as additional codebooks contribute progressively less semantic information. As one approach to alleviating this saturation, we introduce Factorized Vector Quantization, which quantizes complementary, fixed-dimensional views of the visual feature with symmetric parallel codebooks. It continues to improve at larger bit budgets, ultimately matching continuous visual representations in multimodal understanding. Trained on industrial-scale multimodal data, our model achieves state-of-the-art performance among discrete-representation models, outperforming UniAR and Emu3-Chat by 22.8% and 59.2%, respectively, on a nine-metric average. To our knowledge, it is also the first discrete-representation model competitive with strong continuous-representation models such as Qwen3-VL, including on fine-grained OCR tasks. We further identify the key principles and a practical recipe enabling this competitiveness. These results and insights support the potential of discrete visual representations to underpin large-scale native multimodal foundation models. Code and models are available at https://github.com/hustvl/FVQ",
+      "image": "https://arxiv.org/html/2610.37662v1/chapter2_overview.png"
+    },
+    {
+      "id": "paper-2610.37364",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "EmbeddingGemma 2: Unified and Efficient Multimodal Representations",
+      "authors": "Henrique Schechter Vera, Sahil Dua, Jovan Andonov et al.",
+      "published": "2026-10-26",
+      "url": "https://arxiv.org/abs/2610.37364",
+      "raw_summary": "We present EmbeddingGemma 2, an open multimodal embedding model which natively represents text, images, audio, video, and combinations thereof in a unified space. Our approach introduces improvements such as simplified per-layer embeddings and a multi-stage curriculum with modality and objective progression which ensure strong quality across unimodal, cross-modal, and mixed-modal evaluations. Notably, in comprehensive embedding benchmarks across all modalities, EmbeddingGemma 2 establishes a new Pareto frontier, outperforming both specialist models and models two to twelve times larger. Furthermore, our design offers flexibility for resource-constrained environments, supporting selective modality encoder loading, adjustable vision token budgets, truncatable embedding dimensions, and quantized weights. We present ablations analyzing key decisions and release EmbeddingGemma 2 to promote further research."
+    },
+    {
+      "id": "paper-2610.37037",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Zooming without Zooming v2: From Seeing Details to Connecting Evidence for Generalizable Multimodal Perception",
+      "authors": "Lai Wei, Yatai Li, Liangbo He et al.",
+      "published": "2026-10-26",
+      "url": "https://arxiv.org/abs/2610.37037",
+      "raw_summary": "Multimodal perception forms the foundation of multimodal intelligence. In particular, spatial perception and multimodal long-context understanding are two pivotal tasks that underpin embodied AI and multimodal agents. However, synthesizing targeted, high-quality training data for these tasks remains difficult and costly. Our key insight is that these tasks share an underlying capability, which we call connecting evidence: identifying relevant visual facts, binding them to the correct entities, recovering their relations, and composing them into an answer. Crucially, targeted training data are far easier to synthesize for this capability than for these tasks themselves. To strengthen this capability, we propose EvidenceConnect, an easy-to-implement data synthesis framework that uses zoomed views of related regions within a single image to generate questions requiring comparison, aggregation, or chaining of visual evidence. To ensure quality, a reference answer is retained only when independent VLMs agree on it, and region-ablation tests discard questions whose answer survives the removal of selected regions. We then train base VLMs on the resulting data with RLVR, obtaining Zooming without Zooming v2 (ZwZ2). Although the synthesized data are not tailored to any downstream benchmark, ZwZ2 improves fine-grained and spatial perception, with further gains on embodied spatial reasoning, multimodal long-context understanding, multimodal agent tasks, and general visual reasoning. These results establish EvidenceConnect as an effective framework for supervising evidence connection and suggest that strengthening this shared capability leads to more generalizable multimodal perception.",
+      "image": "https://arxiv.org/html/2610.37037v1/method.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +66,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-28",
+      "published": "2026-10-29",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-42273900",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Retell uses OpenAI models to help power 100M monthly calls",
-      "authors": "OpenAI",
-      "published": "2026-10-27",
-      "url": "https://openai.com/index/retell-ai",
-      "raw_summary": "GPT-6 Astra tops Retell’s voice agent benchmark, while Codex helps it reach a $1.6M annual revenue run rate per employee."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-10-29",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-78497836",
+      "id": "news-gh-1436502942",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
-      "authors": "OpenAI",
-      "published": "2026-10-27",
-      "url": "https://openai.com/index/oracle-apps-in-chatgpt",
-      "raw_summary": "OpenAI and Oracle are expanding their partnership to bring business applications and AI agents into ChatGPT and power new Oracle offerings."
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/mcode-stack",
+      "authors": "MiniMax",
+      "published": "2026-10-29",
+      "url": "https://github.com/MiniMax-AI/mcode-stack",
+      "raw_summary": "The workflows and skills the MiniMax Code team uses to build MiniMax Code. Open source, install and use."
     },
     {
-      "id": "news-50535607",
+      "id": "news-65279096",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "How Check Point accelerates vulnerability research with Daybreak",
+      "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
       "authors": "OpenAI",
-      "published": "2026-10-27",
-      "url": "https://openai.com/index/check-point-daybreak",
-      "raw_summary": "With OpenAI Daybreak, Check Point speeds up the research behind new security protections, enabling its analysts to turn vulnerability intelligence into customer defenses faster."
+      "published": "2026-10-28",
+      "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
+      "raw_summary": "OpenAI and ServiceNow expand their partnership to bring OpenAI models and agents into ServiceNow and ServiceNow workflows into ChatGPT and Codex."
     }
   ]
 }
