@@ -1,63 +1,64 @@
 {
-  "fetched_at": "2026-10-29",
+  "fetched_at": "2026-10-30",
   "items": [
     {
-      "id": "paper-2610.35013",
+      "id": "paper-2610.32749",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Multiscale Policy Optimization for Long-Horizon LLM Agents",
-      "authors": "Tao Ren, Hui Yang, Jia Deng et al.",
+      "title": "Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes",
+      "authors": "Wendi Sang, Kai Li, Yifan Li et al.",
+      "published": "2026-10-22",
+      "url": "https://arxiv.org/abs/2610.32749",
+      "raw_summary": "Streaming audio-visual target speaker extraction (AVTSE) is essential for latency-sensitive applications. However, current causal systems face two coupled gaps. First, standard benchmarks fix the number of speakers at two and ignore the near-/far-field interference, reverberation, and sudden noise of real scenes. Second, high-performance causal architectures are too heavy for edge deployment. Lightweight alternatives try to reclaim capacity by repeatedly invoking a small separator, which offsets the savings. To address the first gap, we release RealSSA, a realistic AVTSE benchmark consisting of RealSSA-Sim and RealSSA-Real. RealSSA-Sim provides controllable simulated scenes with 1--5 dynamic near-field interfering speakers; scenes with far-field interference additionally include 10--15 far-field interfering speakers. RealSSA-Real provides a held-out real-recorded evaluation set. To address the second gap, we propose Falcon, a causal AVTSE method. Its Separator performs multi-scale time-frequency separation in a single encoder--decoder pass. We train Falcon with an encoder-space speaker contrastive loss. This loss suppresses near-field leakage at zero inference cost and transfers across backbones. Falcon achieves state-of-the-art extraction quality on RealSSA-Sim, LRS2-2Mix, LRS3-2Mix, and VoxCeleb2-2Mix. Compared with the causal AV-TFGridNet baseline, it cuts parameters by 91.9%, computation by 20.2 times, and GPU inference latency by 11.1 times. Code and demo are available at https://cslikai.cn/Falcon/.",
+      "image": "https://arxiv.org/html/2610.32749v1/Overall_Pipeline.png"
+    },
+    {
+      "id": "paper-2610.35684",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "OmniShowcase: Omnidirectional Subject-Consistent Video Generation from Multi-View Images",
+      "authors": "Junyeong Ahn, Geonwoo Kim, Kinam Kim et al.",
       "published": "2026-10-25",
-      "url": "https://arxiv.org/abs/2610.35013",
-      "raw_summary": "Long-horizon LLM agents interact with their environments through complete assistant turns while generating each action token by token. We observe that critic values vary primarily across turns, motivating optimization anchored at turns with finer credit allocation among tokens. We propose Multiscale Policy Optimization (MPO), combining Multiscale Advantage Estimation (MAE) and turn-level importance sampling to align credit assignment and policy updates at the turn scale. Extensive experiments across search, tool-use, and automation tasks with 4B and 30B-A3B models demonstrate consistent gains over strong RL baselines."
+      "url": "https://arxiv.org/abs/2610.35684",
+      "raw_summary": "Generating videos of a specific subject from a few reference images remains challenging when the camera reveals surfaces that are not visible in the input. Early subject-to-video (S2V) methods condition on a single reference image and must therefore infer the subject's unseen appearance and geometry as the viewpoint changes. To address this limitation, recent methods extend S2V to multiple reference views, providing more information about the subject from different viewpoints. However, they do not explicitly specify the 3D structure that connects these observations. In addition, existing training data do not guarantee that viewpoint changes preserve the same underlying 3D subject. We present OmniShowcase, built on two components: (i) a fully automated data synthesis pipeline that produces training videos along diverse camera trajectories, with viewpoint variation driven by underlying subject geometry, even spanning full 360-degree orbits; and (ii) a geometry-conditioning method that provides the video model with a turntable of surface-normal maps reconstructed from the reference views without requiring temporal alignment with the generated frames. We construct Showcase-4K, a corpus of 3D-asset-based videos covering twelve camera motions across 88 trajectory configurations with reconstruction-derived surface-normal conditioning, and ShowcaseBench, a held-out evaluation set with the source meshes and camera parameters used to render each video. Experiments show state-of-the-art subject identity and 3D consistency while maintaining competitive video quality and motion. Project page: justin4ai.github.io/OmniShowcase",
+      "image": "https://arxiv.org/html/2610.35684v1/datapipeline.png"
     },
     {
-      "id": "paper-2610.35864",
+      "id": "paper-2610.37230",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "VibeVideoBench: Evaluating Multimodal Agents on Code-Driven Video Generation",
-      "authors": "Muxi Diao, Wenbin Xu, Lele Yang et al.",
+      "title": "TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving",
+      "authors": "Shuhuai Li, Shengdong Ye, Dongdong Ge et al.",
       "published": "2026-10-26",
-      "url": "https://arxiv.org/abs/2610.35864",
-      "raw_summary": "Diffusion video models produce striking clips, but they cannot reliably render an exact formula, a correct chart, a rule-consistent game or narration synchronized to on-screen events. A different route is emerging: multimodal agents that write code to render every frame and synthesize every sound. We introduce VibeVideoBench, a benchmark for evaluating agents on code-driven video generation. Its 239 self-contained tasks in English and Chinese span 12 categories, from data stories and music-driven pieces to classroom lessons and paper explainers; each asks an agent, running in its native harness inside a sandbox with no image or video generation model, to deliver a finished MP4 with sound within one hour. Evaluation is hierarchical and evidence-based: program checks of the delivery spec, about 13k task-specific rubric checks traced to the requirements they enforce, and five quality dimensions anchored per task, scored by three VLM judge panels. Across nine frontier agent systems and 2,151 scored rollouts, GPT-6 Astra and Claude Opus 5.5 rank first and second with both the judges and human annotators, and the strongest system satisfies every core requirement on 76.3% of tasks. Delivery is a second axis: counting missing videos as zero changes the ranking, and three quarters of the lost videos are final renders that started too late, ran too slowly or never started, a failure of how agents plan their hour. Agents build their own rendering pipelines and inspect their own frames, yet how much they look does not predict quality. The judges' ranking of the systems closely matches blind human preferences.",
-      "image": "https://arxiv.org/html/2610.35864v2/overview_art.png"
+      "url": "https://arxiv.org/abs/2610.37230",
+      "raw_summary": "Agentic services alternate between model inference on clustered GPUs and external tools on distributed CPUs. In this scenario, existing systems (1) overlook tool-return readiness in service evaluation, wasting limited resources, and (2) use heuristic strategies to decide admission and placement on GPUs, resulting in suboptimal scheduling decisions. To bridge this gap, we present TAO, a tool-aware joint scheduling framework for LLM-based agentic serving. Its value interface combines near-term tool readiness, node-specific cache credit with time-aware decay, and token footprint; a dynamic program jointly selects and places waiting sessions under capacity constraints. Across the 12 reported model-workload-concurrency settings, TAO reduces latency by up to 26.8%, reduces mean time to first token (TTFT) by up to 36.3%, and increases decode throughput by up to 29.5% relative to the best evaluated state-of-the-art baseline for each metric.",
+      "image": "https://arxiv.org/html/2610.37230v1/pipeline.png"
     },
     {
-      "id": "paper-2610.37662",
+      "id": "paper-2610.30132",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
-      "authors": "Jialv Zou, Xiaotong Li, Zhengrong Yue et al.",
-      "published": "2026-10-26",
-      "url": "https://arxiv.org/abs/2610.37662",
-      "raw_summary": "Discrete visual tokens represent vision in a discrete form analogous to language, offering a native interface for multimodal modeling under a shared next-token prediction objective. However, quantization error is widely assumed to cause unavoidable semantic loss, fundamentally limiting the semantic fidelity of discrete visual tokens and positioning continuous visual representations as an intrinsic upper bound. Using multimodal understanding as a proxy for semantic fidelity, we revisit this assumption and find quantization error unreliable, as discrete representations with substantially larger errors can achieve better understanding. Instead, the effective bit budget of discrete indices emerges as a key determinant of downstream performance. However, existing quantizers eventually saturate as additional codebooks contribute progressively less semantic information. As one approach to alleviating this saturation, we introduce Factorized Vector Quantization, which quantizes complementary, fixed-dimensional views of the visual feature with symmetric parallel codebooks. It continues to improve at larger bit budgets, ultimately matching continuous visual representations in multimodal understanding. Trained on industrial-scale multimodal data, our model achieves state-of-the-art performance among discrete-representation models, outperforming UniAR and Emu3-Chat by 22.8% and 59.2%, respectively, on a nine-metric average. To our knowledge, it is also the first discrete-representation model competitive with strong continuous-representation models such as Qwen3-VL, including on fine-grained OCR tasks. We further identify the key principles and a practical recipe enabling this competitiveness. These results and insights support the potential of discrete visual representations to underpin large-scale native multimodal foundation models. Code and models are available at https://github.com/hustvl/FVQ",
-      "image": "https://arxiv.org/html/2610.37662v1/chapter2_overview.png"
+      "title": "LongZero: Enhancing Long-Context Reasoning in LLMs from Zero Data",
+      "authors": "Zhennan Wan, Jianfei Chen",
+      "published": "2026-10-20",
+      "url": "https://arxiv.org/abs/2610.30132",
+      "raw_summary": "Reinforcement learning (RL) is an effective way to strengthen the long-context reasoning of large language models (LLMs), but it needs training data that are long, diverse, challenging, and verifiable. Human annotation of such data is expensive, naturally occurring data are too scarce to sustain RL, and existing synthesis methods depend on external corpora or stronger teacher models, which become harder to obtain as the trained models get stronger. Recently, RL from zero data, in which a model learns from tasks it proposes itself, has achieved excellent performance, but existing methods target short-context tasks. Therefore, we propose LongZero, a method that lets an LLM improve its own long-context reasoning without any external data. Instead of writing questions and answers over existing documents, LongZero first has the model synthesize the question and answer with its supporting evidence in a compact structured form, and only then separately expands the evidence into a long multi-document context. LongZero combines these self-written multi-hop reasoning tasks with self-written multi-round retrieval tasks and trains the model with GRPO. We evaluate LongZero on two LLMs across five long-context reasoning benchmarks and compare it with RL on data synthesized from external corpora. Experimental results show that LongZero can generalize to real tasks, and outperforms both baselines, suggesting a viable and promising path to improving long-context reasoning of LLMs."
     },
     {
-      "id": "paper-2610.37364",
+      "id": "paper-2610.34186",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "EmbeddingGemma 2: Unified and Efficient Multimodal Representations",
-      "authors": "Henrique Schechter Vera, Sahil Dua, Jovan Andonov et al.",
-      "published": "2026-10-26",
-      "url": "https://arxiv.org/abs/2610.37364",
-      "raw_summary": "We present EmbeddingGemma 2, an open multimodal embedding model which natively represents text, images, audio, video, and combinations thereof in a unified space. Our approach introduces improvements such as simplified per-layer embeddings and a multi-stage curriculum with modality and objective progression which ensure strong quality across unimodal, cross-modal, and mixed-modal evaluations. Notably, in comprehensive embedding benchmarks across all modalities, EmbeddingGemma 2 establishes a new Pareto frontier, outperforming both specialist models and models two to twelve times larger. Furthermore, our design offers flexibility for resource-constrained environments, supporting selective modality encoder loading, adjustable vision token budgets, truncatable embedding dimensions, and quantized weights. We present ablations analyzing key decisions and release EmbeddingGemma 2 to promote further research."
-    },
-    {
-      "id": "paper-2610.37037",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Zooming without Zooming v2: From Seeing Details to Connecting Evidence for Generalizable Multimodal Perception",
-      "authors": "Lai Wei, Yatai Li, Liangbo He et al.",
-      "published": "2026-10-26",
-      "url": "https://arxiv.org/abs/2610.37037",
-      "raw_summary": "Multimodal perception forms the foundation of multimodal intelligence. In particular, spatial perception and multimodal long-context understanding are two pivotal tasks that underpin embodied AI and multimodal agents. However, synthesizing targeted, high-quality training data for these tasks remains difficult and costly. Our key insight is that these tasks share an underlying capability, which we call connecting evidence: identifying relevant visual facts, binding them to the correct entities, recovering their relations, and composing them into an answer. Crucially, targeted training data are far easier to synthesize for this capability than for these tasks themselves. To strengthen this capability, we propose EvidenceConnect, an easy-to-implement data synthesis framework that uses zoomed views of related regions within a single image to generate questions requiring comparison, aggregation, or chaining of visual evidence. To ensure quality, a reference answer is retained only when independent VLMs agree on it, and region-ablation tests discard questions whose answer survives the removal of selected regions. We then train base VLMs on the resulting data with RLVR, obtaining Zooming without Zooming v2 (ZwZ2). Although the synthesized data are not tailored to any downstream benchmark, ZwZ2 improves fine-grained and spatial perception, with further gains on embodied spatial reasoning, multimodal long-context understanding, multimodal agent tasks, and general visual reasoning. These results establish EvidenceConnect as an effective framework for supervising evidence connection and suggest that strengthening this shared capability leads to more generalizable multimodal perception.",
-      "image": "https://arxiv.org/html/2610.37037v1/method.png"
+      "title": "HuGe: Scaling Humanoid Generalist Vision-Language-Action Models with Egocentric Experience",
+      "authors": "Yang Liu, Jiacheng Liu, Hengtao Li et al.",
+      "published": "2026-10-24",
+      "url": "https://arxiv.org/abs/2610.34186",
+      "raw_summary": "Extending Vision-Language-Action models (VLAs) to humanoid robots requires coordinated whole-body control and diverse demonstrations that are costly to collect in real-world scenarios. Although egocentric human demonstrations provide a complementary source of task experience, differences in visual embodiment and missing robot proprioception complicate transfer to humanoid policies. To address these challenges, we introduce HuGe, a family of Humanoid Generalist VLAs pre-trained on over 2,000 hours of egocentric human and robot data. Specifically, HuGe employs three existing representative VLA architectures to predict latent motion tokens for a pretrained whole-body controller, together with hand-control signals. Based on this, we introduce a three-stage training pipeline that combines egocentric pre-training, humanoid adaptation, and downstream fine-tuning. To facilitate transfer across embodiments, we construct pseudo-proprioceptive states through simulation playback during pre-training and modify arm appearance in egocentric observations through re-rendering during downstream fine-tuning. With this pipeline, HuGe achieves the state-of-the-art on simulation benchmark HumanoidArena. Furthermore, real-world experiments on the Unitree G1 indicate that augmenting robot demonstrations with visually adapted egocentric demonstrations significantly increases success on a pick-and-drop task.",
+      "image": "https://arxiv.org/html/2610.34186v1/arch.png"
     },
     {
       "id": "news-gh-1008713177",
@@ -66,42 +67,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-29",
+      "published": "2026-10-30",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1041478561",
-      "type": "news",
-      "source": "通义千问 Qwen · GitHub",
-      "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
-      "authors": "通义千问 Qwen",
-      "published": "2026-10-29",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
-    },
-    {
-      "id": "news-gh-1436502942",
-      "type": "news",
-      "source": "MiniMax · GitHub",
-      "region": "国内",
-      "title": "MiniMax-AI/mcode-stack",
-      "authors": "MiniMax",
-      "published": "2026-10-29",
-      "url": "https://github.com/MiniMax-AI/mcode-stack",
-      "raw_summary": "The workflows and skills the MiniMax Code team uses to build MiniMax Code. Open source, install and use."
-    },
-    {
-      "id": "news-65279096",
+      "id": "news-94098296",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+      "title": "An updated Model Spec for more capable and beneficial AI",
       "authors": "OpenAI",
-      "published": "2026-10-28",
-      "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
-      "raw_summary": "OpenAI and ServiceNow expand their partnership to bring OpenAI models and agents into ServiceNow and ServiceNow workflows into ChatGPT and Codex."
+      "published": "2026-10-29",
+      "url": "https://openai.com/index/updated-model-spec",
+      "raw_summary": "OpenAI’s updated Model Spec outlines five core values to guide more capable AI toward sound judgment, human agency, and faithfulness to human intent."
+    },
+    {
+      "id": "news-98463759",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "How we detect frontier model misalignment",
+      "authors": "OpenAI",
+      "published": "2026-10-29",
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "raw_summary": "OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate."
+    },
+    {
+      "id": "news-57232846",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "How Ropes & Gray is developing AI for transactional diligence",
+      "authors": "OpenAI",
+      "published": "2026-10-29",
+      "url": "https://openai.com/index/ropes-gray-ai-diligence",
+      "raw_summary": "Ropes & Gray is developing AI for transactional diligence with OpenAI. Lawyers review grouped documents, summaries, and reports before advising clients."
     }
   ]
 }
