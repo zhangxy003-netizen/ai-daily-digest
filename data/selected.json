@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31",
+  "fetched_at": "2026-11-01",
   "items": [
     {
       "id": "paper-2610.39301",
@@ -37,15 +37,15 @@
       "image": "https://arxiv.org/html/2610.40614v1/archi_pipeline.png"
     },
     {
-      "id": "paper-2610.40564",
+      "id": "paper-2610.40647",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Training Foundation Models with a Single Algorithm",
-      "authors": "Yuda Song, Alvin Zhang, Fahim Tajwar et al.",
+      "title": "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers",
+      "authors": "Jiongfan Yang, Weichen Fan, Haiwen Diao et al.",
       "published": "2026-10-28",
-      "url": "https://arxiv.org/abs/2610.40564",
-      "raw_summary": "Foundation models are typically trained in stages: pretraining, midtraining, supervised fine-tuning (SFT), and reinforcement learning (RL), with changes in both data and learning algorithms. We show that this algorithmic separation is not fundamental. By deriving suitable RL objectives as maximum-likelihood fitting to model-generated target distributions, we place all of these stages under a single likelihood-based training algorithm, unified training. This perspective turns the foundation-model training lifecycle into a problem of choosing which data to train on, in what proportions, and when, with conventional staged training as a special case. We instantiate this framework in a unified training system that mixes static data and RL generations within a single trainer. Across controlled and real-world experiments, unified training improves the accuracy-compute tradeoff and task coverage while preserving broader capabilities, and provides a stronger starting point for continual learning. This work lays the groundwork for a unified science of foundation-model training, connecting mathematical principles, training infrastructure, and the development of model capabilities."
+      "url": "https://arxiv.org/abs/2610.40647",
+      "raw_summary": "Pixel-space generative Transformers typically use one token per image patch, so capturing finer detail requires more tokens and makes global attention increasingly expensive. We observe that finer detail does not necessarily require more global communication: low-frequency structure benefits from global exchange, while high-frequency detail can be modeled locally. Based on this insight, we introduce SpecSlot, a pixel-space rectified-flow Transformer that decouples output detail from the length of the global attention sequence. SpecSlot expands each spatial anchor into multiple slots, each assigned a disjoint band of DCT coefficients; this separates anchor density from spectral subdivision. Only the lowest-frequency slot from each anchor participates in global attention, while all slots interact locally. This allows the model to increase spectral detail without enlarging the global sequence. A spatial head further adds a local correction to the spectral prediction, while the generative state, target, and loss remain in pixel space. On ImageNet-256, SpecSlot achieves a comparable final FID to a FLOPs-matched JiT control while converging faster. On ImageNet-512, it improves FID by 2.84 over the control with 3.9% fewer FLOPs, and comes within only 0.69 FID of JiT-B/16 at 38.2% lower cost. On text-to-image generation, SpecSlot surpasses JiT-B/8 on DPG-Bench by 1.06 at 40.6% lower forward cost."
     },
     {
       "id": "paper-2610.38174",
@@ -66,9 +66,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-10-31",
+      "published": "2026-11-01",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1440705679",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/dsh-superagent-prototype",
+      "authors": "DeepSeek",
+      "published": "2026-10-31",
+      "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "raw_summary": "Towards a More Autonomous Agent System"
     },
     {
       "id": "news-gh-1041478561",
@@ -82,26 +93,15 @@
       "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-gh-1256070689",
+      "id": "news-gh-1246459259",
       "type": "news",
-      "source": "MiniMax · GitHub",
+      "source": "月之暗面 Kimi · GitHub",
       "region": "国内",
-      "title": "MiniMax-AI/minimax-code",
-      "authors": "MiniMax",
+      "title": "MoonshotAI/kimi-code",
+      "authors": "月之暗面 Kimi",
       "published": "2026-10-31",
-      "url": "https://github.com/MiniMax-AI/minimax-code",
-      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
-    },
-    {
-      "id": "news-77861679",
-      "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Making it easier for websites to express AI training preferences",
-      "authors": "OpenAI",
-      "published": "2026-10-30",
-      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
-      "raw_summary": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers."
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     }
   ]
 }
