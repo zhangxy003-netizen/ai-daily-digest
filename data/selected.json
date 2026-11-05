@@ -1,64 +1,73 @@
 {
-  "fetched_at": "2026-11-04",
+  "fetched_at": "2026-11-05",
   "items": [
     {
-      "id": "paper-2611.01860",
+      "id": "paper-2611.04814",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Advances in Agentic Computer Graphics",
-      "authors": "Hengyu Liu, Jihyeon Je, Ruiqi Wang et al.",
-      "published": "2026-10-31",
-      "url": "https://arxiv.org/abs/2611.01860",
-      "raw_summary": "Computer graphics is built on code. Large language model (LLM) agents can now generate graphics code and iteratively refine it through various feedback. This capability opens the door to a potentially new paradigm of computer graphics, with graphics algorithms increasingly built around agentic systems to automate progressively complex tasks. Over the past years, research on agentic graphics has expanded rapidly across a diverse range of tasks. This rapid growth makes it increasingly difficult for manual literature reviews to keep pace with new developments. At the same time, similar ideas are often described using different terminology across these tasks, further complicating efforts to develop a systematic understanding of the field. In this report, we address these challenges through two contributions. First, we introduce a unified taxonomy for characterizing agentic systems across diverse computer graphics tasks. Second, we develop an agentic literature system that can assist human researchers in analyzing existing and newly published papers at scale. Building on these contributions, we analyze emerging research trends and discuss open challenges in coordinating agents and tools across graphics tasks, designing interfaces and representations for human-agent collaboration, sustaining long-horizon planning and refinement, and reliably evaluating interactive graphics systems.",
-      "image": "https://arxiv.org/html/2611.01860v1/sec4_2.png"
+      "title": "Think Less, Locally: Local Preference Learning for Reasoning Compression",
+      "authors": "Muyao Yuan, Liyan Xu, Weizhan Zhang et al.",
+      "published": "2026-11-02",
+      "url": "https://arxiv.org/abs/2611.04814",
+      "raw_summary": "Large reasoning models achieve strong performance on challenging tasks, but their long chain-of-thought often incurs substantial inference costs by continuing to deliberate after sufficient information has been obtained. Existing reasoning compression methods primarily operate on reasoning trajectories, paying less attention to the local decision of whether further reasoning is necessary given the current state. We propose LoCo, a local preference learning method for reasoning compression. LoCo detects candidate overthinking states from the model's own traces, freezes the corresponding reasoning prefixes, regenerates shorter verified continuations from the same states, and trains on the resulting state-conditioned preference pairs with DPO. This formulation teaches the model when to continue reasoning and when to conclude, rather than simply encouraging shorter trajectories overall. We construct training data entirely from self-generated mathematical traces and evaluate LoCo on five mathematical and three code generation benchmarks. LoCo reduces completion length by 41.7\\%--45.4\\% on mathematics and 23.4\\%--36.3\\% on code, while maintaining or improving accuracy and achieving the best AUC across all code benchmarks. LoCo consistently improves the accuracy-efficiency trade-off on mathematics and transfers effectively to code generation despite math-only training, demonstrating the cross-domain generality of local preference learning for reasoning compression. The code and model will be publicly released at https://github.com/MuyaoYuan/LoCo.",
+      "image": "https://arxiv.org/html/2611.04814v1/LoCo_overview.png"
     },
     {
-      "id": "paper-2611.03424",
+      "id": "paper-2611.05306",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "IdeaTaste: Do LLMs Share the Research Taste of Human Researchers?",
-      "authors": "Shanshan Zhong, Chen Xu, Jingjie Ning et al.",
-      "published": "2026-11-01",
-      "url": "https://arxiv.org/abs/2611.03424",
-      "raw_summary": "Research taste, the judgment of what to read, which problems to pursue, and which methods to try, increasingly shapes the work of AI scientists, yet it remains far less understood than their ability to execute research. We introduce IdeaTaste, a benchmark that scores an LLM by how closely the research proposals it writes from a literature snapshot frozen at 2025 match the work the same communities published in 2026. Our experiments span six contemporary language models and four research areas from established to emerging fields, covering more than 90{,}000 proposals in total. LLM agents fall well short of human communities in both the literature they cite and the ideas they state, reaching about 26\\% of the human level on citation matching and only 18\\% on idea matching. Their populations can cite as diversely as a community and take up its tasks and methods, yet rarely arrive at the concrete approaches and research plans it pursues. Neither richer field context nor larger populations substantially close this gap. In blinded expert review, AI proposals trail the 2026 papers least in presentation and most in expected success, echoing their gap in concrete approaches, and those whose ideas no human paper shares fare worst, suggesting weaker directions rather than overlooked opportunities. These results indicate that the main bottleneck in AI research taste lies less in finding the directions a community works on than in turning them into the concrete approaches it goes on to pursue. We release IdeaTaste as an open, continuously updated leaderboard (https://cxcscmu.github.io/IdeaTaste) that benchmarks contemporary AI proposals against future publication cycles.",
-      "image": "https://arxiv.org/html/2611.03424v1/introduction.png"
+      "title": "You don't need long context",
+      "authors": "Peter Belcak, Saurav Muralidharan, Jindong Jiang et al.",
+      "published": "2026-11-02",
+      "url": "https://arxiv.org/abs/2611.05306",
+      "raw_summary": "Later tokens are costlier to generate than earlier tokens. On frontier open weight models, the disparity in cost may rise to as much as 7x. Through frequent compaction, we show across a broad range of long-horizon and long-input tasks that frontier language models sacrifice little to no task accuracy when maintaining short contexts. We further demonstrate that LLM performance does not collapse on long-horizon software engineering tasks even when taking at most one action per context, and based on that we outline the concept of semantic state space models (SSSMs). Our findings question the need for long-context language models."
     },
     {
-      "id": "paper-2611.01460",
+      "id": "paper-2611.05193",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Can Large Language Model Agents Learn by Watching Tutorial Videos?",
-      "authors": "Haoyu Zhao, Zafeirios Fountas, Jun Wang",
-      "published": "2026-10-31",
-      "url": "https://arxiv.org/abs/2611.01460",
-      "raw_summary": "Humans continuously acquire knowledge from carefully crafted materials such as books and tutorial videos, carrying that understanding into future tasks. Millions of such instructional videos are uploaded online every day, yet LLM agents remain unable to exploit this ever-expanding wealth of human teaching. Their capabilities are frozen after training, while parameter updates at scale remain prohibitively expensive. This raises the central question: can LLM agents learn from this vast instructional resource without parameter updates? We introduce Tutorial Agentic Learning (TAL), a nonparametric continual-learning paradigm that consolidates tutorial videos into a persistent, structured tutorialbook memory through a two-stage adversarial process that harvests hard, video-grounded questions and uses them to refine the memory. At inference time, TAL retrieves through a Table-of-Contents (TOC) tree, tying retrieval directly to the model's reasoning rather than to embedding similarity. To study this setting, we introduce VidLearn, a multimodal QA benchmark built from 72 chess tutorial videos spanning 12 openings. On VidLearn, TAL outperforms all evaluated baselines and improves monotonically as more videos are consumed, achieving up to 113% and 91% relative gains over the corresponding vanilla MLLMs on the training and test splits, respectively. In actual gameplay, TAL reaches a stronger opening-phase position than its vanilla counterpart in 69% of head-to-head games. Evaluation in a second domain further demonstrates the generality of TAL. Together, these results highlight instructional videos as a scalable resource for parameter-update-free agent continual learning.",
-      "image": "https://arxiv.org/html/2611.01460v1/Comparison.png"
+      "title": "Factorized MLLM Embeddings for Composed Image Retrieval",
+      "authors": "WonJun Moon, Seongchan Kim, Dahun Kim et al.",
+      "published": "2026-11-02",
+      "url": "https://arxiv.org/abs/2611.05193",
+      "raw_summary": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language Models (MLLMs) have shown significant progress, we argue that the MLLM's compositional understanding remains underutilized. This stems from directly mapping composed queries into a retrieval embedding via contrastive supervision alone, without explicitly resolving the intended visual modifications. In this work, we introduce Factorized MLLM Embeddings (FactEmbed), which decouples compositional query comprehension from building discriminative embeddings. Rather than directly projecting the composed query into a single embedding without internal reasoning, FactEmbed employs a set of factorized latents that simulate the intended visual modifications via an intermediate target imagination objective. This process encourages the latents to ground into target semantics before forming discriminative representations for retrieval. Subsequently, to propagate these factorized representations throughout the model for retrieval, we optimize a factor-level contrastive loss while distilling the decomposed representations into a deeper attention layer of the MLLM. Finally, for efficient inference, we retain the [EOS] token to establish a global-level embedding on top of these factorized latents, while we exploit the mean-pooled factorized latents to rerank a short candidate list at negligible cost, as both are produced by the same forward pass. Extensive evaluations demonstrate that FactEmbed outperforms prior works across CIR benchmarks.",
+      "image": "https://arxiv.org/html/2611.05193v2/main_fig_v9.png"
     },
     {
-      "id": "paper-2611.02074",
+      "id": "paper-2611.05345",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "SWE-Trail: History-Guided Trajectory Collection for Coding Agent Training",
-      "authors": "Ziming Li, Lu Yu, Jiatan Huang et al.",
-      "published": "2026-10-31",
-      "url": "https://arxiv.org/abs/2611.02074",
-      "raw_summary": "Coding agents solve repository issues through long sequences of exploration, editing, and validation. These trajectories are increasingly used as post-training data, so how they are collected shapes what the trained model learns. A common approach is to sample multiple trajectories independently for each issue and then select or curate them. However, as more trajectories are sampled independently, later trajectories become increasingly redundant, even though earlier trajectories could guide where subsequent collection effort should be spent. A natural way to use this history is to expose it to the coding agent as advice. But training on such trajectories can make the model rely on advice that is unavailable at test time, creating a train-test mismatch. Instead, we argue that history should guide where collection effort is spent, while the coding agent decides what to generate. We introduce SWE-Trail, a trajectory collector that uses earlier trajectories to guide subsequent collection while keeping that history outside the coding agent's context. During a new rollout, SWE-Trail uses history to identify a state where additional collection effort may be useful. There, the coding agent proposes candidate next actions from its ordinary context, and SWE-Trail briefly executes them from the same checkpoint to decide which route continues. We evaluate collection approaches by training student models on the trajectories they produce. For a 124B student initialized from Ling-3.0-flash-base, SWE-Trail improves mean resolution over independent sampling by 2.33 and 1.60 percentage points on SWE-bench Multilingual and SWE-bench Pro, respectively. Without history, the same pipeline produces more resolved trajectories than independent sampling, but improves by only 0.11 points on Multilingual. These results show the value of using history to guide collection without exposing it to the coding agent."
+      "title": "Adversarial Speculative Reasoning Improves Long Horizon Agents",
+      "authors": "Hongyin Luo, Wei Fang, Lijie Yang et al.",
+      "published": "2026-11-02",
+      "url": "https://arxiv.org/abs/2611.05345",
+      "raw_summary": "Speculative decoding has been treated purely as a systems optimization that speeds up large language model decoding without changing the model behavior. Under this view, the growing effort to train better draft models has been focused solely on acceptance rate. We argue that this view does not hold true for long-horizon agent reasoning. Measuring frontier open-weight models on complex agentic tasks with different speculative decoding approaches, we found that numerical noise grows within verification windows, and the draft acceptance results of the thinking process can change the output distribution of the model after 30 steps, thus noticeably influencing the reasoning accuracy of long-horizon agents in random directions. In this work, we improve the reasoning capability of target models by controlling such noise. While we cannot change the overall token distribution verified by the target model, we can encode critical reasoning with highest precision by training the draft model to be rejected. We identify these points in agent traces and train the draft model to favor adversarial preference. At inference the trained draft and the target part ways precisely at these decision points, verification restarts, so that critical thinking tokens are sampled from the target model and encoded under its least noisy conditions. This approach makes critical reasoning better indexed and more durable over a long horizon. On complex agentic coding benchmarks, our approach raises end-to-end success rate with no change to the target model or its output distribution. Our results recast the speculative decoding mechanism from a pure accelerator into an active allocator for context precision that improves the accuracy of long-horizon agents by training 0.06% to 0.28% of hosted parameters."
     },
     {
-      "id": "paper-2611.03097",
+      "id": "paper-2611.04166",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "DR Pixel: Page-Native Deep Research with Vision-Language Models",
-      "authors": "Tiansheng Hu, Yichuan Wang, James V. Talwar et al.",
-      "published": "2026-11-01",
-      "url": "https://arxiv.org/abs/2611.03097",
-      "raw_summary": "Complex documents such as scientific papers contain rich information in tables, figures, and equations; however, existing deep research (DR) agents typically reduce papers to OCR-extracted text. We instead ask whether vision-language models (VLMs) can enable page-native deep research: directly retrieving and reasoning over rendered document page images. We introduce DR Pixel, the first open-source end-to-end multimodal DR agent that uses rendered page images as its sole retrieval and reasoning unit, operating over a corpus of 1.06M pages. To evaluate this setting, we construct DRPixelBench, a benchmark on scientific papers requiring reasoning over text, figures, tables, and equations. Surprisingly, page-native DR already works well without training, outperforming OCR-based baselines across state-of-the-art models like GPT-5.4, Gemini-3.5-Flash, and Qwen3.6-27B, while requiring fewer tool calls. We next turn to DR training. A key challenge is that teacher trajectories for agentic supervised finetuning are noisy, mixing critical reasoning and action steps with redundant or failed attempts. To address this, we introduce counterfactual credit reweighting, a fine-grained credit assignment method that weights individual reasoning and action steps by their counterfactual contribution to the final answer. Our training improves retrieval recall by about 15 points and final accuracy by over 10 points on DRPixelBench, and likewise outperforms the untrained baseline on four existing benchmarks. On out-of-distribution ViDoRe-V3, DR Pixel comes within 1.8 points of an oracle that is given the gold pages directly. Our results suggest that the conventional OCR-then-retrieve pipeline is not only unnecessary but suboptimal: directly retrieving and reasoning over visual document pages makes complex DR both more effective and more efficient.",
-      "image": "https://arxiv.org/html/2611.03097v1/DR_Pixel_Motivation_vector_v4.png"
+      "title": "Say the Same, Act Differently: Diagnosing and Steering Text-Action Divergence in Reasoning VLAs",
+      "authors": "Zihao Feng, Qingzhao Zhang, Chunyu Xia et al.",
+      "published": "2026-11-02",
+      "url": "https://arxiv.org/abs/2611.04166",
+      "raw_summary": "Reasoning vision-language-action (VLA) models pair physical control with natural-language rationales that supervisors can read to monitor embodied safety. Prior attacks on VLA reasoning corrupt the rationale itself and leave visible evidence in the text. We show that visual perturbations can instead alter the physical action while keeping the generated rationale word-for-word identical. At the shared text/action interface of Alpamayo for driving and InstructVLA for manipulation, our text-neutral action-subspace (TNAS) diagnostic shows that the locally most action-sensitive direction is nearly orthogonal to the active text-loss gradients, with 1.87% and 5.28% norm overlap. At equal hidden-state perturbation norms across both models, interventions along this text-neutral residual shift actions 4.64x to 47.8x more than text-gradient perturbations, whereas text-gradient perturbations induce 21.2x to 277x more text drift. Steering visual perturbations along this direction reaches the same decoupling from the image. Across 154 obstacle-annotated driving scenes in Alpamayo, TNAS-guided attacks induce a new collision under a word-for-word identical rationale in 52.6% of scenes under full-image perturbations and 35.1% under a localized forward-camera patch, compared with 4.55% for unguided action attacks. Relative to a text-preserving baseline, TNAS guidance raises exact rationale preservation from 83.0% to 89.5% and cuts teacher-forced text drift by 68.4% at a comparable collision rate. In InstructVLA, TNAS guidance cuts text drift by 40.5% and preserves the exact response on 85.0% of examples alongside a 1.73-unit action-chunk shift. An unchanged rationale therefore cannot certify a safe action, so monitors for reasoning VLAs must verify the predicted action channel directly."
+    },
+    {
+      "id": "news-gh-1360898986",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/DeepJIT",
+      "authors": "DeepSeek",
+      "published": "2026-11-05",
+      "url": "https://github.com/deepseek-ai/DeepJIT",
+      "raw_summary": "A lightweight library for xPU kernel JIT compilation"
     },
     {
       "id": "news-gh-1008713177",
@@ -67,42 +76,31 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-04",
+      "published": "2026-11-05",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1246459259",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
+      "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-11-04",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-11-05",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-gh-1256070689",
+      "id": "news-gh-1004140701",
       "type": "news",
-      "source": "MiniMax · GitHub",
+      "source": "智谱 GLM · GitHub",
       "region": "国内",
-      "title": "MiniMax-AI/minimax-code",
-      "authors": "MiniMax",
-      "published": "2026-11-04",
-      "url": "https://github.com/MiniMax-AI/minimax-code",
-      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
-    },
-    {
-      "id": "news-gh-1436502942",
-      "type": "news",
-      "source": "MiniMax · GitHub",
-      "region": "国内",
-      "title": "MiniMax-AI/mcode-stack",
-      "authors": "MiniMax",
-      "published": "2026-11-04",
-      "url": "https://github.com/MiniMax-AI/mcode-stack",
-      "raw_summary": "The workflows and skills the MiniMax Code team uses to build MiniMax Code. Open source, install and use."
+      "title": "THUDM/slime",
+      "authors": "智谱 GLM",
+      "published": "2026-11-05",
+      "url": "https://github.com/THUDM/slime",
+      "raw_summary": "slime is an LLM training framework for RL Scaling."
     }
   ]
 }
