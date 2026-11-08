@@ -1,17 +1,6 @@
 {
-  "fetched_at": "2026-11-07",
+  "fetched_at": "2026-11-08",
   "items": [
-    {
-      "id": "paper-2611.02075",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Decoupled Predictive Decision Making: A Shared Conditional Predictor for Agents",
-      "authors": "Lang Mo, Xingxuan Zhang, Qi Wang et al.",
-      "published": "2026-10-31",
-      "url": "https://arxiv.org/abs/2611.02075",
-      "raw_summary": "Agent decisions depend on empirical relationships that deployment observations reveal and task descriptions alone may leave unresolved. We introduce Decoupled Predictive Decision Making (DPDM), an architecture that formulates heterogeneous agent decisions as conditional prediction with a shared pretrained learner. Language models provide semantic representations of current and historical records, while a general-purpose conditional predictor predicts task-defined targets from the represented evidence. Pretraining supplies reusable inference capability; deployment evidence instantiates problem-specific predictions without updating either model's neural parameters. Tool judgments, candidate preferences, and reasoning assessments share an evidence-and-query interface, with predictions mapped to choices by a decision rule. This architecture establishes complementary sources of agent capability: semantic knowledge acquired through language pretraining and empirical inference acquired through structured-data pretraining. A single frozen LimiX-2 predictor serves all five task categories. With Qwen3.5-27B as the semantic encoder, DPDM raises mean accuracy across 50 benchmarks from 78.80% with few-shot prompting to 84.92% under their respective evaluated history budgets, and reaches 82.33% with identical histories and queries. On ToolPRMBench's BFCL and ToolSandbox tasks, absolute accuracy gains are 34.26% and 28.87%, respectively, at the methods' respective evaluated history budgets. Accuracy improves as history grows. With identical imbalanced histories, mean balanced accuracy improves by an absolute 14.51% across five reasoning-step assessment tasks and four encoders. DPDM makes learning from experience an independently improvable foundation-model capability, creating a shared route for advances in conditional prediction to improve decisions across agent tasks."
-    },
     {
       "id": "paper-2611.05376",
       "type": "paper",
@@ -22,6 +11,17 @@
       "published": "2026-11-03",
       "url": "https://arxiv.org/abs/2611.05376",
       "raw_summary": "For a decade, progress in artificial intelligence has been measured by how much a machine can do on its own. Large foundation models now write code and run multistep tasks, and personal agents act on a person's behalf. Yet people still forget what they once knew, miss what they are not looking at, fail to find the right words, and face hard choices without the benefit of their own history, because the machine that could help stands outside the situation. As AI moves into the physical world, attention has settled on one kind of intelligent individual, the embodied robot; we argue that the era of Physical AI holds a second kind of equal importance, the person augmented by AI. Alongside artificial general intelligence, which asks how intelligent a machine can be, stands AI-augmented human intelligence (AHI), which asks how much intelligence a machine can enable in a particular person. Realizing it calls for a new kind of system, a cognitive symbiont: a lifelong, embedded, real-time, private, low-friction, and proactive companion that senses what the person senses through external devices, keeps their context across years, models their situation and their mind, takes part in their thinking at the right moment, carries out everyday tasks with their context, and keeps learning the person as both change. We give the paradigm a conceptual core, the cognitive gap between what a person could bring to a situation and what they can hold in working memory, and organize its design space as a symbiosis loop of sensing, keeping, understanding, living alongside, acting for and thinking with the person, and growing, enclosed by a personal runtime and by trust. Because a symbiont changes what a person can do in front of others, it also raises risks of a new kind, from covert assistance in examinations to pressure on everyone to adopt it, and we treat their governance as part of the paradigm."
+    },
+    {
+      "id": "paper-2611.02075",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Decoupled Predictive Decision Making: A Shared Conditional Predictor for Agents",
+      "authors": "Lang Mo, Xingxuan Zhang, Qi Wang et al.",
+      "published": "2026-10-31",
+      "url": "https://arxiv.org/abs/2611.02075",
+      "raw_summary": "Agent decisions depend on empirical relationships that deployment observations reveal and task descriptions alone may leave unresolved. We introduce Decoupled Predictive Decision Making (DPDM), an architecture that formulates heterogeneous agent decisions as conditional prediction with a shared pretrained learner. Language models provide semantic representations of current and historical records, while a general-purpose conditional predictor predicts task-defined targets from the represented evidence. Pretraining supplies reusable inference capability; deployment evidence instantiates problem-specific predictions without updating either model's neural parameters. Tool judgments, candidate preferences, and reasoning assessments share an evidence-and-query interface, with predictions mapped to choices by a decision rule. This architecture establishes complementary sources of agent capability: semantic knowledge acquired through language pretraining and empirical inference acquired through structured-data pretraining. A single frozen LimiX-2 predictor serves all five task categories. With Qwen3.5-27B as the semantic encoder, DPDM raises mean accuracy across 50 benchmarks from 78.80% with few-shot prompting to 84.92% under their respective evaluated history budgets, and reaches 82.33% with identical histories and queries. On ToolPRMBench's BFCL and ToolSandbox tasks, absolute accuracy gains are 34.26% and 28.87%, respectively, at the methods' respective evaluated history budgets. Accuracy improves as history grows. With identical imbalanced histories, mean balanced accuracy improves by an absolute 14.51% across five reasoning-step assessment tasks and four encoders. DPDM makes learning from experience an independently improvable foundation-model capability, creating a shared route for advances in conditional prediction to improve decisions across agent tasks."
     },
     {
       "id": "paper-2611.03743",
@@ -36,70 +36,71 @@
       "image": "https://arxiv.org/html/2611.03743v1/framework.png"
     },
     {
-      "id": "paper-2611.08089",
+      "id": "paper-2610.37739",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization",
-      "authors": "Anyuan Zhuo, Shaohua Zhang, Yuan Lin et al.",
+      "title": "OpenFrontiers: A Collection of Open Research Problems and a Benchmark for Scientific Rediscovery",
+      "authors": "Jiarui Yao, Ruida Wang, Tong Zhang",
+      "published": "2026-10-26",
+      "url": "https://arxiv.org/abs/2610.37739",
+      "raw_summary": "Large language models (LLMs) have shown increasing promise in research-level problem solving, yet a comprehensive collection of such problems is still missing, and evaluating them on research-level problems remains challenging. We introduce OpenFrontiers, a cross-disciplinary resource that combines a structured corpus of open research problems with a retrospective benchmark of recently resolved problems in mathematics. The corpus records problem statements, context, progress, and other information for 12,151 problems. The benchmark contains 200 problems, 110 resolved in 2026 and 90 still open, each with a Lean~4 statement checked by automated probes and two independent reviews; a subset HQ-50 further filters based on quality score, etc. Our evaluation protocol grades formal proofs with two independent checkers in an isolated sandbox under closed-book, frozen-retrieval, and live-web conditions. Evaluating seven LLM agents on the HQ-50 subset under a standardized budget, we find that closed-book rediscovery is rare, at most 7 of 40 resolved problems, whereas live-web success mostly reflects retrieval of published solutions. By linking a broad research-problem corpus to a formally graded evaluation subset with documented solutions, OpenFrontiers provides a foundation for measuring research-level rediscovery and studying progress toward solving currently open scientific problems. The dataset and benchmark could be found in https://huggingface.co/collections/FlippyDora/openfrontiers."
+    },
+    {
+      "id": "paper-2611.08478v1",
+      "type": "paper",
+      "source": "arXiv · cs.AI",
+      "region": "海外",
+      "title": "Scientist World: Grow a Research World for AI-Scientists",
+      "authors": "Taiming Lu, Sachin Konan, Zhuang Liu",
       "published": "2026-11-05",
-      "url": "https://arxiv.org/abs/2611.08089",
-      "raw_summary": "Mixture-of-Experts (MoE) models route each token to a few of many experts, yet what an individual expert is responsible for remains unsettled. Existing analyses count how often an expert is selected on domain-labeled corpora, an instrument that fixes the taxonomy in advance, stays coarse, and records selection rather than contribution. We instead study specialization in feature space by training a sparse autoencoder (SAE) on the output of an MoE layer. Since this output is a router-weighted sum of expert outputs and the SAE encoder is affine, the pre-activation of every latent decomposes exactly over the experts. Aggregated over a corpus, this gives each expert a dominant set of latents whose activation it principally drives. On layers 4, 30 and 46 of Qwen3-30B-A3B, contribution is far more concentrated than gating, most latents have only one or two dominators, and the overlap between dominant sets concentrates on a few expert pairs. Auto-interpreting these sets reveals a division of labor below coarse domains, with distinct experts for Java and front-end web code, or for geometry and for arithmetic and polynomials, while the coarse domains themselves take very unequal numbers of experts. Our SAEs and code are available at https://github.com/Bytedance-Seed/SAE-Interprets-MoE."
+      "url": "http://arxiv.org/abs/2611.08478v1",
+      "raw_summary": "AI-Scientists arrived, but a world for them to grow in did not. Human scientists take theirs for granted $-$ centuries of open problems and shared ideas, waiting in the scientific literature. To AI-Scientists, that world is readable but not runnable, so we build Scientist World for them: every research paper becomes an executable environment. Our autonomous pipeline extracts each paper's open-ended research question and reproduces its proposed method as the baseline; an AI-Scientist entering the environment is evaluated against what the human authors achieved. We release the first 1,000 verified environments. With the world as an evaluation, we found that frontier AI-Scientists can already surpass the human researchers 74% of the time. As a record of how AI does science, it contains 6,400 hours of research traces, with every idea, experiment, failure, and success. As a training ground, we are able to raise (+158%) a small model to match frontier models in research ideation. At last, AI-Scientists' own world has arrived, grown from and growing with science itself.",
+      "image": "https://arxiv.org/html/2611.08478v1/environment_example.png"
     },
     {
-      "id": "paper-2611.06741",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Image Editing",
-      "authors": "Ruikang Li, Zixuan Chen, Jiarui Wu et al.",
-      "published": "2026-11-03",
-      "url": "https://arxiv.org/abs/2611.06741",
-      "raw_summary": "Strong single-turn editing performance does not guarantee reliable multi-turn interaction: as edited outputs are repeatedly reused, small unintended changes can accumulate into severe visual drift. This long-term drift is often mitigated through training on multi-turn data or cross-turn rollouts, potentially altering pretrained priors, or through specialized inference-time mechanisms that are difficult to scale to foundation models. We introduce TailSteer, a final-stage training framework that improves multi-turn robustness while retaining the generative and editing capabilities acquired through earlier training. TailSteer follows a simple principle: keep early denoising dynamics close to those of the base model and concentrate preservation corrections near the trajectory tail, where fine-grained deviations can be suppressed. These corrections are learned from the editor's own on-policy denoising rollouts, using unchanged source content as a preservation reference without requiring curated ground-truth editing pairs. Experiments across the FLUX, SenseNova, and Qwen families show that TailSteer substantially reduces cumulative drift over 15-20 editing turns while largely preserving base-model performance on extensive text-to-image and single-image editing benchmarks. These results demonstrate that long-horizon editing robustness can be unlocked in foundation models after TailSteer, rather than by relearning their existing capabilities."
-    },
-    {
-      "id": "news-41600308",
+      "id": "news-gh-1008713177",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
-      "authors": "OpenAI",
-      "published": "2026-11-06",
-      "url": "https://openai.com/index/partnering-with-hacktron",
-      "raw_summary": "OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code",
+      "authors": "通义千问 Qwen",
+      "published": "2026-11-08",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-71574488",
+      "id": "news-gh-1041478561",
       "type": "news",
-      "source": "OpenAI",
-      "region": "海外",
-      "title": "Measuring how AI agents handle everyday wet-lab science",
-      "authors": "OpenAI",
-      "published": "2026-11-06",
-      "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
-      "raw_summary": "OpenAI introduces BioBasicsBench, a 100-task benchmark measuring how well AI agents interpret raw experimental data and handle everyday wet-lab science."
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-11-07",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-71677045",
+      "id": "news-gh-1126541122",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "ToyBlocks: A controlled world for robot learning and evaluation",
-      "authors": "Hugging Face",
-      "published": "2026-11-06",
-      "url": "https://huggingface.co/blog/allenai/toyblocks",
-      "raw_summary": ""
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/Kimi-Vendor-Verifier",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-11-07",
+      "url": "https://github.com/MoonshotAI/Kimi-Vendor-Verifier",
+      "raw_summary": "Kimi-Vendor-Verifier"
     },
     {
-      "id": "news-49677013",
+      "id": "news-gh-1443957158",
       "type": "news",
-      "source": "Hugging Face",
-      "region": "海外",
-      "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
-      "authors": "Hugging Face",
-      "published": "2026-11-06",
-      "url": "https://huggingface.co/blog/open-asr-leaderboard-liva",
-      "raw_summary": ""
+      "source": "月之暗面 Kimi · GitHub",
+      "region": "国内",
+      "title": "MoonshotAI/TCSExam",
+      "authors": "月之暗面 Kimi",
+      "published": "2026-11-07",
+      "url": "https://github.com/MoonshotAI/TCSExam",
+      "raw_summary": "A benchmark for the full range of theoretical computer science (TCS) research."
     }
   ]
 }
