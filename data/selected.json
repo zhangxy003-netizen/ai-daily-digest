@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-08",
+  "fetched_at": "2026-11-09",
   "items": [
     {
       "id": "paper-2611.05376",
@@ -36,27 +36,26 @@
       "image": "https://arxiv.org/html/2611.03743v1/framework.png"
     },
     {
-      "id": "paper-2610.37739",
+      "id": "paper-2611.08089",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "OpenFrontiers: A Collection of Open Research Problems and a Benchmark for Scientific Rediscovery",
-      "authors": "Jiarui Yao, Ruida Wang, Tong Zhang",
-      "published": "2026-10-26",
-      "url": "https://arxiv.org/abs/2610.37739",
-      "raw_summary": "Large language models (LLMs) have shown increasing promise in research-level problem solving, yet a comprehensive collection of such problems is still missing, and evaluating them on research-level problems remains challenging. We introduce OpenFrontiers, a cross-disciplinary resource that combines a structured corpus of open research problems with a retrospective benchmark of recently resolved problems in mathematics. The corpus records problem statements, context, progress, and other information for 12,151 problems. The benchmark contains 200 problems, 110 resolved in 2026 and 90 still open, each with a Lean~4 statement checked by automated probes and two independent reviews; a subset HQ-50 further filters based on quality score, etc. Our evaluation protocol grades formal proofs with two independent checkers in an isolated sandbox under closed-book, frozen-retrieval, and live-web conditions. Evaluating seven LLM agents on the HQ-50 subset under a standardized budget, we find that closed-book rediscovery is rare, at most 7 of 40 resolved problems, whereas live-web success mostly reflects retrieval of published solutions. By linking a broad research-problem corpus to a formally graded evaluation subset with documented solutions, OpenFrontiers provides a foundation for measuring research-level rediscovery and studying progress toward solving currently open scientific problems. The dataset and benchmark could be found in https://huggingface.co/collections/FlippyDora/openfrontiers."
+      "title": "SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization",
+      "authors": "Anyuan Zhuo, Shaohua Zhang, Yuan Lin et al.",
+      "published": "2026-11-05",
+      "url": "https://arxiv.org/abs/2611.08089",
+      "raw_summary": "Mixture-of-Experts (MoE) models route each token to a few of many experts, yet what an individual expert is responsible for remains unsettled. Existing analyses count how often an expert is selected on domain-labeled corpora, an instrument that fixes the taxonomy in advance, stays coarse, and records selection rather than contribution. We instead study specialization in feature space by training a sparse autoencoder (SAE) on the output of an MoE layer. Since this output is a router-weighted sum of expert outputs and the SAE encoder is affine, the pre-activation of every latent decomposes exactly over the experts. Aggregated over a corpus, this gives each expert a dominant set of latents whose activation it principally drives. On layers 4, 30 and 46 of Qwen3-30B-A3B, contribution is far more concentrated than gating, most latents have only one or two dominators, and the overlap between dominant sets concentrates on a few expert pairs. Auto-interpreting these sets reveals a division of labor below coarse domains, with distinct experts for Java and front-end web code, or for geometry and for arithmetic and polynomials, while the coarse domains themselves take very unequal numbers of experts. Our SAEs and code are available at https://github.com/Bytedance-Seed/SAE-Interprets-MoE."
     },
     {
-      "id": "paper-2611.08478v1",
+      "id": "paper-2611.06741",
       "type": "paper",
-      "source": "arXiv · cs.AI",
+      "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Scientist World: Grow a Research World for AI-Scientists",
-      "authors": "Taiming Lu, Sachin Konan, Zhuang Liu",
-      "published": "2026-11-05",
-      "url": "http://arxiv.org/abs/2611.08478v1",
-      "raw_summary": "AI-Scientists arrived, but a world for them to grow in did not. Human scientists take theirs for granted $-$ centuries of open problems and shared ideas, waiting in the scientific literature. To AI-Scientists, that world is readable but not runnable, so we build Scientist World for them: every research paper becomes an executable environment. Our autonomous pipeline extracts each paper's open-ended research question and reproduces its proposed method as the baseline; an AI-Scientist entering the environment is evaluated against what the human authors achieved. We release the first 1,000 verified environments. With the world as an evaluation, we found that frontier AI-Scientists can already surpass the human researchers 74% of the time. As a record of how AI does science, it contains 6,400 hours of research traces, with every idea, experiment, failure, and success. As a training ground, we are able to raise (+158%) a small model to match frontier models in research ideation. At last, AI-Scientists' own world has arrived, grown from and growing with science itself.",
-      "image": "https://arxiv.org/html/2611.08478v1/environment_example.png"
+      "title": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Image Editing",
+      "authors": "Ruikang Li, Zixuan Chen, Jiarui Wu et al.",
+      "published": "2026-11-03",
+      "url": "https://arxiv.org/abs/2611.06741",
+      "raw_summary": "Strong single-turn editing performance does not guarantee reliable multi-turn interaction: as edited outputs are repeatedly reused, small unintended changes can accumulate into severe visual drift. This long-term drift is often mitigated through training on multi-turn data or cross-turn rollouts, potentially altering pretrained priors, or through specialized inference-time mechanisms that are difficult to scale to foundation models. We introduce TailSteer, a final-stage training framework that improves multi-turn robustness while retaining the generative and editing capabilities acquired through earlier training. TailSteer follows a simple principle: keep early denoising dynamics close to those of the base model and concentrate preservation corrections near the trajectory tail, where fine-grained deviations can be suppressed. These corrections are learned from the editor's own on-policy denoising rollouts, using unchanged source content as a preservation reference without requiring curated ground-truth editing pairs. Experiments across the FLUX, SenseNova, and Qwen families show that TailSteer substantially reduces cumulative drift over 15-20 editing turns while largely preserving base-model performance on extensive text-to-image and single-image editing benchmarks. These results demonstrate that long-horizon editing robustness can be unlocked in foundation models after TailSteer, rather than by relearning their existing capabilities."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +64,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-08",
+      "published": "2026-11-09",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1041478561",
+      "id": "news-gh-940018401",
+      "type": "news",
+      "source": "DeepSeek · GitHub",
+      "region": "国内",
+      "title": "deepseek-ai/3FS",
+      "authors": "DeepSeek",
+      "published": "2026-11-08",
+      "url": "https://github.com/deepseek-ai/3FS",
+      "raw_summary": " A high-performance distributed file system designed to address the challenges of AI training and inference workloads. "
+    },
+    {
+      "id": "news-gh-1315929647",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
+      "title": "QwenLM/Qwen-MM-Plugins",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-07",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+      "published": "2026-11-08",
+      "url": "https://github.com/QwenLM/Qwen-MM-Plugins",
+      "raw_summary": "Make any agent harness multimodal-native."
     },
     {
-      "id": "news-gh-1126541122",
+      "id": "news-gh-921224200",
       "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
+      "source": "智谱 GLM · GitHub",
       "region": "国内",
-      "title": "MoonshotAI/Kimi-Vendor-Verifier",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-11-07",
-      "url": "https://github.com/MoonshotAI/Kimi-Vendor-Verifier",
-      "raw_summary": "Kimi-Vendor-Verifier"
-    },
-    {
-      "id": "news-gh-1443957158",
-      "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/TCSExam",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-11-07",
-      "url": "https://github.com/MoonshotAI/TCSExam",
-      "raw_summary": "A benchmark for the full range of theoretical computer science (TCS) research."
+      "title": "THUDM/Awesome-Parameter-Efficient-Fine-Tuning-for-Foundation-Models",
+      "authors": "智谱 GLM",
+      "published": "2026-11-08",
+      "url": "https://github.com/THUDM/Awesome-Parameter-Efficient-Fine-Tuning-for-Foundation-Models",
+      "raw_summary": "Parameter-Efficient Fine-Tuning for Foundation Models"
     }
   ]
 }
