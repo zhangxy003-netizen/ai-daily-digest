@@ -1,62 +1,61 @@
 {
-  "fetched_at": "2026-11-13",
+  "fetched_at": "2026-11-14",
   "items": [
     {
-      "id": "paper-2610.40394",
+      "id": "paper-2611.15844",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Scaling Mathematical Proof Supervision from Structured Textbooks",
-      "authors": "Youqing Fang, Zhouqi Hua, Yinhao Tang et al.",
-      "published": "2026-10-28",
-      "url": "https://arxiv.org/abs/2610.40394",
-      "raw_summary": "Mathematical supervision for language models is typically flattened into isolated problem-solution pairs, discarding the curricular organization and evidential structure of the original sources. We introduce TOME-Math (Textbook-Oriented Mathematical Evidence), a large-scale corpus that converts 2,118 textbooks spanning the core areas of university-level mathematics subjects into approximately 380K structured proof-supervision records while preserving chapter order, proposition-proof links, dependency references, and source provenance. Leveraging these structural signals, we explore curriculum learning across multiple mathematical subjects and characterize scaling patterns with supervision volume and source breadth. At full scale, fine-tuning on TOME-Math raises the unweighted mean score across our held-out evaluations and established public benchmarks by 16.7 percentage points over the base model, while exceeding all three public instruction-data baselines evaluated in aggregate. Our findings highlight structured textbooks as both a scalable source of mathematical supervision and an empirical framework for studying the impact of data organization on mathematical reasoning. We will release the corpus to facilitate further research on structured mathematical supervision.",
-      "image": "https://arxiv.org/html/2610.40394v1/head1_1014_split_rc6.png"
+      "title": "Open Vision Banana: A Fully Open Recipe for Generative Visual Perception",
+      "authors": "Arpit Jadon, Valentinos Pariza, Jona Ruthardt et al.",
+      "published": "2026-11-10",
+      "url": "https://arxiv.org/abs/2611.15844",
+      "raw_summary": "Recent work suggests that pretrained image generators encode real-world understanding beyond image synthesis. Vision Banana exploits this by framing vision tasks as conditional image editing. However, its data, weights, code, and implementation details are not public. We present Open Vision Banana (OVB), a fully open and reproducible recipe for converting pretrained generators into unified multi-task perception systems. Our analyses identify the design choices that matter most for generalization, including color encoding, prompt design, parameter adaptation, and task balancing. These choices interact, so individually helpful choices can hurt when combined with others. Starting from 4B and 9B parameter open-weight base models and using 2.1M-3.8M training pairs from public datasets, OVB surpasses Vision Banana's reported Cityscapes zero-shot performance (73.9 vs. 69.9 mIoU) and rivals state-of-the-art affine-invariant depth estimators. Its non-zero-shot variants come within five points of Vision Banana on referring and reasoning segmentation but remain further behind on instance segmentation. All models largely retain the base model's image-editing abilities. With legend ensembling, we introduce a test-time scaling method for generator-based perception. It segments an image under several class-color legends and fuses the results by majority vote, correcting unstable color-class bindings and improving mIoU by up to 8.7 points on Cityscapes and 15.0 points on COCO-Object without retraining. We release the dataset construction and processing pipeline, the training and evaluation code, as well as the final, intermediate, and ablation checkpoints. Project website: https://openvisionbanana.github.io"
     },
     {
-      "id": "paper-2610.39671",
+      "id": "paper-2611.17060",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Incentivizing Self-Learning in Large Language Models via Reinforcement Learning",
-      "authors": "Lingkai Kong, Yuzhe Gu, Haiteng Zhao et al.",
-      "published": "2026-10-28",
-      "url": "https://arxiv.org/abs/2610.39671",
-      "raw_summary": "Large language models (LLMs) draw on parametric knowledge and retrieval-augmented generation (RAG) to solve knowledge-intensive tasks. Yet problem solving in unfamiliar domains calls for tightly coupled knowledge acquisition and reasoning, beyond factual retrieval and aggregation or learning solely from a preassembled context. We study self-learning -- autonomously retrieving, studying, and applying knowledge from long-form reference materials on the fly. To investigate this capability, we formulate a textbook-based mathematical problem-solving task. LLMs must navigate textbook exposition, learn and apply relevant principles, and construct proofs for exercises, with reference solutions withheld. We introduce a BookNavigator interface to support this human-inspired study process and incentivize self-learning through reinforcement learning (RL) with fine-grained rewards. Experiments show that our method improves performance across in-domain and out-of-domain textbooks and subjects, raising Intern-S2-Preview-35B's overall proof accuracy from 51.5% to 79.5% and outperforming RL-trained textbook-free and fixed-retrieval baselines. These gains extend to complex long-context benchmarks involving different task types, with improvements over the base model of 1.7 and 2.3 percentage points on BrowseComp-Plus and CL-bench, respectively. Together, these findings suggest that RL can foster a domain-agnostic self-learning strategy, highlighting the potential of self-learning from long-form corpora to strengthen broader problem-solving capabilities on complex, long-context tasks.",
-      "image": "https://arxiv.org/html/2610.39671v1/schema-cropped.png"
+      "title": "Ropedia Xperience 2: A Gold Standard for Scaling Physical AI Environments and Behaviors",
+      "authors": "Hao Li, Fangzhou Hong, Zhaoxi Chen et al.",
+      "published": "2026-11-11",
+      "url": "https://arxiv.org/abs/2611.17060",
+      "raw_summary": "Large foundation models such as GPT-6 Astra and Claude Fable 5.1 have recently been shown to control robots directly from visual observations. They nevertheless remain brittle on long-horizon, contact-rich tasks in real-world environments. Further progress depends on two complementary resources: demonstrations of human behavior that supervise how tasks are performed, and interactive environments in which policies can be rolled out, evaluated, and improved in closed loop. Language models have advanced along well-characterized scaling laws; the corresponding question for physical AI is how capability scales with environments and behaviors, which first requires identifying which data to scale and how to produce and reuse such data continuously. To address this question, we introduce Ropedia Xperience 2, comprising 1,589 released metric-scale 3D scans and a collection of 4,230 egocentric recordings of 74 tasks (131 hours). We further show that each capture can be repurposed for robot learning: scenes are converted into physically interactive simulation environments, human motion is retargeted to whole-body robot trajectories, and additional robot behaviors are obtained through virtual teleoperation and automated long-horizon trajectory generation. We propose this joint capture of environments and behaviors as a gold standard for physical AI data collection, laying a data foundation for establishing scaling laws over environments and behaviors.",
+      "image": "https://arxiv.org/html/2611.17060v1/figs/collection_workflow.png"
     },
     {
-      "id": "paper-2611.13410",
+      "id": "paper-2611.17334",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering",
-      "authors": "Genming Cui, Xiangyu Li, Zixu Hao et al.",
-      "published": "2026-11-09",
-      "url": "https://arxiv.org/abs/2611.13410",
-      "raw_summary": "Low-bit quantization reduces the inference cost of LLM agents but can compromise task success. Examining failed rollouts, we find that quantized agents overlook task requirements or environmental conditions, producing environment transitions that diverge from successful full-precision references. Correcting these behavioral divergences remains difficult: offline data may miss the student's failure contexts, while its own rollouts may provide few correct responses in those contexts. We introduce SteerDistill, a quantization-aware distillation method in which a full-precision teacher guides the student to revise failed responses and iteratively refines its guidance using feedback from student execution. This closed-loop teacher steering produces locally verified behavioral corrections. We internalize these corrections by training the student without guidance to match the steered student's predictions at corrected turns and the full-precision teacher's at other turns, enabling unassisted inference. Across five agentic benchmarks and three models, SteerDistill exceeds the strongest quantized baseline by 1.67--2.18 points in average score under W4A16 and stays within one point of BF16. On τ^2-Bench, it outperforms QeRL by 1.84 percentage points in success rate using 67% fewer training GPU hours and produces shorter successful trajectories than the quantized baselines."
+      "title": "Unbundling Multimodal Vision Encoding",
+      "authors": "Ellis Brown, Chris Hoang, Shengyi Qian et al.",
+      "published": "2026-11-11",
+      "url": "https://arxiv.org/abs/2611.17334",
+      "raw_summary": "How multimodal language models should encode visual input remains up for debate. Most models use a pretrained vision encoder, while some recent recipes train the encoder from scratch with the language model or remove it entirely. Vision encoders bundle together three design choices: a visual prior from upstream pretraining, dedicated vision capacity, and pre-fusion placement of that capacity (i.e., before the multimodal backbone). Because published models also differ in data, architecture, and compute, comparing them cannot isolate the effect of each choice. We disentangle these choices via a controlled framework where we pretrain all models from scratch on common data and compare them on visual question answering and language benchmarks at matched lifetime compute. We find that the visual prior is not necessary; an encoder trained jointly from scratch is on par with a pretrained one, without a separate training stage. What matters instead is dedicated vision capacity: an encoder-free model trails on visual understanding even when its backbone is enlarged by the encoder's parameter count. Yet that capacity need not precede multimodal fusion, as vision-only modules added in-fusion to early backbone layers perform comparably to a pre-fusion encoder and can lower time to first token. These results also hold across backbone sizes, when encoder pretraining is treated as free, and when starting from a pretrained language model. Overall, our findings favor dedicated vision capacity trained jointly with the backbone and placed early within it."
     },
     {
-      "id": "paper-2611.12869",
+      "id": "paper-2611.16961",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Where Does Alignment Emerge and What Does It Mean? A Closer Look at the Platonic Representation Hypothesis",
-      "authors": "Julia Herbst, Simon Roschmann, Quentin Bouniot et al.",
-      "published": "2026-11-09",
-      "url": "https://arxiv.org/abs/2611.12869",
-      "raw_summary": "The Platonic Representation Hypothesis (PRH) suggests that neural networks are converging toward similar representation spaces. As language models become more capable, their representations are aligning with those of vision models. However, recent work has questioned whether this trend continues to hold for newer language models. Moreover, it has been shown that representation similarity metrics can be confounded by model depth and width, requiring appropriate baselines for interpretation. In this work, we first investigate where alignment emerges between unimodal models across model layers and representation dimensions. Next, we find that the PRH capability-alignment trend persists for newer models as long as the captions are sufficiently clean and informative. Finally, we contextualize cross-modal alignment, introducing unimodal and multimodal baselines on various datasets. Our results show that the cross-modal representational alignment of unimodal models can surpass that of explicitly aligned vision-language models, but remains substantially behind the alignment observed for models of the same modality. Code is available at https://github.com/ExplainableML/prh-closer-look."
+      "title": "The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
+      "authors": "Zhengxu Yu, Ke Xu, Meng Fang et al.",
+      "published": "2026-11-11",
+      "url": "https://arxiv.org/abs/2611.16961",
+      "raw_summary": "Existing adaptive-reasoning methods shorten the explicit reasoning a model writes, or skip it by switching modes; either way the answer is still written out token by token. Rather than deciding how much to think, we explore a different paradigm, zero-or-T thinking: a single model either answers from the implicit thinking inside one forward pass, generating no token, or performs full autoregressive reasoning at a cost of T tokens when that is worth paying. We realise it in a hybrid decision model (HDM), where one frozen backbone serves both modes and a lightweight self-routing block chooses between them. The block estimates the value of thinking, the utility the slow mode is expected to add over the fast one, from what that implicit thinking has already produced, and the slow mode runs only where that value exceeds a price λ set per request. Where no per-decision label exists, as in episodic agentic tasks, we introduce Calibrated Decision Policy Optimisation (CDPO), a reinforcement-learning recipe that trains the block from episode-level returns. We evaluate HDM on MMLU-Pro, AGIEval, GPQA-Diamond, JevBench, BANKING77 and MiniWoB. Specifically, on JevBench HDM-4B scores 0.857 against Jev's 0.851 (+0.7%) at a median 0.179\\,s against 0.652 (-72.5%). On the agentic venue MiniWoB HDM-27B cuts token cost by 80.1%."
     },
     {
-      "id": "paper-2608.22237",
+      "id": "paper-2611.16409",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Read Less, Solve More: Token-Efficient Sparse Reading of External Content for AI Agents",
-      "authors": "Zedong Liu, Jiaan Wu, Xinyang Ma et al.",
-      "published": "2026-11-06",
-      "url": "https://arxiv.org/abs/2608.22237",
-      "raw_summary": "Web-facing AI agents repeatedly access webpages, documents, repositories, and tool responses, yet reading interfaces often expose entire objects when only sparse evidence is needed. This over-reading increases token and latency costs and can dilute relevant evidence. We present SparseRead, a reusable reading control layer that governs content admission without modifying the agent model. Its Read Intent Protocol tracks evolving needs and source coverage; Adaptive Reader Backends select how evidence is located and exposed; and the Budgeted Read Gate bounds cumulative raw exposure per episode with faithful full-view fallback. A unified Reader interface supports interchangeable evidence acquisition across heterogeneous resources. Across six models, including Claude Opus 5, and five scenarios, SparseRead reduces total tokens by up to 92.9% and wall time by up to 89.0%, preserving or improving task quality in 97% settings. On Web deep-search tasks, it reduces tokens by 31.0--43.0% and task completion time by 23.0--37.0%. Ablations validate the three designs, while integration with three agent frameworks demonstrates portability."
+      "title": "Experience-Handoff Reinforcement Learning for Recursive Self-Improvement",
+      "authors": "Doyoung Kim, Byeongguk Jeon, Kailin Zhang et al.",
+      "published": "2026-11-11",
+      "url": "https://arxiv.org/abs/2611.16409",
+      "raw_summary": "It is common to train Large Language Models (LLMs) for agentic tasks with Reinforcement Learning (RL) from scalar rewards. However, this throws away the fine-grained information about the environment that the agent experienced during the trial (e.g., error logs). To utilize this rich information, recent works wrap the agent in a harness that refines its own inputs through reflection or compaction and hands past experience to future rollouts, but the construction of the handed-off artifacts (e.g., a playbook) is itself not learned. We want the best of both worlds: gradient updates from a scalar reward, while also utilizing environment information to hand off experience. As a concrete testbed, we fix the Agentic Context Engineering () harness and train one model to act, reflect, and curate task-local playbooks. Our method, , evaluates candidate experience-handoff artifacts by their downstream effect on future actor rollouts, and co-optimizes the role-specific behaviors (action generator, insight reflector, and playbook curator) under a fixed scaffold. Across agentic benchmarks,  achieves higher held-out performance than baseline methods. The results suggest that agent training should optimize not only the actions in the current rollout, but also the model-written experience that future rollouts inherit."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,42 +64,42 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-13",
+      "published": "2026-11-14",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1363683267",
+      "id": "news-gh-1041478561",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "QwenLM/Qwen-Live-Harness",
+      "title": "QwenLM/qwen-code-docs",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-13",
-      "url": "https://github.com/QwenLM/Qwen-Live-Harness",
-      "raw_summary": "An open-source agent harness powered by the Qwen Omni Realtime API—see, hear, and act, with built-in memory."
+      "published": "2026-11-14",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
-      "id": "news-gh-1246459259",
-      "type": "news",
-      "source": "月之暗面 Kimi · GitHub",
-      "region": "国内",
-      "title": "MoonshotAI/kimi-code",
-      "authors": "月之暗面 Kimi",
-      "published": "2026-11-13",
-      "url": "https://github.com/MoonshotAI/kimi-code",
-      "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
-    },
-    {
-      "id": "news-25021988",
+      "id": "news-71313709",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+      "title": "Introducing ChatGPT Wallet",
       "authors": "OpenAI",
-      "published": "2026-11-12",
-      "url": "https://openai.com/business/customer-stories/amplitude",
-      "raw_summary": "Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measures the impact."
+      "published": "2026-11-13",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "raw_summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections."
+    },
+    {
+      "id": "news-46444381",
+      "type": "news",
+      "source": "OpenAI",
+      "region": "海外",
+      "title": "Shield helps technicians hand off legacy portal work with OpenAI",
+      "authors": "OpenAI",
+      "published": "2026-11-13",
+      "url": "https://openai.com/business/customer-stories/shield",
+      "raw_summary": "Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their judgment."
     }
   ]
 }
