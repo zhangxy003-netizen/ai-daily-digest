@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-15",
+  "fetched_at": "2026-11-16",
   "items": [
     {
       "id": "paper-2611.15844",
@@ -25,6 +25,18 @@
       "image": "https://arxiv.org/html/2611.17060v1/figs/collection_workflow.png"
     },
     {
+      "id": "paper-2611.17336",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+      "authors": "Yanke Song, Shuo Chen, Chris Rockwell et al.",
+      "published": "2026-11-11",
+      "url": "https://arxiv.org/abs/2611.17336",
+      "raw_summary": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VAE decoder with a convolutional head that renders its outputs into pixels. We find that predicting clean video rather than velocity, together with a larger noise shift, is key to quality. Finetuned from Wan2.1-14B, PixVid is competitive with the latent baseline within sim 1.3M training clips. Working framewise in pixels, it generates at 2times higher resolution with the same per-frame token count, keeps depth-conditioned video editing aligned under fast motion, and responds to each action at the next frame. Project page: https://chenshuo20.github.io/PixVid/",
+      "image": "https://arxiv.org/html/2611.17336v1/detailer_head.png"
+    },
+    {
       "id": "paper-2611.17334",
       "type": "paper",
       "source": "Hugging Face Daily",
@@ -34,17 +46,6 @@
       "published": "2026-11-11",
       "url": "https://arxiv.org/abs/2611.17334",
       "raw_summary": "How multimodal language models should encode visual input remains up for debate. Most models use a pretrained vision encoder, while some recent recipes train the encoder from scratch with the language model or remove it entirely. Vision encoders bundle together three design choices: a visual prior from upstream pretraining, dedicated vision capacity, and pre-fusion placement of that capacity (i.e., before the multimodal backbone). Because published models also differ in data, architecture, and compute, comparing them cannot isolate the effect of each choice. We disentangle these choices via a controlled framework where we pretrain all models from scratch on common data and compare them on visual question answering and language benchmarks at matched lifetime compute. We find that the visual prior is not necessary; an encoder trained jointly from scratch is on par with a pretrained one, without a separate training stage. What matters instead is dedicated vision capacity: an encoder-free model trails on visual understanding even when its backbone is enlarged by the encoder's parameter count. Yet that capacity need not precede multimodal fusion, as vision-only modules added in-fusion to early backbone layers perform comparably to a pre-fusion encoder and can lower time to first token. These results also hold across backbone sizes, when encoder pretraining is treated as free, and when starting from a pretrained language model. Overall, our findings favor dedicated vision capacity trained jointly with the backbone and placed early within it."
-    },
-    {
-      "id": "paper-2611.16961",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
-      "authors": "Zhengxu Yu, Ke Xu, Meng Fang et al.",
-      "published": "2026-11-11",
-      "url": "https://arxiv.org/abs/2611.16961",
-      "raw_summary": "Existing adaptive-reasoning methods shorten the explicit reasoning a model writes, or skip it by switching modes; either way the answer is still written out token by token. Rather than deciding how much to think, we explore a different paradigm, zero-or-T thinking: a single model either answers from the implicit thinking inside one forward pass, generating no token, or performs full autoregressive reasoning at a cost of T tokens when that is worth paying. We realise it in a hybrid decision model (HDM), where one frozen backbone serves both modes and a lightweight self-routing block chooses between them. The block estimates the value of thinking, the utility the slow mode is expected to add over the fast one, from what that implicit thinking has already produced, and the slow mode runs only where that value exceeds a price λ set per request. Where no per-decision label exists, as in episodic agentic tasks, we introduce Calibrated Decision Policy Optimisation (CDPO), a reinforcement-learning recipe that trains the block from episode-level returns. We evaluate HDM on MMLU-Pro, AGIEval, GPQA-Diamond, JevBench, BANKING77 and MiniWoB. Specifically, on JevBench HDM-4B scores 0.857 against Jev's 0.851 (+0.7%) at a median 0.179\\,s against 0.652 (-72.5%). On the agentic venue MiniWoB HDM-27B cuts token cost by 80.1%."
     },
     {
       "id": "paper-2611.08318",
@@ -65,20 +66,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-15",
+      "published": "2026-11-16",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
     {
-      "id": "news-gh-1041478561",
+      "id": "news-gh-1363683267",
       "type": "news",
       "source": "通义千问 Qwen · GitHub",
       "region": "国内",
-      "title": "QwenLM/qwen-code-docs",
+      "title": "QwenLM/Qwen-Live-Harness",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-15",
-      "url": "https://github.com/QwenLM/qwen-code-docs",
-      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
+      "published": "2026-11-16",
+      "url": "https://github.com/QwenLM/Qwen-Live-Harness",
+      "raw_summary": "An open-source agent harness powered by the Qwen Omni Realtime API—see, hear, and act, with built-in memory."
     },
     {
       "id": "news-gh-1246459259",
@@ -87,20 +88,20 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-11-15",
+      "published": "2026-11-16",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-60202958",
+      "id": "news-26724570",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Introducing ChatGPT Wallet",
+      "title": "A step toward defining the Standard Model on a lattice",
       "authors": "OpenAI",
-      "published": "2026-11-13",
-      "url": "https://openai.com/index/introducing-chatgpt-wallet",
-      "raw_summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections."
+      "published": "2026-11-15",
+      "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+      "raw_summary": "Explore a candidate nonperturbative lattice definition of the Standard Model and how GPT-6 Astra helped turn the idea into a detailed proof."
     }
   ]
 }
