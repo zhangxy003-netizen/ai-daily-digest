@@ -1,62 +1,61 @@
 {
-  "fetched_at": "2026-11-17",
+  "fetched_at": "2026-11-18",
   "items": [
     {
-      "id": "paper-2611.12068",
+      "id": "paper-2611.22055",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "MIRIX-2.0: Multi-Agent Memory System",
-      "authors": "Wei-Chieh Huang, Weizhi Zhang, Jiayan Nan et al.",
-      "published": "2026-11-08",
-      "url": "https://arxiv.org/abs/2611.12068",
-      "raw_summary": "Long-term memory lets LLM agents personalize, stay consistent, and reuse what worked before. Parametric memories need training, consolidation can lose details for good, and keeping every record leaves a growing store to search. We present MIRIX-2.0, a multi-agent memory system designed to be practical, accurate, and efficient at once. It is the most accurate of the compared systems on four of five QA benchmarks. It reaches 91.4% on LoCoMo and 72.6% on LongMemEval-S, where it leads the strongest baseline by 14.3 points, and with AutoDream disabled it gains 31.0 and 22.0 points over HyperMem on single-hop and multi-hop document QA. As procedural memory, it yields the highest mean success among the compared memory methods on ALFWorld and WebShop and reaches 49.2% on MetaClaw-Bench, against 44.0% for MetaClaw's skill library. Six typed memory agents keep complete records as the system of record, and a provenance hypergraph indexes episodic and semantic records with n-ary frames that cite their rows. Retrieval runs under explicit budgets, so the evidence a question inspects does not grow with the history. AutoDream merges duplicate anchors outside the write path without rewriting any record, and it distills task sessions into skills. With AutoDream disabled, MIRIX-2.0 answers faster than HyperMem on all five timed benchmarks. It needs no fine-tuning, runs with closed and open models, and its code is public."
+      "title": "Weight-Space Programming Doesn't Need Transformers",
+      "authors": "Hyunjong Ok, Jaeho Lee",
+      "published": "2026-11-16",
+      "url": "https://arxiv.org/abs/2611.22055",
+      "raw_summary": "Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights."
     },
     {
-      "id": "paper-2611.17955",
+      "id": "paper-2611.08977",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "WebArena-Pro: A Heterogeneous, Multimodal, Reproducible Benchmark for Web Agents",
-      "authors": "Imene Kerboua, Fatemeh Pesaran Zadeh, Xing Han Lù et al.",
-      "published": "2026-11-12",
-      "url": "https://arxiv.org/abs/2611.17955",
-      "raw_summary": "Web agents powered by large language and vision-language models are increasingly applied to realistic browser work that spans heterogeneous applications, multimodal content, and stateful workflows. However, existing reproducible web-agent benchmarks cover only a small number of web applications drawn from a few software categories, and restrict modality to text and vision. Live benchmarks broaden site coverage but sacrifice reproducibility, since pages and data drift between runs. Moreover, existing benchmarks do not meaningfully evaluate whether agents can understand and use audio and video content embedded within web tasks. To address these gaps, we introduce WebArena-Pro, a benchmark comprising 300 tasks across 20 self-hosted web applications in six domain categories, spanning distinct interface conventions, workflows, and data models. Across the evaluated agents, the best performance is achieved by both Codex with GPT 6.1 Sol and Claude Code with Claude Opus 5.5 at 62.3%, followed by OpenCode with Kimi 3.1 Pro at 60.7%. The strongest GenericAgent configurations, Gemini 3.1 Pro omni and Gemma4 31B, both achieve 30.3%. Among reproducible, human-curated web agent benchmarks, WebArena-Pro provides the broadest application coverage and the most comprehensive multimodal support to date. The benchmark treats audio and video as core observations alongside text and vision, with dedicated actions for extracting information from each. WebArena-Pro runs each task in isolation and supports reproducible, parallel evaluation. Tasks are authored through a dedicated annotator interface, filtered by LLM-assisted triage, and finally validated by humans before release. Project page: https://webarena-pro.github.io",
-      "image": "https://arxiv.org/html/2611.17955v1/main_figure.png"
+      "title": "Energy-Based Reasoners: Your Recurrent Reasoner Should Be an Energy-Based Model",
+      "authors": "William Xingxu Chen, Alexi Gladstone, Zeyu Michael Li et al.",
+      "published": "2026-11-05",
+      "url": "https://arxiv.org/abs/2611.08977",
+      "raw_summary": "Looping is a powerful inductive bias for reasoning. By repeatedly iterating a recurrent block, looped models can scale their effective depth and enable multi-step reasoning in latent space. However, existing looped models are not inherently guided by an explicit measure of progress, making it difficult to determine when to stop looping and how to improve upon the current state. To enable this, we introduce Energy-Based Reasoners (EBRs), which learn an energy function over latent reasoning states and formulate looped updates as gradient descent on this energy. The energy scores latent states, while its gradient guides refinement and provides a signal for stopping. To train EBRs effectively, we further introduce exploration-based training to discover additional modes and to better shape the energy landscape over a broader set of states. Across four algorithmic reasoning benchmarks, EBRs match or outperform prior recurrent reasoning models, achieving 99.9% accuracy on Sudoku-Extreme while using 345times less inference compute than the next-best model and maintaining comparable training compute. On all multi-solution benchmarks, EBRs achieve state-of-the-art coverage of distinct valid solutions while maintaining near-100% single-sample accuracy. These results suggest that energy-based models are a promising approach for strong reasoning performance."
     },
     {
-      "id": "paper-2611.13509",
+      "id": "paper-2611.21099",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Mobile AI Factory: Building Specialized Language Models for Your Mobile Device",
-      "authors": "Evan Li, Krishna Deshpande, Wen Cheng et al.",
-      "published": "2026-11-09",
-      "url": "https://arxiv.org/abs/2611.13509",
-      "raw_summary": "Small language models (SLMs) running on mobile devices can keep user data private and work without connectivity. But they perform well only when fine-tuned for the target task and sized for the target device, a process that today requires repeated expert tuning. We present {\\it Mobile AI Factory}, an agentic system that builds a fine-tuned, quantized SLM for a given task and phone. Given a task specification and a target phone, an orchestrator LLM chooses whether to tune hyperparameters, mine real data, or generate synthetic examples, while fixed rules roll back changes that hurt accuracy. The factory searches from small to large models across base models and quantizations, adapts its accuracy goal as it searches, and uses real measurements of the target phone across inference engines and backends. We evaluate Mobile AI Factory on ten tasks and four Android phones. On an unseen testset, its on-device models outperform two five-shot frontier models on five tasks, by up to 0.34, and match them on three more. Its search comes within 0.03 of exhaustively training all 27 model variants on an entity extraction task, while using 19times less GPU time. Phone measurements also matter: the best configuration changes across phones. Without phone measurements, Claude Opus 5.5, given the full hardware and model specifications, misses the app's requirements in 25\\% of easy and moderate cases and in 60\\% of hard ones. Code is available at: https://github.com/evanly-gh/SLM_Factory."
+      "title": "ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models",
+      "authors": "Ke Sun, Kevin Yuchen Ma, Yike Zhang et al.",
+      "published": "2026-11-15",
+      "url": "https://arxiv.org/abs/2611.21099",
+      "raw_summary": "Frontier multimodal models can now control robots zero-shot from images, yet many manipulation tasks depend on contact forces that images cannot show. Bringing force to an API-only frozen model raises two challenges. First, contact evolves much faster than an API model can decide, so the system must close the loop on force beneath the model. Second, a frozen model cannot interpret raw force streams, so force must be returned in a form the model can reason about. Therefore, we present ForceHarness, a harness that lets frozen models use force without demonstrations or finetuning. After calibrating hand force from a wrist sensor or joint torques alone, ForceHarness addresses the first challenge with self-terminating force primitives that regulate force on their own and return at a contact event. To address the second challenge, a physics translation layer turns each force trace into physical quantities with uncertainty as the tool result. To evaluate ForceHarness against expert force controllers and learned policies under identical conditions, we also build HiddenPhys, a seven-task MuJoCo benchmark with hidden physical variables. On a real arm without a wrist force sensor, ForceHarness raises the zero-shot success rate of GPT-6 Astra from 3.3% to 90.0%. In simulation, it adds 17.5 percentage points on the public ForceBench suite and 34.3 percentage points on HiddenPhys, surpassing force-aware policies trained on demonstrations on both benchmarks and matching hand-written expert controllers on HiddenPhys. Ablations further show that smaller models make significantly better decisions when given physical quantities rather than raw force values.",
+      "image": "https://arxiv.org/html/2611.21099v1/fig2_overview.png"
     },
     {
-      "id": "paper-2611.17440",
+      "id": "paper-2611.19771",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "Interpreting Coding Agents Through Their Behavioral Trajectories",
-      "authors": "Ibragim Badertdinov, Alexander Golubev",
-      "published": "2026-11-11",
-      "url": "https://arxiv.org/abs/2611.17440",
-      "raw_summary": "Standard coding-agent benchmarks primarily evaluate binary task success, treating execution as a black box and obscuring the behaviors that produce those outcomes. We analyze a large corpus of 143,209 execution trajectories from 125 agent configurations spanning 117 unique models. To enable comparisons across heterogeneous agent interfaces, we develop a rule-based parser that maps raw execution traces to high-level actions such as repository search, file editing, and test execution, and audit its predictions against a six-model consensus reference on 500 events. We find that agents with similar solve rates can nevertheless differ substantially in how they explore, modify and verify code. Moreover, without using task outcomes, token counts, or tool names as features, aggregate behavioral profiles retrieve the corresponding agent stack across disjoint repository sets and programming languages, although task composition is not fully controlled in the cross-repository setting. Through analyses of frontier models and agent scaffolds, we further show that scaffold choice and reasoning effort systematically shift agents' search, editing, and testing behavior. We release the deterministic parser together with the full annotation and analysis pipeline alongside an annotated trajectory subset.",
-      "image": "https://arxiv.org/html/2611.17440v1/parser.png"
+      "title": "JEPA4R: Embodied JEPA World Models with 4D Point Planning",
+      "authors": "Jiarui Dong, Zhiheng Liang, Yanjun Li et al.",
+      "published": "2026-11-14",
+      "url": "https://arxiv.org/abs/2611.19771",
+      "raw_summary": "Joint-embedding predictive architecture (JEPA) world models predict future embeddings instead of pixels and plan in latent space. Two challenges remain: 2D images leave the metric geometry that manipulation acts on implicit and entangled with appearance, and what these models imagine stays hidden, as they are mostly judged in simulation by short-horizon latent planning. We present JEPA4R, a JEPA world model that observes single-depth-camera point clouds, predicts and plans in their latent space, and acts through a policy head on its frozen latents; we call this 4D point planning. A decoder on the frozen world model shows what it imagines as 4D point clouds, with a mean point error within 1.1 cm over 200 steps. Under the policy-learning protocols of OGBench and CortexBench, JEPA4R leads pixel JEPA models on OGBench Cube-Single, Cube-Double, Cube-Triple and Scene, and ranks first on MetaWorld and Adroit Relocate with 98.4% and 88.0%, above the runner-up, R3M, at 96.0% and 65.3%. Trained only in a digital twin, JEPA4R and its policy heads run zero-shot on the real arm with both a gripper and a dexterous hand."
     },
     {
-      "id": "paper-2611.17814",
+      "id": "paper-2611.20441",
       "type": "paper",
       "source": "Hugging Face Daily",
       "region": "海外",
-      "title": "G-CAST: Governed Continual Self-Training for E-Commerce Agents under Evolving Demands",
-      "authors": "Yuechun Yu, Wenzheng Kong, Xiaofeng Mao et al.",
-      "published": "2026-11-12",
-      "url": "https://arxiv.org/abs/2611.17814",
-      "raw_summary": "With the rapid advancement of Large Language Models (LLMs), an increasing number of users are turning to LLM-powered agents for conversational shopping in e-commerce. However, the user needs continue to change as new product categories, procurement scenarios, and feature requests emerge. At the same time, the product's execution harness-including its tools, skills, and operating procedures-continues to evolve to support increasingly sophisticated interactions. These changes create two practical challenges: 1) Demand drift alters the distribution, intent, and complexity of user requests, causing a model trained once to fall behind; 2) Harness evolution requires the model to use newly introduced capabilities correctly without losing behavior that users already rely on. Periodic manual retraining is too delayed and labor-intensive for this setting. To address these challenges, we present G-CAST, a governed continual self-training system that converts daily production evidence under evolving demand and capability contracts into reward-routed, entropy-prioritized training data and governed reward evolution. Governed checkpoint transition under cumulative evaluation controls each model update, enabling the agent to learn newly introduced behaviors without sacrificing previously accepted capabilities. Experiments on a real production e-commerce agent show that G-CAST achieves stronger adaptation to newly introduced demand while better preserving previously accepted behavior compared with a strong autonomous post-training baseline. Ablations further show that both reward-routed, entropy-prioritized data orchestration and governed reward evolution are important to these gains. G-CAST is now deployed in Yuancai(http://cai.1688.com/), a B2B procurement agent on Alibaba's 1688 platform."
+      "title": "Abstention Direction in Large Language Models: Mechanistic Interpretability of Abstention Across Query Ambiguity, Knowledge Limits, and Safety Alignment",
+      "authors": "Koki Itai, Jun Hirako, Hiroaki Yamagiwa",
+      "published": "2026-11-15",
+      "url": "https://arxiv.org/abs/2611.20441",
+      "raw_summary": "Abstention, the withholding of a response by a large language model (LLM) under uncertainty or safety risks, is essential for trustworthy models. The causes of abstention fall into three perspectives: ambiguity in the Query (Q), limits of Model Knowledge (MK), and misalignment with Human Values (HV). However, prior analyses of internal representations have focused on HV, using a refusal direction computed from harmful and harmless queries. No study has analyzed the three perspectives jointly. We therefore extend the refusal direction framework to all three perspectives. Specifically, for each perspective, we construct counterfactual pairs that share a template and differ only in the abstention-inducing factor, and compute an abstention direction by normalizing the difference in mean activations between the two polarities. Activation steering experiments show that intervening in middle layers increases or decreases abstention across all three perspectives. Moreover, steering yields cross-perspective effects, indicating that the abstention directions share a common directional component."
     },
     {
       "id": "news-gh-1008713177",
@@ -65,7 +64,7 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-17",
+      "published": "2026-11-18",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
     },
@@ -76,31 +75,31 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-11-17",
+      "published": "2026-11-18",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
     },
     {
-      "id": "news-78604665",
+      "id": "news-90895713",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Broadening access to AI for scientists",
+      "title": "Introducing GPT-6.2 Astra and Sol",
       "authors": "OpenAI",
-      "published": "2026-11-16",
-      "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
-      "raw_summary": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models."
+      "published": "2026-11-17",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "raw_summary": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API."
     },
     {
-      "id": "news-31655018",
+      "id": "news-7400680",
       "type": "news",
       "source": "OpenAI",
       "region": "海外",
-      "title": "Strengthening the fight against online child sexual abuse with new tools and support",
+      "title": "Strengthening NATO and allied cyber defenses with AI",
       "authors": "OpenAI",
-      "published": "2026-11-16",
-      "url": "https://openai.com/index/strengthening-online-child-safety",
-      "raw_summary": "New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse."
+      "published": "2026-11-17",
+      "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+      "raw_summary": "How OpenAI is working with NATO and allied cyber agencies to help trusted defenders find vulnerabilities, test fixes and protect essential systems."
     }
   ]
 }
