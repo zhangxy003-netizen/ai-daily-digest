@@ -1,6 +1,11 @@
 {
   "issues": [
     {
+      "date": "2026-11-22",
+      "issue_no": 161,
+      "count": 9
+    },
+    {
       "date": "2026-11-21",
       "issue_no": 160,
       "count": 9
@@ -801,6 +806,6 @@
       "count": 9
     }
   ],
-  "latest": "2026-11-21",
-  "total_issues": 160
+  "latest": "2026-11-22",
+  "total_issues": 161
 }
