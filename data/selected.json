@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27",
+  "fetched_at": "2026-11-28",
   "items": [
     {
       "id": "paper-2611.34232",
@@ -12,30 +12,6 @@
       "url": "https://arxiv.org/abs/2611.34232",
       "raw_summary": "Computer-using agents are increasingly expected to complete realistic user goals rather than isolated GUI actions. However, existing benchmarks typically isolate web, mobile, or desktop environments, leaving it unclear whether a single generalist agent can execute long-horizon workflows that span multiple operating systems and persistent application states. We introduce OS-Omni, a live cross-platform benchmark and execution environment for evaluating computer-using agents across Windows, Ubuntu, macOS, iOS, Android, and Web environments. OS-Omni is released in versioned waves of 300 tasks each; this paper focuses on the first release, v1, which contains 48 tasks per platform and 12 cross-platform workflows that pair a desktop with an Android phone. OS-Omni provides reproducible initialization, platform-specific adapters, trajectory logging, and executable final-state evaluators, and includes controlled service-backed applications for workflows involving account, cart, budget, calendar, message, and other persistent state. Human studies show that OS-Omni tasks require 67.54 interaction steps, substantially exceeding OSWorld references of 15.0 steps. On v1, the strongest evaluated agent, Claude Opus 5.5, reaches 68.5% average success, trailing the 77.3% human reference by 8.8 points; the gap is uneven across platforms, with frontier models exceeding humans on Linux but trailing them by more than 25 points on iOS and macOS. These results indicate that current agents remain far from platform-robust, long-horizon computer use, especially when success requires sustained state tracking and durable final-state changes.",
       "image": "https://arxiv.org/html/2611.34232v1/Figure_2.png"
-    },
-    {
-      "id": "paper-2611.34051",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Stable Gated DeltaNet-2: Understanding and Mitigating Recurrent State Instability",
-      "authors": "Xichong Zhang, Xixuan Hao, Zhichen Liu et al.",
-      "published": "2026-11-24",
-      "url": "https://arxiv.org/abs/2611.34051",
-      "raw_summary": "Linear attention offers an efficient solution for long-sequence modeling via linear complexity and fixed-size recurrent states. Gated DeltaNet-2 (GDN-2) introduces independent channel-wise control over erasure and writing, enhancing state-update expressiveness and in-context retrieval, yet it suffers from training failures during long-context training. We trace these failures to the asymmetry between reading and modification directions during erasure, which yields non-normal erase operators whose directional gains accumulate across tokens, triggering exponential state growth even without new writes. To resolve this, we propose , employing symmetric erasure to ensure non-expansive state propagation and decay-regulated residual writing to preserve writing flexibility. Theoretically, we establish an O(T) upper bound on recurrent state growth while retaining chunkwise parallel computation. Experiments on ~1.6B parameter models show that  achieves stable training alongside improved long-context retrieval. Compared to GDN-2, it boosts the 128K average RULER score by 6.80 points in the recurrent setting and average accuracy across nine downstream tasks by 0.62 points in the hybrid setting.",
-      "image": "https://arxiv.org/html/2611.34051v1/framework.png"
-    },
-    {
-      "id": "paper-2611.28732",
-      "type": "paper",
-      "source": "Hugging Face Daily",
-      "region": "海外",
-      "title": "Entangle: Scaling Human-Video In-Context World-Action Models across Unseen Tasks and Contexts",
-      "authors": "Chendong Xiang, Chengwen Zhang, Ruowen Zhao et al.",
-      "published": "2026-11-24",
-      "url": "https://arxiv.org/abs/2611.28732",
-      "raw_summary": "In-context learning (ICL) enables foundation models to perform unseen tasks from context without parameter updates. In robotic manipulation, a human video provides the context that specifies how a task should be performed. However, scaling human-video ICL on world-action models (WAMs) faces two challenges: task-level human-robot pairs are not temporally aligned with robot actions, and standard action losses allow policies to rely on initial-scene or task-identity shortcuts rather than tracking the context. We present Entangle, an in-context world-action model that maps a single human video and current robot observations to future visual states and executable actions. To scale temporally aligned training data, we convert recorded robot videos into matched human contexts via video-to-video generation, supplemented by real paired recordings. For model training, we combine variable-length video windows with an intra-task contrastive objective that distinguishes the paired action trajectory from other executions of the same task, preventing task-identity shortcuts. Without task-specific fine-tuning, Entangle improves steadily as aligned training data scales, reaching an average score of 83.5/100 across six unseen tasks on an Astribot S1 robot, and achieves a 69.5% average success rate on seven unseen RoboTwin tasks, outperforming Zero-WAM by 22.6 percentage points. Under Context-OOD, although trained only on scene-aligned pairs, Entangle transfers context-specified behaviors across rearranged layouts and substituted tools. Project page at https://entangle-robotics.github.io/",
-      "image": "https://arxiv.org/html/2611.28732v2/paired_dataset_overview.png"
     },
     {
       "id": "paper-2611.34813",
@@ -61,26 +37,27 @@
       "image": "https://arxiv.org/html/2611.34852v1/teaser.png"
     },
     {
-      "id": "news-gh-1396765235",
-      "type": "news",
-      "source": "DeepSeek · GitHub",
-      "region": "国内",
-      "title": "deepseek-ai/DeepEP-Ascend",
-      "authors": "DeepSeek",
-      "published": "2026-11-27",
-      "url": "https://github.com/deepseek-ai/DeepEP-Ascend",
-      "raw_summary": "A high-performance communication library for machine learning training and inference on Huawei Ascend NPUs."
+      "id": "paper-2611.34290",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation",
+      "authors": "Modi Jin, Xuying Zhang, Yijing Guo et al.",
+      "published": "2026-11-24",
+      "url": "https://arxiv.org/abs/2611.34290",
+      "raw_summary": "Modern video foundation models generate high-quality short clips, but preserving long-video consistency and correctly depicting event-driven state changes remain challenging. Existing agentic workflows face these challenges because continual planning and repair accumulate context, while reference updates remain limited. We introduce StateWeaver, which combines Active States and Hierarchical Collaboration to connect review-driven visual reference updates with cross-shot state inheritance. Active States translate state discrepancies identified during review into concrete visual asset requirements that guide reference construction, validation, and regeneration, preserving identity and already-correct content while repairing target attributes. Confirmed generation results are linked to the corresponding asset states, story time, and reference versions for verification and reuse by subsequent shots. Hierarchical Collaboration isolates execution contexts by task, clip, and repair round, and uses hierarchical memory to organize this process across multiple sets. Across multiple benchmarks, StateWeaver outperforms existing methods and produces long videos with sustained cross-shot consistency under predefined and autonomously planned storyboards.",
+      "image": "https://arxiv.org/html/2611.34290v1/StateWeaver-film-wide-holes.png"
     },
     {
-      "id": "news-gh-933928679",
-      "type": "news",
-      "source": "DeepSeek · GitHub",
-      "region": "国内",
-      "title": "deepseek-ai/DeepEP",
-      "authors": "DeepSeek",
-      "published": "2026-11-27",
-      "url": "https://github.com/deepseek-ai/DeepEP",
-      "raw_summary": "DeepEP: an efficient expert-parallel communication library"
+      "id": "paper-2611.31619",
+      "type": "paper",
+      "source": "Hugging Face Daily",
+      "region": "海外",
+      "title": "What a Forecasting Leaderboard Can Establish: Resolution Reporting for Zero-Shot Time-Series Models",
+      "authors": "Arya Sikder, Sriram Pillutla",
+      "published": "2026-11-22",
+      "url": "https://arxiv.org/abs/2611.31619",
+      "raw_summary": "A foundation model for time series is pretrained once and then asked to forecast series it has never seen, so the evidence for it is its score on held-out datasets. Such datasets are scarce, and a few public leaderboards carry most comparisons, yet none of them states how small a difference its datasets can detect. We call that quantity the resolution of a board and introduce Vernier, a tool that computes it from the files a board already publishes. Vernier also reports which entries a board cannot separate from its leader and whether its order changes when unrelated parties submit. GIFT-Eval resolves 6.8 rank places, and its displayed neighbours sit 0.91 apart. The ten places of its top ten hold fewer than two resolvable steps. fev-bench, Chronos Benchmark II and TIME show the same pattern: their resolution is 3.6 to 19 times the gap between neighbours. With each of its 2,554 series as an independent source, BOOM is the one board that resolves its top ten. Below the resolution the order depends on who else submitted: across four boards, rules that rank against the pool reversed 43 top-ten pairs with neither entry rerun, in one update in seven. Boards also do not record how much history a model receives. On 70 configurations, shortening it raised the error of three of four open models, two of them by 15%. We release Vernier, which runs this report with one command on any leaderboard that publishes per-dataset scores: https://github.com/therealram18/vernier"
     },
     {
       "id": "news-gh-1008713177",
@@ -89,9 +66,20 @@
       "region": "国内",
       "title": "QwenLM/qwen-code",
       "authors": "通义千问 Qwen",
-      "published": "2026-11-27",
+      "published": "2026-11-28",
       "url": "https://github.com/QwenLM/qwen-code",
       "raw_summary": "An open-source AI coding agent that lives in your terminal."
+    },
+    {
+      "id": "news-gh-1041478561",
+      "type": "news",
+      "source": "通义千问 Qwen · GitHub",
+      "region": "国内",
+      "title": "QwenLM/qwen-code-docs",
+      "authors": "通义千问 Qwen",
+      "published": "2026-11-28",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "raw_summary": "A documentation translation tool specifically designed for Qwen Code"
     },
     {
       "id": "news-gh-1246459259",
@@ -100,9 +88,20 @@
       "region": "国内",
       "title": "MoonshotAI/kimi-code",
       "authors": "月之暗面 Kimi",
-      "published": "2026-11-27",
+      "published": "2026-11-28",
       "url": "https://github.com/MoonshotAI/kimi-code",
       "raw_summary": "Kimi Code CLI  —  The Starting Point for Next-Gen Agents"
+    },
+    {
+      "id": "news-gh-1256070689",
+      "type": "news",
+      "source": "MiniMax · GitHub",
+      "region": "国内",
+      "title": "MiniMax-AI/minimax-code",
+      "authors": "MiniMax",
+      "published": "2026-11-28",
+      "url": "https://github.com/MiniMax-AI/minimax-code",
+      "raw_summary": "An open-source coding agent for your terminal, powered by MiniMax."
     }
   ]
 }
